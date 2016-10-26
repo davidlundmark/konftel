@@ -23,7 +23,7 @@
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
-    require('./custom/swipeboxHandler.js'); 
+    require('./custom/swipeboxHandler.js');
     //require('./custom/carouselHandler.js');
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
@@ -45,7 +45,7 @@
 
         //Anchor card   
         if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
-            if (!deKai.isMobile) { 
+            if (!deKai.isMobile) {
                 var _cards = document.querySelectorAll('.card');
                 if (_cards !== null) {
                     $(_cards).filter('.card-anchor').hover(function() {
@@ -60,7 +60,7 @@
                     });
                     $(_cards).filter('.card-lightbox').find('.card-link').hover(function() {
                         var $this = $(this);
-                        var $card = $this.closest('.card'); 
+                        var $card = $this.closest('.card');
                         $card.toggleClass('hover');
                         $card.find('.link').toggleClass('hover');
                     });
@@ -80,10 +80,11 @@
 
                 $(_submenus).each(function() {
                     var $this = $(this);
+                    var $text = $this.find('.text');
                     var $subMenu = $this.find('.submenu');
-                    var marginLeft = $this.offset().left;
-                    //var marginLeft = $subMenu.width() * 0.5;   
-                    //marginLeft -= $this.width() * 0.5;
+                    var marginLeft = $subMenu.width() * 0.5;
+                    marginLeft -= $this.width() * 0.5;
+                    //$subMenu.width($text.outerWidth());
                     $subMenu.css({ 'left': -(marginLeft) });
                 });
             }
@@ -108,8 +109,13 @@
 
         $('.page-header .search .icon-container').on('click', function(e) {
             var $this = $(this);
-            $this.siblings('.label').fadeToggle(200, function() {
-                $(this).focus();
+            var $searchcontainer = $this.closest('.search-container');
+            $searchcontainer.toggleClass('open');
+            // $this.siblings('.label').animate({width:'toggle'},350,function(){
+            //     $(this).focus();
+            // });
+            $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+                 $(this).focus();
             });
         });
 
@@ -123,7 +129,7 @@
             if (e.which == 13) {
                 alert('SÖK: ' + $(this).val());
             }
-        }); 
+        });
 
         $('#mobile-menu .search .icon-container').on('click', function(e) {
             var $this = $(this);
@@ -152,7 +158,7 @@
 
     });
 
-    $(window).on('load', function() { 
+    $(window).on('load', function() {
         /*
         if (ScreensizeHandler.isBigScreen) {
             
@@ -175,7 +181,7 @@
         //topmenuHandler.init();
 
         //fix for showing menu under sitecore toolbar
-        if (document.documentElement.className == 'sitecore') { 
+        if (document.documentElement.className == 'sitecore') {
             var _scRibbon = document.getElementById('scWebEditRibbon');
             var _height = _scRibbon.offsetHeight;
             var _timer = setInterval(function() {

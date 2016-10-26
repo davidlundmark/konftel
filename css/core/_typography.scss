@@ -5,8 +5,10 @@ body {
     header,
     footer,
     nav,
+    .search-container .label,
     .card {
-        @include setTextFormat($heading-font-family, $small-font-size, $heading-font-weight);
+        //@include setTextFormat($heading-font-family, $small-font-size, $heading-font-weight);
+        @include setTextFormat($heading-font-family, $heading-font-weight);
     }
 }
 

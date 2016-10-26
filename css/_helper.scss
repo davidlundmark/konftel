@@ -137,6 +137,17 @@
     }
 }
 
+@mixin hoverLink($color: $base-font-color, $hover-color: $base-brand-color) {
+    color: $color;
+    text-decoration: none;
+    .no-touch & {
+        &:hover,
+        &.hover &.selected {
+            color: $hover-color;
+        }
+    }
+}
+
 @mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: 1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
     position: relative;
     text-decoration: none;
@@ -155,7 +166,8 @@
         left: 0;
         background-color: $line-color;
         visibility: hidden;
-        @include scaleX(0);
+        //@include scaleX(0);
+        transform: scaleX(0) translate3d(0, 0, 0);
         @include transition(all, $time, $easeOutCirc);
     }
     .no-touch & {
@@ -167,8 +179,10 @@
         &.selected:before,
         &:hover:before,
         &.hover:before {
+            will-change: auto;
             visibility: visible;
-            @include scaleX($scale);
+            //@include scaleX($scale);
+            transform: scaleX(1) translate3d(0, 0, 0);
         }
     }
 }

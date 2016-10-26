@@ -6,7 +6,7 @@
     z-index: 1000 !important;
     transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
     transform: translateZ(0);
-    backface-visibility: hidden;
+    //backface-visibility: hidden;
     will-change: auto;
     &.scrolled:not(.menu-open) {
         background-color: $header-scrolled-background-color;
@@ -23,8 +23,11 @@
         @include resetList();
     }
     .section-container {
-        padding: $gap $page-section-padding;
+        padding: 0 $page-section-padding;
         @include clearfix();
+        &:first-child {
+            border-bottom: $base-border;
+        }
     }
     .logo-container {
         width: $header-logo-width;
@@ -32,33 +35,93 @@
         margin-right: $gap;
         position: relative;
         z-index: 1;
+        top: $gap;
         > a {
             display: block;
         }
     }
     .search-container {
+        margin: $gap-half 0;
+        float: right;
         display: inline-block;
-        @include centerVertical();
-        right: $page-section-padding;
-        width: 20%;
+        //@include centerVertical();
+        //right: $page-section-padding;
+        @include transition();
+        //width: $small-font-size + $gap;
         .search {
             float: right;
+        }
+        .label-with-icon {
             .label {
-                display: none;
+                width: 0;
+                margin: 0;
+                padding: 0;
+                margin-left: 0;
+                @extend .small;
+                background-color: transparent;
+                border: none;
+                @include border($dir: bottom, $thickness: 1px);
+                //text-transform: uppercase;
+                @include transition($transition-timing: $easeOutSine);
+            }
+            .icon-container {
+                //display: inline-block;
+                //float: right;
+                // width: 10%;
+                padding-left: $gap;
+                color: $base-font-color;
+                text-decoration: none;
+                .no-touch & {
+                    @include transition(color);
+                    &:hover {
+                        color: $header-submenu-hover-color;
+                    }
+                }
+            }
+        }
+        &.open {
+            .label-with-icon {
+                //margin-left: $gap;
+                .label {
+                    padding: 0 $gap-xs;
+                    margin-left: $gap;
+                    width: 200px;
+                }
+            }
+        }
+    }
+    #top-menu,
+    #default-menu {
+        z-index: 1;
+        display: inline-block;
+        float: right;
+        .menu {
+            @include horizontalList();
+            > .menu-item {
+                margin: $gap-half;
+            }
+        }
+    }
+    #top-menu {
+        @extend .small;
+        .menu-item {
+            > .text {
+                @include hoverLink();
             }
         }
     }
     #default-menu {
-        z-index: 1;
-        display: inline-block;
-        @include centerVertical();
-        //left: $page-section-padding;
+        font-size: $header-font-size;
+        //@include centerVertical();
+        //right: $page-section-padding;
         .menu {
-            @include horizontalList();
+            > .menu-item {
+                margin: $gap-lg $gap-half;
+            }
         }
         .menu-item {
             position: relative;
-            @include animateLine($color: $header-color, $distance: -50px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+            //@include animateLine($color: $header-color, $distance: -50px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
             > .text {
                 color: $header-color;
                 text-transform: $header-text-transform;
@@ -66,8 +129,33 @@
                 text-decoration: none;
                 user-select: none;
             }
+            > .button {
+                color: $header-color;
+                background-color: transparent;
+                .no-touch & {
+                    &:hover {
+                        color: $button-hover-color;
+                        background-color: $base-brand-color;
+                    }
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+            a {
+                //@include animateLine($thickness: 2px, $distance: 2px);
+                //@include sharpen();
+            }
             > span {
                 cursor: default;
+                .submenu-icon {
+                    display: inline-block;
+                    content: '';
+                    @include createTriangle('down', 6px, 6px, $color: $base-brand-color);
+                    margin-bottom: 2px;
+                    margin-left: $gap-xs;
+                }
             }
             .no-touch & {
                 > .text {
@@ -92,41 +180,44 @@
             }
         }
         .submenu {
-            width: 100vw;
+            $submenu-gap: $gap + $gap-xs - 1px;
+            //min-width: 150px;
+            //max-width: 200px;
+            width: 200px;
             display: block;
             position: absolute;
-            @include transition(all, 0.3s, linear);
+            @include transition();
             opacity: 0;
             z-index: -1;
             visibility: hidden;
+            .text {
+                white-space: normal;
+            }
+            .menu-item {
+                padding: $gap-half $gap;
+                background-color: $header-background-color;
+                &:first-child {
+                    padding-top: $gap;
+                    @include border($dir: top, $thickness: 2px, $color: $base-brand-color);
+                }
+                &:last-child {
+                    padding-bottom: $gap;
+                }
+            }
             &:before {
-                height: $gap-xl+1px;
+                height: $submenu-gap;
                 display: block;
                 content: '';
                 background-color: transparent;
             }
-            &-container {
-                background-color: $header-background-color;
-            }
-            &-content {
-                max-width: $page-section-max-width;
-                margin: 0 auto;
-                padding: $page-section-padding/2 $page-section-padding $page-section-padding;
-            }
-            &-item {
-                display: inline-block;
-                margin-left: $page-section-padding;
-                vertical-align: top;
-            }
-            a {
-                color: $header-color;
-                text-decoration: none;
-                .no-touch & {
-                    &:hover {
-                        color: $header-submenu-hover-color;
-                    }
-                }
-            }
+            // &:after {
+            //     content: '';
+            //     @include createTriangle('up', 6px, 6px, $color: $base-brand-color);
+            //     position: absolute;
+            //     @include translate(-50%, -100%);
+            //     left: 50%;
+            //     top: $submenu-gap + 1px;
+            // }
         }
         @include breakpoint($breakpoint-lg) {
             display: none;
@@ -226,35 +317,5 @@
                 margin-bottom: 0;
             }
         }
-    }
-}
-
-.search {
-    input {
-        margin: 0;
-    }
-    .label-with-icon {
-        width: 100%;
-        .label {
-            background-color: transparent;
-            border: none;
-            @include border($dir: bottom, $thickness: 2px);
-            padding: $gap-xs $gap-half;
-            text-transform: uppercase;
-        }
-        .icon-container {
-            width: 10%;
-            color: $base-font-color;
-            text-decoration: none;
-            .no-touch & {
-                @include transition(color);
-                &:hover {
-                    color: $header-submenu-hover-color;
-                }
-            }
-        }
-    }
-    input[type='submit'] {
-        display: none;
     }
 }

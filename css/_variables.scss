@@ -3,7 +3,7 @@
 // =================================================
 
 // Brand Colors
-$color-green: #9eba00;
+$color-orange: #db7a18;
 
 // Grays
 $black: #000;
@@ -13,13 +13,13 @@ $light-gray: #ddd;
 $white: #fff;
 
 // Background Colors
-$base-background-color: #efeee9;
+$base-background-color: #fff;
 $secondary-background-color : #f6f6f6;
 $tertiary-background-color : #444444;
 //$quaternary-background-color : #;
 
 // Brand
-$base-brand-color: $color-green;
+$base-brand-color: $color-orange;
 $secondary-brand-color: #373b37;
 $tertiary-brand-color: #e0e0e0;
 
@@ -47,7 +47,7 @@ $base-font-family: $roboto;
 $base-font-weight: 400;
 $light-font-weight: 300;
 $medium-font-weight: 500;
-$base-font-size: 16px;
+$base-font-size: 14px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
 
@@ -110,7 +110,7 @@ $h6-font-size-sm: $h1-font-size-sm - 20px;
 // =================================================
 
 // Border
-$base-border-color: #d0d0d0;
+$base-border-color: #ABB2B9;
 $base-border: 1px solid $base-border-color;
 $base-border-thickness: 1px;
 $base-border-style: solid;
@@ -169,9 +169,9 @@ $button-font-family: $oswald;
 $button-font-size: 12px;
 $button-font-weight: 600;
 $button-line-height: 1;
-$button-hover-color: $tertiary-font-color;
+$button-hover-color: $white; 
 $button-hover-background-color: $base-brand-color;
-$button-border-color: $base-border-color;
+$button-border-color: $base-brand-color;
 $button-text-transform: uppercase;
 $button-font-name: 'button';
 
@@ -203,7 +203,7 @@ $page-section-max-width: 1280px;
 $header-background-color: $white;
 $header-logo-width: 200px;
 $header-bottom-border: none;
-$header-color: $base-font-color;
+$header-color: $base-brand-color;
 $header-hover-color: $base-brand-color;
 $header-submenu-hover-color: $base-brand-color;
 $header-text-transform: uppercase;

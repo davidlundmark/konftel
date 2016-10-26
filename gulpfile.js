@@ -5,7 +5,8 @@ var source = './';
 var project_destination = 'C:/projects/dev/src/Project/Norra/code/';
 var wwwroot_destination = 'C:/inetpub/wwwroot/Norra/Website/';
 
-gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch'/*, 'webpack:dev-server'*/]);
+//gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch'/*, 'webpack:dev-server'*/]);
+gulp.task('default', ['webpack:watch']);
 
 //sync files to VS project
 gulp.task('watch:sync-project', function() {
