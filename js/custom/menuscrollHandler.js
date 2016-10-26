@@ -17,7 +17,7 @@ var MenuScrollHandler =  {
         
         if (window.ScreensizeHandler.isBigScreen && document.querySelector('.flexslider') !== null) {
         //if (window.ScreensizeHandler.isBigScreen && $('.flexslider').length) {
-            this.offsetTop = 168;
+            this.offsetTop = 200;
         } else {
             this.offsetTop = this.$pageheader.outerHeight();
         }

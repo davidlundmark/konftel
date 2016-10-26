@@ -23,7 +23,8 @@
         @include resetList();
     }
     .section-container {
-        padding: 0 $page-section-padding;
+        padding: 0;
+        //padding: 0 $page-section-padding;
         @include clearfix();
         &:first-child {
             border-bottom: $base-border;
@@ -44,10 +45,7 @@
         margin: $gap-half 0;
         float: right;
         display: inline-block;
-        //@include centerVertical();
-        //right: $page-section-padding;
         @include transition();
-        //width: $small-font-size + $gap;
         .search {
             float: right;
         }
@@ -61,16 +59,11 @@
                 background-color: transparent;
                 border: none;
                 @include border($dir: bottom, $thickness: 1px);
-                //text-transform: uppercase;
                 @include transition($transition-timing: $easeOutSine);
             }
             .icon-container {
-                //display: inline-block;
-                //float: right;
-                // width: 10%;
                 padding-left: $gap;
                 color: $base-font-color;
-                text-decoration: none;
                 .no-touch & {
                     @include transition(color);
                     &:hover {
@@ -81,7 +74,6 @@
         }
         &.open {
             .label-with-icon {
-                //margin-left: $gap;
                 .label {
                     padding: 0 $gap-xs;
                     margin-left: $gap;

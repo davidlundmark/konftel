@@ -74,7 +74,7 @@ var FlexsliderHandler = {
         }
         */
 
-        this.sliderHeight = $(window).height() - this.menuHeight;
+        this.sliderHeight = ($(window).height()*0.7) - this.menuHeight;
 
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight

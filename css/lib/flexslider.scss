@@ -47,13 +47,17 @@
         background-position: center center;
     }
     &-figcaption {
-        @include centeredContainer(800px);
+        //@include centeredContainer(800px);
+        @include centeredContainer(none);
         padding: 0 $page-section-padding;
         height: 0;
         will-change: opacity;
         .content {
-            @include translateY(-50%);
+            //@include translateY(-50%);
+            @include translate(-50%, -50%);
+            left: 50%;
             position: absolute;
+            @include unsharpen();
             color: $slider-figcaption-color;
             > img {
                 margin-bottom: $gap;

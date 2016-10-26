@@ -91,29 +91,26 @@
         }
 
         //handle arrow down click <!_.|(x(XX)x)|._!>  
-        var _arrowdown = document.querySelector('.arrow-down');
-        if (_arrowdown !== null) {
-            $(_arrowdown).find('.icon').on('click', function(e) {
-                hideArrow();
-                $('html, body').animate({
-                    scrollTop: $('.content-wrapper').offset().top
-                }, 1000);
-            });
-        }
+        // var _arrowdown = document.querySelector('.arrow-down');
+        // if (_arrowdown !== null) {
+        //     $(_arrowdown).find('.icon').on('click', function(e) {
+        //         hideArrow();
+        //         $('html, body').animate({
+        //             scrollTop: $('.content-wrapper').offset().top
+        //         }, 1000);
+        //     });
+        // }
 
-        setTimeout(hideArrow, 5000);
+        // setTimeout(hideArrow, 5000);
 
-        function hideArrow() {
-            $(_arrowdown).fadeOut(200);
-        }
+        // function hideArrow() {
+        //     $(_arrowdown).fadeOut(200);
+        // }
 
         $('.page-header .search .icon-container').on('click', function(e) {
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
-            // $this.siblings('.label').animate({width:'toggle'},350,function(){
-            //     $(this).focus();
-            // });
             $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
                  $(this).focus();
             });

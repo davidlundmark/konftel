@@ -274,6 +274,10 @@
     backface-visibility: hidden;
 }
 
+@mixin unsharpen() {
+    backface-visibility: visible;
+}
+
 @mixin translate($x, $y) {
     transform: translate($x, $y);
     @include sharpen();

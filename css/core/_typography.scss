@@ -206,7 +206,7 @@ hr {
 
 .title {
     @include setFont($heading-font-name);
-    @include setFontSize($h1-font-size);
+    //@include setFontSize($h1-font-size);
     margin: 0 0 $gap-half;
     font-weight: $light-font-weight;
     @include setFontSize($h1-font-size);
