@@ -169,6 +169,10 @@ hr {
     }
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
 .link-icon {
     display: inline-block;
     line-height: 1;
@@ -184,6 +188,10 @@ hr {
 
 .light {
     font-weight: $light-font-weight;
+}
+
+.text-shadow {
+    text-shadow: $base-text-shadow;
 }
 
 @include headings {
@@ -204,7 +212,7 @@ hr {
     }
 }
 
-.title {
+.title-big {
     @include setFont($heading-font-name);
     //@include setFontSize($h1-font-size);
     margin: 0 0 $gap-half;

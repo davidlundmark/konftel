@@ -52,4 +52,16 @@
             }
         }
     }
+    &-product {
+        .card-top {
+            text-align: center;
+            .title {
+                text-transform: uppercase;
+                color: $secondary-font-color;
+                > span {
+                    color: $base-brand-color;
+                }
+            }
+        }
+    }
 }

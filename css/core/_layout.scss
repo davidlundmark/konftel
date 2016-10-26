@@ -22,6 +22,7 @@ body {
 }
 
 .page-section {
+    z-index: 2;
     position: relative;
     background-color: $base-background-color;
     &.page-body {

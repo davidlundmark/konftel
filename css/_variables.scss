@@ -25,8 +25,11 @@ $tertiary-brand-color: #e0e0e0;
 
 // Font Colors
 $base-font-color: #373b37;
-$secondary-font-color: $base-background-color;
+$secondary-font-color: #ABB2B9;
 $tertiary-font-color: $white;
+
+//Text shadow
+$base-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 
 // =================================================
 // Paths 
@@ -76,22 +79,22 @@ $h1-font-size-md: 46px;
 $h1-font-size-sm: 44px;
 
 // h2
-$h2-font-size: $h1-font-size - 4px;
-$h2-font-size-lg: $h1-font-size-lg - 4px;
-$h2-font-size-md: $h1-font-size-md - 4px;
-$h2-font-size-sm: $h1-font-size-sm - 4px;
+$h2-font-size: 25px;
+$h2-font-size-lg: $h2-font-size;
+$h2-font-size-md: $h2-font-size-lg;
+$h2-font-size-sm: $h2-font-size-md;
 
 // h3
-$h3-font-size: $h1-font-size - 8px;
-$h3-font-size-lg: $h1-font-size-lg - 8px;
-$h3-font-size-md: $h1-font-size-md - 8px;
-$h3-font-size-sm: $h1-font-size-sm - 8px;
+$h3-font-size: 22px;
+$h3-font-size-lg: $h3-font-size;
+$h3-font-size-md: $h3-font-size-lg;
+$h3-font-size-sm: $h3-font-size-md;
 
 // h4
-$h4-font-size: $h1-font-size - 12px;
-$h4-font-size-lg: $h1-font-size-lg - 12px;
-$h4-font-size-md: $h1-font-size-md - 12px;
-$h4-font-size-sm: $h1-font-size-sm - 12px;
+$h4-font-size: 20px;
+$h4-font-size-lg: $h4-font-size;
+$h4-font-size-md: $h4-font-size-lg;
+$h4-font-size-sm: $h4-font-size-md;
 
 // h5
 $h5-font-size: $h1-font-size - 16px;
@@ -280,7 +283,7 @@ $icon-background-color: $secondary-background-color;
 // Cards
 // =================================================
 
-$card-background-color: $secondary-background-color;
+$card-background-color: transparent;
 $card-overlay-opacity: 0.5;
 $card-text-padding-horizontal: $gap-double;
 $card-text-padding-vertical: $gap-xl;
@@ -326,7 +329,7 @@ $lightbox-video-max-width: 1024px;
 // =================================================
 
 $page-image-text-font-color: $secondary-font-color;
-$page-image-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+$page-image-text-shadow: $base-text-shadow;
 
 // =================================================
 // Page body

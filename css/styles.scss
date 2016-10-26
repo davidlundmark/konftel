@@ -17,15 +17,24 @@
     }
 }
 
+/*
 .page-section {
     z-index: 2;
 }
+*/
 
 .logo {
     width: 400px;
     @include breakpoint($breakpoint-md) {
         width: 260px;
     }
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: $gap-double;
+    padding-bottom: $gap-double;
+    border-bottom: $base-border;
 }
 
 .card {
