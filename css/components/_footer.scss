@@ -1,0 +1,27 @@
+.page-footer {
+    background-color: $footer-background-color;
+    &.page-section {
+        border-top: $footer-top-border;
+    }
+    ul,
+    ol {
+        @include resetList();
+    }
+    .section-container {
+        //padding: $gap $page-section-padding;
+        //@include clearfix();
+    }
+    a,
+    .text > * {
+        color: $footer-color;
+        //text-decoration: none;
+    }
+    .text {
+        text-align: center;
+    }
+    .logo {
+        > img {
+            width: $footer-logo-width;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.cookie {
+	position: fixed;
+    bottom: 0; 
+    z-index: 9999;
+    background-color: $cookie-background-color;
+
+    &-container {
+    	@extend .section-container;
+    }
+
+    .text {
+    	margin-bottom: $gap;
+    }
+
+    .button {
+    	margin-right: $gap-half;
+
+    	&:last-child {
+    		margin-right: 0;
+    	}
+    }
+}

@@ -1,0 +1,260 @@
+.page-header {
+    background-color: $header-background-color;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000 !important;
+    transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: auto;
+    &.scrolled:not(.menu-open) {
+        background-color: $header-scrolled-background-color;
+        border-bottom: $header-scrolled-border-bottom;
+    }
+    &.slide-up {
+        @include translateY(-100%);
+    }
+    &.page-section {
+        border-bottom: $header-bottom-border;
+    }
+    ul,
+    ol {
+        @include resetList();
+    }
+    .section-container {
+        padding: $gap $page-section-padding;
+        @include clearfix();
+    }
+    .logo-container {
+        width: $header-logo-width;
+        float: left;
+        margin-right: $gap;
+        position: relative;
+        z-index: 1;
+        > a {
+            display: block;
+        }
+    }
+    .search-container {
+        display: inline-block;
+        @include centerVertical();
+        right: $page-section-padding;
+        width: 20%;
+        .search {
+            float: right;
+            .label {
+                display: none;
+            }
+        }
+    }
+    #default-menu {
+        z-index: 1;
+        display: inline-block;
+        @include centerVertical();
+        //left: $page-section-padding;
+        .menu {
+            @include horizontalList();
+        }
+        .menu-item {
+            position: relative;
+            @include animateLine($color: $header-color, $distance: -50px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+            > .text {
+                color: $header-color;
+                text-transform: $header-text-transform;
+                display: block;
+                text-decoration: none;
+                user-select: none;
+            }
+            > span {
+                cursor: default;
+            }
+            .no-touch & {
+                > .text {
+                    &:hover {
+                        color: $header-hover-color;
+                    }
+                }
+            }
+            .no-touch & {
+                &.has-child {
+                    &:hover {
+                        > .submenu {
+                            visibility: visible;
+                            opacity: 1;
+                            z-index: 99;
+                        }
+                    }
+                }
+            }
+            @include headings() {
+                cursor: default;
+            }
+        }
+        .submenu {
+            width: 100vw;
+            display: block;
+            position: absolute;
+            @include transition(all, 0.3s, linear);
+            opacity: 0;
+            z-index: -1;
+            visibility: hidden;
+            &:before {
+                height: $gap-xl+1px;
+                display: block;
+                content: '';
+                background-color: transparent;
+            }
+            &-container {
+                background-color: $header-background-color;
+            }
+            &-content {
+                max-width: $page-section-max-width;
+                margin: 0 auto;
+                padding: $page-section-padding/2 $page-section-padding $page-section-padding;
+            }
+            &-item {
+                display: inline-block;
+                margin-left: $page-section-padding;
+                vertical-align: top;
+            }
+            a {
+                color: $header-color;
+                text-decoration: none;
+                .no-touch & {
+                    &:hover {
+                        color: $header-submenu-hover-color;
+                    }
+                }
+            }
+        }
+        @include breakpoint($breakpoint-lg) {
+            display: none;
+        }
+    }
+    .burger-container {
+        cursor: pointer;
+        display: none;
+        @include centerVertical();
+        right: $page-section-padding;
+        padding: $gap;
+        padding-right: 0;
+        .burger {
+            @include burger($color: $header-color);
+        }
+        @include breakpoint($breakpoint-lg) {
+            display: block;
+        }
+        &.open {
+            .burger {
+                @include burger-to-cross();
+            }
+        }
+    }
+}
+
+#mobile-menu {
+    .accordion {
+        padding: $gap;
+        border: none;
+        @include border($base-brand-color, top, 3px);
+        .menu-item > * {
+            border: none;
+            background-color: rgba($white, 0);
+        }
+    }
+    a {
+        pointer-events: auto;
+        text-transform: uppercase;
+        > span {
+            touch-action: none;
+            pointer-events: none;
+        }
+    }
+    .content {
+        background-color: $header-background-color;
+        position: absolute;
+        right: 0;
+        width: $sidenav-width;
+        cursor: pointer;
+    }
+    .blocker {
+        position: absolute;
+        right: 0; //$sidenav-width;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($white, 0);
+        cursor: pointer;
+    }
+    .bottom {
+        padding: 0 $page-section-padding $gap;
+        a {
+            color: $base-font-color;
+            text-decoration: none;
+            .no-touch & {
+                @include transition(color);
+                &:hover {
+                    color: $header-submenu-hover-color;
+                }
+            }
+        }
+        .social {
+            text-align: center;
+            a {
+                display: inline-block;
+                padding: $gap-half;
+                margin-left: -$gap-half;
+                margin-top: -$gap-half;
+                &:first-child {
+                    float: left;
+                }
+                &:last-child {
+                    float: right;
+                }
+            }
+        }
+        .search {
+            .label-with-icon {
+                .icon-container {
+                    text-align: left;
+                }
+            }
+        }
+        > div {
+            margin-bottom: $gap;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.search {
+    input {
+        margin: 0;
+    }
+    .label-with-icon {
+        width: 100%;
+        .label {
+            background-color: transparent;
+            border: none;
+            @include border($dir: bottom, $thickness: 2px);
+            padding: $gap-xs $gap-half;
+            text-transform: uppercase;
+        }
+        .icon-container {
+            width: 10%;
+            color: $base-font-color;
+            text-decoration: none;
+            .no-touch & {
+                @include transition(color);
+                &:hover {
+                    color: $header-submenu-hover-color;
+                }
+            }
+        }
+    }
+    input[type='submit'] {
+        display: none;
+    }
+}

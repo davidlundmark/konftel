@@ -1,0 +1,252 @@
+@import 'variables';
+@import 'helper';
+@import './lib/base';
+@import './core/base';
+@import './components/base';
+@import './pages/base';
+//
+.page-section.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    will-change: transform;
+    @include breakpoint($breakpoint-lg) {
+        position: absolute;
+    }
+}
+
+.page-section {
+    z-index: 2;
+}
+
+.logo {
+    width: 400px;
+    @include breakpoint($breakpoint-md) {
+        width: 260px;
+    }
+}
+
+.card {
+    // zoom effect on images
+    // .no-touch & {
+    //     .background-image {
+    //         @include transition(transform, $transition-timing: $easeOutSine);
+    //     }
+    //     &.hover {
+    //         .background-image {
+    //             will-change: transform;
+    //             @include scale(1.02);
+    //         }
+    //     }
+    // }
+    &-anchor,
+    &-lightbox {
+        .card {
+            &-text {
+                > p.bottom {
+                    position: absolute;
+                    bottom: $card-text-padding-vertical;
+                    left: $card-text-padding-horizontal;
+                    right: $card-text-padding-horizontal;
+                }
+                .link {
+                    float: right;
+                    @include animateLine($time: 0.3s);
+                }
+            }
+            &-tag {
+                z-index: 3;
+                pointer-events: none;
+                position: absolute;
+                padding: $gap-half $gap;
+                background-color: $base-brand-color;
+                color: $card-secondary-color;
+                bottom: 0;
+                left: 0;
+                text-transform: uppercase;
+            }
+            &-image-overlay {
+                //z-index: 2;
+                @include coverAll();
+                @include transition(background-color);
+                background-color: rgba($black, 0.1);
+                .card-icon {
+                    @include createCircle($background-color: rgba($black, 0.4), $diameter: $gap-triple, $color: $card-secondary-color, $border: 4px solid $card-secondary-color);
+                    display: inline-block;
+                    .no-touch & {
+                        @include transition(background-color);
+                    }
+                }
+                .icon-play3 {
+                    font-size: $gap-xl;
+                    margin-left: 2px;
+                }
+                .no-touch &.hover,
+                .has-touch & {
+                    background-color: rgba($black, 0);
+                    .card-icon {
+                        background-color: rgba($black, 0.7);
+                    }
+                }
+            }
+        }
+    }
+    &-lightbox {
+        .card-image {
+            z-index: 1;
+            a {
+                display: block;
+                z-index: 1;
+            }
+            > div {
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.page-footer {
+    @include headings,
+    p {
+        color: $footer-color;
+    }
+    a {
+        text-decoration: none;
+        .no-touch & {
+            @include transition();
+            > span {
+                @include transition();
+            }
+            &:hover {
+                &,
+                > span {
+                    color: $base-brand-color;
+                    border-color: $base-brand-color;
+                }
+            }
+        }
+    }
+    .middle {
+        max-width: 570px;
+        text-align: center;
+        margin: 0 auto;
+        .logo {
+            > img {
+                margin: $gap-xl auto 0;
+            }
+        }
+        @include headings {
+            text-transform: uppercase;
+        }
+        .title {
+            margin-bottom: 0;
+        }
+    }
+    .right {
+        text-align: right;
+        @include breakpoint($breakpoint-lg) {
+            margin-bottom: $gap-double;
+        }
+        @include breakpoint($breakpoint-sm) {
+            text-align: center;
+        }
+    }
+    .footer-icon {
+        display: inline-block;
+        @include createCircle($background-color: transparent, $color: $footer-color, $border: 2px solid $footer-color);
+        margin: 0 $gap-half;
+    }
+    hr {
+        margin: $gap-double 0;
+    }
+    .copyright {
+        // position: absolute;
+        // bottom: 0;
+        // right: 0;
+        opacity: 0.2;
+        @include breakpoint($breakpoint-sm) {
+            position: relative;
+        }
+    }
+}
+
+.arrow-down {
+    position: absolute;
+    bottom: $gap-double;
+    width: 100%;
+    text-align: center;
+    will-change: auto;
+    .icon {
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        color: $white;
+        font-size: $gap-double;
+        //display: none;
+        //@include breakpoint($breakpoint-lg,false) {
+        animation: bounce 1s ease-out 0s infinite alternate;
+        animation-timing-function: $easeOutQuad;
+        @include forceHarwareAcceleration();
+        //}
+    }
+}
+
+@keyframes bounce {
+    0% {
+        bottom: -$gap;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+.page-image {
+    .section-container {
+        height: 30vh;
+        overflow: hidden;
+        @include breakpoint($breakpoint-lg) {
+            height: auto;
+            overflow: visible;
+        }
+    }
+    picture {
+        @include centerVertical();
+        @include breakpoint($breakpoint-lg) {
+            position: relative;
+            top: auto;
+            transform: none;
+        }
+    }
+    &-text-overlay {
+        @include centerElement();
+        color: $secondary-font-color;
+        text-align: center;
+        > .page-title {
+            text-shadow: $page-image-text-shadow;
+        }
+    }
+}
+
+.page-body {
+    &-wrapper {
+        max-width: $page-body-max-width;
+        margin: 0 auto;
+    }
+    .page {
+        &-summary {
+            text-align: center;
+            margin-bottom: $gap-double;
+        }
+        &-date {
+            font-size: $small-font-size;
+            margin-top: $gap-xl;
+            line-height: 1;
+        }
+        &-image,
+        &-video {
+            margin-bottom: $gap-double;
+        }
+    }
+}

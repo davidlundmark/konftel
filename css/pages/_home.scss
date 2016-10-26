@@ -1,0 +1,14 @@
+.home {
+    .content-wrapper {
+        section.page-section {
+            > .section-container {
+                padding-bottom: 0;
+            }
+            &:last-child {
+                > .section-container {
+                    padding-bottom: $page-section-padding;
+                }
+            }
+        }
+    }
+}

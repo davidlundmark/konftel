@@ -1,0 +1,53 @@
+@import "layout";
+@import "buttons";
+@import "typography";
+@import "forms";
+@import "lists";
+@import "media";
+@import "tables";
+@import "icons";
+@import "easing";
+@import "colors";
+@import "images";
+@import "alerts";
+.body {
+    position: relative;
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+.overlay {
+    @include fixedOverlay();
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.no-scroll {
+    overflow: hidden;
+    @include breakpoint($breakpoint-lg) {
+        cursor: pointer; //needed for enable click event on mobile
+    }
+}
+
+.hide {
+    display: none !important;
+    @include breakpoint($breakpoint-lg) {
+        &-lg {
+            display: none !important;
+        }
+    }
+    @include breakpoint($breakpoint-md) {
+        &-md {
+            display: none !important;
+        }
+    }
+    @include breakpoint($breakpoint-sm) {
+        &-sm {
+            display: none !important;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+ul,
+ol {
+    &.reset {
+        @include resetList();
+    }
+}
+
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: 600;
+    margin: 0;
+}
+
+dd {
+    margin: 0;
+}

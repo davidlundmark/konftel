@@ -1,0 +1,46 @@
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    color: $button-color;
+    background-color: $button-background-color;
+    border-radius: $button-border-radius;
+    @include setFont($button-font-name);
+    @include border($button-border-color);
+    transition: $base-transition;
+    padding: $gap-half $gap;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+    .no-touch & {
+        @include transition();
+        &:hover {
+            color: $button-hover-color;
+            background-color: $button-hover-background-color;
+        }
+    }
+    &:disabled,
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    vertical-align: middle;
+    .label,
+    .icon-container {
+        display: inline-block;
+    }
+}
+
+.use-button-font {
+    @include setFont($button-font-name);
+}

@@ -1,0 +1,40 @@
+.breadcrumb {
+    font-size: $breadcrumb-font-size;
+    ul,
+    ol {
+        @include resetList();
+        @include horizontalList($margin: 0);
+        padding: $breadcrumb-padding;
+        li {
+            &:not(:last-child) {
+                margin-right: $gap-xs;
+            }
+            &:not(:first-child) {
+                &:before {
+                    @extend .icon;
+                    content: "\edbe";
+                    margin-right: $gap-xs;
+                    font-size: 60%;
+                }
+                > a,
+                span {
+                    vertical-align: middle;
+                }
+            }
+            &:first-child {
+                vertical-align: middle;
+                > a {
+                    text-decoration: none;
+                    display: inline-block;
+                    > span {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    p,
+    a {
+        margin: 0;
+    }
+}

@@ -1,0 +1,94 @@
+fieldset {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    //font-weight: 600;
+    margin-bottom: $gap-half;
+    padding: 0;
+}
+
+label {
+    display: block;
+    //font-weight: 600;
+    margin-bottom: $gap-half;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    //@include setTextFormat($base-font-family, $base-font-size, $base-font-weight, $base-line-height);
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input:not([type]),
+textarea, select {
+    background-color: $text-input-background-color;
+    border: $text-input-border;
+    border-radius: $base-border-radius;
+    padding: $text-input-padding;
+    appearance: none;
+    //box-shadow: none;
+    margin-bottom: $gap-half;
+    @include transition(border-color);
+    width: 100%;
+    &:focus {
+        border-color: darken($base-border-color, 10%);
+        outline: none;
+    }
+    .no-touch & {
+        &:hover {
+            border-color: darken($base-border-color, 10%);
+        }
+    }
+    &:disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    &::placeholder {
+        color: $base-border-color;
+    }
+}
+
+select {
+  appearance: menulist;
+  padding-left: $gap - 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    display: inline;
+    margin-right: $gap-half;
+    margin-left: 1px;
+    //vertical-align: middle;
+}
+
+[type="file"] {
+    margin-right: $gap;
+    width: 100%;
+}
+
+optgroup {
+  font-weight: normal;
+}

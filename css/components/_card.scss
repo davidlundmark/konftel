@@ -1,0 +1,55 @@
+.card {
+    position: relative;
+    height: 100%;
+    background-color: $card-background-color;
+    //@include border();
+    &-image {
+        overflow: hidden;
+        position: relative;
+        .background-image {
+            min-height: $card-image-min-height;
+            @include breakpoint($breakpoint-sm) {
+                min-height: $card-image-min-height-sm;
+            }
+            &.youtube-image {
+                //fix for removing black borders around image
+                background-size: 120%;
+                @include breakpoint($breakpoint-md) {
+                    background-size: 122%;
+                } 
+            }
+        }
+    }
+    /*
+    &-icon {
+        @include centerElement();
+    }
+    */
+    &-text {
+        //@include border($dir: top);
+        position: relative;
+        padding: $card-text-padding-vertical $card-text-padding-horizontal;
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &-anchor,
+    &-lightbox {
+        .card-link {
+            @include coverAll();
+        }
+    }
+    &-overlay {
+        .card-text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba($card-background-color, $card-overlay-opacity);
+            @include breakpoint($breakpoint-md) {
+                background-color: $card-background-color;
+                position: relative;
+                bottom: auto;
+            }
+        }
+    }
+}
