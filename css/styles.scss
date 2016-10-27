@@ -63,7 +63,11 @@
         //text-transform: $hero-image-text-transform;
         @include centerElement();
         @extend .letter-spacing-small;
-        @extend .bold;
+        
+        @include headings {
+            @extend .bold;
+        }
+
         text-align: center;
         
         > *:last-child {
