@@ -14,8 +14,8 @@ $white: #fff;
 
 // Background Colors
 $base-background-color: #fff;
-$secondary-background-color : #f6f6f6;
-$tertiary-background-color : #444444;
+$secondary-background-color : #ABB2B9;
+$tertiary-background-color : #EAECEE;
 //$quaternary-background-color : #;
 
 // Brand
@@ -26,7 +26,7 @@ $tertiary-brand-color: #e0e0e0;
 // Font Colors
 $base-font-color: #373b37;
 $secondary-font-color: #ABB2B9;
-$tertiary-font-color: $white;
+$tertiary-font-color: #808B96;
 
 //Text shadow
 $base-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
@@ -42,15 +42,16 @@ $path-fonts: '../assets/fonts/';
 // =================================================
 
 // Font familys
-$oswald: 'Oswald', sans-serif;
+//$oswald: 'Oswald', sans-serif;
 $roboto: 'Roboto', sans-serif;
+$brandon-grotesque: 'brandon-grotesque', sans-serif;
 
 // Text
 $base-font-family: $roboto;
 $base-font-weight: 400;
 $light-font-weight: 300;
 $medium-font-weight: 500;
-$base-font-size: 14px;
+$base-font-size: 16px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
 
@@ -64,13 +65,14 @@ $large-font-name: 'large';
 
 // Text
 $heading-font-weight: 400;
-$heading-font-family: $oswald;
+$heading-font-family: $brandon-grotesque;
 $heading-font-size: 26px;
 $heading-line-height: 1.2;
 $heading-text-transform: none;
 $heading-font-name: 'heading';
 $heading-light-font-weight: 300;
-$heading-bold-font-weight: 700;
+$heading-medium-font-weight: 500;
+$heading-bold-font-weight: 600;
 
 // h1
 $h1-font-size: 50px;
@@ -159,7 +161,7 @@ $base-transition: all $base-transition-duration $base-transition-timing;
 // Misc
 // =================================================
 
-$base-border-radius : 0;
+$base-border-radius : 5px;
 
 // =================================================
 // Buttons
@@ -168,15 +170,23 @@ $base-border-radius : 0;
 $button-color: $base-font-color;
 $button-background-color: $base-background-color;
 $button-border-radius: $base-border-radius;
-$button-font-family: $oswald;
+$button-font-family: $brandon-grotesque;
 $button-font-size: 12px;
-$button-font-weight: 600;
+$button-font-weight: $medium-font-weight;
 $button-line-height: 1;
 $button-hover-color: $white; 
 $button-hover-background-color: $base-brand-color;
-$button-border-color: $base-brand-color;
+$button-border: 1px solid $base-brand-color;
 $button-text-transform: uppercase;
 $button-font-name: 'button';
+$button-padding: $gap-half $gap;
+$button-solid-color: $tertiary-font-color;
+$button-solid-background-color: $tertiary-background-color;
+$button-solid-hover-color: $button-solid-color; 
+$button-solid-hover-background-color: #b6bdc4;
+$button-solid-text-transform: uppercase;
+$button-solid-border: none;
+$button-solid-padding: $gap-half;
 
  
 // =================================================
@@ -205,6 +215,7 @@ $page-section-max-width: 1200px;
 
 $header-background-color: $white;
 $header-logo-width: 200px;
+$header-logo-width-md: 160px;
 $header-bottom-border: none;
 $header-color: $base-brand-color;
 $header-hover-color: $base-brand-color;
@@ -212,14 +223,14 @@ $header-submenu-hover-color: $base-brand-color;
 $header-text-transform: uppercase;
 $header-scrolled-background-color: rgba($header-background-color,0.95);
 $header-scrolled-border-bottom: none;
-$header-font-size: 14px;
+$header-font-size: $base-font-size;
 
 // =================================================
 // Footer
 // =================================================
 
 $footer-background-color: $tertiary-background-color;
-$footer-logo-width: 50%;
+$footer-logo-width: 400px;
 $footer-top-border: none; 
 $footer-color: $white;
 //$header-hover-color: $base-brand-color;
@@ -285,11 +296,10 @@ $icon-background-color: $secondary-background-color;
 
 $card-background-color: transparent;
 $card-overlay-opacity: 0.5;
-$card-text-padding-horizontal: $gap-double;
-$card-text-padding-vertical: $gap-xl;
+$card-text-padding: $gap 0;
 $card-secondary-color: $white;
-$card-image-min-height: 250px;
-$card-image-min-height-sm: 200px;
+$card-image-min-height: 380px;
+$card-image-min-height-sm: 250px;
 
 // =================================================
 // Carousel
@@ -341,4 +351,5 @@ $page-body-max-width: 800px;
 // Cookie
 // =================================================
 
-$cookie-background-color: rgba($white, 0.96);
+$cookie-background-color: rgba($secondary-background-color, 0.98);
+$cookie-color: $white;

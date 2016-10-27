@@ -15,7 +15,7 @@
     require('./lib/picturefill.js');
     //require('./lib/slick.js');
     require('./lib/jquery.flexslider.js');
-    require('./lib/jquery.swipebox.js');
+    //require('./lib/jquery.swipebox.js');
     //globals
     require('./custom/screensizeHandler.js');
     //customs
@@ -23,7 +23,7 @@
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
-    require('./custom/swipeboxHandler.js');
+    //require('./custom/swipeboxHandler.js');
     //require('./custom/carouselHandler.js');
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
@@ -48,12 +48,13 @@
             if (!deKai.isMobile) {
                 var _cards = document.querySelectorAll('.card');
                 if (_cards !== null) {
-                    $(_cards).filter('.card-anchor').hover(function() {
-                        var $this = $(this);
+                    $(_cards).filter('.card-anchor').find('.card-link').hover(function() {
+                        var $this = $(this).closest('.card');
                         $this.toggleClass('hover');
                         $this.find('.link').toggleClass('hover');
                         $this.find('.card-image-overlay').toggleClass('hover');
                     });
+                    /*
                     $(_cards).filter('.card-lightbox').find('.card-image').hover(function() {
                         var $this = $(this);
                         $this.find('.card-image-overlay').toggleClass('hover');
@@ -64,6 +65,7 @@
                         $card.toggleClass('hover');
                         $card.find('.link').toggleClass('hover');
                     });
+                    */
                 }
             }
         }

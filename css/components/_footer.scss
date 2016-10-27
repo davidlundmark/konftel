@@ -7,6 +7,26 @@
     ol {
         @include resetList();
     }
+    @include headings,
+    p {
+        color: $footer-color;
+    }
+    a {
+        text-decoration: none;
+        .no-touch & {
+            @include transition();
+            > span {
+                @include transition();
+            }
+            &:hover {
+                &,
+                > span {
+                    color: $base-brand-color;
+                    border-color: $base-brand-color;
+                }
+            }
+        }
+    }
     .section-container {
         //padding: $gap $page-section-padding;
         //@include clearfix();
@@ -22,6 +42,48 @@
     .logo {
         > img {
             width: $footer-logo-width;
+        }
+    }
+    .middle {
+        max-width: 570px;
+        text-align: center;
+        margin: 0 auto;
+        .logo {
+            > img {
+                margin: $gap-xl auto 0;
+            }
+        }
+        @include headings {
+            text-transform: uppercase;
+        }
+        .title {
+            margin-bottom: 0;
+        }
+    }
+    .right {
+        text-align: right;
+        @include breakpoint($breakpoint-lg) {
+            margin-bottom: $gap-double;
+        }
+        @include breakpoint($breakpoint-sm) {
+            text-align: center;
+        }
+    }
+    .footer-icon {
+        display: inline-block;
+        @include createCircle($background-color: transparent, $color: $footer-color, $border: 2px solid $footer-color);
+        margin: 0 $gap-half;
+    }
+    hr {
+        margin: $gap-double 0;
+    }
+    .copyright {
+        // position: absolute;
+        // bottom: 0;
+        // right: 0;
+        opacity: 0.2;
+        @include breakpoint($breakpoint-sm) {
+            position: relative;
         }
     }
 }

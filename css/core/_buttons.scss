@@ -7,9 +7,10 @@ input[type="submit"] {
     background-color: $button-background-color;
     border-radius: $button-border-radius;
     @include setFont($button-font-name);
-    @include border($button-border-color);
+    //@include border($button-border-color);
+    border: $button-border;
     transition: $base-transition;
-    padding: $gap-half $gap;
+    padding: $button-padding;
     appearance: none;
     cursor: pointer;
     display: inline-block;
@@ -38,6 +39,16 @@ input[type="submit"] {
     .label,
     .icon-container {
         display: inline-block;
+    }
+}
+
+.button {
+    &-solid {
+        color: $button-solid-color;
+        background-color: $button-solid-background-color;
+        text-transform: $button-solid-text-transform;
+        border: $button-solid-border;
+        padding: $button-solid-padding;
     }
 }
 

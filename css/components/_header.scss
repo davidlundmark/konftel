@@ -40,6 +40,9 @@
         > a {
             display: block;
         }
+        @include breakpoint($breakpoint-md) {
+            width: $header-logo-width-md;
+        }
     }
     .search-container {
         margin: $gap-half 0;

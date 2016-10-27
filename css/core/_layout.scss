@@ -35,6 +35,17 @@ body {
             }
         }
     }
+    &.fixed-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        will-change: transform;
+        @include breakpoint($breakpoint-lg) {
+            position: absolute;
+        }
+    }
 }
 
 .section-container {
