@@ -62,9 +62,9 @@
             > img {
                 margin-bottom: $gap;
             }
-            @include headings {
+            @include headings,p {
                 text-transform: $slider-figcaption-text-transform;
-                margin: 0 0 $gap-xs;
+                //margin: 0 0 $gap-xs;
                 &:last-child {
                     margin: 0;
                 }

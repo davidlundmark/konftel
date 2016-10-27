@@ -23,9 +23,10 @@
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
+    require('./custom/heroimageHandler.js');
     //require('./custom/swipeboxHandler.js');
     //require('./custom/carouselHandler.js');
-    //require('./custom/expanderHandler.js');
+    require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');
     require('./custom/dekai.js');

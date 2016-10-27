@@ -133,10 +133,10 @@
         .background-image {
             @include transition(transform, 0.4s,$easeOutSine);
             @include forceHarwareAcceleration();
+            will-change: transform;
         }
         &.hover {
             .background-image {
-                will-change: transform;
                 @include scale(1.12);
             }
         }

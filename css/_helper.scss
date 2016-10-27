@@ -113,6 +113,17 @@
     font-size: $font-size;
 }
 
+@mixin scaleBackground() {
+    .no-touch & {
+        @include transition(transform, 0.3s, $easeOutSine);
+        @include forceHarwareAcceleration();
+        will-change: transform;
+        &:hover {
+            @include scale(1.12);
+        }
+    }
+}
+
 @mixin setTextFormat($font-family: null, $font-size: null, $font-weight: null, $line-height: null, $text-transform: none, $text-decoration: null, $font-style: null) {
     @if $font-size !=null {
         font-size: $font-size;

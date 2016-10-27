@@ -39,7 +39,8 @@ input[type="time"],
 input[type="url"],
 input[type="week"],
 input:not([type]),
-textarea, select {
+textarea,
+select {
     background-color: $text-input-background-color;
     border: $text-input-border;
     border-radius: $base-border-radius;
@@ -68,8 +69,20 @@ textarea, select {
 }
 
 select {
-  appearance: menulist;
-  padding-left: $gap - 5px;
+    background-image: url($select-background-image);
+    background-size: 15px;
+    background-position: right $gap center;
+    background-repeat: no-repeat;
+    text-transform: $select-text-transform; // appearance: menulist;
+    appearance: none;
+    //padding-left: $gap - 5px;
+    background-color: $select-background-color;
+    color: $select-color;
+    border-color: $select-border-color;
+    border-radius: $select-border-radius;
+    @extend .bold;
+    @extend .letter-spacing-small;
+    font-size: $button-square-font-size;
 }
 
 textarea {
@@ -90,5 +103,5 @@ textarea {
 }
 
 optgroup {
-  font-weight: normal;
+    font-weight: normal;
 }

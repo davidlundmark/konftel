@@ -6,7 +6,7 @@ var CookieHandler = {
 
     checkCookie: function() {
         var _this = this;
-        var cookie = this.readCookie('cookieAccepted');
+        var cookie = _this.readCookie('cookieAccepted');
         var _cookie = document.querySelector('.cookie');
 
         if (_cookie === null) return;
@@ -15,6 +15,7 @@ var CookieHandler = {
 
         if (!cookie) {
             $cookie.removeClass('hide');
+            $(_cookie.querySelector('.accept')).off('click');
             $(_cookie.querySelector('.accept')).on('click', function(e) {
                 _this.createCookie('cookieAccepted', 'true', 21);
                 _this.checkCookie();

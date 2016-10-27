@@ -46,8 +46,8 @@ module.exports = {
                 ),
                 exclude: /node_modules/
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: /node_modules/ }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: [/images/, /node_modules/] },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: [/fonts/, /node_modules/] }
         ] : [{
                 test: /\.scss$/,
                 loader: extracttextplugin.extract(
@@ -56,8 +56,8 @@ module.exports = {
                 ),
                 exclude: /node_modules/
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: /node_modules/ }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: [/images/, /node_modules/] },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: [/fonts/, /node_modules/] }
         ]
     },
     postcss: function() {

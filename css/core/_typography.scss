@@ -228,3 +228,7 @@ hr {
         @include setFontSize($h1-font-size-sm);
     }
 }
+
+.letter-spacing-small {
+    letter-spacing: 1px;
+}

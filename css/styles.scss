@@ -5,12 +5,106 @@
 @import './components/base';
 @import './pages/base';
 //
+.products-grid {
+    > .section-container {
+        //padding-bottom: 0;
+        border-bottom: $base-border;
+    }
+    &:last-child {
+        > .section-container {
+            //padding-bottom: $page-section-padding;
+            border-bottom: $base-border;
+        }
+    }
+}
+
+.find-product {
+    background-color: $secondary-background-color;
+    .button {
+        margin: 0;
+        width: 100%;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        .no-touch & {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    select {
+        margin: 0;
+    }
+    .serach-form {
+        &.search-standard {}
+        &.search-advanced {}
+    }
+    .advanced-search {
+        padding-top: $gap;
+        .expander-trigger {
+            @include hoverLink($white);
+        }
+        .row {
+            padding-top: $gap;
+        }
+    }
+}
+
+.hero-image {
+    .section-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .background-image {
+        min-height: $hero-image-min-height;
+    }
+    .text {
+        color: $hero-image-color;
+        text-shadow: $hero-image-text-shadow;
+        text-transform: $hero-image-text-transform;
+        @include centerElement();
+        @extend .letter-spacing-small;
+        @extend .bold;
+        margin: 0;
+    }
+}
+
+.text-section {
+    .section-container {
+        width: 60%;
+        text-align: center;
+        padding: 0;
+        @extend .large;
+
+        @include breakpoint($breakpoint-lg) {
+            width: 80%;
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.logos-grid {
+    .background-image {
+        min-height: 100px;
+        // background-size: contain;
+        @include scaleBackground();
+    }
+}
 
 .section-title {
+    @extend .bold;
     text-align: center;
-    margin-bottom: $gap-double;
     padding-bottom: $gap-double;
-    border-bottom: $base-border;
+    margin: 0;
+    .products-grid & {
+        margin-bottom: $gap-double;
+        border-bottom: $base-border;
+    }
+    .find-product & {
+        padding-bottom: $gap;
+    }
 }
 
 .arrow-down {

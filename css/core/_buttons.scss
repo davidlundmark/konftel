@@ -49,6 +49,17 @@ input[type="submit"] {
         text-transform: $button-solid-text-transform;
         border: $button-solid-border;
         padding: $button-solid-padding;
+
+    }
+    &-square {
+        border-radius: 0;
+        color: $button-square-color;
+        background-color: $button-square-background-color;
+        text-transform: $button-square-text-transform;
+        border: $button-square-border;
+        padding: $button-square-padding;
+        @extend .letter-spacing-small;
+        //@include animateLine();
     }
 }
 
