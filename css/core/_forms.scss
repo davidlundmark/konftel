@@ -68,6 +68,10 @@ select {
     }
 }
 
+input {
+    border-radius: $input-border-radius !important;
+}
+
 select {
     background-image: url($select-background-image);
     background-size: 15px;

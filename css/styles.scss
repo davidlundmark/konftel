@@ -8,12 +8,12 @@
 .products-grid {
     > .section-container {
         //padding-bottom: 0;
-        border-bottom: $base-border;
+        //border-bottom: $base-border;
     }
     &:last-child {
         > .section-container {
             //padding-bottom: $page-section-padding;
-            border-bottom: $base-border;
+            //border-bottom: $base-border;
         }
     }
 }
@@ -25,11 +25,6 @@
         width: 100%;
         padding-top: 16px;
         padding-bottom: 16px;
-        .no-touch & {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
     }
     select {
         margin: 0;
@@ -51,27 +46,99 @@
 
 .hero-image {
     .section-container {
-        padding-left: 0;
-        padding-right: 0;
+        // padding-left: 0;
+        // padding-right: 0;
     }
     .background-image {
         min-height: $hero-image-min-height;
     }
+    .row {
+        .background-image {
+            min-height: $hero-image-double-min-height;
+        }
+        .text {
+            width: 80%;
+        }
+    }
+    .card {
+        width: calc(100% - #{$page-section-padding * 2} - #{$gap * 2});
+        .card-text {
+            padding-right: $gap;
+        }
+    }
+    .card,
     .text {
         color: $hero-image-color;
         text-shadow: $hero-image-text-shadow;
-        //text-transform: $hero-image-text-transform;
         @include centerElement();
         @extend .letter-spacing-small;
-        
         @include headings {
             @extend .bold;
         }
-
         text-align: center;
-        
+        a {
+            text-decoration: none;
+        }
+    }
+    .text {
+        width: 60%;
+        //text-transform: $hero-image-text-transform;
         > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .icon-circle {
+        @include centerHorizontal(true);
+    }
+    .button {
+        margin-top: $gap-md;
+    }
+}
+
+.subscribe-section {
+    .subscribe-form {
+        padding: $page-section-padding;
+        background-color: $quaternary-background-color;
+        text-align: center;
+        color: $white;
+        input,
+        .button {
             margin: 0;
+        }
+        input {
+            border: none;
+        }
+        .button {}
+        @include headings {
+            @extend .bold;
+        }
+        .form-elements {
+            width: 60%;
+            display: table;
+            table-layout: fixed;
+            position: relative;
+            margin: 0 auto;
+
+            > div,a {
+                display: table-cell;
+                overflow: hidden;
+                vertical-align: middle;
+            }
+
+            > div {
+                width: 70%;
+            }
+
+            > a {
+                width: 30%;
+            }
+        }
+    }
+    .section-container {
+        &:first-child {}
+        &:last-child {
+            padding-top: 0;
+            margin-top: -$page-section-padding;
         }
     }
 }
@@ -83,11 +150,9 @@
         padding: 0;
         padding-bottom: $gap-half;
         @extend .large;
-
         @include breakpoint($breakpoint-lg) {
             width: 80%;
         }
-
         > *:last-child {
             margin-bottom: 0;
         }

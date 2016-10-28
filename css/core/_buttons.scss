@@ -59,7 +59,16 @@ input[type="submit"] {
         border: $button-square-border;
         padding: $button-square-padding;
         @extend .letter-spacing-small;
+
         //@include animateLine();
+        .no-touch & {
+            @include transition();
+            &:hover {
+                color: $button-square-hover-color;
+                background-color: $button-square-hover-background-color;
+                //text-decoration: underline;
+            }
+        }
     }
 }
 

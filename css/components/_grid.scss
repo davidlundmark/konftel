@@ -14,7 +14,7 @@
 
 @mixin setColumnWidth($count, $gap-grid) {
     html:not(.ie) & {
-        @if $gap !=0 {
+        @if $gap-grid !=0 {
             width: calc((100% / #{$count}) - #{$gap-grid});
         }
         @else {
@@ -23,7 +23,7 @@
     }
     html.ie & {
         $iefix: 1px; //-1px = IE subpixel rounding fix
-        @if $gap !=0 {
+        @if $gap-grid !=0 {
             width: calc((100% / #{$count}) - #{$gap-grid} - #{$iefix});
         }
         @else {
@@ -33,9 +33,6 @@
 }
 
 .row {
-    margin-top: -$grid-gap;
-    margin-left: -$grid-gap;
-    width: calc(100% + #{$grid-gap});
     @include clearfix();
     > .column {
         @include clearfix();
@@ -43,18 +40,49 @@
         overflow: hidden;
         display: block;
         float: left;
-        margin-top: $grid-gap;
-        margin-left: $grid-gap - 0.01px;
-        width: calc(100% - #{$grid-gap});
-        @include generateGrid();
-        @include breakpoint($breakpoint-lg) {
-            @include generateGrid($prefix: 'lg-');
+    }
+}
+
+.row {
+    &:not(.no-gap) {
+        margin-top: -$grid-gap;
+        margin-left: -$grid-gap;
+        width: calc(100% + #{$grid-gap});
+        // @include clearfix();
+        > .column {
+            // @include clearfix();
+            // position: relative;
+            // overflow: hidden;
+            // display: block;
+            // float: left;
+            margin-top: $grid-gap;
+            margin-left: $grid-gap - 0.01px;
+            width: calc(100% - #{$grid-gap});
+            @include generateGrid();
+            @include breakpoint($breakpoint-lg) {
+                @include generateGrid($prefix: 'lg-');
+            }
+            @include breakpoint($breakpoint-md) {
+                @include generateGrid($prefix: 'md-');
+            }
+            @include breakpoint($breakpoint-sm) {
+                @include generateGrid($prefix: 'sm-');
+            }
         }
-        @include breakpoint($breakpoint-md) {
-            @include generateGrid($prefix: 'md-');
-        }
-        @include breakpoint($breakpoint-sm) {
-            @include generateGrid($prefix: 'sm-');
+    }
+    &.no-gap {
+        width: 100%;
+        > .column {
+            @include generateGrid($gap-grid: 0);
+            @include breakpoint($breakpoint-lg) {
+                @include generateGrid($prefix: 'lg-', $gap-grid: 0);
+            }
+            @include breakpoint($breakpoint-md) {
+                @include generateGrid($prefix: 'md-', $gap-grid: 0);
+            }
+            @include breakpoint($breakpoint-sm) {
+                @include generateGrid($prefix: 'sm-', $gap-grid: 0);
+            }
         }
     }
 }

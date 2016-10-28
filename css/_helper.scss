@@ -229,7 +229,7 @@
     }
 }
 
-@mixin createCircle($background-color: $base-brand-color, $diameter: $gap-double, $color: $base-font-color, $background-hover-color: null, $border: null) {
+@mixin createCircle($background-color: $base-brand-color, $diameter: $gap-double, $color: $base-font-color, $background-hover-color: null, $hover-color: null, $border: null) {
     //padding: $padding;
     width: $diameter;
     height: $diameter;
@@ -247,11 +247,21 @@
         border: $border;
     }
     //font-size: @text-size;border: @border;
-    @if $background-hover-color !=null {
-        border: $border;
-        .no-touch & {
-            &:hover {
-                @include transition();
+    // @if $background-hover-color !=null {
+    //     .no-touch & {
+    //         &:hover {
+    //             @include transition();
+    //         }
+    //     }
+    // }
+    .no-touch & {
+        @include transition();
+        &:hover {
+            @if $background-hover-color !=null {
+                background-color: $background-hover-color;
+            }
+            @if $hover-color !=null {
+                color: $hover-color;
             }
         }
     }
@@ -273,6 +283,17 @@
     @include translate(0, -50%);
 }
 
+@mixin centerHorizontal($centerContent:false) {
+    position: absolute;
+    left: 50%;
+    @if $centerContent==true {
+        @include translate(-50%, -50%);
+    }
+    @else {
+        @include translate(-50%, 0);
+    }
+}
+
 @mixin coverAll() {
     position: absolute;
     top: 0;
@@ -291,7 +312,7 @@
 
 @mixin translate($x, $y) {
     transform: translate($x, $y);
-    @include sharpen();
+    //@include sharpen();
 }
 
 @mixin translateY($y) {

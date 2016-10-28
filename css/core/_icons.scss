@@ -22,8 +22,11 @@
   }
   
   .icon-circle {
-      @include createCircle($background-color: $icon-background-color, $color: $icon-color);
+      @include createCircle($icon-circle-background-color, $icon-circle-size, $icon-circle-color, $icon-circle-hover-background-color, $icon-circle-hover-color, $icon-circle-border);
       display: inline-block;
+      > .icon {
+        font-size: $icon-circle-icon-size;
+      }
   }
   
   .icon-center {

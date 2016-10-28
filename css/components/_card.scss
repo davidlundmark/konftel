@@ -47,17 +47,17 @@
         //     @include animateLine($time: 0.3s);
         // }
     }
-    &-tag {
-        z-index: 3;
-        pointer-events: none;
-        position: absolute;
-        padding: $gap-half $gap;
-        background-color: $base-brand-color;
-        color: $card-secondary-color;
-        bottom: 0;
-        left: 0;
-        text-transform: uppercase;
-    }
+    // &-tag {
+    //     z-index: 3;
+    //     pointer-events: none;
+    //     position: absolute;
+    //     padding: $gap-half $gap;
+    //     background-color: $base-brand-color;
+    //     color: $card-secondary-color;
+    //     bottom: 0;
+    //     left: 0;
+    //     text-transform: uppercase;
+    // }
     &-anchor,
     &-lightbox {
         .card-link {
@@ -128,10 +128,36 @@
             }
         }
     }
+    &-horizontal {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+        position: relative;
+        > .card {
+            &-image,
+            &-text {
+                display: table-cell;
+                overflow: hidden;
+                width: 50%;
+                vertical-align: middle;
+                text-align: left;
+            }
+            &-image {
+                width: $card-horizontal-image-size;
+                .background-image {
+                    min-height: $card-horizontal-image-min-height;
+                    background-size: contain;
+                }
+            }
+            &-text {
+                width: $card-horizontal-text-size;
+            }
+        }
+    }
     // zoom effect on images
     .no-touch & {
         .background-image {
-            @include transition(transform, 0.4s,$easeOutSine);
+            @include transition(transform, 0.4s, $easeOutSine);
             @include forceHarwareAcceleration();
             will-change: transform;
         }

@@ -167,6 +167,10 @@ hr {
         width: $gap-double;
         border-color: $base-brand-color;
     }
+    &.minimal {
+        max-width: $page-section-max-width - ($page-section-padding*2);
+        margin: 0 auto;
+    }
 }
 
 .uppercase {

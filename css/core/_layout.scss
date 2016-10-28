@@ -21,6 +21,12 @@ body {
     background-color: $base-background-color;
 }
 
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    background-color: $base-background-color;
+}
+
 .page-section {
     overflow: hidden;
     z-index: 2;

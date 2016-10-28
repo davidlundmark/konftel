@@ -16,7 +16,7 @@ $white: #fff;
 $base-background-color: #fefefe;
 $secondary-background-color : #ABB2B9;
 $tertiary-background-color : #EAECEE;
-//$quaternary-background-color : #;
+$quaternary-background-color : #2E4053;
 
 // Brand
 $base-brand-color: $color-orange;
@@ -190,8 +190,8 @@ $button-solid-border: none;
 $button-solid-padding: $gap-half;
 $button-square-color: $white;
 $button-square-background-color: $base-brand-color;
-$button-square-hover-color: $button-square-color; 
-$button-square-hover-background-color: $button-square-background-color;
+$button-square-hover-color: $base-font-color; 
+$button-square-hover-background-color: $tertiary-background-color;
 $button-square-text-transform: uppercase;
 $button-square-border: none;
 $button-square-padding: $gap-half $gap;
@@ -238,7 +238,7 @@ $header-font-size: $base-font-size;
 // Footer
 // =================================================
 
-$footer-background-color: $tertiary-background-color;
+$footer-background-color: #17202A;
 $footer-logo-width: 400px;
 $footer-top-border: none; 
 $footer-color: $white;
@@ -297,7 +297,13 @@ $grid-gap: $gap-double;
 // =================================================
 
 $icon-color: $base-font-color;
-$icon-background-color: $secondary-background-color;
+$icon-circle-color: $white;
+$icon-circle-background-color: $base-brand-color;
+$icon-circle-size: 80px;
+$icon-circle-hover-color: $white;
+$icon-circle-hover-background-color: $secondary-background-color;
+$icon-circle-border: null;
+$icon-circle-icon-size: 34px;
 
 // =================================================
 // Cards
@@ -309,6 +315,9 @@ $card-text-padding: $gap 0;
 $card-secondary-color: $white;
 $card-image-min-height: 380px;
 $card-image-min-height-sm: 250px;
+$card-horizontal-image-size: 30%;
+$card-horizontal-text-size: 70%;
+$card-horizontal-image-min-height: 200px;
 
 // =================================================
 // Carousel
@@ -364,7 +373,7 @@ $cookie-background-color: rgba($secondary-background-color, 0.98);
 $cookie-color: $white;
 
 // =================================================
-// Select
+// Select, Input
 // =================================================
 
 $select-background-color: $base-background-color;
@@ -373,11 +382,13 @@ $select-border-radius: 0;
 $select-background-image: $path-images+'arrow-down.svg';
 $select-text-transform: uppercase;
 $select-border-color: $base-background-color;
+$input-border-radius: 0;
 
 // =================================================
 // Hero Image
 // =================================================
 
 $hero-image-min-height: 340px;
+$hero-image-double-min-height: 220px;
 $hero-image-color: $white;
-$hero-image-text-shadow: $base-text-shadow;
+$hero-image-text-shadow: none;

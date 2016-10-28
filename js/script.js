@@ -33,7 +33,8 @@
 
     console.log('deKai v.2.422');
 
-    $(document).ready(function() {
+    document.addEventListener("DOMContentLoaded", function() {
+    //$(document).ready(function() {
 
         //Grid same height
         if (typeof useGridSameHeight !== 'undefined' && useGridSameHeight) {
