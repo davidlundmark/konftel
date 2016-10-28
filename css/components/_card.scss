@@ -111,6 +111,7 @@
             }
         }
     }
+    &-top {}
     &-product {
         //cursor: pointer;
         .card-top {
@@ -151,6 +152,39 @@
             }
             &-text {
                 width: $card-horizontal-text-size;
+            }
+        }
+    }
+    &-contact {
+        > .card {
+            &-image {
+                width: $card-contact-image-size;
+                img {
+                    max-width: 100%;
+                    border-radius: 50%;
+                }
+                // .background-image {
+                //     min-height: $card-contact-image-min-height;
+                // }
+            }
+            &-text {
+                padding-left: $gap-sm;
+                width: $card-contact-text-size;
+                @extend .small;
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    &-news {
+        .background-image {
+            min-height: $card-news-image-min-height;
+        }
+        .card-button {
+            a {
+               //@include underlineLink();
+               @include animateLine();
             }
         }
     }

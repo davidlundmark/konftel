@@ -159,7 +159,18 @@
     }
 }
 
-@mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: 1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
+@mixin underlineLink() {
+    text-decoration: none;
+
+    .no-touch & {
+        &:hover,
+        &.hover &.selected {
+            text-decoration: underline;
+        }
+    }
+}
+
+@mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: -1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
     position: relative;
     text-decoration: none;
     @if $distance !=0 {
