@@ -118,17 +118,15 @@
             table-layout: fixed;
             position: relative;
             margin: 0 auto;
-
-            > div,a {
+            > div,
+            a {
                 display: table-cell;
                 overflow: hidden;
                 vertical-align: middle;
             }
-
             > div {
                 width: 70%;
             }
-
             > a {
                 width: 30%;
             }
@@ -182,6 +180,12 @@
     }
     .find-product & {
         padding-bottom: $gap;
+    }
+}
+
+.news-grid {
+    .card-contact {
+        padding-top: 0;
     }
 }
 

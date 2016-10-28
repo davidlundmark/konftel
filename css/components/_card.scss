@@ -156,6 +156,7 @@
         }
     }
     &-contact {
+        padding: $gap 0;
         > .card {
             &-image {
                 width: $card-contact-image-size;
@@ -168,7 +169,7 @@
                 // }
             }
             &-text {
-                padding-left: $gap-sm;
+                padding: 0 0 0 $gap-sm;
                 width: $card-contact-text-size;
                 @extend .small;
                 p {
