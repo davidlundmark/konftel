@@ -30,7 +30,7 @@
 }
 
 // Burger animation
-@mixin burger-to-cross($height: 3px, $gutter: 6px, $color: #000) {
+@mixin burger-to-cross($height: 3px, $gutter: 6px, $color: $base-font-color) {
     will-change: auto;
     &:before,
     &:after {

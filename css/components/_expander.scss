@@ -1,5 +1,11 @@
 .expander {
-    .expander-content {
+    > .expander-content {
         display: none;
     }
+
+    // &.is-expanded {
+    // 	> .expander-content {
+    // 		transform: scaleY(1);
+    // 	}
+    // }
 }

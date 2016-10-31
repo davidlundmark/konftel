@@ -49,24 +49,36 @@ input[type="submit"] {
         text-transform: $button-solid-text-transform;
         border: $button-solid-border;
         padding: $button-solid-padding;
-
     }
     &-square {
         border-radius: 0;
-        color: $button-square-color;
-        background-color: $button-square-background-color;
-        text-transform: $button-square-text-transform;
-        border: $button-square-border;
         padding: $button-square-padding;
         @extend .letter-spacing-small;
-
+        text-transform: $button-square-text-transform;
+        &:not(.button-dark) {
+            color: $button-square-color;
+            background-color: $button-square-background-color;
+            border: $button-square-border;
+        }
+        &.button-dark {
+            color: $button-square-dark-color;
+            background-color: $button-square-dark-background-color;
+            border: $button-square-dark-border;
+        }
         //@include animateLine();
         .no-touch & {
             @include transition();
             &:hover {
-                color: $button-square-hover-color;
-                background-color: $button-square-hover-background-color;
-                //text-decoration: underline;
+                &:not(.button-dark) {
+                    color: $button-square-hover-color;
+                    background-color: $button-square-hover-background-color;
+                    //text-decoration: underline;
+                }
+                &.button-dark {
+                    color: $button-square-dark-hover-color;
+                    background-color: $button-square-dark-hover-background-color;
+                    //text-decoration: underline;
+                }
             }
         }
     }

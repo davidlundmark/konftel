@@ -18,8 +18,8 @@
     }
 }
 
-.find-product {
-    background-color: $secondary-background-color;
+.find-product,
+.find-dealer {
     .button {
         margin: 0;
         width: 100%;
@@ -29,6 +29,18 @@
     select {
         margin: 0;
     }
+    .visibility-hidden {
+        @include breakpoint($breakpoint-md) {
+            //display: none;
+        }
+    }
+    .column {
+        margin-top: $gap !important;
+    }
+}
+
+.find-product {
+    background-color: $secondary-background-color;
     .serach-form {
         &.search-standard {}
         &.search-advanced {}
@@ -36,10 +48,34 @@
     .advanced-search {
         padding-top: $gap;
         .expander-trigger {
-            @include hoverLink($white);
+            @include hoverLink($light-font-color);
         }
         .row {
             padding-top: $gap;
+        }
+    }
+}
+
+.find-dealer {
+    color: $secondary-font-color;
+    background-color: $quinary-background-color;
+    hr {
+        border-color: $secondary-border-color;
+    }
+    // > .section-container {
+    //     &:first-child {
+    //         border-bottom: $secondary-border;
+    //     }
+    // }
+    .playlist {
+        > li {
+            border-color: $secondary-border-color;
+        }
+        .button {
+            margin-top: $gap-half;
+        }
+        @include breakpoint($breakpoint-md) {
+            margin-top: $gap-half;
         }
     }
 }
@@ -100,7 +136,7 @@
         padding: $page-section-padding;
         background-color: $quaternary-background-color;
         text-align: center;
-        color: $white;
+        color: $light-font-color;
         input,
         .button {
             margin: 0;
@@ -129,6 +165,10 @@
             }
             > a {
                 width: 30%;
+            }
+            @include breakpoint($breakpoint-md) {
+                padding-top: $gap-half;
+                width: 80%;
             }
         }
     }
@@ -198,7 +238,7 @@
         cursor: pointer;
         position: relative;
         display: inline-block;
-        color: $white;
+        color: $light-font-color;
         font-size: $gap-double;
         //display: none;
         //@include breakpoint($breakpoint-lg,false) {

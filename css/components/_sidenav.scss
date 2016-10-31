@@ -10,7 +10,8 @@
         display: block;
     }
     max-height: 100%;
-    @include translateX(100%);
+    //@include translateX(100%);
+    @include translateX(-100%);
     @include transition(all, 0.4s, $easeOutCubic);
     &.open {
         @include translateX(0);

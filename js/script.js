@@ -24,6 +24,7 @@
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
     require('./custom/heroimageHandler.js');
+    require('./custom/backgroundimageHandler.js');
     //require('./custom/swipeboxHandler.js');
     //require('./custom/carouselHandler.js');
     require('./custom/expanderHandler.js');

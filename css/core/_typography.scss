@@ -142,6 +142,11 @@ a,
     }
 }
 
+a.text-link {
+    @extend .medium;
+    @include animateLine();
+}
+
 hr {
     border-bottom: $base-border;
     border-left: 0;
@@ -203,6 +208,10 @@ hr {
     .light {
         font-weight: $heading-bold-font-weight;
     }
+}
+
+.medium {
+    font-weight: $medium-font-weight;
 }
 
 .bold {
