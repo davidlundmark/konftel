@@ -29,13 +29,15 @@
     select {
         margin: 0;
     }
-    .visibility-hidden {
-        @include breakpoint($breakpoint-md) {
-            //display: none;
+    // .visibility-hidden {
+    //     @include breakpoint($breakpoint-md) {
+    //         display: none;
+    //     }
+    // }
+    @include breakpoint($breakpoint-md) {
+        .column {
+            margin-top: $gap !important;
         }
-    }
-    .column {
-        margin-top: $gap !important;
     }
 }
 
@@ -219,6 +221,10 @@
     }
     .find-product & {
         padding-bottom: $gap;
+
+        @include breakpoint($breakpoint-md) {
+            padding-bottom: $gap-double;
+        }
     }
 }
 
@@ -228,35 +234,35 @@
     }
 }
 
-.arrow-down {
-    position: absolute;
-    bottom: $gap-double;
-    width: 100%;
-    text-align: center;
-    will-change: auto;
-    .icon {
-        cursor: pointer;
-        position: relative;
-        display: inline-block;
-        color: $light-font-color;
-        font-size: $gap-double;
-        //display: none;
-        //@include breakpoint($breakpoint-lg,false) {
-        animation: bounce 1s ease-out 0s infinite alternate;
-        animation-timing-function: $easeOutQuad;
-        @include forceHarwareAcceleration();
-        //}
-    }
-}
+// .arrow-down {
+//     position: absolute;
+//     bottom: $gap-double;
+//     width: 100%;
+//     text-align: center;
+//     will-change: auto;
+//     .icon {
+//         cursor: pointer;
+//         position: relative;
+//         display: inline-block;
+//         color: $light-font-color;
+//         font-size: $gap-double;
+//         //display: none;
+//         //@include breakpoint($breakpoint-lg,false) {
+//         animation: bounce 1s ease-out 0s infinite alternate;
+//         animation-timing-function: $easeOutQuad;
+//         @include forceHarwareAcceleration();
+//         //}
+//     }
+// }
 
-@keyframes bounce {
-    0% {
-        bottom: -$gap;
-    }
-    100% {
-        bottom: 0;
-    }
-}
+// @keyframes bounce {
+//     0% {
+//         bottom: -$gap;
+//     }
+//     100% {
+//         bottom: 0;
+//     }
+// }
 
 .page-image {
     .section-container {

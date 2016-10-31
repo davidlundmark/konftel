@@ -122,6 +122,9 @@
                         }
                     }
                 }
+                @include breakpoint($breakpoint-md) {
+                    right: $gap;
+                }
             }
         }
     }
@@ -273,6 +276,9 @@
         }
         @include breakpoint($breakpoint-lg) {
             display: block;
+        }
+        @include breakpoint($breakpoint-md) {
+            left: $gap;
         }
         &.open {
             .burger {
