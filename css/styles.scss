@@ -154,6 +154,7 @@
             table-layout: fixed;
             position: relative;
             margin: 0 auto;
+            padding-top: $gap-half;
             > div,
             a {
                 display: table-cell;
@@ -167,7 +168,6 @@
                 width: 30%;
             }
             @include breakpoint($breakpoint-md) {
-                padding-top: $gap-half;
                 width: 80%;
             }
         }

@@ -11,9 +11,8 @@
     &.scrolled:not(.menu-open) {
         background-color: $header-scrolled-background-color;
         border-bottom: $header-scrolled-border-bottom;
-
         .mobile-extra {
-            background-color: rgba($tertiary-background-color,0.95);
+            background-color: rgba($tertiary-background-color, 0.95);
         }
     }
     &.slide-up {
@@ -219,7 +218,7 @@
             $submenu-gap: $gap + $gap-xs - 1px;
             //min-width: 150px;
             //max-width: 200px;
-            width: 200px;
+            width: 230px;
             display: block;
             position: absolute;
             @include transition();
@@ -284,17 +283,15 @@
 }
 
 .mobile-extra {
-    //position: absolute;
-    //bottom: 0;
-    //@include translate(0, 100%);
-    //width: 100%;
-    text-align: center;
-    //padding: $gap;
-    background-color: $tertiary-background-color;
-    ul,
-    ol {
-        @include horizontalList();
-        > li {
+    display: none;
+    @include breakpoint($breakpoint-lg) {
+        display: block;
+        text-align: center;
+        background-color: $tertiary-background-color;
+        ul,
+        ol {
+            @include horizontalList();
+            > li {}
         }
     }
 }
