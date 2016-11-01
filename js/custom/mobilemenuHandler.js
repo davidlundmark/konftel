@@ -1,85 +1,94 @@
 //#region MobilemenuHandler
-var MobileMenuHandler =  {
+var MobileMenuHandler = {
     lastScrollPos: 0,
     init: function() {
-        var _menutoggle = document.querySelectorAll('.menu-toggle');
+        var _menutoggle = document.querySelector('.menu-toggle');
         if (_menutoggle === null) return;
 
-        $(_menutoggle).on('click', function(e) {
-            e.stopPropagation();
- 
-            var $this = $(this);
-            $this.toggleClass('open');
-            $this.find('.burger-container').toggleClass('active');
+        $(_menutoggle).on('click triggered-click', function(e) {
+                e.stopPropagation();
 
-            var $target = $($this.data('target'));
-            $target.toggleClass('open');
+                var $this = $(this);
+                $this.toggleClass('open');
+                $this.find('.burger-container').toggleClass('active');
 
-            $('.page-header').toggleClass('menu-open')
-            $('body').toggleClass('no-scroll');
+                var $target = $($this.data('target'));
+                $target.toggleClass('open');
 
-            var $content = $target.find('.content');
-            var $blocker = $target.find('.blocker');
-            var $triggers = $content.find('.accordion-trigger');
+                $('.page-header').toggleClass('menu-open')
+                $('body').toggleClass('no-scroll');
 
-            if ($target.hasClass('open')) { //menu is open
-                MobileMenuHandler.checkNavHeight($target);
+                var $content = $target.find('.content');
+                var $blocker = $target.find('.blocker');
+                var $triggers = $content.find('.accordion-trigger');
 
-                $triggers.on('resize-start', function() {
-                    $blocker.height(0);
-                });
-
-                $triggers.on('resize-end', function() {
-                    $blocker.height($content.outerHeight());
+                if ($target.hasClass('open')) { //menu is open
                     MobileMenuHandler.checkNavHeight($target);
-                });
 
-                $blocker.on('click touchmove', function(e) {
-                    if (e.type == 'click') $this.trigger('click');
-                    return false;
-                });
+                    $triggers.on('resize-start', function() {
+                        $blocker.height(0);
+                    });
 
-                $(window).on('resize.mobilemenu', function() {
-                    if(ScreensizeHandler.isBigScreen) {
-                        $this.trigger('click');
-                    }
-                });
-            } else {
-                $blocker.off('click touchmove');
-                $triggers.off('resize-start resize-end');
-                MobileMenuHandler.checkNavHeight($target, true); //reset event listeners
-                $(window).off('resize.mobilemenu');
-            }
-        });
-    },
-    checkNavHeight: function($elem, reset) {
-        var $content = $elem.find('.content');
+                    $triggers.on('resize-end', function() {
+                        $blocker.height($content.outerHeight());
+                        MobileMenuHandler.checkNavHeight($target);
+                    });
 
-        if (reset) {
-            $content.off('touchmove touchstart');
-            return;
-        }
+                    $blocker.on('click touchmove', function(e) {
+                        if (e.type == 'click') $this.trigger('click');
+                        return false;
+                    });
 
-        var $menuHeight = $elem.find('.accordion').outerHeight();
-        var $windowHeight = $(window).outerHeight() - $('.page-header').outerHeight();
+                    $(window).on('resize.mobilemenu', function() {
+                        if (ScreensizeHandler.isBigScreen) {
+                            $this.trigger('click');
+                        }
+                    });
+                } else {
+                    $blocker.off('click touchmove');
+                    $triggers.off('resize-start resize-end');
+                    MobileMenuHandler.checkNavHeight($target, true); //reset event listeners
+                    $(window).off('resize.mobilemenu');
+                }
 
+                if(ScreensizeHandler.isBigScreen || e.type == 'triggered-click') return;
+
+                //close search if open
+                var _searchcontainer = document.querySelector('.page-header .mobile-search.search-container');
+                if ($(_searchcontainer).hasClass('open')) {
+                    var _searchtoggle = $(_searchcontainer).find('.search .icon-container');
+                    $(_searchtoggle).trigger('triggered-click',new CustomEvent('triggered-click'));
+                }
+    });
+},
+checkNavHeight: function($elem, reset) {
+    var $content = $elem.find('.content');
+
+    if (reset) {
         $content.off('touchmove touchstart');
-        var scrollTop = 0;
-        if ($menuHeight > $windowHeight) {
-            //console.log('enable scroll');
-            scrollTop = $(window).scrollTop();
-            $elem.addClass('scroll');
-            $content.on('touchstart touchmove', function(e) {
-                $(window).scrollTop(scrollTop);
-            });
-        } else {
-            //console.log('disable scroll');
-            $elem.removeClass('scroll');
-            $content.on('touchmove', function(e) {
-                return false;
-            });
-        }
+        return;
     }
+
+    var $menuHeight = $elem.find('.accordion').outerHeight();
+    var $windowHeight = $(window).outerHeight() - $('.page-header').outerHeight();
+
+    $content.off('touchmove touchstart');
+    var scrollTop = 0;
+    if ($menuHeight > $windowHeight) {
+        //console.log('enable scroll');
+        scrollTop = $(window).scrollTop();
+        $elem.addClass('scroll');
+        $content.on('touchstart touchmove', function(e) {
+            $(window).scrollTop(scrollTop);
+        });
+    } else {
+        //console.log('disable scroll');
+        $elem.removeClass('scroll');
+        $content.on('touchmove', function(e) {
+            return false;
+        });
+    }
+}
 
 };
 //#endregion
@@ -89,5 +98,3 @@ $(document).ready(function() {
         MobileMenuHandler.init();
     }
 });
-
-    

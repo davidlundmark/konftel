@@ -33,6 +33,10 @@
     }
 }
 
+.no-opacity {
+    opacity: 0;
+}
+
 .hide {
     display: none !important;
     @include breakpoint($breakpoint-lg) {

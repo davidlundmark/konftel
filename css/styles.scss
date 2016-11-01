@@ -29,14 +29,15 @@
     select {
         margin: 0;
     }
-    // .visibility-hidden {
-    //     @include breakpoint($breakpoint-md) {
-    //         display: none;
-    //     }
-    // }
     @include breakpoint($breakpoint-md) {
         .column {
             margin-top: $gap !important;
+        }
+        .visibility-hidden {
+            display: none;
+        }
+        .button {
+            margin-top: $gap-half;
         }
     }
 }
@@ -56,6 +57,11 @@
             padding-top: $gap;
         }
     }
+    @include breakpoint($breakpoint-md) {
+        .search-advanced {
+            margin-top: $gap;
+        }
+    }
 }
 
 .find-dealer {
@@ -64,11 +70,6 @@
     hr {
         border-color: $secondary-border-color;
     }
-    // > .section-container {
-    //     &:first-child {
-    //         border-bottom: $secondary-border;
-    //     }
-    // }
     .playlist {
         > li {
             border-color: $secondary-border-color;
@@ -83,10 +84,6 @@
 }
 
 .hero-image {
-    .section-container {
-        // padding-left: 0;
-        // padding-right: 0;
-    }
     .background-image {
         min-height: $hero-image-min-height;
     }
@@ -96,6 +93,9 @@
         }
         .text {
             width: 80%;
+            @include breakpoint($breakpoint-md) {
+                width: calc(100% - #{$gap * 2});
+            }
         }
     }
     .card {
@@ -123,6 +123,9 @@
         //text-transform: $hero-image-text-transform;
         > *:last-child {
             margin-bottom: 0;
+        }
+        @include breakpoint($breakpoint-md) {
+            width: calc(100% - #{$page-section-padding} - #{$gap * 2});
         }
     }
     .icon-circle {
@@ -172,12 +175,30 @@
             @include breakpoint($breakpoint-md) {
                 width: 80%;
             }
+            @include breakpoint($breakpoint-sm) {
+                width: 100%;
+                > div {
+                    width: 60%;
+                }
+                > a {
+                    width: 40%;
+                }
+            }
+        }
+        @include breakpoint($breakpoint-sm) {
+            padding-left: $gap;
+            padding-right: $gap;
         }
     }
     > .section-container {
         &:nth-child(2) {
             padding-top: 0;
             margin-top: -$page-section-padding;
+        }
+        > .background-image {
+            @include breakpoint($breakpoint-md) {
+                min-height: 540px;
+            }
         }
     }
 }
@@ -205,7 +226,6 @@
     }
     .background-image {
         min-height: 100px;
-        // background-size: contain;
         @include scaleBackground();
     }
 }
@@ -221,7 +241,6 @@
     }
     .find-product & {
         padding-bottom: $gap;
-
         @include breakpoint($breakpoint-md) {
             padding-bottom: $gap-double;
         }
@@ -254,7 +273,6 @@
 //         //}
 //     }
 // }
-
 // @keyframes bounce {
 //     0% {
 //         bottom: -$gap;
@@ -263,7 +281,6 @@
 //         bottom: 0;
 //     }
 // }
-
 .page-image {
     .section-container {
         height: 30vh;

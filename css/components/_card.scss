@@ -1,3 +1,13 @@
+@mixin breakTable() {
+    > div {
+        display: block !important;
+        width: 100% !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        text-align: center !important;
+    }
+}
+
 .card {
     position: relative;
     height: 100%;
@@ -154,6 +164,23 @@
                 width: $card-horizontal-text-size;
             }
         }
+        &-break {
+            &-lg {
+                @include breakpoint($breakpoint-lg) {
+                    @include breakTable();
+                }
+            }
+            &-md {
+                @include breakpoint($breakpoint-md) {
+                    @include breakTable();
+                }
+            }
+            &-sm {
+                @include breakpoint($breakpoint-sm) {
+                    @include breakTable();
+                }
+            }
+        }
     }
     &-list-item-image {
         //padding: $gap 0;
@@ -183,7 +210,6 @@
                 p {
                     margin-bottom: 0;
                 }
-
                 &:nth-child(1) {
                     width: $card-list-item-text-first-size;
                 }
@@ -226,8 +252,8 @@
         }
         .card-button {
             a {
-               //@include underlineLink();
-               //@include animateLine();
+                //@include underlineLink();
+                //@include animateLine();
             }
         }
     }

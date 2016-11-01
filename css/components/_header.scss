@@ -49,6 +49,8 @@
             float: none;
             top: auto;
             padding: $gap;
+            @include transition();
+            @include sharpen();
         }
     }
     .search-container {
@@ -103,8 +105,7 @@
                 @include centerVertical();
                 top: $gap + $gap-sm + 2px; //align fix
                 right: $page-section-padding;
-                padding: $gap;
-                padding-right: 0;
+                padding: $gap 0 ($gap - 2px);
                 .label-with-icon {
                     .label,
                     .icon {
@@ -299,6 +300,7 @@
             @include horizontalList();
             > li {}
         }
+        @include sharpen();
     }
 }
 
