@@ -257,6 +257,43 @@
             }
         }
     }
+    &-product-info {
+        > .card {
+            &-image {
+                width: $card-product-info-image-size;
+                .background-image {
+                    max-height: $card-product-info-image-max-height;
+                }
+            }
+            &-text {
+                padding: $gap;
+                vertical-align: top;
+                width: $card-product-info-text-size;
+                // &:nth-child(2){ //if text is on the right side
+                //     padding-right: 0;
+                // }
+                // &:nth-child(1){ //if text is on the left side
+                //     padding-left: 0;
+                // }
+                .featureslist {
+                    margin-bottom: $gap-double;
+                    margin-top: $gap-double - $gap-half;
+
+                    > li:last-child {
+                        > * {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                > p {
+                    @extend .large;
+                }
+                .button {
+                    margin-top: $gap-half;
+                }
+            }
+        }
+    }
     // zoom effect on images
     .no-touch & {
         .background-image {

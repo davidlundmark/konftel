@@ -20,11 +20,10 @@ dd {
 
 ul,
 ol {
-    &.list {
+    &.list, &.playlist, &.featureslist {
         @include resetList();
     }
     &.playlist {
-        @include resetList();
         li {
             // &:not(:last-child) {
             //     border-bottom: $base-border;
@@ -40,5 +39,8 @@ ol {
                 margin-bottom: 0;
             }
         }
+    }
+    &.featureslist {
+        @extend .large;
     }
 }

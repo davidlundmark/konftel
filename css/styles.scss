@@ -253,6 +253,24 @@
     }
 }
 
+.buttons-section {
+    .section-container {
+        text-align: center;
+
+        .button {
+            margin-right: $gap;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .button {
+        width: 30%;
+        padding: $gap;
+    }
+}
+
 // .arrow-down {
 //     position: absolute;
 //     bottom: $gap-double;

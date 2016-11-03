@@ -35,7 +35,7 @@ $dark-font-color: $base-font-color;
 $light-font-color: $white;
 
 //Text shadow
-$base-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+$base-text-shadow: 0px 0px 15px #000000;//2px 4px 3px rgba(0,0,0,0.3);
 
 // =================================================
 // Paths 
@@ -340,6 +340,10 @@ $card-list-item-image-min-height: 118px;
 $card-list-item-text-first-size: 5%;
 $card-list-item-text-second-size: 60%;
 $card-list-item-text-third-size: 35%;
+$card-product-info-image-size: 50%;
+$card-product-info-text-size: 50%;
+$card-product-info-image-max-height: 400px;
+
 
 // =================================================
 // Carousel
