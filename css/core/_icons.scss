@@ -1,80 +1,96 @@
-  @font-face {
-      font-family: 'icomoon';
-      src: url($path-fonts + 'icomoon/icomoon.eot?1amafa');
-      src: url($path-fonts + 'icomoon/icomoon.eot?1amafa#iefix') format('embedded-opentype'), url($path-fonts + 'icomoon/icomoon.ttf?1amafa') format('truetype'), url($path-fonts + 'icomoon/icomoon.woff?1amafa') format('woff'), url($path-fonts + 'icomoon/icomoon.svg?1amafa#icomoon') format('svg');
-      font-weight: normal;
-      font-style: normal;
-  }
-  /*[class^="icon-"], [class*=" icon-"]*/
-  
-  .icon {
-      /* use !important to prevent issues with browser extensions that change fonts */
-      font-family: 'icomoon' !important;
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      /* Better Font Rendering =========== */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-circle {
-      @include createCircle($icon-circle-background-color, $icon-circle-size, $icon-circle-color, $icon-circle-hover-background-color, $icon-circle-hover-color, $icon-circle-border);
-      display: inline-block;
-      > .icon {
+@font-face {
+    font-family: 'icomoon';
+    src: url($path-fonts + 'icomoon/icomoon.eot?1amafa');
+    src: url($path-fonts + 'icomoon/icomoon.eot?1amafa#iefix') format('embedded-opentype'), url($path-fonts + 'icomoon/icomoon.ttf?1amafa') format('truetype'), url($path-fonts + 'icomoon/icomoon.woff?1amafa') format('woff'), url($path-fonts + 'icomoon/icomoon.svg?1amafa#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*[class^="icon-"], [class*=" icon-"]*/
+
+.icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-circle {
+    @include createCircle($icon-circle-background-color, $icon-circle-size, $icon-circle-color, $icon-circle-hover-background-color, $icon-circle-hover-color, $icon-circle-border);
+    display: inline-block;
+    > .icon {
         font-size: $icon-circle-icon-size;
-      }
-  }
-  
-  .icon-center {
-      @include centerElement();
-  }
-  
-  .icon-home5:before {
-  content: "\e904";
+    }
 }
+
+.icon-center {
+    @include centerElement();
+}
+
+.icon-home5:before {
+    content: "\e904";
+}
+
 .icon-cross2:before {
-  content: "\ed6d";
+    content: "\ed6d";
 }
+
 .icon-arrow-right4:before {
-  content: "\edbe";
+    content: "\edbe";
 }
+
 .icon-arrow-left4:before {
-  content: "\edc6";
+    content: "\edc6";
 }
+
 .icon-phone:before {
-  content: "\e942";
+    content: "\e942";
 }
+
 .icon-search:before {
-  content: "\e986";
+    content: "\e986";
 }
+
 .icon-enlarge2:before {
-  content: "\e98b";
+    content: "\e98b";
 }
+
 .icon-link:before {
-  content: "\e9cb";
+    content: "\e9cb";
 }
+
 .icon-play3:before {
-  content: "\ea1c";
+    content: "\ea1c";
 }
+
 .icon-volume-high:before {
-  content: "\ea26";
+    content: "\ea26";
 }
+
 .icon-arrow-down2:before {
-  content: "\ea3e";
+    content: "\ea3e";
 }
+
 .icon-embed2:before {
-  content: "\ea80";
+    content: "\ea80";
 }
+
 .icon-facebook:before {
-  content: "\ea90";
+    content: "\ea90";
 }
+
 .icon-instagram:before {
-  content: "\ea92";
+    content: "\ea92";
 }
+
 .icon-twitter:before {
-  content: "\ea96";
+    content: "\ea96";
 }
