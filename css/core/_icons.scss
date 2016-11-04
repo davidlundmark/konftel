@@ -35,6 +35,10 @@
     @include centerElement();
 }
 
+.icon-download4:before {
+  content: "\ec83";
+}
+
 .icon-home5:before {
     content: "\e904"; 
 }

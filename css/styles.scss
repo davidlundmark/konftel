@@ -272,7 +272,6 @@
 
 .technical-specification {
     background-color: $secondary-background-color;
-    @extend .large;
     .specificationsimage {
         margin-bottom: $gap;
         padding-bottom: $gap;
@@ -280,16 +279,6 @@
         .background-image {
             height: 400px;
             background-size: contain;
-        }
-    }
-    .section-title {
-        margin-bottom: $gap-double;
-        border-bottom: $secondary-border;
-    }
-    .specificationlist {
-        padding-bottom: $gap;
-        &:last-child {
-            padding-bottom: 0;
         }
     }
     .logos-grid {
@@ -301,6 +290,28 @@
                 }
             }
         }
+    }
+}
+
+.support-section {
+    background-color: $senary-background-color;
+
+    a {
+        @include hoverLink($light-font-color);
+    }
+
+    .icon {
+        display: inline-block;
+        margin-left: $gap-half;
+    }
+}
+
+.technical-specification,
+.support-section {
+    @extend .large;
+    .section-title {
+        margin-bottom: $gap-double;
+        border-bottom: $secondary-border;
     }
 }
 

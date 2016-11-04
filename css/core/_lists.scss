@@ -20,7 +20,10 @@ dd {
 
 ul,
 ol {
-    &.list, &.playlist, &.featureslist, &.specificationlist {
+    &.list,
+    &.playlist,
+    &.featureslist,
+    &.default-list {
         @include resetList();
     }
     &.playlist {
@@ -42,7 +45,6 @@ ol {
     }
     &.featureslist {
         @extend .large;
-
         .icon {
             display: inline-block;
             width: $gap-lg;
@@ -50,11 +52,15 @@ ol {
             text-align: center;
         }
     }
-    &.specificationlist {
-        > li {
-            &:first-child {
-                margin-bottom: $gap-xs;
-            }
+    &.default-list {
+        padding-bottom: $gap;
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+    > li {
+        &:first-child {
+            margin-bottom: $gap-xs;
         }
     }
 }
