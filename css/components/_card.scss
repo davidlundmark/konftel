@@ -56,6 +56,10 @@
         //     float: right;
         //     @include animateLine($time: 0.3s);
         // }
+        img {
+            max-width: 100%;
+            width: auto;
+        }
     }
     // &-tag {
     //     z-index: 3;
@@ -104,6 +108,19 @@
                     .card-icon {
                         background-color: rgba($black, 0.7);
                     }
+                }
+            }
+        }
+        // zoom effect on images
+        .no-touch & {
+            .background-image {
+                @include transition(transform, 0.4s, $easeOutSine);
+                @include forceHarwareAcceleration();
+                will-change: transform;
+            }
+            &.hover {
+                .background-image {
+                    @include scale(1.12);
                 }
             }
         }
@@ -257,17 +274,32 @@
             }
         }
     }
+    &-accessories {
+        .background-image {
+            min-height: $card-accessories-image-height;
+        }
+
+        .card-image {
+            z-index: 0;
+        }
+
+        .card-text {
+            padding-bottom: 0;
+        }
+    }
     &-product-info {
         > .card {
             &-image {
                 width: $card-product-info-image-size;
                 .background-image {
-                    max-height: $card-product-info-image-max-height;
+                    height: $card-product-info-image-height;
+                    //max-height: $card-product-info-image-max-height;
+                    //min-height: $card-product-info-image-min-height;
                 }
             }
             &-text {
                 padding: $gap;
-                vertical-align: top;
+                //vertical-align: top;
                 width: $card-product-info-text-size;
                 // &:nth-child(2){ //if text is on the right side
                 //     padding-right: 0;
@@ -278,7 +310,6 @@
                 .featureslist {
                     margin-bottom: $gap-double;
                     margin-top: $gap-double - $gap-half;
-
                     > li:last-child {
                         > * {
                             margin-bottom: 0;
@@ -294,16 +325,25 @@
             }
         }
     }
-    // zoom effect on images
-    .no-touch & {
-        .background-image {
-            @include transition(transform, 0.4s, $easeOutSine);
-            @include forceHarwareAcceleration();
-            will-change: transform;
-        }
-        &.hover {
-            .background-image {
-                @include scale(1.12);
+    &-product-quote {
+        > .card {
+            &-image {
+                width: $card-product-quote-image-size;
+                .background-image {
+                    height: $card-product-quote-image-height;
+                    //max-height: $card-product-quote-image-max-height;
+                    //min-height: $card-product-quote-image-min-height;
+                }
+            }
+            &-text {
+                padding: $gap;
+                width: $card-product-quote-text-size;
+                h2 {
+                    margin-bottom: 0;
+                }
+                img {
+                    padding-top: $gap;
+                }
             }
         }
     }

@@ -235,7 +235,8 @@
     text-align: center;
     padding-bottom: $gap-double;
     margin: 0;
-    .products-grid & {
+    .products-grid &,
+    .accessories-grid & {
         margin-bottom: $gap-double;
         border-bottom: $base-border;
     }
@@ -256,7 +257,6 @@
 .buttons-section {
     .section-container {
         text-align: center;
-
         .button {
             margin-right: $gap;
             &:last-child {
@@ -264,10 +264,43 @@
             }
         }
     }
-
     .button {
         width: 30%;
         padding: $gap;
+    }
+}
+
+.technical-specification {
+    background-color: $secondary-background-color;
+    @extend .large;
+    .specificationsimage {
+        margin-bottom: $gap;
+        padding-bottom: $gap;
+        border-bottom: $secondary-border;
+        .background-image {
+            height: 400px;
+            background-size: contain;
+        }
+    }
+    .section-title {
+        margin-bottom: $gap-double;
+        border-bottom: $secondary-border;
+    }
+    .specificationlist {
+        padding-bottom: $gap;
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+    .logos-grid {
+        .background-image {
+            background-size: contain;
+            .no-touch & {
+                &:hover {
+                    transform: none;
+                }
+            }
+        }
     }
 }
 

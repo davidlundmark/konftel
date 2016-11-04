@@ -20,7 +20,7 @@ dd {
 
 ul,
 ol {
-    &.list, &.playlist, &.featureslist {
+    &.list, &.playlist, &.featureslist, &.specificationlist {
         @include resetList();
     }
     &.playlist {
@@ -42,5 +42,19 @@ ol {
     }
     &.featureslist {
         @extend .large;
+
+        .icon {
+            display: inline-block;
+            width: $gap-lg;
+            margin-right: $gap-xs;
+            text-align: center;
+        }
+    }
+    &.specificationlist {
+        > li {
+            &:first-child {
+                margin-bottom: $gap-xs;
+            }
+        }
     }
 }

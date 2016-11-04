@@ -36,7 +36,11 @@
 }
 
 .icon-home5:before {
-    content: "\e904";
+    content: "\e904"; 
+}
+
+.icon-connection:before {
+    content: "\e97c";
 }
 
 .icon-cross2:before {
@@ -49,6 +53,14 @@
 
 .icon-arrow-left4:before {
     content: "\edc6";
+}
+
+.icon-battery-charging:before {
+    content: "\ee5b";
+}
+
+.icon-music:before {
+    content: "\e911";
 }
 
 .icon-phone:before {
@@ -93,4 +105,8 @@
 
 .icon-twitter:before {
     content: "\ea96";
+}
+
+.icon-bluetooth-b:before {
+    content: "\f294";
 }
