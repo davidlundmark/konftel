@@ -1,3 +1,5 @@
+require('../lib/slick.js');
+
 //#region CarouselHandler
 var CarouselHandler = {
     init: function() {

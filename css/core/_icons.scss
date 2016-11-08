@@ -35,6 +35,19 @@
     @include centerElement();
 }
 
+.icon-arrow-down:before {
+  content: "\edbf";
+}
+.icon-arrow-down22:before {
+  content: "\edc0";
+}
+.icon-arrow-down3:before {
+  content: "\edc1";
+}
+.icon-arrow-down4:before {
+  content: "\edc2";
+}
+
 .icon-download4:before {
   content: "\ec83";
 }

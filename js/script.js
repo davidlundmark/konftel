@@ -1,3 +1,18 @@
+//require('./lib/ScrollMagic.min.js');
+
+(function() {
+    function CustomEvent(event, params) {
+        params = params || { bubbles: false, cancelable: false, detail: undefined };
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+        return evt;
+    }
+
+    CustomEvent.prototype = window.Event.prototype;
+
+    window.CustomEvent = CustomEvent;
+})();
+
 (function() {
 
     //project specific var
@@ -11,14 +26,13 @@
     require('./lib/jquery.easing.1.3.js');
     //require('./lib/prism.js');
     require('./lib/fastclick.js');
-    require('./lib/jquery.matchHeight.js');
     require('./lib/picturefill.js');
-    //require('./lib/slick.js');
-    require('./lib/jquery.flexslider.js');
-    //require('./lib/jquery.swipebox.js');
+
     //globals
     require('./custom/screensizeHandler.js');
+
     //customs
+    require('./custom/scrollmagicHandler.js');
     require('./custom/menuscrollHandler.js');
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
@@ -30,21 +44,13 @@
     require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');
+    require('./custom/arrowdownHandler.js');
     require('./custom/dekai.js');
 
     console.log('deKai v.2.422');
 
-    document.addEventListener("DOMContentLoaded", function() {
-    //$(document).ready(function() {
-
-        //Grid same height
-        if (typeof useGridSameHeight !== 'undefined' && useGridSameHeight) {
-            var _sameheight = document.querySelectorAll('.same-height');
-            if (_sameheight !== null) {
-                $(_sameheight).find('> .column').matchHeight();
-                //$('.same-height > .column').matchHeight();
-            }
-        }
+    //document.addEventListener("DOMContentLoaded", function() {
+    $(document).ready(function() {
 
         //Anchor card   
         if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
@@ -85,7 +91,7 @@
 
                 $(_submenus).each(function() {
                     var $this = $(this);
-                    var $text = $this.find('.text');
+                    //var $text = $this.find('.text');
                     var $subMenu = $this.find('.submenu');
                     var marginLeft = $subMenu.width() * 0.5;
                     marginLeft -= $this.width() * 0.5;
@@ -95,41 +101,25 @@
             }
         }
 
-        //handle arrow down click <!_.|(x(XX)x)|._!>  
-        // var _arrowdown = document.querySelector('.arrow-down');
-        // if (_arrowdown !== null) {
-        //     $(_arrowdown).find('.icon').on('click', function(e) {
-        //         hideArrow();
-        //         $('html, body').animate({
-        //             scrollTop: $('.content-wrapper').offset().top
-        //         }, 1000);
-        //     });
-        // }
-
-        // setTimeout(hideArrow, 5000);
-
-        // function hideArrow() {
-        //     $(_arrowdown).fadeOut(200);
-        // }
 
         $('.page-header .search .icon-container').on('click triggered-click', function(e) {
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
             $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-                 $(this).focus();
+                $(this).focus();
             });
 
-            if(ScreensizeHandler.isBigScreen) return;
+            if (ScreensizeHandler.isBigScreen) return;
 
             $(document.querySelector('.page-header .logo-container')).toggleClass('no-opacity');
 
-            if(e.type == 'triggered-click') return;
+            if (e.type == 'triggered-click') return;
 
             var _mobilemenu = document.getElementById('mobile-menu');
-            if($(_mobilemenu).hasClass('open')) {
+            if ($(_mobilemenu).hasClass('open')) {
                 var _menutoggle = document.querySelector('.menu-toggle');
-                $(_menutoggle).trigger('triggered-click',new CustomEvent('triggered-click'));
+                $(_menutoggle).trigger('triggered-click', new CustomEvent('triggered-click'));
             }
         });
 
@@ -172,6 +162,9 @@
 
     });
 
+
+    
+
     $(window).on('load', function() {
         /*
         if (ScreensizeHandler.isBigScreen) {
@@ -206,8 +199,7 @@
                     clearInterval(_timer);
                 }
             }, 200);
+            $(window).trigger('resize');
         }
-
-        $(window).trigger('resize');
     });
 })();

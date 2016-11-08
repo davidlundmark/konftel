@@ -4,9 +4,29 @@ var watch = require('gulp-watch');
 var source = './';
 var project_destination = 'C:/projects/dev/src/Project/Norra/code/';
 var wwwroot_destination = 'C:/inetpub/wwwroot/Norra/Website/';
+var kund_destination = '//bellatrix/kund/konftel';
+
+var debug = true;
 
 //gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch'/*, 'webpack:dev-server'*/]);
 gulp.task('default', ['webpack:watch']);
+
+var runSequence = require('run-sequence');
+
+//set debug = false, will uglify and more
+gulp.task('production', function() {
+    debug = false;
+    runSequence('watch:sync-kund', 'webpack:watch');
+});
+
+//sync files to bellatix kund
+gulp.task('watch:sync-kund', function() {
+    gulp.src(source, { base: source })
+        .pipe(watch(source + 'assets/', { base: source }))
+        .pipe(watch(source + 'src/', { base: source }))
+        .pipe(watch('*.html', { base: source }))
+        .pipe(gulp.dest(kund_destination));
+});
 
 //sync files to VS project
 gulp.task('watch:sync-project', function() {
@@ -28,6 +48,10 @@ gulp.task('watch:sync-wwwroot', function() {
 var spawn = require('cross-spawn');
 
 gulp.task('webpack:watch', (cb) => {
+    var env = debug ? 'development' : 'production';
+
+    process.env.NODE_ENV = env;
+    
     const webpack_watch = spawn('webpack', ['--watch']);
 
     webpack_watch.stdout.on('data', (data) => {

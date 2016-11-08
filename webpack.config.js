@@ -1,4 +1,4 @@
-var debug = true; //process.env.NODE_ENV !== 'production';
+var debug = process.env.NODE_ENV != 'production';
 
 var webpack = require('webpack');
 var extracttextplugin = require('extract-text-webpack-plugin');
@@ -10,6 +10,8 @@ var autoprefixer = require('autoprefixer');
 
 var jsFile = './src/scripts.min.js';
 var cssFile = './src/styles.min.css';
+
+var Path = require('path');
 
 module.exports = {
     context: __dirname,
@@ -44,7 +46,7 @@ module.exports = {
                     'style-loader', // The backup style loader
                     ['css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']
                 ),
-                exclude: /node_modules/
+                exclude: [/node_modules/]
             },
             { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: [/images/, /node_modules/] },
             { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: [/fonts/, /node_modules/] }
@@ -82,6 +84,15 @@ module.exports = {
             }),
             precss
         ];
+    },
+    resolve: {
+        extensions: ['', '.js', '.json'],
+        root: [Path.join(__dirname, "node_modules")],
+        modulesDirectories: ['node_modules'],
+        alias: {
+            "ScrollMagic": Path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
+            "ScrollMagic.debug": Path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'),
+        }
     },
     sassLoader: {
         includePaths: [].concat('client/style' )

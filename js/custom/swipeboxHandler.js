@@ -1,3 +1,5 @@
+require('../lib/jquery.swipebox.js');
+
 //#region SwipeboxHandler
 var SwipeboxHandler = {
     $swipebox: null,

@@ -1,3 +1,5 @@
+require('../lib/jquery.flexslider.js');
+
 //#region FlexsliderHandler
 var FlexsliderHandler = {
     $pageslider: null,
@@ -50,6 +52,8 @@ var FlexsliderHandler = {
                     this.handleScroll();
                 }.bind(this));
 
+                $(document).trigger('flexslider-started',new CustomEvent('flexslider-started'));
+
             }.bind(this),
             after: function(slider) {}
         });
@@ -74,11 +78,15 @@ var FlexsliderHandler = {
         }
         */
 
-        this.sliderHeight = ($(window).height()*0.7) - this.menuHeight;
+        this.sliderHeight = ($(window).height() * 0.7) - this.menuHeight;
 
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight
         });
+
+        // $('.content-wrapper').css({
+        //     'margin-top': this.sliderHeight + this.menuHeight
+        // });
 
         this.$flexslider.css({
             'height': this.sliderHeight
@@ -120,4 +128,4 @@ $(document).ready(function() {
     }
 });
 
- 
+

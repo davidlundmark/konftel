@@ -295,11 +295,9 @@
 
 .support-section {
     background-color: $senary-background-color;
-
     a {
         @include hoverLink($light-font-color);
     }
-
     .icon {
         display: inline-block;
         margin-left: $gap-half;
@@ -315,34 +313,43 @@
     }
 }
 
-// .arrow-down {
-//     position: absolute;
-//     bottom: $gap-double;
-//     width: 100%;
-//     text-align: center;
-//     will-change: auto;
-//     .icon {
-//         cursor: pointer;
-//         position: relative;
-//         display: inline-block;
-//         color: $light-font-color;
-//         font-size: $gap-double;
-//         //display: none;
-//         //@include breakpoint($breakpoint-lg,false) {
-//         animation: bounce 1s ease-out 0s infinite alternate;
-//         animation-timing-function: $easeOutQuad;
-//         @include forceHarwareAcceleration();
-//         //}
-//     }
-// }
-// @keyframes bounce {
-//     0% {
-//         bottom: -$gap;
-//     }
-//     100% {
-//         bottom: 0;
-//     }
-// }
+.arrow-down {
+    z-index: 3;
+    position: fixed;
+    bottom: $gap-double;
+    //width: 100%;
+    @include centerHorizontal();
+    text-align: center;
+    will-change: auto;
+    .icon {
+        color: $base-font-color;
+        //text-shadow: $base-text-shadow;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        //color: $light-font-color;
+        font-size: $gap-double;
+        //display: none;
+        //@include breakpoint($breakpoint-lg,false) {
+        animation: bounce 1s ease-out 0s infinite alternate;
+        animation-timing-function: $easeOutQuad;
+        @include forceHarwareAcceleration();
+        //}
+    }
+    @include breakpoint($breakpoint-lg) {
+        display: none;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        bottom: -$gap;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
 .page-image {
     .section-container {
         height: 30vh;
@@ -388,6 +395,21 @@
         &-image,
         &-video {
             margin-bottom: $gap-double;
+        }
+    }
+}
+
+body {
+    .content-wrapper.use-animation {
+        .page-section {
+            &:not(.active) {
+                .section-container {
+                    visibility: hidden;
+                    @include breakpoint($breakpoint-lg) {
+                        visibility: visible;
+                    }
+                }
+            }
         }
     }
 }
