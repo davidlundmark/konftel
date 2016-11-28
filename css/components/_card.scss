@@ -147,6 +147,7 @@
             .title {
                 text-transform: uppercase;
                 color: $secondary-font-color;
+                @extend .bold;
                 > span {
                     color: $base-brand-color;
                 }

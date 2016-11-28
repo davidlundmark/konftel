@@ -23,9 +23,9 @@ var SwipeboxHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     //Lightbox
     if (typeof useLightbox !== 'undefined' && useLightbox) {
         SwipeboxHandler.init();
     }
-});
+})();

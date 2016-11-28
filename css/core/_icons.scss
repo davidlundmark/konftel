@@ -35,6 +35,23 @@
     @include centerElement();
 }
 
+//-----------
+
+.icon-home5:before {
+  content: "\e904";
+}
+.icon-connection:before {
+  content: "\e97c";
+}
+.icon-download4:before {
+  content: "\ec83";
+}
+.icon-cross2:before {
+  content: "\ed6d";
+}
+.icon-arrow-right4:before {
+  content: "\edbe";
+}
 .icon-arrow-down:before {
   content: "\edbf";
 }
@@ -47,83 +64,63 @@
 .icon-arrow-down4:before {
   content: "\edc2";
 }
-
-.icon-download4:before {
-  content: "\ec83";
-}
-
-.icon-home5:before {
-    content: "\e904"; 
-}
-
-.icon-connection:before {
-    content: "\e97c";
-}
-
-.icon-cross2:before {
-    content: "\ed6d";
-}
-
-.icon-arrow-right4:before {
-    content: "\edbe";
-}
-
 .icon-arrow-left4:before {
-    content: "\edc6";
+  content: "\edc6";
 }
-
 .icon-battery-charging:before {
-    content: "\ee5b";
+  content: "\ee5b";
 }
-
+.icon-radio-checked2:before {
+  content: "\ee72";
+}
+.icon-circles:before {
+  content: "\ee79";
+}
 .icon-music:before {
-    content: "\e911";
+  content: "\e911";
 }
-
 .icon-phone:before {
-    content: "\e942";
+  content: "\e942";
 }
-
 .icon-search:before {
-    content: "\e986";
+  content: "\e986";
 }
-
 .icon-enlarge2:before {
-    content: "\e98b";
+  content: "\e98b";
 }
-
 .icon-link:before {
-    content: "\e9cb";
+  content: "\e9cb";
 }
-
 .icon-play3:before {
-    content: "\ea1c";
+  content: "\ea1c";
 }
-
 .icon-volume-high:before {
-    content: "\ea26";
+  content: "\ea26";
 }
-
+.icon-arrow-up2:before {
+  content: "\ea3a";
+}
 .icon-arrow-down2:before {
-    content: "\ea3e";
+  content: "\ea3e";
 }
-
 .icon-embed2:before {
-    content: "\ea80";
+  content: "\ea80";
 }
-
 .icon-facebook:before {
-    content: "\ea90";
+  content: "\ea90";
 }
-
 .icon-instagram:before {
-    content: "\ea92";
+  content: "\ea92";
 }
-
 .icon-twitter:before {
-    content: "\ea96";
+  content: "\ea96";
 }
-
+.icon-cog:before {
+  content: "\f013";
+}
+.icon-gear:before {
+  content: "\f013";
+}
 .icon-bluetooth-b:before {
-    content: "\f294";
+  content: "\f294";
 }

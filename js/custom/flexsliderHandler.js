@@ -121,11 +121,11 @@ var FlexsliderHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     //Flex slider
     if (typeof useSlider !== 'undefined' && useSlider) {
         FlexsliderHandler.init();
     }
-});
+})();
 
 

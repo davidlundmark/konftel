@@ -20,8 +20,8 @@ var ExpanderHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
      if (typeof useExpander !== 'undefined' && useExpander) {
         ExpanderHandler.init();
     }
-});
+})();

@@ -29,8 +29,8 @@ var AccordionHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     if (typeof useAccordion !== 'undefined' && useAccordion) {
         AccordionHandler.init();
     }
-});
+})();

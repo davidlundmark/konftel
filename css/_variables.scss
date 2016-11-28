@@ -3,7 +3,7 @@
 // =================================================
 
 // Brand Colors
-$color-orange: #db7a18;
+$color-orange: #e98f35;
 
 // Grays
 $black: #000;
@@ -14,7 +14,7 @@ $white: #fff;
 
 // Background Colors
 $base-background-color: #fefefe;
-$secondary-background-color : #ABB2B9;
+$secondary-background-color : #EAECEE;
 $tertiary-background-color : #EAECEE;
 $quaternary-background-color : #2E4053;
 $quinary-background-color : #212F3C;
@@ -123,7 +123,7 @@ $h6-font-size-sm: $h1-font-size-sm - 20px;
 // =================================================
 
 // Border
-$base-border-color: #ABB2B9;
+$base-border-color: #EAECEE;
 $base-border: 1px solid $base-border-color;
 $base-border-thickness: 1px;
 $base-border-style: solid;
@@ -197,8 +197,8 @@ $button-solid-border: none;
 $button-solid-padding: $gap-half;
 $button-square-color: $light-font-color;
 $button-square-background-color: $base-brand-color;
-$button-square-hover-color: $base-font-color; 
-$button-square-hover-background-color: $tertiary-background-color;
+$button-square-hover-color: $button-square-color; 
+$button-square-hover-background-color: darken($base-brand-color, 8%);
 $button-square-text-transform: uppercase;
 $button-square-border: none;
 $button-square-padding: $gap-half $gap;
@@ -246,6 +246,12 @@ $header-text-transform: uppercase;
 $header-scrolled-background-color: $header-background-color;// rgba($header-background-color,0.95);
 $header-scrolled-border-bottom: none;
 $header-font-size: $base-font-size;
+
+// =================================================
+// Mobile menu
+// =================================================
+
+$mobile-menu-item-padding-vertical: $gap-half;
 
 // =================================================
 // Footer

@@ -17,6 +17,9 @@
             > span {
                 margin-top: 1px;
                 display: inline-block;
+                @at-root .back-to-top#{&} {
+                    margin-top: 3px;
+                }
             }
         }
     }

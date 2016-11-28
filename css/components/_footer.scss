@@ -17,4 +17,10 @@
     //         width: $footer-logo-width;
     //     }
     // }
+
+    .footer {
+        &-top {
+            padding-top: $page-section-padding*2;
+        }
+    }
 }

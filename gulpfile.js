@@ -2,14 +2,14 @@ var gulp = require('gulp');
 var watch = require('gulp-watch');
 
 var source = './';
-var project_destination = 'C:/projects/dev/src/Project/Norra/code/';
-var wwwroot_destination = 'C:/inetpub/wwwroot/Norra/Website/';
+var project_destination = 'C:/Users/dalun/Source/Workspaces/Konftel/Code/Branches/Dev/src/Project/Konftel/code/';
+var wwwroot_destination = '//SITECORE/c$/inetpub/wwwroot/Konftel/Website';
 var kund_destination = '//bellatrix/kund/konftel';
 
 var debug = true;
 
 //gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch'/*, 'webpack:dev-server'*/]);
-gulp.task('default', ['webpack:watch']);
+gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch' /*, 'webpack:dev-server'*/ ]);
 
 var runSequence = require('run-sequence');
 
@@ -52,7 +52,7 @@ gulp.task('webpack:watch', (cb) => {
 
     process.env.NODE_ENV = env;
     
-    const webpack_watch = spawn('webpack', ['--watch']);
+    const webpack_watch = spawn('webpack', ['--watch','--display-error-details']);
 
     webpack_watch.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);

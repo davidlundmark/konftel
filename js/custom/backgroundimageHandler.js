@@ -16,8 +16,8 @@ var BackgroundImageHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     if (typeof useBackgroundImages !== 'undefined' && useBackgroundImages) {
         BackgroundImageHandler.init();
     }
-});
+})();

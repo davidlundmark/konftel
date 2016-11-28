@@ -1,3 +1,5 @@
+require('../lib/fastclick.js');
+
 //#region Dekai
 deKai = {
     isMobile: false,
@@ -63,12 +65,12 @@ deKai = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     deKai.checkOS();
     deKai.checkDevice();
-    deKai.addFastclick();
-});
+})();
 
 $(window).on('load', function() {
+    deKai.addFastclick();
     deKai.hideOverlay();
 });

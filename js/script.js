@@ -25,7 +25,7 @@
     //libs
     require('./lib/jquery.easing.1.3.js');
     //require('./lib/prism.js');
-    require('./lib/fastclick.js');
+    //require('./lib/fastclick.js');
     require('./lib/picturefill.js');
 
     //globals
@@ -45,12 +45,13 @@
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');
     require('./custom/arrowdownHandler.js');
+    require('./custom/matchheightHandler.js');
     require('./custom/dekai.js');
 
-    console.log('deKai v.2.422');
+    console.log('deKai v.2-konftel');
 
     //document.addEventListener("DOMContentLoaded", function() {
-    $(document).ready(function() {
+    (function() {
 
         //Anchor card   
         if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
@@ -79,30 +80,7 @@
             }
         }
 
-        if (typeof useSubMenus !== 'undefined' && useSubMenus) {
-            positionSubmenus();
-            $(window).on('resize', positionSubmenus);
-
-            function positionSubmenus() {
-                if (!ScreensizeHandler.isBigScreen) return;
-                //var $subMenus = $('.page-header li.has-child');
-                var _submenus = document.querySelectorAll('.page-header li.has-child');
-                if (_submenus === null) return;
-
-                $(_submenus).each(function() {
-                    var $this = $(this);
-                    //var $text = $this.find('.text');
-                    var $subMenu = $this.find('.submenu');
-                    var marginLeft = $subMenu.width() * 0.5;
-                    marginLeft -= $this.width() * 0.5;
-                    //$subMenu.width($text.outerWidth());
-                    $subMenu.css({ 'left': -(marginLeft) });
-                });
-            }
-        }
-
-
-        $('.page-header .search .icon-container').on('click triggered-click', function(e) {
+        $(document.querySelector('.page-header .search .icon-container')).on('click triggered-click', function(e) {
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
@@ -123,19 +101,19 @@
             }
         });
 
-        $('.page-header .search .label').keypress(function(e) {
+        $(document.querySelector('.page-header .search .label')).keypress(function(e) {
             if (e.which == 13) {
                 alert('SÖK: ' + $(this).val());
             }
         });
 
-        $('#mobile-menu .search .label').keypress(function(e) {
+        $(document.querySelector('#mobile-menu .search .label')).keypress(function(e) {
             if (e.which == 13) {
                 alert('SÖK: ' + $(this).val());
             }
         });
 
-        $('#mobile-menu .search .icon-container').on('click', function(e) {
+        $(document.querySelector('#mobile-menu .search .icon-container')).on('click', function(e) {
             var $this = $(this);
             alert('SÖK: ' + $this.parent().find('.label').val());
         });
@@ -160,10 +138,7 @@
         });
         */
 
-    });
-
-
-    
+    })();
 
     $(window).on('load', function() {
         /*
@@ -184,6 +159,28 @@
         }
         */
 
+        if (typeof useSubMenus !== 'undefined' && useSubMenus) {
+            positionSubmenus();
+            $(window).on('resize', positionSubmenus);
+
+            function positionSubmenus() {
+                if (!ScreensizeHandler.isBigScreen) return;
+                //var $subMenus = $('.page-header li.has-child');
+                var _submenus = document.querySelectorAll('.page-header li.has-child');
+                if (_submenus === null) return;
+
+                $(_submenus).each(function() {
+                    var $this = $(this);
+                    //var $text = $this.find('.text');
+                    var $subMenu = $this.find('.submenu');
+                    var marginLeft = $subMenu.width() * 0.5;
+                    marginLeft -= $this.width() * 0.5;
+                    //$subMenu.width($text.outerWidth());
+                    $subMenu.css({ 'left': -(marginLeft) });
+                });
+            }
+        }
+
         $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
         //topmenuHandler.init();
 
@@ -200,6 +197,18 @@
                 }
             }, 200);
             $(window).trigger('resize');
+        }
+
+        var _backtotop = document.querySelector('.back-to-top');
+        if (_backtotop !== null) {
+            $(_backtotop).bind('click', function(e) {
+                var _scrollTop = $(window).scrollTop();
+                _scrollTop *= 0.5;
+                $('html, body').animate({
+                    scrollTop: 0
+                }, _scrollTop);
+                return false;
+            });
         }
     });
 })();

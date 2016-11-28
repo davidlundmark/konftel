@@ -52,8 +52,8 @@ var CookieHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     if (typeof useCookie !== 'undefined' && useCookie) {
         CookieHandler.init();
     }
-});
+})();

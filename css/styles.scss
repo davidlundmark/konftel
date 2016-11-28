@@ -50,11 +50,29 @@
     }
     .advanced-search {
         padding-top: $gap;
-        .expander-trigger {
-            @include hoverLink($light-font-color);
-        }
         .row {
             padding-top: $gap;
+        }
+        .expander-trigger {
+            text-decoration: none;
+            //@include hoverLink($base-brand-color);
+
+            .label {
+                padding-right: $gap-xs;
+                padding-bottom: 2px;
+            }
+        }
+        .icon {
+            transform: rotate(90deg);
+            font-size: $small-font-size;
+            @include customTransitionTiming($easeOutCubic);
+        }
+        &.is-expanded {
+            > a .icon-container {
+                .icon {
+                    transform: rotate(-90deg); 
+                }
+            }
         }
     }
     @include breakpoint($breakpoint-md) {
@@ -241,7 +259,7 @@
         border-bottom: $base-border;
     }
     .find-product & {
-        padding-bottom: $gap;
+        padding-bottom: $gap-xl;
         @include breakpoint($breakpoint-md) {
             padding-bottom: $gap-double;
         }

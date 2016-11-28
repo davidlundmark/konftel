@@ -27,6 +27,7 @@
     }
     .section-container {
         padding: 0;
+        margin: 0 $gap;
         //padding: 0 $page-section-padding;
         @include clearfix();
         &:first-child {
@@ -97,7 +98,7 @@
         &.mobile-search {
             display: none;
             @include breakpoint($breakpoint-lg) {
-                background-color: $header-background-color;
+                //background-color: $header-background-color;
                 z-index: 1;
                 margin: 0;
                 cursor: pointer;
@@ -305,16 +306,20 @@
 }
 
 #mobile-menu {
+
     .accordion {
-        padding: $gap;
+        //padding: $gap;
         border: none;
         //@include border($base-brand-color, top, 3px);
         //@include border($dir: bottom);
         .menu-item > {
             a,
             span {
+                padding-top: $mobile-menu-item-padding-vertical;
+                padding-bottom: $mobile-menu-item-padding-vertical;
                 border: none;
             }
+            //@include border($dir: bottom);
             //border: none;
             //background-color: rgba($white, 0);
         }
@@ -322,12 +327,13 @@
     a {
         pointer-events: auto;
         text-transform: uppercase;
-        > span {
+        > span { 
             touch-action: none;
             pointer-events: none;
         }
     }
     .content {
+        //@include border($dir: right);
         background-color: $header-background-color;
         position: absolute;
         //right: 0;

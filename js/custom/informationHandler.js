@@ -84,6 +84,6 @@ var InformationHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     InformationHandler.init();
-});
+})();

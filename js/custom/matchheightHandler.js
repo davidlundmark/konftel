@@ -1,12 +1,14 @@
 require('../lib/jquery.matchHeight.js');
 
-$(document).ready(function() {
+(function() {
     //Grid same height
     if (typeof useGridSameHeight !== 'undefined' && useGridSameHeight) {
-        var _sameheight = document.querySelectorAll('.same-height');
-        if (_sameheight !== null) {
-            $(_sameheight).find('> .column').matchHeight();
-            //$('.same-height > .column').matchHeight();
+        if ($('html').hasClass('ie-old')) { //only do this for IE <= 9
+            var _sameheight = document.querySelectorAll('.same-height');
+            if (_sameheight !== null) {
+                $(_sameheight).find('> .column').matchHeight();
+                //$('.same-height > .column').matchHeight();
+            }
         }
     }
-});
+})();

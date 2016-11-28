@@ -33,6 +33,8 @@
 }
 
 .row {
+    display: flex;
+    flex-wrap: wrap;
     @include clearfix();
     > .column {
         @include clearfix();
@@ -41,9 +43,6 @@
         display: block;
         float: left;
     }
-}
-
-.row {
     &:not(.no-gap):not(.small-gap) {
         margin-top: -$grid-gap;
         margin-left: -$grid-gap;
@@ -68,7 +67,7 @@
             @include breakpoint($breakpoint-sm) {
                 @include generateGrid($prefix: 'sm-');
             }
-             @include breakpoint($breakpoint-xs) {
+            @include breakpoint($breakpoint-xs) {
                 @include generateGrid($prefix: 'xs-');
             }
         }
@@ -110,7 +109,7 @@
             @include breakpoint($breakpoint-sm) {
                 @include generateGrid($prefix: 'sm-', $gap-grid: $small-grid-gap);
             }
-             @include breakpoint($breakpoint-xs) {
+            @include breakpoint($breakpoint-xs) {
                 @include generateGrid($prefix: 'xs-', $gap-grid: $small-grid-gap);
             }
         }

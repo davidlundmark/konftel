@@ -64,6 +64,6 @@ ScreensizeHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function() {
     ScreensizeHandler.init();
-});
+})();

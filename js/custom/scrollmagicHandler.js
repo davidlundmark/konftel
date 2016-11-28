@@ -64,11 +64,11 @@ $(window).on('load', function() {
 
 
 
-$(document).ready(function() {
+(function() {
     $(this).on('flexslider-started', function() {
         initScrollMagic(false);
     })
-});
+})();
 
 function initScrollMagic(checkSlider) {
     //if (!$('body').hasClass('home')) {

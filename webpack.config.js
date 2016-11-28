@@ -11,7 +11,7 @@ var autoprefixer = require('autoprefixer');
 var jsFile = './src/scripts.min.js';
 var cssFile = './src/styles.min.css';
 
-var Path = require('path');
+var path = require('path');
 
 module.exports = {
     context: __dirname,
@@ -46,20 +46,20 @@ module.exports = {
                     'style-loader', // The backup style loader
                     ['css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']
                 ),
-                exclude: [/node_modules/]
+                include: path.resolve(__dirname, 'css/')
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: [/images/, /node_modules/] },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: [/fonts/, /node_modules/] }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", include: path.resolve(__dirname, 'assets/fonts/') },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', include: path.resolve(__dirname, 'assets/images/') }
         ] : [{
                 test: /\.scss$/,
                 loader: extracttextplugin.extract(
                     'style-loader', // The backup style loader
                     ['css-loader', 'postcss-loader', 'sass-loader']
                 ),
-                exclude: /node_modules/
+                include: path.resolve(__dirname, 'css/')
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: [/images/, /node_modules/] },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: [/fonts/, /node_modules/] }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", include: path.resolve(__dirname, 'assets/fonts/') },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', include: path.resolve(__dirname, 'assets/images/') }
         ]
     },
     postcss: function() {
@@ -70,7 +70,7 @@ module.exports = {
                     // 'BlackBerry >= 7',
                     // 'Chrome >= 9',
                     // 'Firefox >= 4',
-                    // 'Explorer >= 9',
+                    'Explorer >= 9',
                     // 'iOS >= 5',
                     // 'Opera >= 11',
                     // 'Safari >= 5',
@@ -87,11 +87,11 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.json'],
-        root: [Path.join(__dirname, "node_modules")],
+        root: [path.join(__dirname, "node_modules")],
         modulesDirectories: ['node_modules'],
         alias: {
-            "ScrollMagic": Path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
-            "ScrollMagic.debug": Path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'),
+            "ScrollMagic": path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
+            "ScrollMagic.debug": path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'),
         }
     },
     sassLoader: {
