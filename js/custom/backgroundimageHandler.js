@@ -3,7 +3,6 @@ var BackgroundImageHandler = {
     init: function() {
         var _backgroundImages = document.querySelectorAll('picture.background-image');
         if (_backgroundImages === null) return;
-
         $(_backgroundImages).each(function() {
             var $this = $(this);
             var $image = $this.find('> img');
@@ -17,7 +16,7 @@ var BackgroundImageHandler = {
 //#endregion
 
 (function() {
-    if (typeof useBackgroundImages !== 'undefined' && useBackgroundImages) {
+    //if (typeof useBackgroundImages !== 'undefined' && useBackgroundImages) {
         BackgroundImageHandler.init();
-    }
+    //}
 })();

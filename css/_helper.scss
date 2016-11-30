@@ -18,6 +18,11 @@
     }
 }
 
+@mixin alignItems() {
+    display: flex;
+    align-items: center;
+}
+
 @mixin createTriangle ($dir:'up', $width:10px, $height:10px, $color: $base-font-color) {
     width: 0;
     height: 0;

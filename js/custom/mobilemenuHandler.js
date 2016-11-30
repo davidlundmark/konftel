@@ -94,7 +94,7 @@ checkNavHeight: function($elem, reset) {
 //#endregion
 
 (function() {
-    if (typeof useMenuToggle !== 'undefined' && useMenuToggle) {
+    //if (typeof useMenuToggle !== 'undefined' && useMenuToggle) {
         MobileMenuHandler.init();
-    }
+    //}
 })();

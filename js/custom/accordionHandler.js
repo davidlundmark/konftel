@@ -30,7 +30,7 @@ var AccordionHandler = {
 //#endregion
 
 (function() {
-    if (typeof useAccordion !== 'undefined' && useAccordion) {
+    //if (typeof useAccordion !== 'undefined' && useAccordion) {
         AccordionHandler.init();
-    }
+    //}
 })();

@@ -3,6 +3,7 @@ require('../lib/fastclick.js');
 //#region Dekai
 deKai = {
     isMobile: false,
+    isInSitecore: false,
     //check if IE
     checkOS: function() {
         var isIE = this.detectIE();
@@ -41,6 +42,10 @@ deKai = {
         isMobile = this.isMobile;
     },
 
+    checkSitecore: function() {
+        this.isInSitecore = $('html').hasClass('sitecore') ? true : false;
+    },
+
     detectMobile: function() {
         var check = false;
         (function(a) {
@@ -68,6 +73,7 @@ deKai = {
 (function() {
     deKai.checkOS();
     deKai.checkDevice();
+    deKai.checkSitecore();
 })();
 
 $(window).on('load', function() {

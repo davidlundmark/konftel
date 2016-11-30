@@ -56,7 +56,6 @@
         .expander-trigger {
             text-decoration: none;
             //@include hoverLink($base-brand-color);
-
             .label {
                 padding-right: $gap-xs;
                 padding-bottom: 2px;
@@ -70,7 +69,7 @@
         &.is-expanded {
             > a .icon-container {
                 .icon {
-                    transform: rotate(-90deg); 
+                    transform: rotate(-90deg);
                 }
             }
         }
@@ -226,7 +225,7 @@
         width: 60%;
         text-align: center;
         padding: 0;
-        padding-bottom: $gap-half;
+        padding-bottom: $page-section-padding;
         @extend .large;
         @include breakpoint($breakpoint-lg) {
             width: 80%;
@@ -240,7 +239,7 @@
 .logos-grid {
     .section-container {
         padding: 0;
-        padding-top: $gap-half;
+        //padding-top: $gap-half;
     }
     .background-image {
         min-height: 100px;
@@ -414,6 +413,22 @@
         &-video {
             margin-bottom: $gap-double;
         }
+    }
+}
+
+.audio {
+    &.playing {
+        animation: pulse 1s linear 0s infinite alternate;
+        color: $icon-circle-hover-color;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        background-color: $icon-circle-hover-background-color;
+    }
+    100% {
+        background-color: $icon-circle-background-color;//darken($icon-circle-hover-background-color, 40%);
     }
 }
 

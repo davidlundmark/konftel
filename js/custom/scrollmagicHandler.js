@@ -1,5 +1,5 @@
 const ScrollMagic = require('ScrollMagic');
-//const ScrollMagicDebug = require('ScrollMagic.debug');
+const ScrollMagicDebug = require('ScrollMagic.debug');
 
 var ScrollmagicHandler = {
     initilized: false,
@@ -22,14 +22,14 @@ var ScrollmagicHandler = {
                 $this.addClass(elemSelector);
                 //var offset = -($(window).height() / 2);
                 //var top = $this.position().top;
-                var offset = -($(window).height() / 2) + ($this.outerHeight()/2);
+                var offset = -($(window).height() / 2) + 200;// + ($this.outerHeight()/2);
 
                 //(ScreensizeHandler.isMdOrSmaller) ? offset += 100: offset += 130; //lower values, shows earlier
 
                 // build sceness
                 var scene = new ScrollMagic.Scene({ triggerElement: '.' + elemSelector })
                     .setClassToggle('.' + elemSelector, 'active') // add class toggle
-                    //.addIndicators() // add indicators (requires plugin)
+                    .addIndicators() // add indicators (requires plugin)
                     .on('enter', function(event) {
                         event.target.removeClassToggle();
 
@@ -72,11 +72,11 @@ $(window).on('load', function() {
 
 function initScrollMagic(checkSlider) {
     //if (!$('body').hasClass('home')) {
-        if (typeof useScrollmagic !== 'undefined' && useScrollmagic) {
+        //if (typeof useScrollmagic !== 'undefined' && useScrollmagic) {
             if (checkSlider) {
                 if (typeof useSlider !== 'undefined' && useSlider) return;
             }
             ScrollmagicHandler.init();
-        }
+        //}
     //}
 }

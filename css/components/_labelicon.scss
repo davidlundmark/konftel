@@ -1,10 +1,11 @@
 .label-with-icon {
-    display: table !important;
+    @include alignItems();
+    //display: table !important;
     //width: 100%;
-    table-layout: fixed;
+    //table-layout: fixed;
     > * {
-        vertical-align: middle;
-        display: table-cell;
+        //vertical-align: middle;
+        //display: table-cell;
         &.label {
             //width: 85%;
             text-align: left;

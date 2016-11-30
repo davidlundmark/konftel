@@ -46,6 +46,8 @@
     require('./custom/cookieHandler.js');
     require('./custom/arrowdownHandler.js');
     require('./custom/matchheightHandler.js');
+    require('./custom/audioHandler.js');
+    require('./custom/loginHandler.js');
     require('./custom/dekai.js');
 
     console.log('deKai v.2-konftel');
@@ -159,7 +161,7 @@
         }
         */
 
-        if (typeof useSubMenus !== 'undefined' && useSubMenus) {
+        //if (typeof useSubMenus !== 'undefined' && useSubMenus) {
             positionSubmenus();
             $(window).on('resize', positionSubmenus);
 
@@ -179,24 +181,33 @@
                     $subMenu.css({ 'left': -(marginLeft) });
                 });
             }
-        }
+        //}
 
         $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
         //topmenuHandler.init();
 
         //fix for showing menu under sitecore toolbar
-        if (document.documentElement.className == 'sitecore') {
+        if (deKai.isInSitecore) {
+            //if(document.querySelector('.page-slider') === null) $(document.querySelector('.content-wrapper')).css({ 'padding-top': headerHeight });
             var _scRibbon = document.getElementById('scWebEditRibbon');
-            var _height = _scRibbon.offsetHeight;
-            var _timer = setInterval(function() {
-                if (_scRibbon.offsetHeight > _height) {
-                    _height = _scRibbon.offsetHeight;
-                    $('.page-header').css({ 'top': _height + 'px' });
-                    $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
-                    clearInterval(_timer);
+            if (_scRibbon === null) return;
+
+            var _height = 0;
+
+            fixRibbon();
+
+            function fixRibbon() {
+                if (_scRibbon.offsetHeight != _height) {
+                    //if (_scRibbon.offsetHeight > _height) {
+                        _height = _scRibbon.offsetHeight;
+                        $('.page-header').css({ 'top': _height });
+                        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
+                        $('.page-slider').css({ 'padding-top': _height });
+                        $(window).trigger('resize');
+                    //}
                 }
-            }, 200);
-            $(window).trigger('resize');
+                window.setTimeout(fixRibbon, 500);
+            }
         }
 
         var _backtotop = document.querySelector('.back-to-top');

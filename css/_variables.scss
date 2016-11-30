@@ -57,8 +57,8 @@ $brandon-grotesque: 'brandon-grotesque', sans-serif;
 $base-font-family: $brandon-grotesque;
 $base-font-weight: 400;
 $light-font-weight: 300;
-$medium-font-weight: 500;
-$bold-font-weight: 600;
+$medium-font-weight: 600;
+$bold-font-weight: 700;
 $base-font-size: 16px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
@@ -319,7 +319,7 @@ $icon-color: $base-font-color;
 $icon-circle-color: $light-font-color;
 $icon-circle-background-color: $base-brand-color;
 $icon-circle-size: 80px;
-$icon-circle-hover-color: $light-font-color;
+$icon-circle-hover-color: $base-font-color;
 $icon-circle-hover-background-color: $secondary-background-color;
 $icon-circle-border: null;
 $icon-circle-icon-size: 34px;
@@ -429,3 +429,11 @@ $hero-image-min-height: 340px;
 $hero-image-double-min-height: 220px;
 $hero-image-color: $light-font-color;
 $hero-image-text-shadow: none;
+
+// =================================================
+// Login
+// =================================================
+
+$login-background-color: $base-background-color;//rgba($base-background-color,0.9);
+$login-logo-width: 350px;
+$login-max-width: 500px;

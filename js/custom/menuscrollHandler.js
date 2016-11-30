@@ -71,7 +71,7 @@ var MenuScrollHandler =  {
 //#endregion
 
 $(window).on('load', function() {
-    if (typeof useMenuScrollEffect !== 'undefined' && useMenuScrollEffect) {
+    //if (typeof useMenuScrollEffect !== 'undefined' && useMenuScrollEffect) {
         MenuScrollHandler.init();
-    }
+    //}
 });

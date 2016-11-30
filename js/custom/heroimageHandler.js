@@ -15,8 +15,8 @@ var HeroImageHandler = {
 };
 //#endregion
 
-(function() {
-    if (typeof useHeroImage !== 'undefined' && useHeroImage) {
-        HeroImageHandler.init();
-    }
-})();
+// (function() {
+//     if (typeof useHeroImage !== 'undefined' && useHeroImage) {
+//         HeroImageHandler.init();
+//     }
+// })();
