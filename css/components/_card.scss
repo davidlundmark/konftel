@@ -115,7 +115,7 @@
         .no-touch & {
             .background-image {
                 @include transition(transform, 0.4s, $easeOutSine);
-                @include forceHarwareAcceleration();
+                //@include forceHarwareAcceleration();
                 will-change: transform;
             }
             &.hover {
@@ -138,9 +138,8 @@
             }
         }
     }
-    &-top {}
-    &-product {
-        //cursor: pointer;
+    &-product,
+    &-product-support {
         .card-top {
             text-align: center;
             padding-bottom: $gap;
@@ -154,6 +153,80 @@
             }
             .subtitle {
                 margin-bottom: 0;
+            }
+        }
+    }
+    // &-top {}
+    &-product {
+        //cursor: pointer;
+        padding-bottom: $gap-double;
+        @include border($dir: bottom);
+    }
+    &-product-small {
+        .background-image {
+            min-height: $card-product-small-image-height;
+        }
+    }
+    &-product-support {
+        .card-link {
+            z-index: 1;
+        }
+        .card-top {
+            padding-bottom: 0;
+        }
+        .title {
+            margin-bottom: 0;
+        }
+        .background-image {
+            background-size: contain;
+            min-height: $card-product-support-image-height;
+            @include scale(0.9);
+        }
+        // zoom effect on images
+        .no-touch & {
+            .background-image {
+                @include transition(transform, 0.2s, $easeOutSine);
+            }
+            &.hover {
+                .background-image {
+                    @include scale(1);
+                }
+            }
+        }
+    }
+    &-support {
+        .background-image {
+            min-height: $card-support-icon-height;
+        }
+        > .card {
+            &-text {
+                text-align: center;
+                > h3 {
+                    @extend .bold;
+                }
+                // a {
+                //     @include hoverLink($button-square-background-color,$button-square-hover-background-color)
+                // }
+            }
+            &-image {
+                z-index: 0;
+                .icon-center > .icon-circle {
+                    background-color: transparent;
+                    color: $base-brand-color;
+                    border: 2px solid $base-brand-color;
+                    @at-root .hover#{&} {
+                        color: $base-brand-color-dark;
+                        border-color: $base-brand-color-dark;
+                    }
+                }
+            }
+        }
+        .link {
+            text-decoration: none;
+        }
+        &.hover {
+            .link {
+                color: $base-brand-color-dark;
             }
         }
     }
@@ -279,11 +352,9 @@
         .background-image {
             min-height: $card-accessories-image-height;
         }
-
         .card-image {
             z-index: 0;
         }
-
         .card-text {
             padding-bottom: 0;
         }

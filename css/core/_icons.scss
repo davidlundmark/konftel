@@ -33,15 +33,23 @@
 
 .icon-center {
     @include centerElement();
+    line-height: 0;
 }
 
 //-----------
+
+.icon-bubble-smiley:before {
+  content: "\eae3";
+}
 
 .icon-home5:before {
   content: "\e904";
 }
 .icon-connection:before {
   content: "\e97c";
+}
+.icon-envelop3:before {
+  content: "\ea32";
 }
 .icon-download4:before {
   content: "\ec83";
@@ -78,6 +86,9 @@
 }
 .icon-music:before {
   content: "\e911";
+}
+.icon-lifebuoy:before {
+  content: "\e941";
 }
 .icon-phone:before {
   content: "\e942";
@@ -124,6 +135,10 @@
 .icon-gear:before {
   content: "\f013";
 }
+.icon-question:before {
+  content: "\f128";
+}
 .icon-bluetooth-b:before {
   content: "\f294";
 }
+

@@ -238,7 +238,7 @@
 
 .logos-grid {
     .section-container {
-        padding: 0;
+        //padding: 0;
         //padding-top: $gap-half;
     }
     .background-image {
@@ -311,6 +311,10 @@
 }
 
 .support-section {
+    background-color: $tertiary-background-color;
+}
+
+.product-support-section {
     background-color: $senary-background-color;
     a {
         @include hoverLink($light-font-color);
@@ -322,7 +326,7 @@
 }
 
 .technical-specification,
-.support-section {
+.product-support-section {
     @extend .large;
     .section-title {
         margin-bottom: $gap-double;

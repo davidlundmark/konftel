@@ -6,7 +6,7 @@ var CookieHandler = {
 
     checkCookie: function() {
         var _this = this;
-        var cookie = _this.readCookie('cookieAccepted');
+        var cookie = this.readCookie('cookieAccepted');
         var _cookie = document.querySelector('.cookie');
 
         if (_cookie === null) return;
@@ -15,14 +15,16 @@ var CookieHandler = {
 
         if (!cookie) {
             $cookie.removeClass('hide');
-            $(_cookie.querySelector('.accept')).off('click');
             $(_cookie.querySelector('.accept')).on('click', function(e) {
                 _this.createCookie('cookieAccepted', 'true', 21);
                 _this.checkCookie();
                 return false;
             });
         } else {
-            if (!$cookie.hasClass('hide')) $cookie.addClass('hide');
+            if (!$cookie.hasClass('hide')) {
+                $cookie.slideToggle();
+                //$cookie.addClass('hide');
+            } 
         }
     },
 
@@ -52,8 +54,8 @@ var CookieHandler = {
 };
 //#endregion
 
-(function() {
-    if (typeof useCookie !== 'undefined' && useCookie) {
+(function () {
+    //if (typeof useCookie !== 'undefined' && useCookie) {
         CookieHandler.init();
-    }
+    //}
 })();

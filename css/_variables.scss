@@ -15,13 +15,14 @@ $white: #fff;
 // Background Colors
 $base-background-color: #fefefe;
 $secondary-background-color : #EAECEE;
-$tertiary-background-color : #EAECEE;
+$tertiary-background-color : #F8F9F9;
 $quaternary-background-color : #2E4053;
 $quinary-background-color : #212F3C;
 $senary-background-color : #808B96;
 
 // Brand
 $base-brand-color: $color-orange;
+$base-brand-color-dark: darken($base-brand-color, 8%);
 $secondary-brand-color: #373b37;
 $tertiary-brand-color: #e0e0e0;
 
@@ -198,7 +199,7 @@ $button-solid-padding: $gap-half;
 $button-square-color: $light-font-color;
 $button-square-background-color: $base-brand-color;
 $button-square-hover-color: $button-square-color; 
-$button-square-hover-background-color: darken($base-brand-color, 8%);
+$button-square-hover-background-color: $base-brand-color-dark;
 $button-square-text-transform: uppercase;
 $button-square-border: none;
 $button-square-padding: $gap-half $gap;
@@ -353,7 +354,10 @@ $card-product-info-image-height: 400px;
 $card-product-quote-image-size: 60%;
 $card-product-quote-text-size: 40%;
 $card-product-quote-image-height: 450px;
+$card-product-small-image-height: 250px;
 $card-accessories-image-height: 220px;
+$card-support-icon-height: $icon-circle-size;
+$card-product-support-image-height: 250px;
 
 
 // =================================================
@@ -406,7 +410,7 @@ $page-body-max-width: 800px;
 // Cookie
 // =================================================
 
-$cookie-background-color: rgba($secondary-background-color, 0.98);
+$cookie-background-color: rgba($footer-background-color, 0.9);
 $cookie-color: $light-font-color;
 
 // =================================================

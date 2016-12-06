@@ -40,7 +40,7 @@
     require('./custom/heroimageHandler.js');
     require('./custom/backgroundimageHandler.js');
     //require('./custom/swipeboxHandler.js');
-    //require('./custom/carouselHandler.js');
+    require('./custom/carouselHandler.js');
     require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');
@@ -48,6 +48,7 @@
     require('./custom/matchheightHandler.js');
     require('./custom/audioHandler.js');
     require('./custom/loginHandler.js');
+    require('./custom/submenuHandler.js');
     require('./custom/dekai.js');
 
     console.log('deKai v.2-konftel');
@@ -120,7 +121,8 @@
             alert('SÖK: ' + $this.parent().find('.label').val());
         });
 
-        if (document.querySelector('.page-image') !== null) {
+        //if (document.querySelector('.page-image') !== null) {
+        if (document.querySelector('.page-slider') === null) {
             $('body').css({
                 'padding-top': $('.page-header').outerHeight()
             });
@@ -161,28 +163,6 @@
         }
         */
 
-        //if (typeof useSubMenus !== 'undefined' && useSubMenus) {
-            positionSubmenus();
-            $(window).on('resize', positionSubmenus);
-
-            function positionSubmenus() {
-                if (!ScreensizeHandler.isBigScreen) return;
-                //var $subMenus = $('.page-header li.has-child');
-                var _submenus = document.querySelectorAll('.page-header li.has-child');
-                if (_submenus === null) return;
-
-                $(_submenus).each(function() {
-                    var $this = $(this);
-                    //var $text = $this.find('.text');
-                    var $subMenu = $this.find('.submenu');
-                    var marginLeft = $subMenu.width() * 0.5;
-                    marginLeft -= $this.width() * 0.5;
-                    //$subMenu.width($text.outerWidth());
-                    $subMenu.css({ 'left': -(marginLeft) });
-                });
-            }
-        //}
-
         $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
         //topmenuHandler.init();
 
@@ -199,11 +179,11 @@
             function fixRibbon() {
                 if (_scRibbon.offsetHeight != _height) {
                     //if (_scRibbon.offsetHeight > _height) {
-                        _height = _scRibbon.offsetHeight;
-                        $('.page-header').css({ 'top': _height });
-                        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
-                        $('.page-slider').css({ 'padding-top': _height });
-                        $(window).trigger('resize');
+                    _height = _scRibbon.offsetHeight;
+                    $('.page-header').css({ 'top': _height });
+                    $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
+                    $('.page-slider').css({ 'padding-top': _height });
+                    $(window).trigger('resize');
                     //}
                 }
                 window.setTimeout(fixRibbon, 500);
