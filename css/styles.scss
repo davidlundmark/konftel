@@ -220,7 +220,7 @@
     }
 }
 
-.text-section {
+.hero-text-section {
     .section-container {
         width: 60%;
         text-align: center;
@@ -247,21 +247,32 @@
     }
 }
 
-.section-title {
-    @extend .bold;
-    text-align: center;
-    padding-bottom: $gap-double;
-    margin: 0;
-    .products-grid &,
-    .accessories-grid & {
-        margin-bottom: $gap-double;
-        border-bottom: $base-border;
+.section {
+    &-title,
+    &-subtitle {
+        text-align: center;
+        padding-bottom: $gap-double;
+        margin: 0;
     }
-    .find-product & {
-        padding-bottom: $gap-xl;
-        @include breakpoint($breakpoint-md) {
-            padding-bottom: $gap-double;
+    &-title {
+        @extend .bold;
+        text-align: center;
+        padding-bottom: $gap-double;
+        margin: 0;
+        .products-grid &,
+        .accessories-grid & {
+            margin-bottom: $gap-double;
+            border-bottom: $base-border;
         }
+        .find-product & {
+            padding-bottom: $gap-xl;
+            @include breakpoint($breakpoint-md) {
+                padding-bottom: $gap-double;
+            }
+        }
+    }
+    &-subtitle {
+        margin-top: -$gap;
     }
 }
 
@@ -273,8 +284,12 @@
 
 .buttons-section {
     .section-container {
+        width: 50%;
+        margin: 0 auto;
         text-align: center;
+        padding-top: $gap;
         .button {
+            margin-top: $gap;
             margin-right: $gap;
             &:last-child {
                 margin-right: 0;
@@ -287,12 +302,12 @@
     }
 }
 
-.technical-specification {
-    background-color: $secondary-background-color;
+.product-features-section {
+    background-color: $tertiary-background-color;
     .specificationsimage {
-        margin-bottom: $gap;
-        padding-bottom: $gap;
-        border-bottom: $secondary-border;
+        //margin-bottom: $gap;
+        //padding-bottom: $gap;
+        //border-bottom: $secondary-border;
         .background-image {
             height: 400px;
             background-size: contain;
@@ -308,29 +323,136 @@
             }
         }
     }
+    hr {
+        border-color: $secondary-border-color;
+        margin-bottom: $gap-xl;
+    }
+    .default-list {
+        padding-bottom: $gap-xl;
+        a {
+            @include hoverLink($base-font-color);
+            line-height: 1;
+        }
+        p {
+            margin-bottom: 0;
+        }
+        > li {
+            margin-bottom: $gap;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .row > .column {
+        overflow: visible;
+    }
+    + .product-tech-spec-section {
+        > .section-container {
+            padding-top: 0;
+        }
+    }
+}
+
+.product-tech-spec-section {
+    background-color: $tertiary-background-color;
+    > .section-container {
+        //padding-top: 0;
+        padding-bottom: 0;
+    }
+    .button {
+        background-color: $secondary-background-color;
+        border: none;
+        margin-bottom: $gap-double;
+    }
+    .tech-spec-container {
+        display: none;
+        //margin-top: $gap-double;
+        padding-bottom: $gap-double;
+    }
 }
 
 .support-section {
-    background-color: $tertiary-background-color;
+    background-color: $secondary-background-color;
 }
 
-.product-support-section {
+.documents-section {
     background-color: $senary-background-color;
-    a {
-        @include hoverLink($light-font-color);
-    }
     .icon {
         display: inline-block;
         margin-left: $gap-half;
     }
+    // .section-title {
+    //     margin-bottom: $gap-double;
+    //     border-bottom: $secondary-border;
+    // }
+    li {
+        @extend .bold;
+        a {
+            @include hoverLink($light-font-color);
+        }
+    }
+    .button {
+        margin-top: $gap-xs;
+    }
+    .row.support-page {
+        > .column {
+            @include breakpoint($breakpoint-md, false) {
+                margin-right: auto;
+                margin-left: auto;
+                &:nth-child(1) {
+                    > ul {
+                        float: right;
+                    }
+                }
+            }
+
+            @include breakpoint($breakpoint-md) {
+                &:nth-child(1) {
+                    margin-bottom: $gap;
+                }
+            }
+        }
+    }
 }
 
-.technical-specification,
+.product-features-section,
 .product-support-section {
     @extend .large;
-    .section-title {
-        margin-bottom: $gap-double;
-        border-bottom: $secondary-border;
+}
+
+.videos-section {
+    background-color: $secondary-background-color;
+}
+
+.faq-section {
+    ul.accordion {
+        border-left: none;
+        border-right: none;
+        li.menu-item {
+            > a {
+                padding: $gap 0;
+                @extend .bold;
+                color: $base-brand-color;
+            }
+            .no-touch & {
+                &:hover {
+                    > a {
+                        color: $base-brand-color-dark;
+                    }
+                }
+            }
+        }
+        .accordion-content {
+            padding: 0 0 $gap;
+        }
+    }
+    .faq-title {
+        @extend .bold;
+        margin-bottom: $gap;
+        margin-top: $gap-double;
+        &:first-child {
+            margin-top: $gap;
+        }
     }
 }
 
@@ -432,7 +554,7 @@
         background-color: $icon-circle-hover-background-color;
     }
     100% {
-        background-color: $icon-circle-background-color;//darken($icon-circle-hover-background-color, 40%);
+        background-color: $icon-circle-background-color; //darken($icon-circle-hover-background-color, 40%);
     }
 }
 

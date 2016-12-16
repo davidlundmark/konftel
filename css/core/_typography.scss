@@ -176,6 +176,17 @@ hr {
         max-width: $page-section-max-width - ($page-section-padding*2);
         margin: 0 auto;
     }
+    &.title-divider {
+        margin: 0;
+        padding: 0;
+        margin-bottom: $gap-double;
+    }
+}
+
+.section {
+    &-title, &-subtitle {
+        letter-spacing: 1px;
+    }
 }
 
 .uppercase {

@@ -5,12 +5,29 @@ var ExpanderHandler = {
         if (this.initialized) return;
         this.initialized = true;
 
-        var _triggers = document.querySelector('.expander-trigger');
+        var _triggers = document.querySelectorAll('.expander-trigger');
         if (_triggers === null) return;
 
-        $(_triggers).bind('click', function(e) {
-            var $expander = $(this).closest('.expander');
-            $expander.find('> .expander-content').slideToggle(400, 'easeOutSine'); // apply the toggle to the ul
+        var animating = false;
+        $(_triggers).on('click', function(e) {
+            if (animating) return;
+            var $this = $(this);
+            var $expander = $this.closest('.expander');
+            animating = true;
+            $expander.find('> .expander-content').slideToggle(400, 'easeOutSine', function() {
+                var hideText = $this.data('hide-text');
+                if (hideText) {
+                    if ($(this).is(':visible')) {
+                        $this.width($this.width());
+                        $this.text(hideText);
+                    } else {
+                        $this.text($this.data('show-text'));
+                        $this.width('');
+                    }
+                }
+
+                animating = false;
+            }); // apply the toggle to the ul
             $expander.toggleClass('is-expanded');
             e.preventDefault();
             return false;
@@ -21,7 +38,7 @@ var ExpanderHandler = {
 //#endregion
 
 (function() {
-     if (typeof useExpander !== 'undefined' && useExpander) {
+    if (typeof useExpander !== 'undefined' && useExpander) {
         ExpanderHandler.init();
     }
 })();

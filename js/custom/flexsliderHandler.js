@@ -22,9 +22,15 @@ var FlexsliderHandler = {
 
         this.$pageslider.find('.slides > li').each(function() {
             var $slide = $(this);
-            var $image = $slide.find('img');
+            var $image = $(this.querySelector('img')); //$slide.find('img');
             var src = $image.prop('currentSrc') || $image.prop('src');
-            $slide.find('.flexslider-image').css('background-image', 'url(' + src + ')');
+            var $flexsliderImage = $(this.querySelector('.flexslider-image'));
+            $flexsliderImage.css('background-image', 'url(' + src + ')');
+            //$slide.find('.flexslider-image').css('background-image', 'url(' + src + ')');
+            if($image.hasClass('use-gradient')) {
+                //$slide.find('.flexslider-image')
+                $flexsliderImage.css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(' + src + ')');
+            }
             $slide.find('picture').remove();
         });
 
@@ -78,7 +84,7 @@ var FlexsliderHandler = {
         }
         */
 
-        this.sliderHeight = ($(window).height() * 0.7) - this.menuHeight;
+        this.sliderHeight = 388;//($(window).height() * 0.7) - this.menuHeight;
 
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight

@@ -67,7 +67,7 @@ input[type="submit"] {
         }
         //@include animateLine();
         .no-touch & {
-            @include transition();
+            //@include transition();
             &:hover {
                 &:not(.button-dark) {
                     color: $button-square-hover-color;
@@ -79,6 +79,21 @@ input[type="submit"] {
                     background-color: $button-square-dark-hover-background-color;
                     //text-decoration: underline;
                 }
+            }
+        }
+    }
+    &-big {
+        padding: $button-big-padding;
+        font-size: $button-big-font-size;
+        border: $button-big-border;
+    }
+    &-brand-color {
+        color: $button-brand-color;
+        background-color: $button-brand-background-color;
+        .no-touch & {
+            &:hover {
+                color: $button-brand-hover-color;
+                background-color: $button-brand-hover-background-color;
             }
         }
     }

@@ -15,8 +15,9 @@ $white: #fff;
 // Background Colors
 $base-background-color: #fefefe;
 $secondary-background-color : #EAECEE;
-$tertiary-background-color : #F8F9F9;
-$quaternary-background-color : #2E4053;
+$tertiary-background-color : #ABB2B9;
+$quaternary-background-color : #808B96;
+//--
 $quinary-background-color : #212F3C;
 $senary-background-color : #808B96;
 
@@ -60,7 +61,7 @@ $base-font-weight: 400;
 $light-font-weight: 300;
 $medium-font-weight: 600;
 $bold-font-weight: 700;
-$base-font-size: 16px;
+$base-font-size: 18px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
 
@@ -128,7 +129,7 @@ $base-border-color: #EAECEE;
 $base-border: 1px solid $base-border-color;
 $base-border-thickness: 1px;
 $base-border-style: solid;
-$secondary-border-color : #17202A;
+$secondary-border-color : #808B96;
 $secondary-border: 1px solid $secondary-border-color;
 
 // =================================================
@@ -190,7 +191,7 @@ $button-text-transform: uppercase;
 $button-font-name: 'button';
 $button-padding: $gap-half $gap;
 $button-solid-color: $tertiary-font-color;
-$button-solid-background-color: $tertiary-background-color;
+$button-solid-background-color: $secondary-background-color;
 $button-solid-hover-color: $button-solid-color; 
 $button-solid-hover-background-color: #b6bdc4;
 $button-solid-text-transform: uppercase;
@@ -209,6 +210,13 @@ $button-square-dark-background-color: $quaternary-background-color;
 $button-square-dark-hover-color: $button-square-dark-color; 
 $button-square-dark-hover-background-color: $base-brand-color;
 $button-square-dark-border: none;
+$button-big-padding: $gap-md $gap;
+$button-big-font-size: $button-font-size + 2;
+$button-big-border: none;
+$button-brand-color: $light-font-color;
+$button-brand-background-color: $base-brand-color;
+$button-brand-hover-color: $light-font-color; 
+$button-brand-hover-background-color: $base-brand-color-dark;
 
  
 // =================================================
@@ -350,7 +358,7 @@ $card-list-item-text-second-size: 60%;
 $card-list-item-text-third-size: 35%;
 $card-product-info-image-size: 50%;
 $card-product-info-text-size: 50%;
-$card-product-info-image-height: 400px;
+$card-product-info-image-height: 320px;
 $card-product-quote-image-size: 60%;
 $card-product-quote-text-size: 40%;
 $card-product-quote-image-height: 450px;
@@ -380,6 +388,7 @@ $slider-elements-not-active-opacity: 0.5;
 $slider-figcaption-background-color: $base-brand-color;
 $slider-figcaption-color: $light-font-color;
 $slider-figcaption-text-transform: uppercase;
+$slider-figcaption-letter-spacing: 4px;
 
 // =================================================
 // Lightbox
@@ -441,3 +450,11 @@ $hero-image-text-shadow: none;
 $login-background-color: $base-background-color;//rgba($base-background-color,0.9);
 $login-logo-width: 350px;
 $login-max-width: 500px;
+
+// =================================================
+// Vex
+// =================================================
+
+$vex-content-max-width: 432px;
+$vex-content-background-color: $base-background-color;
+$vex-overlay-background-color: rgba($black, 0.7);

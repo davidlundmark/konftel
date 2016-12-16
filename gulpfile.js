@@ -16,7 +16,7 @@ var runSequence = require('run-sequence');
 //set debug = false, will uglify and more
 gulp.task('production', function() {
     debug = false;
-    runSequence('watch:sync-kund', 'webpack:watch');
+    runSequence('watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch');
 });
 
 //sync files to bellatix kund

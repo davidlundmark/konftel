@@ -419,4 +419,23 @@
             }
         }
     }
+    &-youtube {
+        > .card {
+            &-image {
+            }
+            &-text {
+                h3, a {
+                   @extend .bold;
+                }
+                a {
+                    display: inline-block;
+                    @include hoverLink($base-brand-color, $base-brand-color-dark);
+                }
+
+                .label-with-icon > *:nth-child(1) {
+                    padding-right: $gap-xs;
+                }
+            }
+        }
+    }
 }

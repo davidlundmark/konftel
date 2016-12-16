@@ -30,6 +30,7 @@
 
     //globals
     require('./custom/screensizeHandler.js');
+    require('./custom/dekai.js');
 
     //customs
     require('./custom/scrollmagicHandler.js');
@@ -49,11 +50,10 @@
     require('./custom/audioHandler.js');
     require('./custom/loginHandler.js');
     require('./custom/submenuHandler.js');
-    require('./custom/dekai.js');
+    require('./custom/vexHandler.js');
 
     console.log('deKai v.2-konftel');
 
-    //document.addEventListener("DOMContentLoaded", function() {
     (function() {
 
         //Anchor card   

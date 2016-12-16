@@ -90,14 +90,17 @@ module.exports = {
         root: [path.join(__dirname, "node_modules")],
         modulesDirectories: ['node_modules'],
         alias: {
+            "vex": 'vex-js/src/vex.js',
+            "vex-dialog": 'vex-js/node_modules/vex-dialog/src/vex.dialog.js',
             "ScrollMagic": path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
-            "ScrollMagic.debug": path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'),
+            "ScrollMagic.debug": path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js')
         }
     },
     sassLoader: {
-        includePaths: [].concat('client/style' )
-    }/*,
-    devServer: {
-        inline: true
-    }*/
+        includePaths: [].concat('client/style')
+    }
+    /*,
+        devServer: {
+            inline: true
+        }*/
 };

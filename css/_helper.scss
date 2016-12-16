@@ -226,8 +226,12 @@
     right: $right;
     bottom: $bottom;
     left: $left;
-    background-color: $background-color;
-    z-index: $z-index;
+    @if $background-color != null {
+        background-color: $background-color;
+    }
+    @if $z-index != null {
+        z-index: $z-index;
+    }
     @if $overflow !=null {
         overflow: $overflow;
     }
@@ -299,6 +303,13 @@
     @include translate(-50%, -50%);
 }
 
+@mixin centerElement3d() {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include translate3d(-50%, -50%);
+}
+
 @mixin centerVertical() {
     position: absolute;
     top: 50%;
@@ -334,6 +345,11 @@
 
 @mixin translate($x, $y) {
     transform: translate($x, $y);
+    //@include sharpen();
+}
+
+@mixin translate3d($x, $y, $z:0) {
+    transform: translate3d($x, $y, $z);
     //@include sharpen();
 }
 
