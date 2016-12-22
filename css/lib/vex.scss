@@ -91,12 +91,29 @@
     .vex-dialog-buttons {
         margin-top: $gap;
 
+        .vex-button {
+            float: right;
+            @extend .button-brand-color;
+        }
+
+        .vex-link {
+            float: left;
+            margin: 0;
+            @extend .bold;
+            line-height: 1;
+            margin-top: 8px;
+            @include hoverLink($base-font-color);
+            cursor: pointer;
+        }
+
+        /*
         > button {
             margin-left: $gap;
             &:first-child {
                 margin-left: 0;
             }
         }
+        */
     }
 
     .vex-dialog-message {
@@ -113,6 +130,12 @@
         }
     }
 }
+
+// .modal-compare {
+//     ul.default-list {
+//         padding-top: $gap;
+//     }
+// }
 
 // Prevent background scrolling when vex is open
 // https://github.com/HubSpot/vex/issues/18

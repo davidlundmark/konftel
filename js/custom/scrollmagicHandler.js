@@ -5,6 +5,7 @@ var ScrollmagicHandler = {
     initilized: false,
     init: function() {
         if (ScreensizeHandler.isSmallScreen) return;
+        if (deKai.isInSitecore) return;
         if (this.initilized) return;
         this.initilized = true;
         $('.content-wrapper').addClass('use-animation')
@@ -49,6 +50,12 @@ var ScrollmagicHandler = {
                                 $(this).addClass('active').find('> .section-container').addClass('animated fadeIn').dequeue();
                             });
                         }
+                    } else if ($this.hasClass('youtube-section')) {
+                        $parent = $this;
+                        $parent.find('> .section-container').addClass('animated fadeInLeft');
+                        var $iframe = $parent.find('iframe');
+                        var _src = $iframe.attr('src');
+                        //$iframe.attr('src', _src + (_src.indexOf('?') ? '&autoplay=1' : '?autoplay=1'));
                     } else {
                         $parent = $this;
                         $parent.find('> .section-container').addClass('animated fadeIn');
@@ -59,7 +66,8 @@ var ScrollmagicHandler = {
                             });
                         }
                     }
-                    event.scene = null;
+                    //event.scene = null;
+                    controller.removeScene(event.target);
                 })
                 .offset(offset)
                 .addTo(controller);

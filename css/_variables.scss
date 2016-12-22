@@ -15,10 +15,11 @@ $white: #fff;
 // Background Colors
 $base-background-color: #fefefe;
 $secondary-background-color : #EAECEE;
+$secondary-background-color-dark : darken($secondary-background-color, 8%);
 $tertiary-background-color : #ABB2B9;
 $quaternary-background-color : #808B96;
+$quinary-background-color : #808B96;
 //--
-$quinary-background-color : #212F3C;
 $senary-background-color : #808B96;
 
 // Brand
@@ -366,6 +367,11 @@ $card-product-small-image-height: 250px;
 $card-accessories-image-height: 220px;
 $card-support-icon-height: $icon-circle-size;
 $card-product-support-image-height: 250px;
+$card-compare-image-size: 20%;
+$card-compare-text-size: 55%;
+$card-compare-link-size: 25%;
+$card-compare-image-min-height: 50px;
+$card-compare-product-image-min-height: 150px;
 
 
 // =================================================

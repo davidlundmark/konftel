@@ -23,8 +23,20 @@ ol {
     &.list,
     &.playlist,
     &.featureslist,
-    &.default-list {
+    &.default-list,
+    &.compare-list {
         @include resetList();
+    }
+    &.compare-list {
+        margin-top: $gap;
+        @include border($dir: top)
+        li {
+            padding: $gap-half 0;
+            @include border($dir: bottom)
+        }
+        &:last-child {
+            padding-bottom: 0;
+        }
     }
     &.playlist {
         li {

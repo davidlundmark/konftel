@@ -1,33 +1,85 @@
 table {
-  border-collapse: collapse;
-  margin: $gap-half 0;
-  table-layout: fixed;
-  width: 100%;
-  border-spacing: none;
+    border-collapse: collapse;
+    margin: $gap-half 0;
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 0;
 }
 
 th {
-  @include setFont($large-font-name);
-  border-bottom: $base-border;
-  text-align: left;
+    @include setFont($large-font-name);
+    border-bottom: $base-border;
+    text-align: left;
 }
 
 td {
-  border-bottom: $base-border;
+    border-bottom: $base-border;
 }
 
 tr {
-  &.even {
-    background-color: $secondary-background-color;
-  }
+    &.even {
+        background-color: $secondary-background-color;
+    }
 }
 
-td, th {
-  padding: $gap-half;
+td,
+th {
+    padding: $gap-half;
 }
 
 tr,
 td,
 th {
-  vertical-align: middle;
+    vertical-align: middle;
+}
+
+table.compare-table {
+    margin: 0;
+    background-color: $base-background-color;
+    @include border();
+    .compare {
+        &-header {
+            background-color: $quinary-background-color;
+            color: $light-font-color;
+            th {
+                @extend .bold;
+            }
+        }
+        &-row-header {
+            @extend .medium;
+        }
+        &-row-icon {
+            text-align: center;
+            .checked {
+                color: #00CC88;
+            }
+            .unchecked {
+                color: #FF4204;
+            }
+        }
+        &-product {
+            text-align: center;
+        }
+        &-row-button {
+            .button {
+                width: 100%;
+            }
+        }
+        &-row-remove {
+          //text-align: right;
+        }
+    }
+    th {}
+    td,
+    th {
+        border: none;
+        padding: $gap-md $gap;
+    }
+    tr {
+        &:last-child {
+            td,th {
+                @include border($dir: top);
+            }
+        }
+    }
 }

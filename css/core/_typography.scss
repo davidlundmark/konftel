@@ -210,6 +210,10 @@ hr {
     font-weight: $light-font-weight;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .text-shadow {
     text-shadow: $base-text-shadow;
 }
@@ -263,4 +267,10 @@ hr {
 
 .letter-spacing-small {
     letter-spacing: 1px;
+}
+
+.overflow-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
