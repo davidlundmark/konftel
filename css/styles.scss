@@ -114,6 +114,9 @@
                 width: calc(100% - #{$gap * 2});
             }
         }
+        .button {
+            margin-top: $gap-half;
+        }
     }
     .card {
         width: calc(100% - #{$page-section-padding * 2} - #{$gap * 2});
@@ -127,6 +130,8 @@
         text-shadow: $hero-image-text-shadow;
         @include centerElement();
         @extend .letter-spacing-small;
+        @include sharpen();
+        @extend .large;
         @include headings {
             @extend .bold;
         }
@@ -288,6 +293,7 @@
         margin: 0 auto;
         text-align: center;
         padding-top: $gap;
+        @extend .button-large;
         .button {
             margin-top: $gap;
             margin-right: $gap;

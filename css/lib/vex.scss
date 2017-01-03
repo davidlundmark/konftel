@@ -19,12 +19,12 @@
 @keyframes vex-flyin {
     0% {
         opacity: 0;
-        margin-top: -$gap-double;
+        //margin-top: -$gap-double; //removing margin animation from css because margin is set in js
         //@include translateY(-$gap-double);
     }
     100% {
         opacity: 1;
-        margin-top: 0;
+        //margin-top: 0;
         //@include translateY(0);
     }
 }
@@ -32,12 +32,12 @@
 @keyframes vex-flyout {
     0% {
         opacity: 1;
-        margin-top: 0;
+        //margin-top: 0;
         //@include translateY(0);
     }
     100% {
         opacity: 0;
-        margin-top: -$gap-double;
+        //margin-top: -$gap-double;
         //@include translateY(-$gap-double);
     }
 }
@@ -64,7 +64,10 @@
     //display: table-cell;
     //vertical-align: middle;
     //padding: $gap;
-    @include centerElement3d();
+    //@include centerElement3d();
+    position: absolute;
+    left: 50%;
+    top: 50%;
     max-width: $vex-content-max-width;
     padding: $gap-double + $base-font-size;
     background-color: $vex-content-background-color;

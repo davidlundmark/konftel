@@ -88,6 +88,7 @@ input[type="submit"] {
         border: $button-big-border;
     }
     &-brand-color {
+        border: none;
         color: $button-brand-color;
         background-color: $button-brand-background-color;
         .no-touch & {

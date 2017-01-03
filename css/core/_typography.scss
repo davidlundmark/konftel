@@ -210,6 +210,14 @@ hr {
     font-weight: $light-font-weight;
 }
 
+.button-medium {
+    @include setFontSize($button-font-size-medium);
+}
+
+.button-large {
+    @include setFontSize($button-font-size-large);
+}
+
 .text-center {
     text-align: center;
 }
@@ -229,7 +237,7 @@ hr {
     font-weight: $medium-font-weight;
 }
 
-.bold {
+b,strong,.bold {
     font-weight: $bold-font-weight;
 }
 

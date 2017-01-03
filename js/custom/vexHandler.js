@@ -3,6 +3,16 @@ var Handlebars = null;
 
 //#region VexHandler
 var VexHandler = {
+    openVex: function(contentEl) {
+        var marginTop = Math.round(contentEl.offsetHeight / 2);
+        contentEl.style.marginTop = -(marginTop + 40) + 'px';
+        contentEl.style.marginLeft = -(Math.round(contentEl.offsetWidth / 2)) + 'px';
+        $(contentEl).animate({ 'marginTop': -marginTop }, 500);
+    },
+    closeVex: function(contentEl) { 
+        var marginTop = parseInt(contentEl.style.marginTop, 10) - 40;
+        $(contentEl).animate({ 'marginTop': marginTop + 'px' }, 500);
+    },
     comparePage: function() {
         var _triggers = document.querySelectorAll('.remove-table-data');
         if (_triggers === null) return;
@@ -11,7 +21,7 @@ var VexHandler = {
         $(_triggers).on('click', function(e) {
             console.log('remove cookie')
             _this.removeCookie('compare', this.getAttribute('data-id'), 21);
-                //window.location.reload(false); 
+            //window.location.reload(false); 
             var column = this.getAttribute('data-column');
 
             var elems = document.querySelector('.compare-table tr:first-child > *:nth-child(' + column + ') ~ td');
@@ -25,7 +35,7 @@ var VexHandler = {
                 // $(document.querySelector('.compare-info')).fadeOut();
                 // $(document.querySelector('.compare-table')).slideToggle();
                 // $(document.querySelector('.no-items')).fadeIn();
-                window.location.reload(false); 
+                window.location.reload(false);
             } else {
                 $(document.querySelectorAll('.compare-table tr')).each(function() {
                     $(this).find('*:nth-child(' + column + ')').remove();
@@ -45,6 +55,8 @@ var VexHandler = {
             '{{body}}' +
             '</div>';
 
+        var _this = this;
+
         $(_triggers).on('click', function(e) {
             var $this = $(this);
 
@@ -55,9 +67,50 @@ var VexHandler = {
                 body: $this.data('modal-body')
             };
 
+            vex.dialog.defaultOptions.buttons = [];
             vex.dialog.confirm({
                 unsafeMessage: template(data),
-                //message: 'Are you absolutely sure you want to destroy the alien planet?',
+                afterOpen: function() {
+                    _this.openVex(this.contentEl);
+                },
+                beforeClose: function() {
+                    _this.closeVex(this.contentEl);
+                },
+                callback: function(value) {
+                    if (value) {
+                        //console.log('Successfully destroyed the planet.')
+                    } else {
+                        //console.log('Chicken.')
+                    }
+                }
+            });
+
+            return false;
+        });
+    },
+
+    registerModal: function() {
+        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="register"]');
+        if (_triggers === null) return;
+
+        var templateRegister = document.querySelector('.register-modal');
+        templateRegister.remove();
+        $(templateRegister).removeClass('hide');
+
+        $(_triggers).on('click', function(e) {
+            var $this = $(this);
+
+            vex.defaultOptions.className = 'modal-register';
+
+            vex.dialog.defaultOptions.buttons = [];
+            vex.dialog.confirm({
+                unsafeMessage: templateRegister,
+                afterOpen: function() {
+                    _this.openVex(this.contentEl);
+                },
+                beforeClose: function() {
+                    _this.closeVex(this.contentEl);
+                },
                 callback: function(value) {
                     if (value) {
                         //console.log('Successfully destroyed the planet.')
@@ -210,6 +263,12 @@ var VexHandler = {
                         }
                     })
                 ],
+                afterOpen: function() {
+                    _this.openVex(this.contentEl);
+                },
+                beforeClose: function() {
+                    _this.closeVex(this.contentEl);
+                },
                 callback: function(value) {
                     //console.log('Choice', value);
                 }
@@ -289,12 +348,19 @@ var VexHandler = {
         Handlebars = require('../lib/handlebars-v4.0.5.js');
 
         if (typeof useModalDefault !== 'undefined' && useModalDefault) {
-            vex.dialog.defaultOptions.buttons = [];
             VexHandler.defaultModal();
-        } else if (typeof useModalCompare !== 'undefined' && useModalCompare) {
+        }
+
+        if (typeof useModalCompare !== 'undefined' && useModalCompare) {
             VexHandler.compareModal();
-        } else if (typeof useOnComparePage !== 'undefined' && useOnComparePage) {
+        }
+
+        if (typeof useOnComparePage !== 'undefined' && useOnComparePage) {
             VexHandler.comparePage();
+        }
+
+        if (typeof useModalRegister !== 'undefined' && useModalRegister) {
+            VexHandler.registerModal();
         }
     }
 })();
