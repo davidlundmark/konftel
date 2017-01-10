@@ -49,7 +49,7 @@
     require('./custom/matchheightHandler.js');
     require('./custom/audioHandler.js');
     require('./custom/loginHandler.js');
-    require('./custom/submenuHandler.js');
+    //require('./custom/submenuHandler.js');
     require('./custom/vexHandler.js');
 
     console.log('deKai v.2-konftel');
@@ -202,7 +202,7 @@
             });
         }
 
-        if (typeof useAnchor !== 'undefined' && useAnchor) {
+        //if (typeof useAnchor !== 'undefined' && useAnchor) {
             var _anchorlinks = document.querySelectorAll('a[href*="#"]:not([href="#"])');
             if (_anchorlinks !== null) {
                 $(_anchorlinks).click(function() {
@@ -218,7 +218,7 @@
                     }
                 });
             }
-        }
+        //}
 
     });
 })();

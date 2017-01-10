@@ -142,9 +142,16 @@ a,
     }
 }
 
-a.text-link {
-    @extend .medium;
-    @include animateLine();
+a {
+    &.text-link {
+        @extend .medium;
+        @include animateLine();
+    }
+
+    &.brand-link {
+        @extend .medium;
+        @include hoverLink($base-brand-color, $base-brand-color-dark);
+    }
 }
 
 hr {
@@ -184,7 +191,8 @@ hr {
 }
 
 .section {
-    &-title, &-subtitle {
+    &-title,
+    &-subtitle {
         letter-spacing: 1px;
     }
 }
@@ -237,7 +245,9 @@ hr {
     font-weight: $medium-font-weight;
 }
 
-b,strong,.bold {
+b,
+strong,
+.bold {
     font-weight: $bold-font-weight;
 }
 

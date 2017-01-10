@@ -1,5 +1,3 @@
-require('../lib/jquery.flexslider.js');
-
 //#region FlexsliderHandler
 var FlexsliderHandler = {
     $pageslider: null,
@@ -84,7 +82,7 @@ var FlexsliderHandler = {
         }
         */
 
-        this.sliderHeight = 388;//($(window).height() * 0.7) - this.menuHeight;
+        this.sliderHeight = 600;//($(window).height() * 0.7) - this.menuHeight;
 
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight
@@ -130,6 +128,7 @@ var FlexsliderHandler = {
 (function() {
     //Flex slider
     if (typeof useSlider !== 'undefined' && useSlider) {
+        require('../lib/jquery.flexslider.js');
         FlexsliderHandler.init();
     }
 })();

@@ -4,6 +4,7 @@
 
 // Brand Colors
 $color-orange: #e98f35;
+$color-blue: #00ACEC;
 
 // Grays
 $black: #000;
@@ -25,8 +26,8 @@ $senary-background-color : #808B96;
 // Brand
 $base-brand-color: $color-orange;
 $base-brand-color-dark: darken($base-brand-color, 8%);
-$secondary-brand-color: #373b37;
-$tertiary-brand-color: #e0e0e0;
+$secondary-brand-color: $color-blue;
+//$tertiary-brand-color: #e0e0e0;
 
 $light-background-color: $white;
 
@@ -252,9 +253,9 @@ $header-logo-width: 200px;
 $header-logo-width-lg: 200px;
 $header-bottom-border: none;
 $header-color: $base-brand-color;
-$header-hover-color: $base-brand-color;
+$header-hover-color: $base-brand-color-dark;
 $header-submenu-hover-color: $base-brand-color;
-$header-text-transform: uppercase;
+$header-text-transform: none;
 $header-scrolled-background-color: $header-background-color;// rgba($header-background-color,0.95);
 $header-scrolled-border-bottom: none;
 $header-font-size: $base-font-size;

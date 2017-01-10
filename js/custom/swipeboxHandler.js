@@ -1,5 +1,3 @@
-require('../lib/jquery.swipebox.js');
-
 //#region SwipeboxHandler
 var SwipeboxHandler = {
     $swipebox: null,
@@ -26,6 +24,7 @@ var SwipeboxHandler = {
 (function() {
     //Lightbox
     if (typeof useLightbox !== 'undefined' && useLightbox) {
+        require('../lib/jquery.swipebox.js');
         SwipeboxHandler.init();
     }
 })();

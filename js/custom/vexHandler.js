@@ -18,6 +18,7 @@ var VexHandler = {
         if (_triggers === null) return;
 
         var _this = this;
+
         $(_triggers).on('click', function(e) {
             console.log('remove cookie')
             _this.removeCookie('compare', this.getAttribute('data-id'), 21);
@@ -48,6 +49,8 @@ var VexHandler = {
     defaultModal: function() {
         var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="default"]');
         if (_triggers === null) return;
+
+        var _this = this;
 
         var templateDefault =
             '<p class="title">{{title}}</p>' +
@@ -92,6 +95,8 @@ var VexHandler = {
     registerModal: function() {
         var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="register"]');
         if (_triggers === null) return;
+
+        var _this = this;
 
         var templateRegister = document.querySelector('.register-modal');
         templateRegister.remove();

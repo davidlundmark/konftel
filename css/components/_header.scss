@@ -162,12 +162,19 @@
         .menu-item {
             position: relative;
             //@include animateLine($color: $header-color, $distance: -50px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
-            > .text {
-                color: $header-color;
+            > .text, > .button {
+                //color: $header-color;
                 text-transform: $header-text-transform;
                 display: block;
                 text-decoration: none;
                 user-select: none;
+                @extend .large;
+                @extend .medium;
+                letter-spacing: 1px;
+            }
+
+            > .text {
+                @include hoverLink($header-color, $header-hover-color);
             }
             // > .button {
             //     color: $header-color;
