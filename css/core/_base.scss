@@ -21,13 +21,14 @@
 
 .overlay {
     @include fixedOverlay();
+    z-index: 10001;
 }
 
 .visibility-hidden {
     visibility: hidden;
 }
 
-.no-scroll {
+.no-scroll, .vex-open {
     overflow: hidden;
     @include breakpoint($breakpoint-lg) {
         cursor: pointer; //needed for enable click event on mobile

@@ -339,6 +339,28 @@
             }
         }
     }
+    &-news-list-item {
+        padding: $gap 0;
+        > .card {
+            &-image {
+                width: $card-news-list-item-image-size;
+
+                .background-image {
+                    min-height: $card-news-list-item-image-min-height;
+                    background-size: cover;
+                }
+            }
+            &-text {
+                padding: 0 0 0 $gap-sm;
+                width: $card-news-list-item-text-size;
+                @extend .small;
+                @extend .medium;
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
     &-news {
         .background-image {
             min-height: $card-news-image-min-height;

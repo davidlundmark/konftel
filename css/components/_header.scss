@@ -30,9 +30,9 @@
         margin: 0 $gap;
         //padding: 0 $page-section-padding;
         @include clearfix();
-        &:first-child {
+        //&:first-child {
             border-bottom: $base-border;
-        }
+        //}
     }
     .logo-container {
         width: $header-logo-width;
@@ -40,7 +40,7 @@
         margin-right: $gap;
         position: relative;
         z-index: 1;
-        top: $gap;
+        top: 25px;
         > a {
             display: block;
         }

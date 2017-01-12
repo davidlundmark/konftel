@@ -20,8 +20,7 @@ $secondary-background-color-dark : darken($secondary-background-color, 8%);
 $tertiary-background-color : #ABB2B9;
 $quaternary-background-color : #808B96;
 $quinary-background-color : #808B96;
-//--
-$senary-background-color : #808B96;
+$senary-background-color : #17202A; //footer, language
 
 // Brand
 $base-brand-color: $color-orange;
@@ -61,8 +60,8 @@ $brandon-grotesque: 'brandon-grotesque', sans-serif;
 $base-font-family: $brandon-grotesque;
 $base-font-weight: 400;
 $light-font-weight: 300;
-$medium-font-weight: 600;
-$bold-font-weight: 700;
+$medium-font-weight: 500;
+$bold-font-weight: 600;
 $base-font-size: 18px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
@@ -87,16 +86,24 @@ $heading-medium-font-weight: 500;
 $heading-bold-font-weight: 600;
 
 // h1
-$h1-font-size: 50px;
-$h1-font-size-lg: 48px;
-$h1-font-size-md: 46px;
-$h1-font-size-sm: 44px;
+$h1-extra-font-size: 50px;
+$h1-extra-font-size-lg: $h1-extra-font-size - 2px;
+$h1-extra-font-size-md: $h1-extra-font-size - 4px;
+$h1-extra-font-size-sm: $h1-extra-font-size - 6px;
+
+// h1
+$h1-font-size: 32px;
+$h1-font-size-lg: $h1-font-size;
+$h1-font-size-md: $h1-font-size;
+$h1-font-size-sm: $h1-font-size;
+$h1-letter-spacing: 1.6px;
 
 // h2
 $h2-font-size: 25px;
 $h2-font-size-lg: $h2-font-size;
 $h2-font-size-md: $h2-font-size-lg;
 $h2-font-size-sm: $h2-font-size-md;
+$h2-letter-spacing: 0.8px;
 
 // h3
 $h3-font-size: 22px;
@@ -270,7 +277,7 @@ $mobile-menu-item-padding-vertical: $gap-half;
 // Footer
 // =================================================
 
-$footer-background-color: #17202A;
+$footer-background-color: $senary-background-color;
 //$footer-logo-width: 400px;
 //$footer-top-border: none; 
 $footer-color: $light-font-color;
@@ -353,6 +360,9 @@ $card-horizontal-image-min-height: 200px;
 $card-contact-image-size: 15%;
 $card-contact-text-size: 85%;
 $card-contact-image-min-height: 40px;
+$card-news-list-item-image-size: 25%;
+$card-news-list-item-text-size: 75%;
+$card-news-list-item-image-min-height: 80px;
 $card-news-image-min-height: 220px;
 $card-list-item-image-size: 35%;
 $card-list-item-text-size: 65%;

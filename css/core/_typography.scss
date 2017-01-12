@@ -28,8 +28,25 @@ h6,
     margin: 0 0 $gap-half;
 }
 
+.h1-extra {
+    //@include setFont($h1-font-name);
+    @include setFontSize($h1-extra-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h1-extra-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h1-extra-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h1-extra-font-size-sm);
+    }
+}
+
 h1,
 .h1 {
+    @extend .bold;
+    letter-spacing: $h1-letter-spacing;
+
     //@include setFont($h1-font-name);
     @include setFontSize($h1-font-size);
     @include breakpoint($breakpoint-lg) {
@@ -45,6 +62,9 @@ h1,
 
 h2,
 .h2 {
+    //@extend .medium;
+    letter-spacing: $h2-letter-spacing;
+
     @include setFontSize($h2-font-size);
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h2-font-size-lg);
@@ -145,7 +165,8 @@ a,
 a {
     &.text-link {
         @extend .medium;
-        @include animateLine();
+        //@include animateLine();
+        @include hoverLink($base-font-color, $base-brand-color);
     }
 
     &.brand-link {
@@ -190,12 +211,12 @@ hr {
     }
 }
 
-.section {
-    &-title,
-    &-subtitle {
-        letter-spacing: 1px;
-    }
-}
+// .section {
+//     &-title,
+//     &-subtitle {
+//         letter-spacing: 1px;
+//     }
+// }
 
 .uppercase {
     text-transform: uppercase;
@@ -239,6 +260,10 @@ hr {
     .light {
         font-weight: $heading-bold-font-weight;
     }
+}
+
+.normal {
+    font-weight: $base-font-weight;
 }
 
 .medium {

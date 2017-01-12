@@ -3,13 +3,26 @@ var Handlebars = null;
 
 //#region VexHandler
 var VexHandler = {
-    openVex: function(contentEl) {
+    openVex: function(contentEl, setHeight = false) {
         var marginTop = Math.round(contentEl.offsetHeight / 2);
         contentEl.style.marginTop = -(marginTop + 40) + 'px';
         contentEl.style.marginLeft = -(Math.round(contentEl.offsetWidth / 2)) + 'px';
         $(contentEl).animate({ 'marginTop': -marginTop }, 500);
+
+        if (setHeight) {
+            contentEl.style.height = contentEl.offsetHeight + 'px';
+            contentEl.style.width = contentEl.offsetWidth + 'px';
+            contentEl.className += contentEl.className ? ' open' : 'open';
+        }
+
+        var _this = this;
+        $(window).on('resize.vex', function() {
+            $(window).off('resize.vex');
+            vex.closeAll();
+        });
     },
-    closeVex: function(contentEl) { 
+    closeVex: function(contentEl) {
+        $(window).off('resize.vex');
         var marginTop = parseInt(contentEl.style.marginTop, 10) - 40;
         $(contentEl).animate({ 'marginTop': marginTop + 'px' }, 500);
     },
@@ -112,6 +125,60 @@ var VexHandler = {
                 unsafeMessage: templateRegister,
                 afterOpen: function() {
                     _this.openVex(this.contentEl);
+                },
+                beforeClose: function() {
+                    _this.closeVex(this.contentEl);
+                },
+                callback: function(value) {
+                    if (value) {
+                        //console.log('Successfully destroyed the planet.')
+                    } else {
+                        //console.log('Chicken.')
+                    }
+                }
+            });
+
+            return false;
+        });
+    },
+
+    languageModal: function() {
+        var _triggers = document.querySelector('.modal-trigger[data-modal-template="language"]');
+        if (_triggers === null) return;
+
+        var _this = this;
+
+        var templateLanguage = document.querySelector('.language-modal');
+        templateLanguage.remove();
+        $(templateLanguage).removeClass('hide');
+
+        var language = navigator.languages && navigator.languages[0] ||
+            navigator.language ||
+            navigator.userLanguage;
+
+        $(templateLanguage).find('#language').text(language.substring(0, 2));
+
+        if ($('body').hasClass('template-home')) {
+            var cookie = this.readCookie('language');
+            if (!cookie) {
+                console.log('show language!!');
+                //this.addCookie('language', true, 21);
+                $(_triggers).trigger('click');
+            } else {
+                console.log('do not show language!!');
+            }
+        }
+
+        $(_triggers).on('click', function(e) {
+            var $this = $(this);
+
+            vex.defaultOptions.className = 'modal-language';
+
+            vex.dialog.defaultOptions.buttons = [];
+            vex.dialog.confirm({
+                unsafeMessage: templateLanguage,
+                afterOpen: function() {
+                    _this.openVex(this.contentEl, true);
                 },
                 beforeClose: function() {
                     _this.closeVex(this.contentEl);
@@ -366,6 +433,23 @@ var VexHandler = {
 
         if (typeof useModalRegister !== 'undefined' && useModalRegister) {
             VexHandler.registerModal();
+        }
+
+        if (typeof useModalLanguage !== 'undefined' && useModalLanguage) {
+            VexHandler.languageModal();
+
+            $(window).on('load', function() {
+                var _triggers = document.querySelector('.modal-trigger[data-modal-template="language"]');
+                if (_triggers === null) return;
+
+                if ($('body').hasClass('template-home')) {
+                    var cookie = VexHandler.readCookie('language');
+                    if (!cookie) {
+                        VexHandler.addCookie('language', true, 21);
+                        $(_triggers).trigger('click');
+                    }
+                }
+            });
         }
     }
 })();

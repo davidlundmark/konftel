@@ -52,9 +52,7 @@
 
 .vex-overlay {
     @include fixedOverlay($background-color: $vex-overlay-background-color, $z-index: null);
-
     animation: vex-fadein 0.5s;
-
     .vex-closing & {
         animation: vex-fadeout 0.5s;
     }
@@ -66,17 +64,50 @@
     //padding: $gap;
     //@include centerElement3d();
     position: absolute;
-    left: 50%;
-    top: 50%;
-    max-width: $vex-content-max-width;
     padding: $gap-double + $base-font-size;
     background-color: $vex-content-background-color;
     animation: vex-flyin 0.5s;
-    width: 100%;
-
+    .vex:not(.modal-language) & {
+        width: 100%;
+        left: 50%;
+        top: 50%;
+        max-width: $vex-content-max-width;
+    }
+    .vex.modal-language & {
+        color: $light-font-color;
+        width: calc(100% - #{$gap-double});
+        height: calc(100% - #{$gap-double});
+        background-color: $senary-background-color;
+        vertical-align: middle;
+        left: $gap;
+        top: $gap;
+        &.open {
+            position: relative;
+            display: table-cell;
+        }
+        .languages {
+            padding: $gap 0;
+            margin: $gap-double 0;
+            border-top: 1px solid #212F3C;
+            border-bottom: 1px solid #212F3C;
+            a {
+                &:not(.active) {
+                    @extend .normal;
+                }
+            }
+        }
+        .logo {
+            width: 340px;
+            margin-bottom: $gap-double;
+        }
+        .vex-dialog-form {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    }
     .vex-closing & {
         animation: vex-flyout 0.5s;
-    }
+    } 
 }
 
 .vex-close {
@@ -89,16 +120,13 @@
     cursor: pointer;
 }
 
-.vex-dialog-form { 
-
+.vex-dialog-form {
     .vex-dialog-buttons {
         margin-top: $gap;
-
         .vex-button {
             float: right;
             @extend .button-brand-color;
         }
-
         .vex-link {
             float: left;
             margin: 0;
@@ -108,7 +136,6 @@
             @include hoverLink($base-font-color);
             cursor: pointer;
         }
-
         /*
         > button {
             margin-left: $gap;
@@ -118,13 +145,11 @@
         }
         */
     }
-
     .vex-dialog-message {
         .title {
             @extend .bold;
             margin: 0;
         }
-
         .body {
             margin-top: $gap-half;
             &:empty {
@@ -139,11 +164,10 @@
 //         padding-top: $gap;
 //     }
 // }
-
 // Prevent background scrolling when vex is open
 // https://github.com/HubSpot/vex/issues/18
 body.vex-open {
     @include breakpoint($breakpoint-lg) {
-        overflow: hidden;    
+        overflow: hidden;
     }
 }
