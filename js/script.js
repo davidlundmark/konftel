@@ -1,5 +1,3 @@
-//require('./lib/ScrollMagic.min.js');
-
 (function() {
     function CustomEvent(event, params) {
         params = params || { bubbles: false, cancelable: false, detail: undefined };
@@ -30,6 +28,7 @@
 
     //globals
     require('./custom/screensizeHandler.js');
+    require('./custom/matchheightHandler.js');
     require('./custom/dekai.js');
 
     //customs
@@ -46,9 +45,9 @@
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');
     require('./custom/arrowdownHandler.js');
-    require('./custom/matchheightHandler.js');
     require('./custom/audioHandler.js');
     require('./custom/loginHandler.js');
+    require('./custom/webapiHandler.js');
     //require('./custom/submenuHandler.js');
     require('./custom/vexHandler.js');
 
@@ -203,21 +202,23 @@
         }
 
         //if (typeof useAnchor !== 'undefined' && useAnchor) {
-            var _anchorlinks = document.querySelectorAll('a[href*="#"]:not([href="#"])');
-            if (_anchorlinks !== null) {
-                $(_anchorlinks).click(function() {
-                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                        var target = $(this.hash);
-                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                        if (target.length) {
-                            $('html, body').animate({
-                                scrollTop: target.offset().top
-                            }, 1500);
-                            return false;
-                        }
+        var _anchorlinks = document.querySelectorAll('a[href*="#"]:not([href="#"])');
+        if (_anchorlinks !== null) {
+            $(_anchorlinks).click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1500);
+                        return false;
                     }
-                });
-            }
+                } else {
+                    console.log('The element was not found:', this)
+                }
+            });
+        }
         //}
 
     });

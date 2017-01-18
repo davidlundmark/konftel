@@ -103,3 +103,21 @@ input[type="submit"] {
 .use-button-font {
     @include setFont($button-font-name);
 }
+
+.load-more {
+    margin-top: $gap-double;
+    width: 100%;
+    .loader {
+        top: 2px;
+        display: none;
+    }
+    &.loading {
+        pointer-events: none;
+        .text {
+            display: none;
+        }
+        .loader {
+            display: inline-block;
+        }
+    }
+}

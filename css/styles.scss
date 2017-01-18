@@ -75,7 +75,6 @@
         .title {
             margin-bottom: $gap;
         }
-
         label:last-child {
             margin-bottom: 0;
         }
@@ -291,6 +290,12 @@
     .card-contact {
         padding-top: 0;
     }
+    .row {
+        @include transition(opacity);
+        &.loading {
+            opacity: 0.2;
+        }
+    }
 }
 
 .news-list {
@@ -300,13 +305,11 @@
     }
     .card {
         border-bottom: $base-border;
-
         .card-text {
             @extend .medium;
             @extend .small;
         }
     }
-
     .button {
         margin-top: $gap;
         width: 100%;
