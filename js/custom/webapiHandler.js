@@ -1,7 +1,7 @@
 //#region WebApiHandler
 var WebApiHandler = {
     id: '',
-    apiUrl: window.location.origin + '/sitecore/api/ssc/konftel/WebApi/1337/GetStories',
+    apiUrl: window.location.origin + '/sitecore/api/ssc/konftel/WebApi/1337/',
     page: 2,
     pageSize: 3,
     $item: null,
@@ -67,28 +67,35 @@ var WebApiHandler = {
         //}
     },
     createStoryItems: function(_this, data) {
-        if (data.length < _this.pageSize) {
-            //end reached, hide load more
-            if (!_this.$loadmore.hasClass('hide')) _this.$loadmore.addClass('hide');
-        } else {
-            if (_this.$loadmore.hasClass('hide')) _this.$loadmore.removeClass('hide');
-        }
+        // if (data.length < _this.pageSize) {
+        //     //end reached, hide load more
+        //     if (!_this.$loadmore.hasClass('hide')) _this.$loadmore.addClass('hide');
+        // } else {
+        //     if (_this.$loadmore.hasClass('hide')) _this.$loadmore.removeClass('hide');
+        // }
 
         //loop thru result and create new <li> DOM elements
         $.each(data, function(i, item) {
             var _clone = _this.$item.clone()[0];
 
-            //Top Text
-            _clone.querySelector('.top-text').innerHTML = item.TopText;
+            if (_this.id == 'event') {
+                //Month 
+                _clone.querySelector('.month').innerHTML = item.Month;
+                //Day
+                _clone.querySelector('.date').innerHTML = item.Day;
+            } else {
+                //Top Text
+                _clone.querySelector('.top-text').innerHTML = item.TopText;
 
-            //Top Date
-            _clone.querySelector('.top-date').innerHTML = item.Date;
+                //Top Date
+                _clone.querySelector('.top-date').innerHTML = item.Date;
+
+                //Top Image
+                _clone.querySelector('.top-image').src = item.TopImage;
+            }
 
             //Title
             _clone.querySelector('.title').innerHTML = item.Title;
-
-            //Top Image
-            _clone.querySelector('.top-image').src = item.TopImage;
 
             //Summary
             _clone.querySelector('.summary').innerHTML = item.Summary;
@@ -103,6 +110,10 @@ var WebApiHandler = {
 
             _this.items.push(_clone);
             _this.$row.append($(_clone));
+
+            if (i == data.length - 1) {
+                if (item.ShowMore == false) _this.$loadmore.addClass('hide');
+            }
         });
 
         if (_this.$loadmore) {
@@ -113,7 +124,12 @@ var WebApiHandler = {
 
         MatchHeightHandler.update('.same-height .card-text .title');
 
+        if (_this.id == 'event') {
+            deKai.formatMonthNames(true);
+        }
+
         setTimeout(function() {
+
             this.$row.removeClass('loading');
         }.bind(_this), 10);
     },
@@ -121,11 +137,13 @@ var WebApiHandler = {
         if (!year) year = -1;
 
         var _this = this;
+        var _apiMethod = (this.id == 'event') ? 'GetEvents' : 'GetStories';
+
 
         $.getJSON({
             type: 'GET',
             dataType: 'json',
-            url: this.apiUrl,
+            url: this.apiUrl + _apiMethod,
             data: {
                 page: this.page,
                 pageSize: this.pageSize,
@@ -156,5 +174,10 @@ var WebApiHandler = {
         //WebApiHandler.init('pressrelease');
         var pressreleaseApi = $.extend({}, WebApiHandler);
         pressreleaseApi.init('pressrelease');
+    }
+    if (typeof useEventApi !== 'undefined' && useEventApi) {
+        //WebApiHandler.init('pressrelease');
+        var eventApi = $.extend({}, WebApiHandler);
+        eventApi.init('event');
     }
 })();

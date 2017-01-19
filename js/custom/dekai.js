@@ -66,6 +66,30 @@ deKai = {
     hideOverlay: function() {
         $('#page-wrapper').removeClass('visibility-hidden');
         $('.overlay').delay(200).fadeOut(200);
+    },
+
+    formatMonthNames: function(force) {
+        if (force ||
+            (typeof useMonthFormater !== 'undefined' && useMonthFormater)) {
+
+            var _dates = document.querySelectorAll('.row .month.format');
+
+            if (_dates !== null) {
+                var _element;
+                for (var i = 0; i < _dates.length; i++) {
+                    _element = _dates[i];
+                    _element.className = 'month';
+
+                    var date = new Date(2017,_element.innerHTML-1,1);
+                    var locale = Language;
+                    var month = date.toLocaleString(locale, { month: 'short' });
+
+                    _element.innerHTML = month;
+                }
+            }
+
+
+        }
     }
 };
 //#endregion
@@ -74,6 +98,7 @@ deKai = {
     deKai.checkOS();
     deKai.checkDevice();
     deKai.checkSitecore();
+    deKai.formatMonthNames();
 })();
 
 $(window).on('load', function() {

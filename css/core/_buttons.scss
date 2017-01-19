@@ -55,7 +55,7 @@ input[type="submit"] {
         padding: $button-square-padding;
         @extend .letter-spacing-small;
         text-transform: $button-square-text-transform;
-        &:not(.button-dark) {
+        &:not(.button-dark):not(.button-light) {
             color: $button-square-color;
             background-color: $button-square-background-color;
             border: $button-square-border;
@@ -65,11 +65,16 @@ input[type="submit"] {
             background-color: $button-square-dark-background-color;
             border: $button-square-dark-border;
         }
+        &.button-light {
+            color: $button-square-light-color;
+            background-color: $button-square-light-background-color;
+            border: $button-square-light-border;
+        }
         //@include animateLine();
         .no-touch & {
             //@include transition();
             &:hover {
-                &:not(.button-dark) {
+                &:not(.button-dark):not(.button-light) {
                     color: $button-square-hover-color;
                     background-color: $button-square-hover-background-color;
                     //text-decoration: underline;
@@ -77,6 +82,11 @@ input[type="submit"] {
                 &.button-dark {
                     color: $button-square-dark-hover-color;
                     background-color: $button-square-dark-hover-background-color;
+                    //text-decoration: underline;
+                }
+                &.button-light {
+                    color: $button-square-light-hover-color;
+                    background-color: $button-square-light-hover-background-color;
                     //text-decoration: underline;
                 }
             }
@@ -118,6 +128,12 @@ input[type="submit"] {
         }
         .loader {
             display: inline-block;
+        }
+    }
+    .text {
+        > .icon {
+            position: relative;
+            top: 1px;
         }
     }
 }

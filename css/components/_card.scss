@@ -35,6 +35,36 @@
         @include centerElement();
     }
     */
+    &-date {
+        width: 20%;
+        float: left;
+        height: 100%;
+        padding-top: $gap;
+        .month,
+        .date {
+            @extend .bold;
+            margin: 0;
+            text-align: center;
+            padding: $gap-xs 0;
+            line-height: 1;
+        }
+
+        .month {
+            text-transform: uppercase;
+            background-color: $secondary-background-color;
+        }
+
+        .date {
+            color: $light-font-color;
+            background-color: red;
+        }
+
+        & + .card-text {
+            padding-left: $gap;
+            width: 80%;
+            float: right;
+        }
+    }
     &-text {
         //@include border($dir: top);
         position: relative;
@@ -344,7 +374,6 @@
         > .card {
             &-image {
                 width: $card-news-list-item-image-size;
-
                 .background-image {
                     min-height: $card-news-list-item-image-min-height;
                     background-size: cover;
@@ -406,7 +435,7 @@
             }
         }
     }
-    &-compare-product { 
+    &-compare-product {
         .background-image {
             min-height: $card-compare-product-image-min-height;
             background-size: contain;

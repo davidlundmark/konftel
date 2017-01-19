@@ -293,7 +293,7 @@
     .row {
         @include transition(opacity);
         &.loading {
-            opacity: 0.2;
+            opacity: 0.5;
         }
     }
 }
@@ -469,6 +469,7 @@
 
 .documents-section {
     background-color: $senary-background-color;
+    color: $light-font-color;
     .icon {
         display: inline-block;
         margin-left: $gap-half;

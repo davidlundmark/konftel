@@ -161,7 +161,7 @@ var VexHandler = {
         if ($('body').hasClass('template-home')) {
             var cookie = this.readCookie('language');
             if (!cookie) {
-                console.log('show language!!');
+                //console.log('show language!!');
                 //this.addCookie('language', true, 21);
                 $(_triggers).trigger('click');
             } else {

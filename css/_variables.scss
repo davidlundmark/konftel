@@ -15,7 +15,7 @@ $white: #fff;
 
 // Background Colors
 $base-background-color: #fefefe;
-$secondary-background-color : #EAECEE;
+$secondary-background-color : #F8F9F9;// #EAECEE;
 $secondary-background-color-dark : darken($secondary-background-color, 8%);
 $tertiary-background-color : #ABB2B9;
 $quaternary-background-color : #808B96;
@@ -118,16 +118,16 @@ $h4-font-size-md: $h4-font-size-lg;
 $h4-font-size-sm: $h4-font-size-md;
 
 // h5
-$h5-font-size: $h1-font-size - 16px;
-$h5-font-size-lg: $h1-font-size-lg - 16px;
-$h5-font-size-md: $h1-font-size-md - 16px;
-$h5-font-size-sm: $h1-font-size-sm - 16px;
+$h5-font-size: 18px;
+$h5-font-size-lg: $h5-font-size;
+$h5-font-size-md: $h5-font-size-lg;
+$h5-font-size-sm: $h5-font-size-md;
 
 // h6
-$h6-font-size: $h1-font-size - 20px;
-$h6-font-size-lg: $h1-font-size-lg - 20px;
-$h6-font-size-md: $h1-font-size-md - 20px;
-$h6-font-size-sm: $h1-font-size-sm - 20px;
+$h6-font-size: 14px;
+$h6-font-size-lg: $h6-font-size;
+$h6-font-size-md: $h6-font-size-lg;
+$h6-font-size-sm: $h6-font-size-md;
 
 // =================================================
 // Border
@@ -221,6 +221,11 @@ $button-square-dark-background-color: $quaternary-background-color;
 $button-square-dark-hover-color: $button-square-dark-color; 
 $button-square-dark-hover-background-color: $base-brand-color;
 $button-square-dark-border: none;
+$button-square-light-color: $base-brand-color;
+$button-square-light-background-color: #EAECEE;
+$button-square-light-hover-color: $base-brand-color-dark; 
+$button-square-light-hover-background-color: #EAECEE;
+$button-square-light-border: none;
 $button-big-padding: $gap-md $gap;
 $button-big-font-size: $button-font-size-medium;
 $button-big-border: none;
@@ -483,4 +488,4 @@ $vex-overlay-background-color: rgba($black, 0.7);
 // =================================================
 
 $loader-thickness: 2px;
-$loader-color: $light-font-color;
+$loader-color: $base-font-color;
