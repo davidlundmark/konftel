@@ -113,6 +113,10 @@
         @include setTextFormat($base-font-name);
         @include setFontSize($small-font-size);
     }
+    @else if $font-name==$extrasmall-font-name {
+        @include setTextFormat($base-font-name);
+        @include setFontSize($extra-small-font-size);
+    }
 }
 
 @mixin setFontSize($font-size) {

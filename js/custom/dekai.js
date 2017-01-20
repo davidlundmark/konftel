@@ -72,7 +72,8 @@ deKai = {
         if (force ||
             (typeof useMonthFormater !== 'undefined' && useMonthFormater)) {
 
-            var _dates = document.querySelectorAll('.row .month.format');
+            //dates to format from int to string
+            var _dates = document.querySelectorAll('.news-grid .row .month.format, aside .card-event-list-item .month.format');
 
             if (_dates !== null) {
                 var _element;
@@ -87,8 +88,6 @@ deKai = {
                     _element.innerHTML = month;
                 }
             }
-
-
         }
     }
 };

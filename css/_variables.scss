@@ -70,6 +70,10 @@ $base-font-name: 'base';
 $small-font-size: $base-font-size - 2px;
 $small-font-name: 'small';
 
+// Small Text
+$extra-small-font-size: $base-font-size - 4px;
+$extra-small-font-name: 'extra-small';
+
 // Large Text
 $large-font-size: $base-font-size + 2px;
 $large-font-name: 'large';

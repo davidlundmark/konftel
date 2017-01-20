@@ -227,6 +227,10 @@ hr {
     line-height: 1;
 }
 
+.extra-small {
+    @include setFontSize($extra-small-font-size);
+}
+
 .small {
     @include setFontSize($small-font-size);
 }

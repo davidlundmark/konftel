@@ -668,6 +668,12 @@
     }
 }
 
+aside + aside {
+    margin-top: $gap;
+    padding-top: $gap;
+    @include border($base-brand-color, top, 3px);
+}
+
 .audio {
     &.playing {
         animation: pulse 1s linear 0s infinite alternate;

@@ -143,8 +143,10 @@
         }
     }
     #top-menu {
-        @extend .small;
+        @extend .extra-small;
+        @extend .medium;
         .menu-item {
+            top: 2px;
             > .text {
                 @include hoverLink();
             }
