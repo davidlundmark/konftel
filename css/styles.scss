@@ -352,9 +352,9 @@
                     line-height: 0;
                     padding: 0;
                     margin: 0;
-                    padding-right: $gap-xs;
-                    &:last-child {
-                        padding-right: 0;
+                    padding-left: $gap-xs;
+                    &:first-child {
+                        padding-left: 0;
                     }
                     > span {
                         border-radius: 50%;

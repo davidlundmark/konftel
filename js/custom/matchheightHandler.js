@@ -16,16 +16,21 @@ MatchHeightHandler = {
                 $(_sameheight).find('> .column').matchHeight();
             }
         }
-       
-        //only map subtitle heights to largest
-        var _subtitles = document.querySelectorAll('.same-height .card-top .subtitle');
-        if(_subtitles !== null) {
-            $(_subtitles).matchHeight();
-        }
 
-        var _titles = document.querySelectorAll('.same-height .card-text .title');
-        if(_titles !== null) {
-            $(_titles).matchHeight();
-        }
+        //only map subtitle heights to largest
+        // var _subtitles = document.querySelectorAll('.same-height .card-top .subtitle.match-height');
+        // if(_subtitles !== null) {
+        //     $(_subtitles).matchHeight();
+        // }
+
+        // var _titles = document.querySelectorAll('.same-height .card-text .title.match-height');
+        // if(_titles !== null) {
+        //     $(_titles).matchHeight();
+        // }
+
+        var _texts = document.querySelectorAll('.same-height .match-height');
+        if (_texts !== null) {
+            $(_texts).matchHeight();
+        } 
     }
 })();

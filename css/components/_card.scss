@@ -412,7 +412,7 @@
                 }
             }
             &-date {
-                padding: 0;
+                padding: 0; 
             }
         }
     }
@@ -425,6 +425,18 @@
                 //@include underlineLink();
                 //@include animateLine();
             }
+        }
+        > .card {
+            &-text {
+                h3 {
+                    @extend .medium;
+                }
+            }
+        }
+    }
+    &-contact-big {
+        .background-image {
+            min-height: $card-contact-big-image-min-height;
         }
         > .card {
             &-text {

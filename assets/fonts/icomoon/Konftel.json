@@ -1,31 +1,118 @@
 {
   "metadata": {
     "name": "Konftel",
-    "lastOpened": 1483451734906,
+    "lastOpened": 1483452188134,
     "created": 1483451713302
   },
   "iconSets": [
     {
       "selection": [
         {
+          "order": 0,
+          "id": 1,
+          "name": "expansion microphones"
+        },
+        {
+          "order": 0,
+          "id": 0,
+          "name": "headset"
+        }
+      ],
+      "id": 6,
+      "metadata": {
+        "name": "Untitled Set",
+        "importSize": {
+          "width": 32,
+          "height": 32
+        }
+      },
+      "height": 1024,
+      "prevSize": 32,
+      "icons": [
+        {
+          "id": 1,
+          "paths": [
+            "M521.6 675.2c57.6 0 105.6-48 105.6-105.6v-393.6c0-57.6-48-105.6-105.6-105.6s-105.6 48-105.6 105.6v393.6c3.2 57.6 51.2 105.6 105.6 105.6z",
+            "M713.6 876.8h-163.2v-83.2c6.4 0 12.8-3.2 19.2-3.2h6.4c44.8-9.6 80-25.6 105.6-60.8 0 0 0 0 0 0s0 0 0 0 0-3.2 3.2-3.2v0c22.4-28.8 35.2-67.2 41.6-102.4 12.8-67.2 0-124.8 0-131.2-3.2-19.2-22.4-35.2-44.8-32-19.2 3.2-35.2 22.4-32 44.8 0 3.2 19.2 112-28.8 172.8-22.4 25.6-54.4 38.4-102.4 38.4-44.8 0-80-12.8-102.4-38.4-51.2-60.8-32-169.6-28.8-172.8 3.2-19.2-9.6-41.6-32-44.8-19.2-3.2-41.6 9.6-44.8 32 0 3.2-12.8 64 0 131.2 6.4 35.2 19.2 73.6 44.8 105.6 28.8 32 64 54.4 112 64v86.4h-156.8c-22.4 0-38.4 16-38.4 38.4s16 38.4 38.4 38.4h403.2c22.4 0 38.4-16 38.4-38.4 0-25.6-16-41.6-38.4-41.6z"
+          ],
+          "attrs": [
+            {},
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "expansion microphones"
+          ]
+        },
+        {
+          "id": 0,
+          "paths": [
+            "M936.851 472.057c0-148.879-39.943-268.709-123.461-348.596-130.723-127.092-308.652-119.83-319.546-119.83-141.617 10.894-250.553 61.73-319.546 152.511-98.043 116.199-94.411 268.709-90.78 319.546-21.787 18.156-32.681 47.206-25.418 76.255l54.468 225.135c10.894 39.943 50.837 61.73 90.78 54.468v0c39.943-10.894 61.73-50.837 54.468-90.78l-58.099-225.135c-7.262-29.050-29.050-47.206-58.099-54.468-3.631-50.837 0-174.298 76.255-268.709 61.73-76.255 152.511-119.83 275.972-130.723 0 0 163.404-3.631 272.34 101.674 72.624 68.993 108.936 170.667 108.936 297.759-25.418 7.262-43.574 25.418-50.837 50.837l-58.099 225.135c-7.262 32.681 7.262 68.993 36.312 83.518-18.156 36.312-58.099 108.936-137.986 130.723-7.262-18.156-25.418-32.681-47.206-32.681h-108.936c-29.050 0-50.837 21.787-50.837 50.837s21.787 50.837 50.837 50.837h108.936c25.418 0 43.574-18.156 50.837-39.943 98.043-25.418 145.248-108.936 163.404-152.511 36.312 3.631 68.993-21.787 76.255-54.468l58.099-225.135c10.894-29.050-3.631-61.73-29.050-76.255z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "headset"
+          ]
+        }
+      ],
+      "invisible": false,
+      "colorThemes": []
+    },
+    {
+      "selection": [],
+      "id": 5,
+      "metadata": {
+        "name": "Konftel final"
+      },
+      "height": 1024,
+      "prevSize": 32,
+      "icons": [],
+      "colorThemes": [],
+      "invisible": false
+    },
+    {
+      "selection": [
+        {
           "order": 1047,
           "id": 6,
-          "name": "konftel-hd-audio"
+          "name": "konftel-hd-audio",
+          "prevSize": 32,
+          "code": 59650,
+          "codes": [
+            59650
+          ],
+          "tempChar": ""
         },
         {
           "order": 1046,
           "id": 5,
-          "name": "konftel-headphones"
+          "name": "konftel-headphones",
+          "prevSize": 32,
+          "code": 59651,
+          "tempChar": ""
         },
         {
           "order": 1045,
           "id": 4,
-          "name": "konftel-battery"
+          "name": "konftel-battery",
+          "prevSize": 32,
+          "code": 59653,
+          "tempChar": ""
         },
         {
           "order": 1044,
           "id": 3,
-          "name": "konftel-phone"
+          "name": "konftel-phone",
+          "prevSize": 32,
+          "code": 59654,
+          "tempChar": ""
         },
         {
           "order": 1039,
@@ -33,7 +120,7 @@
           "name": "konftel-event",
           "prevSize": 32,
           "code": 59649,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1043,
@@ -41,7 +128,7 @@
           "name": "konftel-meeting-size",
           "prevSize": 32,
           "code": 59648,
-          "tempChar": ""
+          "tempChar": ""
         }
       ],
       "id": 4,
@@ -64,7 +151,7 @@
           ],
           "attrs": [],
           "width": 1240,
-          "isMulticolor": true,
+          "isMulticolor": false,
           "isMulticolor2": false,
           "grid": 0,
           "tags": [
@@ -247,7 +334,7 @@
           "name": "home5",
           "id": 4,
           "code": 59652,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -1089,7 +1176,7 @@
           "name": "connection",
           "id": 124,
           "code": 59772,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -2365,7 +2452,7 @@
           "name": "envelop3",
           "id": 306,
           "code": 59954,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -3606,7 +3693,7 @@
           "name": "bubble-smiley",
           "id": 483,
           "code": 60131,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -6520,7 +6607,7 @@
           "name": "download4",
           "id": 899,
           "code": 60547,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8160,7 +8247,7 @@
           "name": "cross2",
           "id": 1133,
           "code": 60781,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8190,7 +8277,7 @@
           "name": "checkmark3",
           "id": 1137,
           "code": 60785,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8735,7 +8822,7 @@
           "name": "arrow-right4",
           "id": 1214,
           "code": 60862,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1022,
@@ -8744,7 +8831,7 @@
           "name": "arrow-down",
           "id": 1215,
           "code": 60863,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1018,
@@ -8753,7 +8840,7 @@
           "name": "arrow-down22",
           "id": 1216,
           "code": 60864,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1019,
@@ -8762,7 +8849,7 @@
           "name": "arrow-down3",
           "id": 1217,
           "code": 60865,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1020,
@@ -8771,7 +8858,7 @@
           "name": "arrow-down4",
           "id": 1218,
           "code": 60866,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8803,7 +8890,7 @@
           "name": "arrow-left4",
           "id": 1222,
           "code": 60870,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -9848,7 +9935,7 @@
           "name": "battery-charging",
           "id": 1371,
           "code": 61019,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -10011,7 +10098,7 @@
           "name": "radio-checked2",
           "id": 1394,
           "code": 61042,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -10062,7 +10149,7 @@
           "name": "circles",
           "id": 1401,
           "code": 61049,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -40740,7 +40827,7 @@
           "order": 1024,
           "prevSize": 28,
           "code": 61459,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "trash-o",
@@ -41973,7 +42060,7 @@
           "order": 1030,
           "prevSize": 28,
           "code": 61736,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "info",
@@ -43671,7 +43758,7 @@
           "order": 1012,
           "prevSize": 28,
           "code": 62100,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "percent",
@@ -53607,7 +53694,7 @@
           "id": 18,
           "prevSize": 32,
           "code": 59665,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "play, video",
@@ -54039,7 +54126,7 @@
           "id": 66,
           "prevSize": 32,
           "code": 59713,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "phone, telephone",
@@ -54048,7 +54135,7 @@
           "id": 67,
           "prevSize": 32,
           "code": 59714,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "phone-hang-up, telephone2",
@@ -54660,7 +54747,7 @@
           "id": 135,
           "prevSize": 32,
           "code": 59782,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "zoom-in, magnifier2",
@@ -54705,7 +54792,7 @@
           "id": 140,
           "prevSize": 32,
           "code": 59787,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "shrink2, collapse2",
@@ -55281,7 +55368,7 @@
           "id": 204,
           "prevSize": 32,
           "code": 59851,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "flag, report",
@@ -56010,7 +56097,7 @@
           "id": 285,
           "prevSize": 32,
           "code": 59932,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "pause2, player9",
@@ -56100,7 +56187,7 @@
           "id": 295,
           "prevSize": 32,
           "code": 59942,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "volume-medium, volume2",
@@ -56136,7 +56223,7 @@
           "id": 299,
           "prevSize": 32,
           "code": 59946,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "volume-increase, volume6",
@@ -56280,7 +56367,7 @@
           "id": 315,
           "prevSize": 32,
           "code": 59962,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "arrow-up-right2, up-right2",
@@ -56316,7 +56403,7 @@
           "id": 319,
           "prevSize": 32,
           "code": 59966,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "arrow-down-left2, down-left2",
@@ -56910,7 +56997,7 @@
           "id": 385,
           "prevSize": 32,
           "code": 60032,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "terminal, console",
@@ -57054,7 +57141,7 @@
           "id": 401,
           "prevSize": 32,
           "code": 60048,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "facebook2, brand11",
@@ -57072,7 +57159,7 @@
           "id": 403,
           "prevSize": 32,
           "code": 60050,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "whatsapp",
@@ -57108,7 +57195,7 @@
           "id": 407,
           "prevSize": 32,
           "code": 60054,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "vine",
@@ -65400,9 +65487,10 @@
     "showCodes": true,
     "gridSize": 16,
     "quickUsageToken": {
-      "Norra": "MzE3NGYxZTI0NDAyMThiMzk2NWExNWNmN2VjZDFhMTcjMSMxNDc3Mjk0ODY3IyMj"
+      "Konftel": "YmQ2YTFhMDAyOWJmYTIzMmEwNmMzMjAzMjQyMWZlNWYjMSMxNDg0MDQwODcwIyMj"
     },
     "showGrid": false
   },
-  "uid": -1
+  "uid": -1,
+  "time": 1484915581735
 }
