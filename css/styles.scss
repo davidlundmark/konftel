@@ -87,14 +87,19 @@
 }
 
 .find-dealer {
-    color: $secondary-font-color;
-    background-color: $quinary-background-color;
+    color: $light-font-color;
+    background-color: $color-dark-blue;
     hr {
         border-color: $secondary-border-color;
     }
     .playlist {
         > li {
-            border-color: $secondary-border-color;
+            color: #ABB2B9;
+            @extend .medium;
+            border-color: #17202A;
+            &:first-child {
+                margin-bottom: $gap-md;
+            }
         }
         .button {
             margin-top: $gap-half;
@@ -103,11 +108,31 @@
             margin-top: $gap-half;
         }
     }
+    select {
+        margin-bottom: $gap-double;
+    }
+    .load-more {
+        margin-top: $gap-md + $gap-half;
+
+        @include breakpoint($breakpoint-md) {
+            margin-bottom: $gap;
+        }
+    }
+
+    .row > .column {
+        &:nth-child(2) {
+            @extend .large;
+        }
+    }
 }
 
 .hero-image {
     .background-image {
         min-height: $hero-image-min-height;
+
+        @at-root .height-small#{&} { 
+            min-height: $hero-image-small-min-height;
+        }
     }
     .row {
         .background-image {
@@ -467,6 +492,29 @@
     background-color: $secondary-background-color;
 }
 
+.teaser-text-section {
+    >.section-container {
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.list-support-section {
+    > .section-container {
+        padding-bottom: 0;
+    }
+    .show-old {
+        text-align: center;
+        margin: $gap-double 0;
+    }
+    .expander-content {
+        margin-bottom: $gap-double;
+    }
+}
+
 .documents-section {
     background-color: $senary-background-color;
     color: $light-font-color;
@@ -516,7 +564,7 @@
     background-color: $secondary-background-color;
 }
 
-.faq-section {
+.faq-section, .careers-section {
     ul.accordion {
         border-left: none;
         border-right: none;
@@ -538,7 +586,7 @@
             padding: 0 0 $gap;
         }
     }
-    .faq-title {
+    .faq-title, .careers-title {
         @extend .bold;
         margin-bottom: $gap;
         margin-top: $gap-double;

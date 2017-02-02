@@ -48,6 +48,7 @@
     require('./custom/audioHandler.js');
     require('./custom/loginHandler.js');
     require('./custom/webapiHandler.js');
+    require('./custom/findDealerHandler.js');
     //require('./custom/submenuHandler.js');
     require('./custom/vexHandler.js');
 

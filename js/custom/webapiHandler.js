@@ -94,6 +94,10 @@ var WebApiHandler = {
                 _clone.querySelector('.top-image').src = item.TopImage;
             }
 
+            if(_this.id == 'pressrelease') {
+                _clone.querySelector('.top-text').className += " brand-color-secondary";
+            }
+
             //Title
             _clone.querySelector('.title').innerHTML = item.Title;
 

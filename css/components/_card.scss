@@ -366,6 +366,33 @@
             }
         }
     }
+    &-contact-row {
+        padding: $gap 0;
+        > .card {
+            &-image {
+                width: $card-contact-row-image-size;
+                img {
+                    max-width: 100%;
+                    border-radius: 50%;
+                }
+                // .background-image {
+                //     min-height: $card-contact-image-min-height;
+                // }
+            }
+            &-text {
+                padding: 0 0 0 $gap-sm;
+                width: $card-contact-row-text-size;
+                p {
+                    margin-bottom: 0;
+                    &.name,
+                    &.email,
+                    &.phone {
+                        @extend .medium;
+                    }
+                }
+            }
+        }
+    }
     &-news-list-item {
         > .card {
             &-text {
@@ -380,7 +407,6 @@
                 p {
                     font-size: $base-font-size;
                     @extend .normal;
-
                     &:last-child {
                         margin-top: $gap-half;
                     }
@@ -412,7 +438,7 @@
                 }
             }
             &-date {
-                padding: 0; 
+                padding: 0;
             }
         }
     }

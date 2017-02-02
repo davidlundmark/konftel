@@ -5,6 +5,7 @@
 // Brand Colors
 $color-orange: #e98f35;
 $color-blue: #00ACEC;
+$color-dark-blue: #212F3C;
 
 // Grays
 $black: #000;
@@ -36,7 +37,7 @@ $secondary-font-color: #ABB2B9;
 $tertiary-font-color: #808B96;
 
 $dark-font-color: $base-font-color;
-$light-font-color: $white;
+$light-font-color: #fefefe;//$white;
 
 //Text shadow
 $base-text-shadow: 0px 0px 15px #000000;//2px 4px 3px rgba(0,0,0,0.3);
@@ -259,6 +260,8 @@ $link-hover-color: $base-brand-color;
 $page-section-padding: $gap-double;
 $page-section-padding-md: $gap-double $gap;
 $page-section-max-width: 1200px;
+$page-section-narrow-max-width: 800px;
+$page-section-extra-narrow-max-width: 400px;
 
 // =================================================
 // Header
@@ -377,8 +380,8 @@ $card-list-item-image-size: 35%;
 $card-list-item-text-size: 65%;
 $card-list-item-image-min-height: 118px;
 $card-list-item-text-first-size: 5%;
-$card-list-item-text-second-size: 60%;
-$card-list-item-text-third-size: 35%;
+$card-list-item-text-second-size: 70%;
+$card-list-item-text-third-size: 25%;
 $card-product-info-image-size: 50%;
 $card-product-info-text-size: 50%;
 $card-product-info-image-height: 320px;
@@ -395,6 +398,9 @@ $card-compare-link-size: 25%;
 $card-compare-image-min-height: 50px;
 $card-compare-product-image-min-height: 150px;
 $card-contact-big-image-min-height: 300px;
+$card-contact-row-image-size: 25%;
+$card-contact-row-text-size: 75%;
+$card-contact-row-image-min-height: 80px;
 
 
 // =================================================
@@ -471,6 +477,7 @@ $hero-image-min-height: 340px;
 $hero-image-double-min-height: 220px;
 $hero-image-color: $light-font-color;
 $hero-image-text-shadow: none;
+$hero-image-small-min-height: 220px;
 
 // =================================================
 // Login

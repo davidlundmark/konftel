@@ -45,7 +45,6 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-
         &.bottom {
             background-position: 50% 100%;
         }
@@ -63,12 +62,16 @@
             position: absolute;
             @include unsharpen();
             color: $slider-figcaption-color;
+            text-align: center;
             > img {
                 margin-bottom: $gap;
             }
-            @include headings,p {
-                text-transform: $slider-figcaption-text-transform;
-                letter-spacing: $slider-figcaption-letter-spacing;
+            @include headings,
+            p {
+                &.title {
+                    text-transform: $slider-figcaption-text-transform;
+                    letter-spacing: $slider-figcaption-letter-spacing;
+                }
                 //margin: 0 0 $gap-xs;
                 &:last-child {
                     margin: 0;
