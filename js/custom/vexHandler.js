@@ -3,7 +3,7 @@ var Handlebars = null;
 
 //#region VexHandler
 var VexHandler = {
-    openVex: function(contentEl, setHeight = false) {
+    openVex: function(contentEl, setHeight) {
         var marginTop = Math.round(contentEl.offsetHeight / 2);
         contentEl.style.marginTop = -(marginTop + 40) + 'px';
         contentEl.style.marginLeft = -(Math.round(contentEl.offsetWidth / 2)) + 'px';

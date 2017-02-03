@@ -113,12 +113,10 @@
     }
     .load-more {
         margin-top: $gap-md + $gap-half;
-
         @include breakpoint($breakpoint-md) {
             margin-bottom: $gap;
         }
     }
-
     .row > .column {
         &:nth-child(2) {
             @extend .large;
@@ -129,8 +127,7 @@
 .hero-image {
     .background-image {
         min-height: $hero-image-min-height;
-
-        @at-root .height-small#{&} { 
+        @at-root .height-small#{&} {
             min-height: $hero-image-small-min-height;
         }
     }
@@ -323,9 +320,30 @@
     }
 }
 
+.documents-list,
 .news-list {
     .section-title {
         text-align: left;
+    }
+    .icon {
+        margin-left: $gap-half;
+    }
+    .button {
+        width: 100%;
+        .icon {
+            font-size: $button-big-font-size - 2px;
+        }
+    }
+}
+
+.documents-list {
+    .section-title {
+        padding-bottom: $gap;
+    }
+}
+
+.news-list {
+    .section-title {
         padding-bottom: 0;
     }
     .card {
@@ -337,10 +355,6 @@
     }
     .button {
         margin-top: $gap;
-        width: 100%;
-        .icon {
-            font-size: $button-big-font-size - 2px;
-        }
     }
 }
 
@@ -393,6 +407,16 @@
                 .role {
                     @extend .normal;
                 }
+            }
+        }
+        .next-article {
+            margin-top: $gap-double;
+            @include border($base-brand-color, top, 3px);
+            @include border($base-brand-color, bottom, 3px);
+
+            .text {
+                @extend .medium;
+                margin: $gap-md 0;
             }
         }
     }
@@ -564,7 +588,8 @@
     background-color: $secondary-background-color;
 }
 
-.faq-section, .careers-section {
+.faq-section,
+.careers-section {
     ul.accordion {
         border-left: none;
         border-right: none;
@@ -586,7 +611,8 @@
             padding: 0 0 $gap;
         }
     }
-    .faq-title, .careers-title {
+    .faq-title,
+    .careers-title {
         @extend .bold;
         margin-bottom: $gap;
         margin-top: $gap-double;

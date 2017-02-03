@@ -13,7 +13,7 @@
             background-color: $login-background-color;
             padding: $page-section-padding;
             color: $base-font-color;
-            max-width: $login-max-width;
+            max-width: $login-max-width !important;
         }
     }
     .logo-container {
