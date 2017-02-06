@@ -156,7 +156,26 @@ var VexHandler = {
             navigator.language ||
             navigator.userLanguage;
 
-        $(templateLanguage).find('#language').text(language.substring(0, 2));
+        var twoLetterCode = '';
+        if (language) {
+            var twoLetterCode = language.substring(0, 2);
+            //remove this later
+            $(templateLanguage).find('#language').text(language.substring(0, 2));
+        }
+
+        var _continueText = templateLanguage.querySelector('.language-' + twoLetterCode);
+        //show 'Continue in ...' in users native browser language, if not supported, show default text
+        if (_continueText === null) {
+            _continueText = templateLanguage.querySelector('.language-default');
+        }
+
+        $(_continueText).removeClass('hide');
+
+        var _findDealerLink = templateLanguage.querySelector('.findadealar');
+        $(_findDealerLink).on('click', function(e) {
+            $(window).trigger('resize.vex');
+            return false;
+        });
 
         if ($('body').hasClass('template-home')) {
             var cookie = this.readCookie('language');
@@ -165,7 +184,7 @@ var VexHandler = {
                 //this.addCookie('language', true, 21);
                 $(_triggers).trigger('click');
             } else {
-                console.log('do not show language!!');
+                console.log('Do not show language, cookie already set.');
             }
         }
 
