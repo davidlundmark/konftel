@@ -516,6 +516,25 @@
             padding-bottom: 0;
         }
     }
+    &-uc-info {
+        > .card {
+            &-image {
+                padding-top: $gap;
+                vertical-align: top;
+                width: $card-uc-info-image-size;
+                .background-image {
+                    height: $card-uc-info-image-height;
+                }
+            }
+            &-text {
+                vertical-align: top;
+                width: $card-uc-info-text-size;
+                @include breakpoint($breakpoint-md, false) {
+                    padding-left: $gap;
+                }
+            }
+        }
+    }
     &-product-info {
         > .card {
             &-image {

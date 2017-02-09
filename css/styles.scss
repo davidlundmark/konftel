@@ -320,6 +320,30 @@
     }
 }
 
+.uc-grid {
+    .section-title {
+        text-transform: uppercase;
+    }
+    .uc-info-title {
+        text-transform: uppercase;
+        @extend .medium;
+        width: $card-product-info-image-size;
+        text-align: center;
+    }
+    .devconnect {
+        position: absolute;
+        top: 90px;
+        width: 250px;
+        height: 100px;
+        display: block;
+        background-repeat: no-repeat;
+        background-position: 0% 55%;
+        background-size: 35%;
+        //padding-bottom: 130%;
+        z-index: 99;
+    }
+}
+
 .documents-list,
 .news-list {
     .section-title {
@@ -413,7 +437,6 @@
             margin-top: $gap-double;
             @include border($base-brand-color, top, 3px);
             @include border($base-brand-color, bottom, 3px);
-
             .text {
                 @extend .medium;
                 margin: $gap-md 0;

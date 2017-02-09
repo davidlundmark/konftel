@@ -24,13 +24,13 @@ ol {
     &.playlist,
     &.featureslist,
     &.default-list,
-    &.compare-list {
+    &.compare-list,
+    &.dash {
         @include resetList();
     }
     &.compare-list {
         margin-top: $gap;
-        @include border($dir: top)
-        li {
+        @include border($dir: top) li {
             padding: $gap-half 0;
             @include border($dir: bottom)
         }
@@ -68,6 +68,25 @@ ol {
         padding-bottom: $gap;
         &:last-child {
             padding-bottom: 0;
+        }
+    }
+    &.dash {
+        padding-left: $gap !important;
+        li {
+            @extend .medium;
+            @extend .large;
+            a {
+                @extend .normal;
+            }
+            .icon {
+                margin-left: $gap-xs;
+            }
+            &:before {
+                display: inline-block;
+                content: "-";
+                width: $gap;
+                margin-left: -$gap;
+            }
         }
     }
 }
