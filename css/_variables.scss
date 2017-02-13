@@ -16,7 +16,7 @@ $white: #fff;
 
 // Background Colors
 $base-background-color: #fefefe;
-$secondary-background-color : #F8F9F9;// #EAECEE;
+$secondary-background-color : #EAECEE;// #F8F9F9;// ;
 $secondary-background-color-dark : darken($secondary-background-color, 8%);
 $tertiary-background-color : #ABB2B9;
 $quaternary-background-color : #808B96;
@@ -91,10 +91,10 @@ $heading-medium-font-weight: 500;
 $heading-bold-font-weight: 600;
 
 // h1
-$h1-extra-font-size: 50px;
-$h1-extra-font-size-lg: $h1-extra-font-size - 2px;
-$h1-extra-font-size-md: $h1-extra-font-size - 4px;
-$h1-extra-font-size-sm: $h1-extra-font-size - 6px;
+$h1-extra-font-size: 72px;
+$h1-extra-font-size-lg: 56px;
+$h1-extra-font-size-md: 30px;
+$h1-extra-font-size-sm: 30px;
 
 // h1
 $h1-font-size: 32px;
@@ -284,6 +284,8 @@ $header-font-size: $base-font-size;
 // =================================================
 
 $mobile-menu-item-padding-vertical: $gap-half;
+$mobile-menu-background-color: $senary-background-color;
+$mobile-menu-border-color: #212F3C;
 
 // =================================================
 // Footer
@@ -365,6 +367,7 @@ $card-overlay-opacity: 0.5;
 $card-text-padding: $gap 0;
 $card-secondary-color: $light-font-color;
 $card-image-min-height: 380px;
+$card-image-min-height-lg: 330px;
 $card-image-min-height-sm: 250px;
 $card-horizontal-image-size: 30%;
 $card-horizontal-text-size: 70%;
@@ -468,8 +471,10 @@ $select-background-color: $base-background-color;
 $select-color: $base-brand-color;
 $select-border-radius: 0;
 $select-background-image: $path-images+'arrow-down.svg';
-$select-text-transform: uppercase;
+$select-text-transform: normal;
 $select-border-color: $base-background-color;
+$select-font-size: $base-font-size;
+$select-font-weight: $medium-font-weight; 
 $input-border-radius: 0;
 
 // =================================================
@@ -504,3 +509,10 @@ $vex-overlay-background-color: rgba($black, 0.7);
 
 $loader-thickness: 2px;
 $loader-color: $base-font-color;
+
+// =================================================
+// Sidenav
+// =================================================
+
+$sidenav-width: 250px;
+$sidenav-transition-duration: 0.4s;

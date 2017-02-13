@@ -85,14 +85,14 @@ select {
     color: $select-color;
     border-color: $select-border-color;
     border-radius: $select-border-radius;
-    @extend .bold;
+    font-weight: $select-font-weight;
     @extend .letter-spacing-small;
-    font-size: $button-square-font-size;
+    font-size: $select-font-size;
 }
 
 textarea {
     resize: vertical;
-}
+} 
 
 [type="checkbox"],
 [type="radio"] {

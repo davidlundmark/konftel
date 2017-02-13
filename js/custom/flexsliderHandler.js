@@ -25,7 +25,7 @@ var FlexsliderHandler = {
             var $flexsliderImage = $(this.querySelector('.flexslider-image'));
             $flexsliderImage.css('background-image', 'url(' + src + ')');
             //$slide.find('.flexslider-image').css('background-image', 'url(' + src + ')');
-            if($image.hasClass('use-gradient')) {
+            if ($image.hasClass('use-gradient')) {
                 //$slide.find('.flexslider-image')
                 $flexsliderImage.css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(' + src + ')');
             }
@@ -48,15 +48,15 @@ var FlexsliderHandler = {
                 this.$figCaption = this.$pageslider.find('.flexslider-figcaption');
                 this.setTopPadding();
 
-                $(window).resize(function() {
+                $(window).on('resize.flexslider', function() {
                     this.setTopPadding();
                 }.bind(this));
 
-                $(window).scroll(function() {
+                $(window).on('scroll.flexslider', function() {
                     this.handleScroll();
                 }.bind(this));
 
-                $(document).trigger('flexslider-started',new CustomEvent('flexslider-started'));
+                $(document).trigger('flexslider-started', new CustomEvent('flexslider-started'));
 
             }.bind(this),
             after: function(slider) {}
@@ -64,6 +64,7 @@ var FlexsliderHandler = {
 
     },
     setTopPadding: function() {
+        $(window).off('resize.flexslider');
         this.menuHeight = this.$pageheader.outerHeight();
         this.$pageslider.css({
             'top': this.menuHeight
@@ -82,7 +83,15 @@ var FlexsliderHandler = {
         }
         */
 
-        this.sliderHeight = 600;//($(window).height() * 0.7) - this.menuHeight;
+        this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
+
+        if (ScreensizeHandler.isSmOrSmaller) {
+            this.sliderHeight = 200;
+        } else if (ScreensizeHandler.isMdOrSmaller) {
+            this.sliderHeight = 320;
+        } else if (ScreensizeHandler.isLgOrSmaller) {
+            this.sliderHeight = 400;
+        }
 
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight
@@ -132,5 +141,3 @@ var FlexsliderHandler = {
         FlexsliderHandler.init();
     }
 })();
-
-

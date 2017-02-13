@@ -4,6 +4,7 @@
     width: 100%;
     top: 0;
     z-index: 1000 !important;
+    //transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad, margin-left 0.3s $easeOutCubic;
     transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
     transform: translateZ(0);
     //backface-visibility: hidden;
@@ -12,7 +13,7 @@
         background-color: $header-scrolled-background-color;
         border-bottom: $header-scrolled-border-bottom;
         .mobile-extra {
-            background-color: rgba($tertiary-background-color, 0.95);
+            background-color: rgba($secondary-background-color, 0.95);
         }
     }
     &.slide-up {
@@ -31,7 +32,7 @@
         //padding: 0 $page-section-padding;
         @include clearfix();
         //&:first-child {
-            border-bottom: $base-border;
+        border-bottom: $base-border;
         //}
     }
     .logo-container {
@@ -113,8 +114,8 @@
                         font-size: 20px;
                     }
                     .icon {
-                        color: $base-brand-color;
-                        margin-top: 5px; //align fix
+                        color: $base-font-color;
+                        margin-top: -5px; //align fix
                     }
                 }
                 &.open {
@@ -164,7 +165,8 @@
         .menu-item {
             position: relative;
             //@include animateLine($color: $header-color, $distance: -50px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
-            > .text, > .button {
+            > .text,
+            > .button {
                 //color: $header-color;
                 text-transform: $header-text-transform;
                 display: block;
@@ -174,7 +176,6 @@
                 @extend .medium;
                 letter-spacing: 1px;
             }
-
             > .text {
                 @include hoverLink($header-color, $header-hover-color);
             }
@@ -283,7 +284,7 @@
         //padding-right: 0;
         padding-left: 0;
         .burger {
-            @include burger($color: $header-color);
+            @include burger($color: $base-font-color);
         }
         @include breakpoint($breakpoint-lg) {
             display: block;
@@ -304,7 +305,7 @@
     @include breakpoint($breakpoint-lg) {
         display: block;
         text-align: center;
-        background-color: $tertiary-background-color;
+        background-color: $secondary-background-color;
         ul,
         ol {
             @include horizontalList();
@@ -315,35 +316,42 @@
 }
 
 #mobile-menu {
-
     .accordion {
         //padding: $gap;
         border: none;
         //@include border($base-brand-color, top, 3px);
         //@include border($dir: bottom);
-        .menu-item > {
-            a,
-            span {
-                padding-top: $mobile-menu-item-padding-vertical;
-                padding-bottom: $mobile-menu-item-padding-vertical;
-                border: none;
+        .menu-item {
+            @include border($mobile-menu-border-color, bottom);
+            & > {
+                a,
+                span {
+                    padding-top: $mobile-menu-item-padding-vertical;
+                    padding-bottom: $mobile-menu-item-padding-vertical;
+                    border: none;
+                }
+                //@include border($dir: bottom);
+                //border: none;
+                //background-color: rgba($white, 0);
             }
-            //@include border($dir: bottom);
-            //border: none;
-            //background-color: rgba($white, 0);
         }
     }
     a {
+        background-color: transparent;
+        @include hoverLink($base-brand-color, $base-brand-color-dark);
+        @extend .large;
+        @extend .normal;
         pointer-events: auto;
-        text-transform: uppercase;
-        > span { 
+        //text-transform: uppercase;
+        > span {
             touch-action: none;
             pointer-events: none;
         }
     }
     .content {
+        padding-top: $mobile-menu-item-padding-vertical;
         //@include border($dir: right);
-        background-color: $header-background-color;
+        background-color: $mobile-menu-background-color;
         position: absolute;
         //right: 0;
         left: 0;
@@ -351,12 +359,19 @@
         cursor: pointer;
     }
     .blocker {
+        display: none;
         position: absolute;
-        right: 0; //$sidenav-width;
-        width: 100%;
+        //right: 0; //$sidenav-width;
+        left: 0;
+        top: 0;
+        width: 100vw;//100%;
         height: 100%;
-        background-color: rgba($white, 0);
+        background-color: rgba($white, 0.2);
         cursor: pointer;
+
+        // @at-root .open#{&} {
+        //     display: block;
+        // }
     }
     // .bottom {
     //     padding: 0 $page-section-padding $gap;

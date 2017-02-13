@@ -31,6 +31,8 @@ h6,
 .h1-extra {
     //@include setFont($h1-font-name);
     @include setFontSize($h1-extra-font-size);
+    font-weight: $heading-light-font-weight;
+    
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-font-size-lg);
     }

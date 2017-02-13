@@ -18,6 +18,9 @@
         position: relative;
         .background-image {
             min-height: $card-image-min-height;
+            @include breakpoint($breakpoint-lg) {
+                min-height: $card-image-min-height-lg;
+            }
             @include breakpoint($breakpoint-sm) {
                 min-height: $card-image-min-height-sm;
             }

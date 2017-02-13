@@ -15,11 +15,13 @@ var MobileMenuHandler = {
                 var $target = $($this.data('target'));
                 $target.toggleClass('open');
 
-                $('.page-header').toggleClass('menu-open')
+                $(document.querySelector('.page-header')).toggleClass('menu-open')
                 $('body').toggleClass('no-scroll');
+                $(document.querySelectorAll('.content-wrapper')).toggleClass('sidenav-open');
 
                 var $content = $target.find('.content');
                 var $blocker = $target.find('.blocker');
+                $blocker.fadeToggle();
                 var $triggers = $content.find('.accordion-trigger');
 
                 if ($target.hasClass('open')) { //menu is open

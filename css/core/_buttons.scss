@@ -115,6 +115,10 @@ input[type="submit"] {
     }
 }
 
+.rounded-corners {
+    border-radius: $button-border-radius !important;
+}
+
 .use-button-font {
     @include setFont($button-font-name);
 }

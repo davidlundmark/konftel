@@ -68,7 +68,7 @@ module.exports = {
                 browsers: [
                     // 'Android >= 2.3',
                     // 'BlackBerry >= 7',
-                    // 'Chrome >= 9',
+                    'Chrome >= 9',
                     // 'Firefox >= 4',
                     'Explorer >= 9',
                     // 'iOS >= 5',

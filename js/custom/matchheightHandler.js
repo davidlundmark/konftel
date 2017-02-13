@@ -32,5 +32,15 @@ MatchHeightHandler = {
         if (_texts !== null) {
             $(_texts).matchHeight();
         } 
+
+        var _texts2 = document.querySelectorAll('.same-height .match-height-title');
+        if (_texts2 !== null) {
+            $(_texts2).matchHeight();
+        } 
+
+        var _texts3 = document.querySelectorAll('.same-height .match-height-text');
+        if (_texts3 !== null) {
+            $(_texts3).matchHeight();
+        } 
     }
 })();

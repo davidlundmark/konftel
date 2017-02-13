@@ -83,7 +83,9 @@
             }
         }
 
-        $(document.querySelector('.page-header .search .icon-container')).on('click triggered-click', function(e) {
+        var _searchButtons = document.querySelectorAll('.page-header .search .icon-container');
+        $(_searchButtons).on('click triggered-click', function(e) {
+            console.log('yeah')
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
@@ -163,7 +165,7 @@
         }
         */
 
-        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
+        //$('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
         //topmenuHandler.init();
 
         //fix for showing menu under sitecore toolbar
