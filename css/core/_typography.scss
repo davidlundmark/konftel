@@ -32,7 +32,6 @@ h6,
     //@include setFont($h1-font-name);
     @include setFontSize($h1-extra-font-size);
     font-weight: $heading-light-font-weight;
-    
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-font-size-lg);
     }
@@ -44,11 +43,25 @@ h6,
     }
 }
 
+.h1-extra-secondary {
+    //@include setFont($h1-font-name);
+    @include setFontSize($h1-extra-secondary-font-size);
+    font-weight: $heading-light-font-weight;
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h1-extra-secondary-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h1-extra-secondary-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h1-extra-secondary-font-size-sm);
+    }
+}
+
 h1,
 .h1 {
     @extend .bold;
     letter-spacing: $h1-letter-spacing;
-
     //@include setFont($h1-font-name);
     @include setFontSize($h1-font-size);
     @include breakpoint($breakpoint-lg) {
@@ -66,7 +79,6 @@ h2,
 .h2 {
     //@extend .medium;
     letter-spacing: $h2-letter-spacing;
-
     @include setFontSize($h2-font-size);
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h2-font-size-lg);
@@ -171,7 +183,6 @@ a {
         //@include animateLine();
         @include hoverLink($base-font-color, $base-brand-color);
     }
-
     &.brand-link {
         @extend .medium;
         @include hoverLink($base-brand-color, $base-brand-color-dark);
@@ -220,7 +231,6 @@ hr {
 //         letter-spacing: 1px;
 //     }
 // }
-
 .uppercase {
     text-transform: uppercase;
 }
@@ -260,6 +270,10 @@ hr {
 
 .text-shadow {
     text-shadow: $base-text-shadow;
+}
+
+.italic {
+    font-style: italic;
 }
 
 @include headings {
@@ -323,4 +337,19 @@ strong,
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.tag {
+    background-color: #FBEBDA;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 4px;
+    font-size: $extra-extra-small-font-size;
+    display: inline-block;
+    @extend .bold;
+
+    &-light {
+        background-color: $base-background-color;
+        color: $base-font-color;
+    }
 }

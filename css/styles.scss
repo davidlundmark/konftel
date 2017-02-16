@@ -17,6 +17,7 @@
     }
 }
 
+.filter-academy,
 .find-product,
 .find-dealer {
     .button {
@@ -382,8 +383,12 @@
     }
 }
 
-.article-section {
+.article-section,
+.academy-section {
     article {
+        .icon {
+            font-size: 14px;
+        }
         .image {
             margin-bottom: $gap-double;
         }
@@ -394,14 +399,6 @@
         }
         p {
             @extend .large;
-        }
-        .icon {
-            font-size: 14px;
-        }
-        .article-details {
-            @extend .small;
-            @extend .medium;
-            margin-bottom: $gap-lg;
         }
         .article-bottom {
             .addthis_toolbox {
@@ -432,6 +429,69 @@
                     @extend .normal;
                 }
             }
+        }
+    }
+}
+
+.academy-section {
+    article {
+        .icon {
+            font-size: 14px;
+        }
+        .main-link {
+            > a {
+                display: inline-block;
+            }
+            &.top {
+                margin-bottom: $gap-double;
+                margin-top: 0;
+            }
+            &.bottom {
+                margin-top: $gap-double;
+                margin-bottom: 0;
+            }
+        }
+        .video-container {
+            margin: $gap-md 0;
+        }
+        .download-link {
+            @extend .medium;
+            .icon {
+                margin-left: $gap-half;
+            }
+        }
+        .article-bottom {
+            padding: $gap 0 $gap-double;
+        }
+        .column-addthis {
+            overflow: visible;
+        }
+        .related-tags {
+            padding: $gap 0;
+            @include border($dir: top);
+            @include border($dir: bottom);
+            .title {
+                @extend .italic;
+                @extend .medium;
+                margin-bottom: $gap;
+            }
+            .button {
+                pointer-events: none;
+                margin-right: $gap-md;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.article-section {
+    article {
+        .article-details {
+            @extend .small;
+            @extend .medium;
+            margin-bottom: $gap-lg;
         }
         .next-article {
             margin-top: $gap-double;
@@ -609,6 +669,30 @@
 
 .videos-section {
     background-color: $secondary-background-color;
+}
+
+.filter-academy {
+    background-color: $secondary-background-color;
+}
+
+.academy-aside {
+    background-color: $academy-aside-background-color;
+    padding: $gap-double;
+    height: 100%;
+    &-title {
+        @extend .bold;
+        margin-bottom: $gap;
+        text-align: center;
+    }
+    &-item {
+        @extend .large;
+        @extend .bold;
+        padding: $gap 0;
+        @include border($dir: top, $thickness: 3px);
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
 }
 
 .faq-section,

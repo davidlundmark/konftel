@@ -10,6 +10,9 @@
         //display: table-cell;
         &:nth-child(1) {
             padding-right: $gap-half;
+            @at-root .small-gap#{&} {
+                padding-right: 0;
+            }
         }
         &.label {
             //width: 85%;

@@ -75,6 +75,10 @@ $small-font-name: 'small';
 $extra-small-font-size: $base-font-size - 4px;
 $extra-small-font-name: 'extra-small';
 
+// Small Text
+$extra-extra-small-font-size: $base-font-size - 5px;
+$extra-extra-small-font-name: 'extra-extra-small';
+
 // Large Text
 $large-font-size: $base-font-size + 2px;
 $large-font-name: 'large';
@@ -95,6 +99,11 @@ $h1-extra-font-size: 72px;
 $h1-extra-font-size-lg: 56px;
 $h1-extra-font-size-md: 30px;
 $h1-extra-font-size-sm: 30px;
+
+$h1-extra-secondary-font-size: 52px;
+$h1-extra-secondary-font-size-lg: 52px;
+$h1-extra-secondary-font-size-md: 32px;
+$h1-extra-secondary-font-size-sm: 32px;
 
 // h1
 $h1-font-size: 32px;
@@ -516,3 +525,10 @@ $loader-color: $base-font-color;
 
 $sidenav-width: 250px;
 $sidenav-transition-duration: 0.4s;
+
+// =================================================
+// Academy
+// =================================================
+
+$academy-aside-background-color: #F8F9F9;
+

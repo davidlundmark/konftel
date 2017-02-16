@@ -55,16 +55,30 @@
         padding: 0 $page-section-padding;
         height: 0;
         will-change: opacity;
+        &.academy-figcaption {
+            max-width: $page-section-narrow-max-width;
+        }
         .content {
-            //@include translateY(-50%);
-            @include translate(-50%, -50%);
-            left: 50%;
-            position: absolute;
             @include unsharpen();
             color: $slider-figcaption-color;
-            text-align: center;
-            > img {
-                margin-bottom: $gap;
+            position: absolute;
+            //@include translateY(-50%);
+            &:not(.academy-content) {
+                @include translate(-50%, -50%);
+                text-align: center;
+                left: 50%;
+            }
+            &.academy-content {
+                //max-width: $page-section-narrow-max-width;
+                @include translate(0, -50%);
+                @include border($base-brand-color, $dir: left, $thickness: 6px);
+                padding-left: $gap + 6px;
+                .title {
+                    line-height: 1;
+                }
+                .tag {
+                    margin-bottom: $gap-half;
+                }
             }
             @include headings,
             p {

@@ -465,12 +465,45 @@
     }
     &-contact-big {
         .background-image {
-            min-height: $card-contact-big-image-min-height;
+            min-height: 0;
+            padding-top: 56.25%;
         }
         > .card {
             &-text {
                 h3 {
                     @extend .medium;
+                }
+            }
+        }
+    }
+    &-academy {
+        &:not(.academy-featured) {
+            .background-image {
+                min-height: 0;
+                padding-bottom: 56.25%;
+            }
+            @include border($dir: top);
+        }
+        > .card {
+            &-text {
+                padding-bottom: $gap-half;
+                padding-top: $gap-md;
+                .title {
+                    @extend .bold;
+                }
+                .summary {
+                    @extend .large;
+                }
+            }
+            &-top {
+                .tag {
+                    vertical-align: top;
+                }
+            }
+            &-button {
+                > a {
+                    display: inline-block;
+                    margin-bottom: 0;
                 }
             }
         }
