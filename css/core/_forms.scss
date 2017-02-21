@@ -47,10 +47,12 @@ select {
     border-radius: $base-border-radius;
     padding: $text-input-padding;
     appearance: none;
+    color: #8a8a8a;
     //box-shadow: none;
     margin-bottom: $gap-half;
     @include transition(border-color);
     width: 100%;
+    -webkit-text-fill-color: #8a8a8a;
     &:focus {
         border-color: darken($base-border-color, 10%);
         outline: none;
@@ -92,7 +94,7 @@ select {
 
 textarea {
     resize: vertical;
-} 
+}
 
 [type="checkbox"],
 [type="radio"] {

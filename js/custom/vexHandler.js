@@ -71,8 +71,6 @@ var VexHandler = {
             '{{body}}' +
             '</div>';
 
-        var _this = this;
-
         $(_triggers).on('click', function(e) {
             var $this = $(this);
 
@@ -81,6 +79,47 @@ var VexHandler = {
             var data = {
                 title: $this.data('modal-title'),
                 body: $this.data('modal-body')
+            };
+
+            vex.dialog.defaultOptions.buttons = [];
+            vex.dialog.confirm({
+                unsafeMessage: template(data),
+                afterOpen: function() {
+                    _this.openVex(this.contentEl);
+                },
+                beforeClose: function() {
+                    _this.closeVex(this.contentEl);
+                },
+                callback: function(value) {
+                    if (value) {
+                        //console.log('Successfully destroyed the planet.')
+                    } else {
+                        //console.log('Chicken.')
+                    }
+                }
+            });
+
+            return false;
+        });
+    },
+
+    titleModal: function() {
+        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="title"]');
+        if (_triggers === null) return;
+
+        var _this = this;
+
+        var templateTitle = '<h2 class="title">{{title}}</h2>';
+
+        console.log(_triggers)
+
+        $(_triggers).on('click', function(e) {
+            //var $this = $(e.target);
+
+            vex.defaultOptions.className = 'modal-title';
+            var template = Handlebars.compile(templateTitle);
+            var data = {
+                title: this.getAttribute('data-modal-title')
             };
 
             vex.dialog.defaultOptions.buttons = [];
@@ -439,23 +478,28 @@ var VexHandler = {
         Handlebars = require('../lib/handlebars-v4.0.5.js');
 
         if (typeof useModalDefault !== 'undefined' && useModalDefault) {
-            VexHandler.defaultModal();
+            var defaultVexHandler = $.extend({}, VexHandler);
+            defaultVexHandler.defaultModal();
         }
 
         if (typeof useModalCompare !== 'undefined' && useModalCompare) {
-            VexHandler.compareModal();
+            var compareVexHandler = $.extend({}, VexHandler);
+            compareVexHandler.compareModal();
         }
 
         if (typeof useOnComparePage !== 'undefined' && useOnComparePage) {
-            VexHandler.comparePage();
+            var comparePageVexHandler = $.extend({}, VexHandler);
+            comparePageVexHandler.comparePage();
         }
 
         if (typeof useModalRegister !== 'undefined' && useModalRegister) {
-            VexHandler.registerModal();
+            var registerVexHandler = $.extend({}, VexHandler);
+            registerVexHandler.registerModal();
         }
 
         if (typeof useModalLanguage !== 'undefined' && useModalLanguage) {
-            VexHandler.languageModal();
+            var languageVexHandler = $.extend({}, VexHandler);
+            languageVexHandler.languageModal();
 
             $(window).on('load', function() {
                 var _triggers = document.querySelector('.modal-trigger[data-modal-template="language"]');
@@ -469,6 +513,11 @@ var VexHandler = {
                     }
                 }
             });
+        }
+
+        if (typeof useModalTitle !== 'undefined' && useModalTitle) {
+            var titleVexHandler = $.extend({}, VexHandler);
+            titleVexHandler.titleModal();
         }
     }
 })();

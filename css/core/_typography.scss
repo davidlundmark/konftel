@@ -347,9 +347,43 @@ strong,
     font-size: $extra-extra-small-font-size;
     display: inline-block;
     @extend .bold;
-
     &-light {
         background-color: $base-background-color;
         color: $base-font-color;
+    }
+}
+
+blockquote {
+    margin: $gap 0;
+    padding: $gap 112px;
+    position: relative;
+    color: #8a8a8a;
+    text-align: center;
+    @include setFontSize($blockquote-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($blockquote-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($blockquote-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($blockquote-font-size-sm);
+    }
+    &:before,
+    &:after {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        font-size: 80px;
+        line-height: 1;
+        top: 0;
+    }
+    &:before {
+        left: 48px;
+        content: "\201C";
+    }
+    &:after {
+        right: 48px;
+        content: "\201D";
     }
 }

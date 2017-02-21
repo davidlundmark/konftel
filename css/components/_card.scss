@@ -143,13 +143,13 @@
         }
         // zoom effect on images
         .no-touch & {
-            .background-image {
+            .background-image, .image {
                 @include transition(transform, 0.4s, $easeOutSine);
                 //@include forceHarwareAcceleration();
                 will-change: transform;
             }
             &.hover {
-                .background-image {
+                .background-image, .image {
                     @include scale(1.12);
                 }
             }
@@ -168,6 +168,7 @@
             }
         }
     }
+    &-support-form,
     &-product,
     &-product-support {
         .card-top {
@@ -260,12 +261,24 @@
             }
         }
     }
+    &-mediabank {
+        > .card {
+            &-top {
+                text-align: center;
+                @extend .bold;
+                margin-bottom: $gap;
+                text-transform: uppercase;
+            }
+        }
+        @include border($dir: bottom);
+    }
     &-horizontal {
         width: 100%;
         display: table;
         table-layout: fixed;
         position: relative;
         > .card {
+            //&-video,
             &-link,
             &-image,
             &-text {
@@ -300,6 +313,28 @@
             &-sm {
                 @include breakpoint($breakpoint-sm) {
                     @include breakTable();
+                }
+            }
+        }
+    }
+    &-support-form {
+        > .card {
+            &-text {
+                width: $card-support-form-text-size;
+                .title {
+                    margin-bottom: $gap;
+                }
+
+                .button {
+                    width: 100%;
+                }
+            }
+            &-image {
+                width: $card-support-form-image-size;
+                .background-image {
+                    height: $card-support-form-image-height;
+                    //max-height: $card-product-info-image-max-height;
+                    //min-height: $card-product-info-image-min-height;
                 }
             }
         }
@@ -465,8 +500,9 @@
     }
     &-contact-big {
         .background-image {
-            min-height: 0;
-            padding-top: 56.25%;
+            min-height: $card-contact-big-image-min-height;
+            // min-height: 0;
+            // padding-top: 56.25%;
         }
         > .card {
             &-text {
@@ -482,7 +518,16 @@
                 min-height: 0;
                 padding-bottom: 56.25%;
             }
-            @include border($dir: top);
+            &:not(.card-featured-picker) {
+                @include border($dir: top);
+            }
+            &.card-featured-picker {
+                > .card {
+                    &-text {
+                        padding-top: 0;
+                    }
+                }
+            }
         }
         > .card {
             &-text {

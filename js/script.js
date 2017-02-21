@@ -106,22 +106,22 @@
             }
         });
 
-        $(document.querySelector('.page-header .search .label')).keypress(function(e) {
-            if (e.which == 13) {
-                alert('SÖK: ' + $(this).val());
-            }
-        });
+        // $(document.querySelector('.page-header .search .label')).keypress(function(e) {
+        //     if (e.which == 13) {
+        //         alert('SÖK: ' + $(this).val());
+        //     }
+        // });
 
-        $(document.querySelector('#mobile-menu .search .label')).keypress(function(e) {
-            if (e.which == 13) {
-                alert('SÖK: ' + $(this).val());
-            }
-        });
+        // $(document.querySelector('#mobile-menu .search .label')).keypress(function(e) {
+        //     if (e.which == 13) {
+        //         alert('SÖK: ' + $(this).val());
+        //     }
+        // });
 
-        $(document.querySelector('#mobile-menu .search .icon-container')).on('click', function(e) {
-            var $this = $(this);
-            alert('SÖK: ' + $this.parent().find('.label').val());
-        });
+        // $(document.querySelector('#mobile-menu .search .icon-container')).on('click', function(e) {
+        //     var $this = $(this);
+        //     alert('SÖK: ' + $this.parent().find('.label').val());
+        // });
 
         //if (document.querySelector('.page-image') !== null) {
         if (document.querySelector('.page-slider') === null) {

@@ -17,6 +17,7 @@
     }
 }
 
+.support-form-section,
 .filter-academy,
 .find-product,
 .find-dealer {
@@ -187,9 +188,17 @@
 }
 
 .subscribe-section {
+    .card {
+        .card-text {
+            text-align: center !important;
+            @include breakpoint($breakpoint-md, false) {
+                padding-right: 20% !important;
+            }
+        }
+    }
     .subscribe-form {
         padding: $page-section-padding;
-        background-color: $quaternary-background-color;
+        background-color: #2E4053;
         text-align: center;
         color: $light-font-color;
         input,
@@ -198,10 +207,16 @@
         }
         input {
             border: none;
+            border-radius: 4px 0px 0px 4px !important;
         }
-        .button {}
+        .button {
+            border-radius: 0px 4px 4px 0px;
+        }
         @include headings {
             @extend .bold;
+        }
+        .input-title {
+            letter-spacing: 1px;
         }
         .form-elements {
             width: 60%;
@@ -476,7 +491,7 @@
                 margin-bottom: $gap;
             }
             .button {
-                pointer-events: none;
+                //pointer-events: none;
                 margin-right: $gap-md;
                 &:last-child {
                     margin-right: 0;
@@ -484,6 +499,10 @@
             }
         }
     }
+}
+
+.academy-featured-picker-section {
+    background-color: $secondary-background-color;
 }
 
 .article-section {
@@ -595,6 +614,16 @@
     }
 }
 
+.support-form-section {
+    .card {
+        .card-text {
+            @include breakpoint($breakpoint-md, false) {
+                padding-right: 15% !important;
+            }
+        }
+    }
+}
+
 .support-section {
     background-color: $secondary-background-color;
 }
@@ -669,6 +698,12 @@
 
 .videos-section {
     background-color: $secondary-background-color;
+}
+
+.list-academy-section {
+    &.list-related {
+        background-color: $septenary-background-color;
+    }
 }
 
 .filter-academy {
@@ -760,6 +795,19 @@
         > .icon {
             font-size: $small-font-size;
         }
+    }
+}
+
+.snippet {
+    &.grey-border {
+        @include border($thickness: 8px);
+        padding: $gap-xl;
+        margin: $gap 0;
+    }
+    &.beige-background {
+        background-color: #FBEBDA;
+        padding: $gap-xl;
+        margin: $gap 0;
     }
 }
 

@@ -60,7 +60,7 @@ body {
     margin: 0 auto;
     width: auto;
     &:not(.full-width) {
-        &:not(.narrow-width):not(.extra-narrow-width) {
+        &:not(.narrow-width):not(.extra-narrow-width):not(.extra-narrow-secondary-width) {
             max-width: $page-section-max-width;
         }
         &.narrow-width {
@@ -68,6 +68,9 @@ body {
         }
         &.extra-narrow-width {
             max-width: $page-section-extra-narrow-max-width;
+        }
+        &.extra-narrow-secondary-width {
+            max-width: $page-section-extra-narrow-secondary-max-width;
         }
         padding: $page-section-padding;
         @include breakpoint($breakpoint-md) {
