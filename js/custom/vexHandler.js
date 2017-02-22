@@ -111,7 +111,7 @@ var VexHandler = {
 
         var templateTitle = '<h2 class="title">{{title}}</h2>';
 
-        console.log(_triggers)
+        //console.log(_triggers)
 
         $(_triggers).on('click', function(e) {
             //var $this = $(e.target);
@@ -125,6 +125,43 @@ var VexHandler = {
             vex.dialog.defaultOptions.buttons = [];
             vex.dialog.confirm({
                 unsafeMessage: template(data),
+                afterOpen: function() {
+                    _this.openVex(this.contentEl);
+                },
+                beforeClose: function() {
+                    _this.closeVex(this.contentEl);
+                },
+                callback: function(value) {
+                    if (value) {
+                        //console.log('Successfully destroyed the planet.')
+                    } else {
+                        //console.log('Chicken.')
+                    }
+                }
+            });
+
+            return false;
+        });
+    },
+
+    imageModal: function() {
+        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="image"]');
+        if (_triggers === null) return;
+
+        var _this = this;
+
+        //console.log(_triggers)
+
+        $(_triggers).on('click', function(e) {
+            var $this = $(e.target);
+            var templateImage = $this.closest('.card').prop('outerHTML');
+
+            vex.defaultOptions.className = 'modal-image';
+
+            vex.dialog.defaultOptions.buttons = [];
+            vex.dialog.confirm({
+                unsafeMessage: templateImage,
+                //unsafeMessage: template(data),
                 afterOpen: function() {
                     _this.openVex(this.contentEl);
                 },
@@ -518,6 +555,11 @@ var VexHandler = {
         if (typeof useModalTitle !== 'undefined' && useModalTitle) {
             var titleVexHandler = $.extend({}, VexHandler);
             titleVexHandler.titleModal();
+        }
+
+        if (typeof useModalImage !== 'undefined' && useModalImage) {
+            var imageVexHandler = $.extend({}, VexHandler);
+            imageVexHandler.imageModal();
         }
     }
 })();

@@ -143,14 +143,18 @@
         }
         // zoom effect on images
         .no-touch & {
-            .background-image, .image {
+            .background-image,
+            .image {
                 @include transition(transform, 0.4s, $easeOutSine);
                 //@include forceHarwareAcceleration();
                 will-change: transform;
             }
             &.hover {
-                .background-image, .image {
+                .background-image {
                     @include scale(1.12);
+                }
+                .image {
+                    @include scale(1.05);
                 }
             }
         }
@@ -269,8 +273,31 @@
                 margin-bottom: $gap;
                 text-transform: uppercase;
             }
+            &-image {
+                .background-image {
+                    min-height: 0;
+                    padding-bottom: 70%;
+                }
+            }
+            &-text,
+            &-button {
+                @extend .large;
+            }
+            &-text {
+                .title {
+                    @extend .bold;
+                }
+                padding-bottom: $gap-half;
+            }
+            &-button {
+                @extend .bold;
+                .icon {
+                    margin-left: $gap-half;
+                }
+            }
         }
         @include border($dir: bottom);
+        padding-bottom: $gap;
     }
     &-horizontal {
         width: 100%;
@@ -324,7 +351,6 @@
                 .title {
                     margin-bottom: $gap;
                 }
-
                 .button {
                     width: 100%;
                 }
@@ -594,7 +620,9 @@
             z-index: 0;
         }
         .card-text {
+            padding-top: $gap-half;
             padding-bottom: 0;
+            @extend .large;
         }
     }
     &-uc-info {
@@ -615,6 +643,33 @@
                 }
             }
         }
+    }
+    &-interoperability {
+        > .card {
+            &-image {
+                width: $card-interoperability-image-size;
+                .background-image {
+                    height: $card-interoperability-image-height;
+                }
+            }
+            &-text {
+                vertical-align: top;
+                @extend .large;
+                //padding: $gap;
+                width: $card-interoperability-text-size;
+            }
+        }
+    }
+    &-office {
+        > .card {
+            &-text {
+                @extend .large;
+                .title {
+                    @extend .bold;
+                }
+            }
+        }
+        @include border($dir: bottom);
     }
     &-product-info {
         > .card {

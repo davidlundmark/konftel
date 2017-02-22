@@ -219,7 +219,7 @@
             will-change: auto;
             visibility: visible;
             //@include scaleX($scale);
-            transform: scaleX(1) translate3d(0, 0, 0);
+            transform: scaleX($scale) translate3d(0, 0, 0);
         }
     }
 }

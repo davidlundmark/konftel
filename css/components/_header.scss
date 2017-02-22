@@ -196,10 +196,13 @@
             a {
                 //@include animateLine($thickness: 2px, $distance: 2px);
                 //@include sharpen();
+                &.selected {
+                    @include animateLine($thickness: 2px, $scale: 0.95);
+                }
             }
             > span {
                 cursor: default;
-                .submenu-icon {
+                .submenu-icon { 
                     display: inline-block;
                     content: '';
                     @include createTriangle('down', 6px, 6px, $color: $base-brand-color);

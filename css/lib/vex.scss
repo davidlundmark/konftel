@@ -73,6 +73,11 @@
         top: 50%;
         max-width: $vex-content-max-width;
     }
+    .vex.modal-image & {
+        .modal-trigger {
+            @extend .hide;
+        }
+    }
     .vex.modal-language & {
         color: $light-font-color;
         width: calc(100% - #{$gap-double});

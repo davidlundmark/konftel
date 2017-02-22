@@ -126,6 +126,68 @@
     }
 }
 
+.freshdesk-section {
+    .required {
+        color: red;
+        &-text {
+            margin-bottom: 0;
+        }
+    }
+    .freshdesk-msg {
+        margin-top: $gap;
+        margin-bottom: $gap;
+        padding: $gap-double;
+        background-color: $septenary-background-color;
+        &.freshdesk-success {
+            text-align: center;
+            .section-subtitle {
+                &:last-child {
+                    padding-bottom: 0;
+                }
+                > span {
+                    @extend .bold;
+                }
+            }
+        }
+        &.freshdesk-error {
+            .title {
+                @extend .medium;
+            }
+            pre {
+                margin-bottom: $gap;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .freshdesk-form {
+        margin-top: $gap;
+    }
+    label {
+        @extend h3;
+        .icon {
+            margin-left: $gap-half;
+        }
+    }
+    textarea,
+    select,
+    input {
+        margin-bottom: 0;
+        + label {
+            margin-top: $gap;
+        }
+    }
+    select {
+        border-color: $base-border-color;
+    }
+    .freshdesk-product-template {
+        margin-top: $gap;
+        padding: $gap;
+        @include border($base-brand-color);
+    }
+}
+
 .hero-image {
     .background-image {
         min-height: $hero-image-min-height;
@@ -184,6 +246,86 @@
     }
     .button {
         margin-top: $gap-md;
+    }
+}
+
+.mediabank-list {
+    background-color: $septenary-background-color;
+}
+
+.mediabank-list-product {
+    .section-title {
+        a {
+            @extend .bold;
+        }
+    }
+    .no-items {
+        text-align: center;
+    }
+}
+
+.interoperability-section {
+    .show-full {
+        text-align: center;
+    }
+    .interoperability-table-content {
+        padding-top: 0;
+    }
+    .interoperability-table {
+        @extend .large;
+        table {
+            margin-top: $gap-double;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+        thead,
+        tbody,
+        tfoot {
+            border: 1px solid #f1f1f1;
+            background-color: #fefefe;
+        }
+        thead,
+        tfoot {
+            background: #f8f8f8;
+            color: #0a0a0a;
+            th {
+                @extend .bold;
+            }
+            @include breakpoint($breakpoint-lg) {
+                display: none;
+            }
+        }
+        td,
+        th {
+            padding: $gap-half $gap;
+            color: #17202A;
+            vertical-align: middle;
+            @include breakpoint($breakpoint-lg, false) {
+                height: 66px;
+            }
+            @include breakpoint($breakpoint-lg) {
+                border-bottom: none;
+                padding: 0 $gap;
+            }
+            &.kon-td1 {
+                @include breakpoint($breakpoint-lg) {
+                    font-weight: $bold-font-weight;
+                    padding-top: $gap;
+                }
+            }
+            &.kon-td4 {
+                @include breakpoint($breakpoint-lg) {
+                    padding-bottom: $gap;
+                }
+            }
+        }
+        tr,
+        td {
+            @include breakpoint($breakpoint-lg) {
+                display: block;
+            }
+        }
     }
 }
 
@@ -493,6 +635,7 @@
             .button {
                 //pointer-events: none;
                 margin-right: $gap-md;
+                margin-bottom: $gap-md;
                 &:last-child {
                     margin-right: 0;
                 }

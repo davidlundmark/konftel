@@ -25,6 +25,7 @@
     //require('./lib/prism.js');
     //require('./lib/fastclick.js');
     require('./lib/picturefill.js');
+    //require('./lib/tooltip.js');
 
     //globals
     require('./custom/screensizeHandler.js');
