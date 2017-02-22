@@ -17,6 +17,7 @@
     }
 }
 
+.find-accessories,
 .support-form-section,
 .filter-academy,
 .find-product,
@@ -40,6 +41,28 @@
         .button {
             margin-top: $gap-half;
         }
+    }
+}
+
+.find-accessories {
+    background-color: $secondary-background-color;
+
+    input.accessories-input {
+        margin: 0;
+    }
+
+    .middle-text {
+        position: absolute;
+        line-height: 1;
+        left: -$gap-half;
+        margin-bottom: 0;
+        bottom: $gap-md;
+        @include translateX(-100%);
+        @extend .bold;
+    }
+
+    .overflow-visible {
+        overflow: visible !important;
     }
 }
 
@@ -644,6 +667,12 @@
     }
 }
 
+.head-office-grid {
+    > .section-container {
+        @include border($dir: bottom);
+    }
+}
+
 .academy-featured-picker-section {
     background-color: $secondary-background-color;
 }
@@ -767,8 +796,26 @@
     }
 }
 
+.support-cards {
+    text-align: center;
+    .card {
+        @include breakpoint($breakpoint-lg) {
+            margin-bottom: $gap;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        @include breakpoint($breakpoint-lg, false) {
+            margin-right: $gap-double*2;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
 .support-section {
-    background-color: $secondary-background-color;
+    background-color: $septenary-background-color;
 }
 
 .teaser-text-section {

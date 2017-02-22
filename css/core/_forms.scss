@@ -74,6 +74,12 @@ select {
 
 input {
     border-radius: $input-border-radius !important;
+    &.accessories-input {
+        background-image: url($path-images+'search.svg');
+        background-size: 15px;
+        background-position: right $gap center;
+        background-repeat: no-repeat;
+    }
 }
 
 select {
@@ -91,6 +97,7 @@ select {
     font-weight: $select-font-weight;
     @extend .letter-spacing-small;
     font-size: $select-font-size;
+    -webkit-text-fill-color: $base-brand-color;
 }
 
 textarea {

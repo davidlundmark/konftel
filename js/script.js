@@ -57,6 +57,35 @@
 
     (function() {
 
+        if (typeof useAccessoriesSearch !== 'undefined' && useAccessoriesSearch) {
+            var _accButton = document.getElementById('accessories-search-button');
+            if (_accButton !== null) {
+                var _accSelect = document.getElementById('acc_select_product');
+                var _accInput = document.getElementById('acc_search_field');
+                $(_accButton).on('click', function(e) {
+                    var _selectVal = $(_accSelect).find('option:selected').val();
+                    var _inputVal = $(_accInput).val();
+
+                    if(_selectVal == 'All' && !_inputVal)
+                    {
+                        console.log('empty');
+                        return;
+                    }
+
+                    if(_selectVal != 'All' && _inputVal) {
+                        console.log('båda');
+                    }
+                    else if(_selectVal != 'All') {
+                        console.log('sel');
+                    }
+                    else if(_inputVal) {
+                        console.log('inp');
+                    }
+                    return false;
+                });
+            }
+        }
+
         //Anchor card   
         if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
             if (!deKai.isMobile) {

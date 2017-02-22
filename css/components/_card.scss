@@ -230,6 +230,9 @@
         }
     }
     &-support {
+        @include breakpoint($breakpoint-lg,false) {
+            display: inline-block;
+        }
         .background-image {
             min-height: $card-support-icon-height;
         }
@@ -660,6 +663,7 @@
             }
         }
     }
+    &-office-head,
     &-office {
         > .card {
             &-text {
@@ -667,8 +671,24 @@
                 .title {
                     @extend .bold;
                 }
+                p { 
+                    margin: 0;
+                }
             }
         }
+
+    }
+    &-office-head {
+        > .card {
+            &-text {
+                a {
+                    //@include hoverLink($base-brand-color, $base-brand-color-dark);
+                    @extend .brand-link;
+                }
+            }
+        }
+    }
+    &-office {
         @include border($dir: bottom);
     }
     &-product-info {
