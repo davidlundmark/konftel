@@ -181,6 +181,51 @@ var VexHandler = {
         });
     },
 
+    accessoriesModal: function() {
+        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="accessories"]');
+        if (_triggers === null) return;
+
+        var _this = this;
+
+        //console.log(_triggers)
+
+        $(_triggers).on('click', function(e) {
+            var $this = $(e.target);
+            var templateAccessories = $this.siblings('.card-modal').clone();
+            templateAccessories.removeClass('hide');
+            templateAccessories = templateAccessories.prop('outerHTML');
+
+            vex.defaultOptions.className = 'modal-accessories';
+
+            vex.dialog.defaultOptions.buttons = [];
+            vex.dialog.confirm({
+                unsafeMessage: templateAccessories,
+                //unsafeMessage: template(data),
+                afterOpen: function() {
+                    _this.openVex(this.contentEl);
+                    $(this.contentEl).find('.accessory-selector-modal').on('change', function() {
+                        var val = $(this).val();
+                        if (val != '')
+                            location.href = val;
+                    });
+                },
+                beforeClose: function() {
+                    $(this.contentEl).find('.accessory-selector-modal').off('change');
+                    _this.closeVex(this.contentEl);
+                },
+                callback: function(value) {
+                    if (value) {
+                        //console.log('Successfully destroyed the planet.')
+                    } else {
+                        //console.log('Chicken.')
+                    }
+                }
+            });
+
+            return false;
+        });
+    },
+
     registerModal: function() {
         var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="register"]');
         if (_triggers === null) return;
@@ -560,6 +605,11 @@ var VexHandler = {
         if (typeof useModalImage !== 'undefined' && useModalImage) {
             var imageVexHandler = $.extend({}, VexHandler);
             imageVexHandler.imageModal();
+        }
+
+        if (typeof useModalAccessories !== 'undefined' && useModalAccessories) {
+            var accessoriesVexHandler = $.extend({}, VexHandler);
+            accessoriesVexHandler.accessoriesModal();
         }
     }
 })();

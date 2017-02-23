@@ -66,21 +66,34 @@
                     var _selectVal = $(_accSelect).find('option:selected').val();
                     var _inputVal = $(_accInput).val();
 
-                    if(_selectVal == 'All' && !_inputVal)
-                    {
-                        console.log('empty');
+                    var _accessoriesRow = document.querySelectorAll('.list-accessories-section .row');
+                    var $accessories = $(_accessoriesRow).find('> .column');
+                    var $matchingAccessories = $accessories.length;
+
+                    var $counter = $(document.getElementById('accessories-count'));
+
+                    if (_selectVal == 'All' && !_inputVal) {
+                        $accessories.show();
+                        $counter.text($accessories.length);
                         return;
                     }
 
-                    if(_selectVal != 'All' && _inputVal) {
-                        console.log('båda');
+                    if (_selectVal != 'All' && _inputVal) {
+                        console.log('sel', _selectVal);
+                        console.log('inp', _inputVal);
+                        $matchingAccessories = $(_accessoriesRow).find("> .column[data-products*='" + _selectVal + "'][data-serialnumber*='" + _inputVal + "']");
+                    } else if (_selectVal != 'All') {
+                        console.log('sel', _selectVal);
+                        $matchingAccessories = $(_accessoriesRow).find("> .column[data-products*='" + _selectVal + "']");
+                    } else if (_inputVal) {
+                        console.log('inp', _inputVal);
+                        $matchingAccessories = $(_accessoriesRow).find("> .column[data-serialnumber*='" + _inputVal + "']");
                     }
-                    else if(_selectVal != 'All') {
-                        console.log('sel');
-                    }
-                    else if(_inputVal) {
-                        console.log('inp');
-                    }
+
+                    $accessories.hide();
+                    $matchingAccessories.show();
+                    $counter.text($matchingAccessories.length);
+
                     return false;
                 });
             }
