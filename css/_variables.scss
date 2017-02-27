@@ -410,7 +410,7 @@ $card-product-quote-image-size: 60%;
 $card-product-quote-text-size: 40%;
 $card-product-quote-image-height: 450px;
 $card-product-small-image-height: 250px;
-$card-accessories-image-height: 220px;
+//$card-accessories-image-height: 220px;
 $card-support-icon-height: $icon-circle-size;
 $card-product-support-image-height: 250px;
 $card-compare-image-size: 20%;
@@ -431,6 +431,12 @@ $card-support-form-image-height: 280px;
 $card-interoperability-image-size: 45%;
 $card-interoperability-text-size: 55%;
 $card-interoperability-image-height: 180px;
+$card-accessory-info-image-size: 50%;
+$card-accessory-info-text-size: 50%;
+$card-accessory-info-image-height: 210px;
+$card-imageleft-image-size: 50%;
+$card-imageleft-text-size: 50%;
+$card-imageleft-image-min-height: 564px;
 
 
 // =================================================
@@ -546,4 +552,15 @@ $sidenav-transition-duration: 0.4s;
 // =================================================
 
 $academy-aside-background-color: $septenary-background-color;
+
+// =================================================
+// Pagination
+// =================================================
+
+$pagination-border-color: $base-border-color;
+$pagination-border: 1px solid $pagination-border-color;
+$pagination-background-color: $secondary-background-color;
+$pagination-hover-background-color: $base-background-color;
+$pagination-color: $base-font-color;
+$pagination-hover-color: $base-brand-color;
 

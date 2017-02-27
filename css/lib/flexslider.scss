@@ -126,6 +126,7 @@
     z-index: 1;
     display: block;
     cursor: pointer;
+    padding: $gap-half;
     @include centerVertical();
     .no-touch & {
         @include transition();
@@ -141,22 +142,26 @@
 }
 
 .flex-prev {
-    left: ($carousel-arrow-size + $gap);
+    padding-left: 7px;
+    left: 0;//($carousel-arrow-size + $gap);
     > .icon {
         transform: rotate(180deg);
     }
 }
 
 .flex-next {
-    right: ($carousel-arrow-size + $gap);
+    padding-right: 7px;
+    right: 0;//($carousel-arrow-size + $gap);
 }
 
 .flexslider:hover {
     .flex-next,
     .flex-prev {
         opacity: 0.8;
+        background-color: transparent;
         &:hover {
             opacity: 1;
+            background-color: rgba(10, 10, 10, 0.5);
         }
     }
 }

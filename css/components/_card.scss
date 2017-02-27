@@ -230,7 +230,7 @@
         }
     }
     &-support {
-        @include breakpoint($breakpoint-lg,false) {
+        @include breakpoint($breakpoint-lg, false) {
             display: inline-block;
         }
         .background-image {
@@ -616,9 +616,9 @@
         }
     }
     &-accessories {
-        .background-image {
-            min-height: $card-accessories-image-height;
-        }
+        // .background-image {
+        //     min-height: $card-accessories-image-height;
+        // }
         .card-image {
             z-index: 0;
         }
@@ -647,6 +647,28 @@
             }
         }
     }
+    &-image-left {
+        > .card {
+            &-image {
+                width: $card-imageleft-image-size;
+                .background-image {
+                    background-size: cover;
+                    @include breakpoint($breakpoint-lg, false) {
+                        height: $card-imageleft-image-min-height;
+                    }
+                    @include breakpoint($breakpoint-lg) {
+                        min-height: 0;
+                        padding-bottom: 56.25%;
+                    }
+                }
+            }
+            &-text {
+                padding: $gap;
+                @extend .large;
+                width: $card-imageleft-text-size;
+            }
+        }
+    }
     &-interoperability {
         > .card {
             &-image {
@@ -671,12 +693,11 @@
                 .title {
                     @extend .bold;
                 }
-                p { 
+                p {
                     margin: 0;
                 }
             }
         }
-
     }
     &-office-head {
         > .card {
@@ -690,6 +711,24 @@
     }
     &-office {
         @include border($dir: bottom);
+    }
+    &-accessory-info {
+        > .card {
+            &-image {
+                width: $card-accessory-info-image-size;
+                .background-image {
+                    height: $card-accessory-info-image-height;
+                }
+            }
+            &-text {
+                vertical-align: top;
+                //padding: $gap;
+                width: $card-accessory-info-text-size;
+                @include breakpoint($breakpoint-lg, false) {
+                    padding-right: 20% !important;
+                }
+            }
+        }
     }
     &-product-info {
         > .card {

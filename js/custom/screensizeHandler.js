@@ -3,6 +3,7 @@ ScreensizeHandler = {
     screenSize: '',
     stateIndicator: null,
     isBigScreen: false,
+    isXlScreen: false,
     isSmallScreen: false,
     isLgOrSmaller: false,
     isMdOrSmaller: false,
@@ -25,14 +26,16 @@ ScreensizeHandler = {
 
         var states = {
             1: '',
-            2: 'lg',
-            3: 'md',
-            4: 'sm'
+            2: 'xl',
+            3: 'lg',
+            4: 'md',
+            5: 'sm'
         };
 
         var state = states[index];
 
         this.isBigScreen = false;
+        this.isXlScreen = false;
         this.isSmallScreen = false;
         this.isLgOrSmaller = false;
         this.isMdOrSmaller = false;
@@ -41,6 +44,10 @@ ScreensizeHandler = {
         switch (state) {
             case '':
                 this.isBigScreen = true;
+                break;
+            case 'xl':
+                this.isBigScreen = true;
+                this.isXlScreen = true;
                 break;
             case 'lg':
                 this.isLgOrSmaller = true;

@@ -1,0 +1,36 @@
+ul.pagination {
+    text-align: center;
+    @include horizontalList(0);
+    li {
+        &.disabled {
+            display: none;
+        }
+        a {
+            display: inline-block;
+            line-height: 1;
+            background-color: $pagination-background-color;
+            //border-radius: $base-border-radius;
+            border: $pagination-border;
+            color: $pagination-color;
+            padding: $gap-xs $gap-sm;
+            text-decoration: none;
+            .no-touch & {
+                @include transition();
+                &:hover,
+                &.hover {
+                    background-color: $pagination-hover-background-color;
+                    color: $pagination-hover-color;
+                }
+            }
+            &.active {
+                background-color: $pagination-hover-background-color;
+                color: $pagination-hover-color;
+            }
+            > span {
+                position: relative;
+                bottom: 2px;
+                display: inline-block;
+            }
+        }
+    }
+}

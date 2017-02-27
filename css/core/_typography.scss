@@ -149,6 +149,9 @@ h6,
 
 p {
     margin: 0 0 $gap-half;
+    &:empty {
+        display: none;
+    }
 }
 
 a,

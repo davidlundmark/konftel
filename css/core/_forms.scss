@@ -74,7 +74,8 @@ select {
 
 input {
     border-radius: $input-border-radius !important;
-    &.accessories-input {
+    &.accessories-input,
+    &.search-input {
         background-image: url($path-images+'search.svg');
         background-size: 15px;
         background-position: right $gap center;

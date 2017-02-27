@@ -83,14 +83,38 @@ var FlexsliderHandler = {
         }
         */
 
-        this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
+        if ($('body').hasClass('template-article')) {
+            this.sliderHeight = 670; //($(window).height() * 0.7) - this.menuHeight;
 
-        if (ScreensizeHandler.isSmOrSmaller) {
-            this.sliderHeight = 200;
-        } else if (ScreensizeHandler.isMdOrSmaller) {
-            this.sliderHeight = 320;
-        } else if (ScreensizeHandler.isLgOrSmaller) {
-            this.sliderHeight = 400;
+            if (ScreensizeHandler.isSmOrSmaller) {
+                this.sliderHeight = 400;
+            } else if (ScreensizeHandler.isMdOrSmaller) {
+                this.sliderHeight = 400;
+            } else if (ScreensizeHandler.isLgOrSmaller) {
+                this.sliderHeight = 575;
+            }
+        } else if ($('body').hasClass('template-academyarticle')) {
+            this.sliderHeight = 480; //($(window).height() * 0.7) - this.menuHeight;
+
+            if (ScreensizeHandler.isSmOrSmaller) {
+                this.sliderHeight = 260;
+            } else if (ScreensizeHandler.isMdOrSmaller) {
+                this.sliderHeight = 260;
+            } else if (ScreensizeHandler.isLgOrSmaller) {
+                this.sliderHeight = 260;
+            }
+        } else {
+            this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
+
+            if (ScreensizeHandler.isSmOrSmaller) {
+                this.sliderHeight = 188;
+            } else if (ScreensizeHandler.isMdOrSmaller) {
+                this.sliderHeight = 188;
+            } else if (ScreensizeHandler.isLgOrSmaller) {
+                this.sliderHeight = 320;
+            } else if (ScreensizeHandler.isXlScreen) {
+                this.sliderHeight = 388;
+            }
         }
 
         $('body').css({

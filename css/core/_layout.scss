@@ -72,6 +72,10 @@ body {
         &.extra-narrow-secondary-width {
             max-width: $page-section-extra-narrow-secondary-max-width;
         }
+        &.extra-padding {
+            padding-top: $gap-double*2;
+            padding-bottom: $gap-double*2;
+        }
         padding: $page-section-padding;
         @include breakpoint($breakpoint-md) {
             padding: $page-section-padding-md;
