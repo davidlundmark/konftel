@@ -983,8 +983,10 @@
 }
 
 .documents-section {
-    background-color: $senary-background-color;
-    color: $light-font-color;
+    background-color: $quaternary-background-color ;
+    a {
+        color: $light-font-color;
+    }
     .icon {
         display: inline-block;
         margin-left: $gap-half;

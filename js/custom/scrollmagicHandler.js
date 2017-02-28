@@ -9,15 +9,29 @@ var ScrollmagicHandler = {
         if (this.initilized) return;
         this.initilized = true;
         //only use on product page
-        $('.template-product .content-wrapper').addClass('use-animation')
-        var _scrollmagicElements = document.querySelectorAll('.template-product .content-wrapper > .page-section:not(.hero-text-section)');
+        $('.template-product .content-wrapper:not(.top-content)').addClass('use-animation')
+        var _scrollmagicElements = document.querySelectorAll('.template-product .content-wrapper:not(.top-content) > .page-section');
         if (_scrollmagicElements === null) return;
+
+        var filtered = [];
+        $(_scrollmagicElements).each(function() {
+            var $this = $(this);
+            if (!$this.hasClass('find-dealer') && !$this.hasClass('product-tech-spec-section') && !$this.hasClass('hero-text-section') && !$this.hasClass('product-features-section') && !$this.hasClass('documents-section') && !$this.hasClass('list-related') && !$this.hasClass('buttons-section') && !$this.hasClass('academy-featured-picker-section')) {
+                filtered.push($this);
+            }
+            else {
+                $this.addClass('active');
+            }
+        });
+
+        if (!$(filtered).length) return;
 
         // init controller
         var controller = new ScrollMagic.Controller({ globalSceneOptions: { duration: 0 } });
         var elemSelector;
 
-        $(_scrollmagicElements).each(function(i) {
+        //$(_scrollmagicElements).each(function(i) {
+        $(filtered).each(function(i) {
             var $this = $(this);
             elemSelector = 'scroll-scene-' + i;
 
@@ -58,19 +72,13 @@ var ScrollmagicHandler = {
                         var _src = $iframe.attr('src');
                         //$iframe.attr('src', _src + (_src.indexOf('?') ? '&autoplay=1' : '?autoplay=1'));
                     } else {
-                        if (!$this.hasClass('find-dealer') 
-                            && !$this.hasClass('product-features-section') 
-                            && !$this.hasClass('documents-section')
-                            && !$this.hasClass('list-related')
-                            && !$this.hasClass('academy-featured-picker-section')) {
-                            $parent = $this;
-                            $parent.find('> .section-container').addClass('animated fadeIn');
+                        $parent = $this;
+                        $parent.find('> .section-container').addClass('animated fadeIn');
 
-                            if ($this.hasClass('product-features-section')) {
-                                $this.next().queue(function() {
-                                    $(this).addClass('active').find('> .section-container').addClass('animated fadeIn').dequeue();
-                                });
-                            }
+                        if ($this.hasClass('product-features-section')) {
+                            $this.next().queue(function() {
+                                $(this).addClass('active').find('> .section-container').addClass('animated fadeIn').dequeue();
+                            });
                         }
                     }
                     //event.scene = null;
