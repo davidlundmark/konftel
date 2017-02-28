@@ -33,6 +33,7 @@ h6,
     @include setFontSize($h1-extra-font-size);
     //font-weight: $heading-light-font-weight;
     font-weight: $heading-font-weight;
+    font-family: $light-font-family;
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-font-size-lg);
     }
@@ -49,6 +50,7 @@ h6,
     @include setFontSize($h1-extra-secondary-font-size);
     //font-weight: $heading-light-font-weight;
     font-weight: $heading-font-weight;
+    font-family: $light-font-family;
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-secondary-font-size-lg);
     }

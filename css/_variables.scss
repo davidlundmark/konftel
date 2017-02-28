@@ -59,6 +59,11 @@ $path-fonts: '../assets/fonts/';
 	font-weight: normal;
 	font-style: normal;
 }
+.BrandonTextWeb-Light { 
+	font-family: BrandonTextWeb-Light;
+	font-weight: normal;
+	font-style: normal;
+}
 .BrandonTextWeb-Regular { 
 	font-family: BrandonTextWeb-Regular;
 	font-weight: normal;
@@ -66,11 +71,6 @@ $path-fonts: '../assets/fonts/';
 }
 .BrandonTextWeb-Medium { 
 	font-family: BrandonTextWeb-Medium;
-	font-weight: normal;
-	font-style: normal;
-}
-.BrandonTextWeb-Light { 
-	font-family: BrandonTextWeb-Regular;
 	font-weight: normal;
 	font-style: normal;
 }
@@ -450,6 +450,7 @@ $card-compare-link-size: 25%;
 $card-compare-image-min-height: 50px;
 $card-compare-product-image-min-height: 150px;
 $card-contact-big-image-min-height: 300px;
+$card-contact-big-image-min-height-md: 300px;
 $card-contact-row-image-size: 25%;
 $card-contact-row-text-size: 75%;
 $card-contact-row-image-min-height: 80px;
