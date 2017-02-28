@@ -55,7 +55,7 @@ var WebApiHandler = {
                 //***********IMPORTANT!*********** remove timeout later, only for visual
                 setTimeout(function() {
                     this.getStories(this.createStoryItems);
-                }.bind(this), 600);
+                }.bind(this), 100);
                 return false;
             }.bind(this));
         }

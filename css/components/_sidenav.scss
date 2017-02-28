@@ -3,9 +3,9 @@ $sidenav-transition-timing: $easeOutQuad;
     display: none;
     //width: $sidenav-width;
     //@include fixedOverlay($left: auto, $background-color: $sidenav-background-color, $z-index: 999);
-    @include fixedOverlay($z-index: 999, $overflow: visible);
+    @include fixedOverlay($z-index: 999, $overflow: visible, $background-color: rgba($white, 0));
     z-index: 1000 !important;
-    background-color: rgba($white, 0);
+    //background-color: rgba($white, 0);
     //@include border($sidenav-border-color, left);
     @include breakpoint($breakpoint-lg) {
         display: block;
@@ -14,14 +14,22 @@ $sidenav-transition-timing: $easeOutQuad;
     //@include translateX(100%);
     //@include translateX(-100%);
     @include transition(transform, $sidenav-transition-duration, $sidenav-transition-timing);
-    @include translateX(0);
+    //@include translateX(0);
     height: 100%;
     //overflow-y: hidden;
     width: $sidenav-width;
     //left: -$sidenav-width;
     @include translateX(-100%);
+    //@include translate(-100%,0,0);
+    .blocker {
+        //display: none;
+    }
     &.open {
+        //left: 0;
         @include translateX(0);
+        .blocker {
+            //display: block;
+        }
     }
     .has-touch & {
         //overflow-y: scroll;
@@ -41,6 +49,7 @@ $sidenav-transition-timing: $easeOutQuad;
     }
 }
 
+/* fix for sliding page content */
 .content-wrapper {
     &.top-content {
         position: static;
@@ -49,13 +58,13 @@ $sidenav-transition-timing: $easeOutQuad;
         &:not(.top-content){
             @include transition(transform, $sidenav-transition-duration, $sidenav-transition-timing);
             &.sidenav-open {
-                @include translateX($sidenav-width);
+                //@include translateX($sidenav-width);
             }
         }
         .page-slider {
             @include transition(transform, $sidenav-transition-duration, $sidenav-transition-timing);
             @at-root .sidenav-open#{&} {
-                @include translateX($sidenav-width);
+                //@include translateX($sidenav-width);
             }
         }
 

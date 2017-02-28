@@ -95,6 +95,7 @@ select {
     color: $select-color;
     border-color: $select-border-color;
     border-radius: $select-border-radius;
+    font-family: $medium-font-family;
     font-weight: $select-font-weight;
     @extend .letter-spacing-small;
     font-size: $select-font-size;

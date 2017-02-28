@@ -31,7 +31,8 @@ h6,
 .h1-extra {
     //@include setFont($h1-font-name);
     @include setFontSize($h1-extra-font-size);
-    font-weight: $heading-light-font-weight;
+    //font-weight: $heading-light-font-weight;
+    font-weight: $heading-font-weight;
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-font-size-lg);
     }
@@ -46,7 +47,8 @@ h6,
 .h1-extra-secondary {
     //@include setFont($h1-font-name);
     @include setFontSize($h1-extra-secondary-font-size);
-    font-weight: $heading-light-font-weight;
+    //font-weight: $heading-light-font-weight;
+    font-weight: $heading-font-weight;
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-secondary-font-size-lg);
     }
@@ -256,7 +258,9 @@ hr {
 }
 
 .light {
-    font-weight: $light-font-weight;
+    //font-weight: $light-font-weight;
+    font-family: $light-font-family;
+    font-weight: $base-font-weight;
 }
 
 .button-medium {
@@ -282,28 +286,37 @@ hr {
 @include headings {
     &.light,
     .light {
-        font-weight: $heading-bold-font-weight;
+        color: red;
+        //font-weight: $heading-bold-font-weight;
     }
 }
 
 .normal {
+    //font-weight: $base-font-weight;
+    font-family: $regular-font-family;
     font-weight: $base-font-weight;
 }
 
 .medium {
-    font-weight: $medium-font-weight;
+    //font-weight: $medium-font-weight;
+    font-family: $medium-font-family;
+    font-weight: $base-font-weight;
 }
 
 b,
 strong,
 .bold {
-    font-weight: $bold-font-weight;
+    //font-weight: $bold-font-weight;
+    font-family: $bold-font-family;
+    font-weight: $base-font-weight;
 }
 
 @include headings {
     &.bold,
     .bold {
-        font-weight: $heading-bold-font-weight;
+        //font-weight: $heading-bold-font-weight;
+        font-family: $bold-font-family;
+        font-weight: $base-font-weight;
     }
 }
 
@@ -319,7 +332,9 @@ strong,
     @include setFont($heading-font-name);
     //@include setFontSize($h1-font-size);
     margin: 0 0 $gap-half;
-    font-weight: $light-font-weight;
+    //font-weight: $light-font-weight;
+    font-family: $light-font-family;
+    font-weight: $base-font-weight;
     @include setFontSize($h1-font-size);
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-font-size-lg);

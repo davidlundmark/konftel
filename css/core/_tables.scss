@@ -34,6 +34,7 @@ th {
 }
 
 table.compare-table {
+    min-width: $breakpoint-md !important;
     margin: 0;
     background-color: $base-background-color;
     @include border();

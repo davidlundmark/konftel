@@ -1,4 +1,5 @@
 .cookie {
+    text-align: center;
 	position: fixed;
     bottom: 0; 
     z-index: 10000;
@@ -11,14 +12,21 @@
     }
 
     .text {
-    	margin-bottom: $gap;
+    	margin-bottom: $gap-md;
     }
 
-    .button {
-    	margin-right: $gap-half;
+    // .button {
+    // 	margin-right: $gap-half;
 
-    	&:last-child {
-    		margin-right: 0;
-    	}
+    // 	&:last-child {
+    // 		margin-right: 0;
+    // 	}
+    // }
+
+    a {
+        margin-right: $gap;
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }

@@ -104,7 +104,9 @@
 .text-teaser {
     &-4 {
         .h1 {
-            font-weight: $medium-font-weight !important;
+            //font-weight: $medium-font-weight !important;
+            font-family: $medium-font-family !important;
+            font-weight: $base-font-weight !important;
         }
     }
     &-5 {
@@ -138,6 +140,10 @@
     .button {
         margin-top: $gap;
     }
+}
+
+.compare-table-wrapper {
+    overflow-x: scroll;
 }
 
 .accessory-info-header {
@@ -325,6 +331,9 @@
         @at-root .height-small#{&} {
             min-height: $hero-image-small-min-height;
         }
+        @include breakpoint($breakpoint-md) {
+            min-height: $hero-image-min-height-md;
+        }
     }
     .row {
         .background-image {
@@ -441,7 +450,9 @@
             }
             &.kon-td1 {
                 @include breakpoint($breakpoint-lg) {
-                    font-weight: $bold-font-weight;
+                    //font-weight: $bold-font-weight;
+                    font-family: $bold-font-family;
+                    font-weight: $base-font-weight;
                     padding-top: $gap;
                 }
             }
@@ -809,10 +820,10 @@
 
 .buttons-section {
     .section-container {
-        width: 50%;
+        //width: 50%;
         margin: 0 auto;
         text-align: center;
-        padding-top: $gap;
+        padding-bottom: $gap;
         @extend .button-large;
         .button {
             margin-top: $gap;
@@ -823,8 +834,8 @@
         }
     }
     .button {
-        width: 30%;
-        padding: $gap;
+        //width: 30%;
+        //padding: $gap;
     }
 }
 

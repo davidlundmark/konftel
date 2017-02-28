@@ -347,7 +347,8 @@ var VexHandler = {
             cookie = cookie.split(',');
             var $item = null;
             for (var i = 0; i <= cookie.length - 1; i++) {
-                $item = $(document.getElementById(cookie[i]));
+                var cId = cookie[i].split('#')[0];
+                $item = $(document.getElementById(cId));
                 var removeText = $item.data('compare-remove');
                 $item.text(removeText);
             }
@@ -355,8 +356,8 @@ var VexHandler = {
 
         //html template for compare modal
         var templateCompare =
-            '<p class="title">{{title}}</p>' +
-            '<div class="body">' +
+            '<p class="title h3">{{title}}</p>' +
+            '<div class="body large">' +
             '{{body}}' +
             '</div>' +
             '<ul class="compare-list">' +
@@ -370,7 +371,7 @@ var VexHandler = {
             '<p class="bold">{{this.title}}</p>' +
             '</div>' +
             '<div class="card-link">' +
-            '<a href="#" data-id="{{this.id}}">{{../removeText}}</a>' +
+            '<a class="brand-link" href="#" data-id="{{this.id}}">{{../removeText}}</a>' +
             '</div>' +
             '</div>' +
             '</li>' +
@@ -399,30 +400,38 @@ var VexHandler = {
                 $this.text(addText);
                 return false;
             } else if (!cookie || cookie.length < 3) { //add
-                console.log('create cookie')
+                console.log('create cookie');
                 _this.addCookie('compare', this.id, 21);
                 cookie = _this.readCookie('compare').split(',');
                 $this.text(removeText);
             } else { //maximum number of compare reached
-                bodyText = CompareMaxItems;
+                //bodyText = CompareMaxItems;
+                bodyText = CompareText;
             }
 
             var items = [];
             var $item = null;
             for (var i = 0; i <= cookie.length - 1; i++) {
+                var cookieVar = cookie[i].split('#');
+                var cId = cookieVar[0];
+                var cText = cookieVar[1];
+                var cImage = cookieVar[2];
                 $item = $(document.getElementById(cookie[i]));
                 items.push({
-                    title: $item.data('modal-title'),
-                    image: $item.data('modal-image'),
-                    id: cookie[i]
+                    //title: $item.data('modal-title'),
+                    //image: $item.data('modal-image'),
+                    //id: cookie[i]
+                    id: cId,
+                    title: cText,
+                    image: cImage
                 });
             }
 
-            if (bodyText == null) {
-                if (items.length == 1) bodyText = CompareOneItem;
-                else if (items.length == 2) bodyText = CompareTwoItems;
-                else if (items.length == 3) bodyText = CompareThreeItems;
-            }
+            // if (bodyText == null) {
+            //     if (items.length == 1) bodyText = CompareOneItem;
+            //     else if (items.length == 2) bodyText = CompareTwoItems;
+            //     else if (items.length == 3) bodyText = CompareThreeItems;
+            // }
 
             vex.defaultOptions.className = 'modal-compare';
             var template = Handlebars.compile(templateCompare);
@@ -439,6 +448,7 @@ var VexHandler = {
             var linkClass = 'vex-link';
 
             //setup buttons for modal
+            /*
             if (items.length == 1) {
                 buttonText = CompareOneItemButton;
                 linkClass = 'hide';
@@ -449,6 +459,11 @@ var VexHandler = {
                 buttonText = CompareThreeItemsButton;
                 linkText = CompareThreeItemsLink;
             }
+            */
+
+            buttonText = CompareButtonText;
+            bodyText = CompareText;
+            linkText = CompareCloseText;
 
             vex.dialog.open({
                 unsafeMessage: template(data),
@@ -490,13 +505,13 @@ var VexHandler = {
             $(removeLinks).on('click', function(e) {
                 var $this = $(this);
                 var id = $this.data('id')
-                    //$this.off('click').closest('li').remove();
+                $this.off('click').closest('li').remove();
                 console.log('remove cookie')
                 _this.removeCookie('compare', id, 21);
                 var $item = $(document.getElementById(id));
                 var addText = $item.data('compare-add');
                 $item.text(addText);
-                vex.closeAll();
+                //vex.closeAll();
                 return false;
             });
 
@@ -510,6 +525,14 @@ var VexHandler = {
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             var expires = "; expires=" + date.toGMTString();
         } else var expires = "";
+
+        if(name == 'compare') {
+            var $item = $(document.getElementById(value));
+            //console.log($item.data('modal-image'));
+            //console.log($item.data('modal-title'));
+            value += '#'+$item.data('modal-title');
+            value += '#'+$item.data('modal-image');
+        }
 
         if (!override) {
             var _cookie = this.readCookie(name);
@@ -525,7 +548,14 @@ var VexHandler = {
     removeCookie: function(name, value) {
         var _cookie = this.readCookie(name);
 
-        if (_cookie) {
+        if(name == 'compare' && _cookie) {
+            _cookie = _cookie.split(',');
+            _cookie = _cookie.filter(function(e) {
+                return e.split('#')[0] !== value;
+            });
+            _cookie = _cookie.toString();
+        }
+        else if (_cookie) {
             _cookie = _cookie.split(',');
             _cookie = _cookie.filter(function(e) {
                 return e !== value;

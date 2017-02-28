@@ -103,13 +103,24 @@ var FlexsliderHandler = {
             } else if (ScreensizeHandler.isLgOrSmaller) {
                 this.sliderHeight = 260;
             }
-        } else {
+        } else if ($('body').hasClass('template-support-folder') || $('body').hasClass('template-uc-page')) {
             this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
 
             if (ScreensizeHandler.isSmOrSmaller) {
-                this.sliderHeight = 188;
+                this.sliderHeight = 260;
             } else if (ScreensizeHandler.isMdOrSmaller) {
-                this.sliderHeight = 188;
+                this.sliderHeight = 320;
+            } else if (ScreensizeHandler.isLgOrSmaller) {
+                this.sliderHeight = 388;
+            }
+        } 
+        else {
+            this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
+
+            if (ScreensizeHandler.isSmOrSmaller) {
+                this.sliderHeight = 240;
+            } else if (ScreensizeHandler.isMdOrSmaller) {
+                this.sliderHeight = 240;
             } else if (ScreensizeHandler.isLgOrSmaller) {
                 this.sliderHeight = 320;
             } else if (ScreensizeHandler.isXlScreen) {

@@ -603,9 +603,9 @@
             &-link {
                 width: $card-compare-link-size;
                 text-align: right;
-                a {
-                    @include animateLine();
-                }
+                // a {
+                //     @include animateLine();
+                // }
             }
         }
     }

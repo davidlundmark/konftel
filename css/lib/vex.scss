@@ -68,7 +68,8 @@
     background-color: $vex-content-background-color;
     animation: vex-flyin 0.5s;
     .vex:not(.modal-language) & {
-        width: 100%;
+        //width: 100%;
+        width: calc(100% - #{$gap * 2});
         left: 50%;
         top: 50%;
         max-width: $vex-content-max-width;
