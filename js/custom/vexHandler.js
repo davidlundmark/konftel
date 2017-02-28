@@ -264,7 +264,7 @@ var VexHandler = {
     },
 
     languageModal: function() {
-        var _triggers = document.querySelector('.modal-trigger[data-modal-template="language"]');
+        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="language"]');
         if (_triggers === null) return;
 
         var _this = this;

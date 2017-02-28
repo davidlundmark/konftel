@@ -114,6 +114,22 @@
             margin-top: $gap;
         }
     }
+    &-6 {
+        @extend .large;
+        .button {
+            margin-top: $gap;
+            margin-bottom: $gap;
+        }
+        .text-center {
+            margin-bottom: $gap;
+        }
+    }
+    &-1,
+    &-2,
+    &-3,
+    &-4,
+    &-5,
+    &-6 {}
 }
 
 .image-top-teaser {
@@ -330,6 +346,9 @@
         min-height: $hero-image-min-height;
         @at-root .height-small#{&} {
             min-height: $hero-image-small-min-height;
+        }
+        @at-root .uc-hero#{&} {
+            min-height: $hero-image-uc-min-height;
         }
         @include breakpoint($breakpoint-md) {
             min-height: $hero-image-min-height-md;

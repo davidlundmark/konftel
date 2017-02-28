@@ -126,9 +126,18 @@
             }
         }
 
+        var _mobileFindADealer = document.getElementById('mobilefindadealer');
+        if (_mobileFindADealer !== null) {
+            $(_mobileFindADealer).on('click', function(e) {
+                var _menutoggle = document.querySelector('.menu-toggle');
+                _menutoggle.click();
+                return false;
+            });
+        }
+
         var _searchButtons = document.querySelectorAll('.page-header .search .icon-container');
         $(_searchButtons).on('click triggered-click', function(e) {
-            console.log('yeah')
+            //console.log('yeah')
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
