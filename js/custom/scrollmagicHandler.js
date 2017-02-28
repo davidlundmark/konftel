@@ -8,8 +8,9 @@ var ScrollmagicHandler = {
         if (deKai.isInSitecore) return;
         if (this.initilized) return;
         this.initilized = true;
-        $('.content-wrapper').addClass('use-animation')
-        var _scrollmagicElements = document.querySelectorAll('.content-wrapper > .page-section:not(.hero-text-section)');
+        //only use on product page
+        $('.template-product .content-wrapper').addClass('use-animation')
+        var _scrollmagicElements = document.querySelectorAll('.template-product .content-wrapper > .page-section:not(.hero-text-section)');
         if (_scrollmagicElements === null) return;
 
         // init controller
@@ -57,13 +58,19 @@ var ScrollmagicHandler = {
                         var _src = $iframe.attr('src');
                         //$iframe.attr('src', _src + (_src.indexOf('?') ? '&autoplay=1' : '?autoplay=1'));
                     } else {
-                        $parent = $this;
-                        $parent.find('> .section-container').addClass('animated fadeIn');
+                        if (!$this.hasClass('find-dealer') 
+                            && !$this.hasClass('product-features-section') 
+                            && !$this.hasClass('documents-section')
+                            && !$this.hasClass('list-related')
+                            && !$this.hasClass('academy-featured-picker-section')) {
+                            $parent = $this;
+                            $parent.find('> .section-container').addClass('animated fadeIn');
 
-                        if ($this.hasClass('product-features-section')) {
-                            $this.next().queue(function() {
-                                $(this).addClass('active').find('> .section-container').addClass('animated fadeIn').dequeue();
-                            });
+                            if ($this.hasClass('product-features-section')) {
+                                $this.next().queue(function() {
+                                    $(this).addClass('active').find('> .section-container').addClass('animated fadeIn').dequeue();
+                                });
+                            }
                         }
                     }
                     //event.scene = null;
