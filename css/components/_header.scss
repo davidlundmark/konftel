@@ -8,7 +8,7 @@
     transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
     transform: translateZ(0);
     //backface-visibility: hidden;
-    will-change: auto;
+    //will-change: auto;
     &.scrolled:not(.menu-open) {
         background-color: $header-scrolled-background-color;
         border-bottom: $header-scrolled-border-bottom;
@@ -149,6 +149,7 @@
         .menu-item {
             top: 2px;
             > .text {
+                @extend .medium;
                 @include hoverLink();
             }
         }

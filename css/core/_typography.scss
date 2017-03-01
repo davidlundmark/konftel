@@ -29,11 +29,8 @@ h6,
 }
 
 .h1-extra {
-    //@include setFont($h1-font-name);
+    @extend .light;
     @include setFontSize($h1-extra-font-size);
-    //font-weight: $heading-light-font-weight;
-    font-weight: $heading-font-weight;
-    font-family: $light-font-family;
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-font-size-lg);
     }
@@ -46,11 +43,8 @@ h6,
 }
 
 .h1-extra-secondary {
-    //@include setFont($h1-font-name);
+    @extend .normal;
     @include setFontSize($h1-extra-secondary-font-size);
-    //font-weight: $heading-light-font-weight;
-    font-weight: $heading-font-weight;
-    font-family: $light-font-family;
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-secondary-font-size-lg);
     }
@@ -66,7 +60,6 @@ h1,
 .h1 {
     @extend .bold;
     letter-spacing: $h1-letter-spacing;
-    //@include setFont($h1-font-name);
     @include setFontSize($h1-font-size);
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-font-size-lg);
@@ -187,7 +180,6 @@ a,
 a {
     &.text-link {
         @extend .medium;
-        //@include animateLine();
         @include hoverLink($base-font-color, $base-brand-color);
     }
     &.brand-link {
@@ -238,6 +230,7 @@ hr {
 //         letter-spacing: 1px;
 //     }
 // }
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -257,12 +250,6 @@ hr {
 
 .large {
     @include setFontSize($large-font-size);
-}
-
-.light {
-    //font-weight: $light-font-weight;
-    font-family: $light-font-family;
-    font-weight: $base-font-weight;
 }
 
 .button-medium {
@@ -285,12 +272,10 @@ hr {
     font-style: italic;
 }
 
-@include headings {
-    &.light,
-    .light {
-        color: red;
-        //font-weight: $heading-bold-font-weight;
-    }
+.light {
+    //font-weight: $light-font-weight;
+    font-family: $light-font-family;
+    font-weight: $base-font-weight;
 }
 
 .normal {
@@ -314,9 +299,16 @@ strong,
 }
 
 @include headings {
+    &.light,
+    .light {
+        font-family: $light-font-family;
+        font-weight: $base-font-weight;
+    }
+}
+
+@include headings {
     &.bold,
     .bold {
-        //font-weight: $heading-bold-font-weight;
         font-family: $bold-font-family;
         font-weight: $base-font-weight;
     }
@@ -330,24 +322,24 @@ strong,
     color: $white;
 }
 
-.title-big {
-    @include setFont($heading-font-name);
-    //@include setFontSize($h1-font-size);
-    margin: 0 0 $gap-half;
-    //font-weight: $light-font-weight;
-    font-family: $light-font-family;
-    font-weight: $base-font-weight;
-    @include setFontSize($h1-font-size);
-    @include breakpoint($breakpoint-lg) {
-        @include setFontSize($h1-font-size-lg);
-    }
-    @include breakpoint($breakpoint-md) {
-        @include setFontSize($h1-font-size-md);
-    }
-    @include breakpoint($breakpoint-sm) {
-        @include setFontSize($h1-font-size-sm);
-    }
-}
+// .title-big {
+//     @include setFont($heading-font-name);
+//     //@include setFontSize($h1-font-size);
+//     margin: 0 0 $gap-half;
+//     //font-weight: $light-font-weight;
+//     font-family: $light-font-family;
+//     font-weight: $base-font-weight;
+//     @include setFontSize($h1-font-size);
+//     @include breakpoint($breakpoint-lg) {
+//         @include setFontSize($h1-font-size-lg);
+//     }
+//     @include breakpoint($breakpoint-md) {
+//         @include setFontSize($h1-font-size-md);
+//     }
+//     @include breakpoint($breakpoint-sm) {
+//         @include setFontSize($h1-font-size-sm);
+//     }
+// }
 
 .letter-spacing-small {
     letter-spacing: 1px;

@@ -31,7 +31,7 @@
 
 // Burger animation
 @mixin burger-to-cross($height: 3px, $gutter: 6px, $color: $base-font-color) {
-    will-change: auto;
+    //will-change: auto;
     &:before,
     &:after {
         background-color: $color;

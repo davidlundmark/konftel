@@ -53,7 +53,7 @@
     //require('./custom/submenuHandler.js');
     require('./custom/vexHandler.js');
 
-    console.log('deKai v.2-konftel');
+    console.log('deKai v.5-konftel');
 
     (function() {
 
@@ -158,44 +158,12 @@
             }
         });
 
-        // $(document.querySelector('.page-header .search .label')).keypress(function(e) {
-        //     if (e.which == 13) {
-        //         alert('SÖK: ' + $(this).val());
-        //     }
-        // });
-
-        // $(document.querySelector('#mobile-menu .search .label')).keypress(function(e) {
-        //     if (e.which == 13) {
-        //         alert('SÖK: ' + $(this).val());
-        //     }
-        // });
-
-        // $(document.querySelector('#mobile-menu .search .icon-container')).on('click', function(e) {
-        //     var $this = $(this);
-        //     alert('SÖK: ' + $this.parent().find('.label').val());
-        // });
-
         //if (document.querySelector('.page-image') !== null) {
         if (document.querySelector('.page-slider') === null) {
             $('body').css({
                 'padding-top': $('.page-header').outerHeight()
             });
         }
-
-        /*
-        $('#mobile-menu .search .label').on('click', function(e) {
-            var scrollTop = $(window).scrollTop();
-            var interval = 0;
-            var scroller = setInterval(function() {
-                $(window).scrollTop(scrollTop);
-                interval++;
-                if (interval > 10) {
-                    clearInterval(scroller);
-                }
-            }, 1);
-        });
-        */
-
     })();
 
     $(window).on('load', function() {

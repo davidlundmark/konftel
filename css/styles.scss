@@ -3,20 +3,6 @@
 @import './lib/base';
 @import './core/base';
 @import './components/base';
-//
-.products-grid {
-    > .section-container {
-        //padding-bottom: 0;
-        //border-bottom: $base-border;
-    }
-    &:last-child {
-        > .section-container {
-            //padding-bottom: $page-section-padding;
-            //border-bottom: $base-border;
-        }
-    }
-}
-
 .search-header-section,
 .find-accessories,
 .support-form-section,
@@ -41,14 +27,6 @@
         }
         .button {
             margin-top: $gap-half;
-        }
-    }
-}
-
-.accessories-related {
-    .section-container {
-        .related-tags {
-            text-align: center;
         }
     }
 }
@@ -159,7 +137,9 @@
 }
 
 .compare-table-wrapper {
-    overflow-x: scroll;
+    @include breakpoint($breakpoint-lg) {
+        overflow-x: scroll;
+    }
 }
 
 .accessory-info-header {
@@ -168,6 +148,23 @@
     }
     .section-container {
         @include border($dir: bottom);
+    }
+}
+
+.featured-accessories {
+    .section-container {
+        //@include border($dir: top);
+        //@include border($dir: bottom);
+        // .section-title {
+        //     padding-top: $gap-double;
+        //     @include border($dir: top);
+        // }
+        hr.title-divider {
+            &:last-child {
+                margin-bottom: 0;
+                margin-top: $gap-double;
+            }
+        }
     }
 }
 
@@ -208,10 +205,11 @@
             padding-top: $gap;
         }
         .expander-trigger {
+            display: inline-block;
             text-decoration: none;
             //@include hoverLink($base-brand-color);
             .label {
-                padding-right: $gap-xs;
+                padding-right: 0; //$gap-xs;
                 padding-bottom: 2px;
             }
         }
@@ -338,6 +336,14 @@
         margin-top: $gap;
         padding: $gap;
         @include border($base-brand-color);
+    }
+}
+
+.uc-hero {
+    + .hero-text-section + .logos-grid {
+        .section-container {
+            padding-top: 0;
+        }
     }
 }
 
@@ -595,6 +601,16 @@
     .background-image {
         min-height: 100px;
         @include scaleBackground();
+        &.logo-disabled {
+            filter: grayscale(100%);
+            opacity: 0.8;
+            .no-touch & {
+                &:hover {
+                    filter: none;
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
 
@@ -648,6 +664,9 @@
         @extend .medium;
         width: $card-product-info-image-size;
         text-align: center;
+        @include breakpoint($breakpoint-md) {
+            width: 100%;
+        }
     }
     .devconnect {
         position: absolute;
@@ -660,6 +679,16 @@
         background-size: 35%;
         //padding-bottom: 130%;
         z-index: 99;
+        @include breakpoint($breakpoint-lg) {
+            background-position: 10% 50%;
+            background-size: 35%;
+            //padding-bottom: 90%;
+        }
+        @include breakpoint($breakpoint-lg) {
+            background-position: 5% 55%;
+            background-size: 35%;
+            //padding-bottom: 70%;
+        }
     }
 }
 
@@ -815,7 +844,7 @@
 }
 
 .academy-featured-picker-section {
-    background-color: $septenary-background-color;
+    background-color: $secondary-background-color;
 }
 
 .article-section {
@@ -983,7 +1012,7 @@
 }
 
 .documents-section {
-    background-color: $quaternary-background-color ;
+    background-color: $quaternary-background-color;
     a {
         color: $light-font-color;
     }
@@ -1151,7 +1180,7 @@
     //width: 100%;
     @include centerHorizontal();
     text-align: center;
-    will-change: auto;
+    //will-change: auto;
     .icon {
         color: $base-font-color;
         //text-shadow: $base-text-shadow;

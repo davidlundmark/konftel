@@ -147,7 +147,7 @@
             .image {
                 @include transition(transform, 0.4s, $easeOutSine);
                 //@include forceHarwareAcceleration();
-                will-change: transform;
+                //will-change: transform;
             }
             &.hover {
                 .background-image {
@@ -621,6 +621,11 @@
         // }
         .card-image {
             z-index: 0;
+            background-color: $black;
+
+            .image {
+                opacity: 0.95;
+            }
         }
         .card-text {
             padding-top: $gap-half;
@@ -643,6 +648,9 @@
                 width: $card-uc-info-text-size;
                 @include breakpoint($breakpoint-md, false) {
                     padding-left: $gap;
+                }
+                @include breakpoint($breakpoint-md) {
+                    text-align: left !important;
                 }
             }
         }
@@ -717,7 +725,10 @@
             &-image {
                 width: $card-accessory-info-image-size;
                 .background-image {
-                    height: $card-accessory-info-image-height;
+                    //height: $card-accessory-info-image-height;
+                    min-height: 0;
+                    padding-bottom: 39%;
+                    background-size: 80%;
                 }
             }
             &-text {

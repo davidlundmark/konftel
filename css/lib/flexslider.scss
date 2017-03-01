@@ -54,7 +54,7 @@
         @include centeredContainer(none);
         padding: 0 $page-section-padding;
         height: 0;
-        will-change: opacity;
+        //will-change: opacity;
         &.academy-figcaption {
             max-width: $page-section-narrow-max-width;
         }

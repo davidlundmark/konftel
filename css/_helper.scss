@@ -127,7 +127,7 @@
     .no-touch & {
         @include transition(transform, 0.3s, $easeOutSine);
         @include forceHarwareAcceleration();
-        will-change: transform;
+        //will-change: transform;
         &:hover {
             @include scale(1.12);
         }
@@ -216,7 +216,7 @@
         &.selected:before,
         &:hover:before,
         &.hover:before {
-            will-change: auto;
+            //will-change: auto;
             visibility: visible;
             //@include scaleX($scale);
             transform: scaleX($scale) translate3d(0, 0, 0);

@@ -18,8 +18,7 @@ var ScrollmagicHandler = {
             var $this = $(this);
             if (!$this.hasClass('find-dealer') && !$this.hasClass('product-tech-spec-section') && !$this.hasClass('hero-text-section') && !$this.hasClass('product-features-section') && !$this.hasClass('documents-section') && !$this.hasClass('list-related') && !$this.hasClass('buttons-section') && !$this.hasClass('academy-featured-picker-section')) {
                 filtered.push($this);
-            }
-            else {
+            } else {
                 $this.addClass('active');
             }
         });
@@ -104,12 +103,10 @@ $(window).on('load', function() {
 })();
 
 function initScrollMagic(checkSlider) {
-    //if (!$('body').hasClass('home')) {
-    //if (typeof useScrollmagic !== 'undefined' && useScrollmagic) {
-    if (checkSlider) {
-        if (typeof useSlider !== 'undefined' && useSlider) return;
+    if (typeof useScrollmagic !== 'undefined' && useScrollmagic) {
+        if (checkSlider) {
+             if (typeof useSlider !== 'undefined' && useSlider) return;
+        }
+        ScrollmagicHandler.init();
     }
-    ScrollmagicHandler.init();
-    //}
-    //}
 }
