@@ -38,6 +38,9 @@
             }
         }
     }
+    @include breakpoint($breakpoint-md) {
+        display: none !important;
+    }
 }
 
 .slick-prev {
@@ -57,9 +60,7 @@
     }
 }
 
-
 // Dots 
-
 .slick-dotted.slick-slider {
     margin-bottom: $gap-triple;
 }

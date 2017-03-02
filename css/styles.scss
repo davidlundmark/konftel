@@ -159,6 +159,7 @@
         //     padding-top: $gap-double;
         //     @include border($dir: top);
         // }
+        padding-bottom: 0;
         hr.title-divider {
             &:last-child {
                 margin-bottom: 0;
@@ -210,7 +211,12 @@
             //@include hoverLink($base-brand-color);
             .label {
                 padding-right: 0; //$gap-xs;
-                padding-bottom: 2px;
+                //padding-bottom: 2px;
+            }
+            .icon-container {
+                position: relative;
+                bottom: -2px;
+                display: inline-block;
             }
         }
         .icon {
@@ -668,28 +674,28 @@
             width: 100%;
         }
     }
-    .devconnect {
-        position: absolute;
-        top: 90px;
-        width: 250px;
-        height: 100px;
-        display: block;
-        background-repeat: no-repeat;
-        background-position: 0% 55%;
-        background-size: 35%;
-        //padding-bottom: 130%;
-        z-index: 99;
-        @include breakpoint($breakpoint-lg) {
-            background-position: 10% 50%;
-            background-size: 35%;
-            //padding-bottom: 90%;
-        }
-        @include breakpoint($breakpoint-lg) {
-            background-position: 5% 55%;
-            background-size: 35%;
-            //padding-bottom: 70%;
-        }
-    }
+    // .devconnect {
+    //     position: absolute;
+    //     top: 90px;
+    //     width: 250px;
+    //     height: 100px;
+    //     display: block;
+    //     background-repeat: no-repeat;
+    //     background-position: 0% 55%;
+    //     background-size: 35%;
+    //     //padding-bottom: 130%;
+    //     z-index: 99;
+    //     @include breakpoint($breakpoint-lg) {
+    //         background-position: 10% 50%;
+    //         background-size: 35%;
+    //         //padding-bottom: 90%;
+    //     }
+    //     @include breakpoint($breakpoint-lg) {
+    //         background-position: 5% 55%;
+    //         background-size: 35%;
+    //         //padding-bottom: 70%;
+    //     }
+    // }
 }
 
 .documents-list,

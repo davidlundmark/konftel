@@ -437,10 +437,10 @@ var VexHandler = {
             var template = Handlebars.compile(templateCompare);
 
             var data = {
-                title: CompareTitle,
-                body: bodyText,
+                title: deKai.htmlEncode(CompareTitle),
+                body: deKai.htmlEncode(bodyText),
                 items: items,
-                removeText: CompareRemove
+                removeText: deKai.htmlEncode(CompareRemove)
             };
 
             var buttonText;

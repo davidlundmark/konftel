@@ -81,7 +81,7 @@ deKai = {
                     _element = _dates[i];
                     _element.className = 'month';
 
-                    var date = new Date(2017,_element.innerHTML-1,1);
+                    var date = new Date(2017, _element.innerHTML - 1, 1);
                     var locale = Language;
                     var month = date.toLocaleString(locale, { month: 'short' });
 
@@ -89,7 +89,14 @@ deKai = {
                 }
             }
         }
+    },
+
+    htmlEncode: function (value) {
+        //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+        //then grab the encoded contents back out.  The div never exists on the page.
+        return $('<div/>').text(value).html();
     }
+
 };
 //#endregion
 
