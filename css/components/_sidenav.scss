@@ -44,30 +44,32 @@ $sidenav-transition-timing: $easeOutQuad;
         }
     }
     &.scroll {
+        overflow-x: hidden;
         overflow-y: scroll;
         //-webkit-overflow-scrolling: touch;
     }
 }
 
+
 /* fix for sliding page content */
+
 .content-wrapper {
     &.top-content {
         position: static;
     }
     @include breakpoint($breakpoint-lg) {
-        &:not(.top-content){
+        &:not(.top-content) {
             @include transition(transform, $sidenav-transition-duration, $sidenav-transition-timing);
             &.sidenav-open {
-                //@include translateX($sidenav-width);
+                @include translateX($sidenav-width);
             }
         }
         .page-slider {
             @include transition(transform, $sidenav-transition-duration, $sidenav-transition-timing);
             @at-root .sidenav-open#{&} {
-                //@include translateX($sidenav-width);
+                @include translateX($sidenav-width);
             }
         }
-
         &.top-content {
             position: static;
             .page-header {

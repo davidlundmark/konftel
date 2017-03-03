@@ -10,27 +10,27 @@ var ScrollmagicHandler = {
         this.initilized = true;
         //only use on product page
         $('.template-product .content-wrapper:not(.top-content)').addClass('use-animation')
-        var _scrollmagicElements = document.querySelectorAll('.template-product .content-wrapper:not(.top-content) > .page-section');
+        var _scrollmagicElements = document.querySelectorAll('.template-product .content-wrapper .use-magic');//document.querySelectorAll('.template-product .content-wrapper:not(.top-content) > .page-section');
         if (_scrollmagicElements === null) return;
 
-        var filtered = [];
-        $(_scrollmagicElements).each(function() {
-            var $this = $(this);
-            if (!$this.hasClass('find-dealer') && !$this.hasClass('product-tech-spec-section') && !$this.hasClass('hero-text-section') && !$this.hasClass('product-features-section') && !$this.hasClass('documents-section') && !$this.hasClass('list-related') && !$this.hasClass('buttons-section') && !$this.hasClass('academy-featured-picker-section')) {
-                filtered.push($this);
-            } else {
-                $this.addClass('active');
-            }
-        });
+        // var filtered = [];
+        // $(_scrollmagicElements).each(function() {
+        //     var $this = $(this);
+        //     if (!$this.hasClass('card-product-info') && !$this.hasClass('find-dealer') && !$this.hasClass('product-tech-spec-section') && !$this.hasClass('hero-text-section') && !$this.hasClass('product-features-section') && !$this.hasClass('documents-section') && !$this.hasClass('list-related') && !$this.hasClass('buttons-section') && !$this.hasClass('academy-featured-picker-section')) {
+        //         filtered.push($this);
+        //     } else {
+        //         $this.addClass('active');
+        //     }
+        // });
 
-        if (!$(filtered).length) return;
+        //if (!$(filtered).length) return;
 
         // init controller
         var controller = new ScrollMagic.Controller({ globalSceneOptions: { duration: 0 } });
         var elemSelector;
-
-        //$(_scrollmagicElements).each(function(i) {
-        $(filtered).each(function(i) {
+        
+        //$(filtered).each(function(i) {
+        $(_scrollmagicElements).each(function(i) {
             var $this = $(this);
             elemSelector = 'scroll-scene-' + i;
 
@@ -48,6 +48,12 @@ var ScrollmagicHandler = {
                 .on('enter', function(event) {
                     event.target.removeClassToggle();
 
+                    var $parent;
+                    var $useFadeInUp = $this.find('.useFadeInUp');
+                    if ($useFadeInUp) {
+                        $useFadeInUp.addClass('animated fadeInUp');
+                    }
+                    /*
                     var $parent;
                     if ($this.hasClass('product-info') || $this.hasClass('product-quote')) {
                         $parent = $this.find('.card');
@@ -80,6 +86,7 @@ var ScrollmagicHandler = {
                             });
                         }
                     }
+                    */
                     //event.scene = null;
                     controller.removeScene(event.target);
                 })

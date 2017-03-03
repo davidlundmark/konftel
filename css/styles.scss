@@ -246,7 +246,7 @@
 }
 
 .find-dealer {
-    color: $light-font-color;
+    color: $secondary-background-color; //$light-font-color;
     background-color: $color-dark-blue;
     hr {
         border-color: $secondary-border-color;
@@ -277,8 +277,13 @@
         }
     }
     .row > .column {
-        &:nth-child(2) {
-            @extend .large;
+        &:nth-child(3) {
+            //@extend .large;
+            .text {
+                @include breakpoint($breakpoint-md) {
+                    margin-top: $gap-double;
+                }
+            }
         }
     }
 }
@@ -362,6 +367,26 @@
         @at-root .uc-hero#{&} {
             min-height: $hero-image-uc-min-height;
         }
+        @at-root .uc-hero#{&} {
+            min-height: $hero-image-uc-min-height;
+        }
+        @at-root .sound-teaser#{&} {
+            min-height: $hero-sound-min-height;
+            @include breakpoint($breakpoint-lg) {
+                background-position: 50% 86%;
+            }
+            @include breakpoint($breakpoint-md) {
+                background-position: 0% 44%;
+                min-height: $hero-sound-min-height-md;
+            }
+        }
+        @at-root .subscribe-section#{&} {
+            min-height: $hero-subscribe-min-height;
+            @include breakpoint($breakpoint-md) {
+                min-height: $hero-subscribe-min-height-md;
+                background-position: left;
+            }
+        }
         @include breakpoint($breakpoint-md) {
             min-height: $hero-image-min-height-md;
         }
@@ -386,13 +411,22 @@
             padding-right: $gap;
         }
     }
+    @at-root .subscribe-section#{&} {
+        .card-image .background-image {
+            background-position: center center;
+            min-height: $hero-subscribe-product-min-height !important;
+            @include breakpoint($breakpoint-md) {
+                min-height: $hero-subscribe-product-min-height-md !important;
+            }
+        }
+    }
     .card,
     .text {
         color: $hero-image-color;
         text-shadow: $hero-image-text-shadow;
         @include centerElement();
         @extend .letter-spacing-small;
-        @include sharpen();
+        //@include sharpen();
         @extend .large;
         @include headings {
             @extend .bold;
@@ -410,6 +444,9 @@
         }
         @include breakpoint($breakpoint-md) {
             width: calc(100% - #{$page-section-padding} - #{$gap * 2});
+        }
+        @at-root .sound-teaser#{&} {
+            padding-bottom: $gap-double;
         }
     }
     .icon-circle {
@@ -553,9 +590,6 @@
                 width: 30%;
             }
             @include breakpoint($breakpoint-md) {
-                width: 80%;
-            }
-            @include breakpoint($breakpoint-sm) {
                 width: 100%;
                 > div {
                     width: 60%;
@@ -563,6 +597,10 @@
                 > a {
                     width: 40%;
                 }
+            }
+            @include breakpoint($breakpoint-sm) {
+                //width: 100%;
+                
             }
         }
         @include breakpoint($breakpoint-sm) {
@@ -575,11 +613,11 @@
             padding-top: 0;
             margin-top: -$page-section-padding;
         }
-        > .background-image {
-            @include breakpoint($breakpoint-md) {
-                min-height: 540px;
-            }
-        }
+        // > .background-image {
+        //     @include breakpoint($breakpoint-md) {
+        //         min-height: 540px;
+        //     }
+        // }
     }
 }
 
@@ -641,6 +679,11 @@
             padding-bottom: $gap-xl;
             @include breakpoint($breakpoint-md) {
                 padding-bottom: $gap-double;
+            }
+        }
+        .section-container & {
+            &:first-child {
+                padding-top: 8px;
             }
         }
     }
@@ -885,6 +928,10 @@
             &:last-child {
                 margin-right: 0;
             }
+        }
+        .template-product & {
+            padding-top: $gap-xl + $gap-extra;
+            padding-bottom: $page-section-padding;
         }
     }
     .button {
@@ -1289,9 +1336,10 @@ aside + aside {
 
 body {
     .content-wrapper.use-animation {
-        .page-section {
+        .page-section.use-magic {
+            z-index: 3;
             &:not(.active) {
-                .section-container {
+                .magic-element {
                     visibility: hidden;
                     @include breakpoint($breakpoint-lg) {
                         visibility: visible;

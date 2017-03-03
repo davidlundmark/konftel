@@ -432,15 +432,13 @@ var VexHandler = {
             //     else if (items.length == 2) bodyText = CompareTwoItems;
             //     else if (items.length == 3) bodyText = CompareThreeItems;
             // }
-
             vex.defaultOptions.className = 'modal-compare';
             var template = Handlebars.compile(templateCompare);
-
             var data = {
-                title: deKai.htmlEncode(CompareTitle),
-                body: deKai.htmlEncode(bodyText),
+                title: deKai.htmlDecode(CompareTitle),
+                body: deKai.htmlDecode(bodyText),
                 items: items,
-                removeText: deKai.htmlEncode(CompareRemove)
+                removeText: deKai.htmlDecode(CompareRemove)
             };
 
             var buttonText;
@@ -461,9 +459,9 @@ var VexHandler = {
             }
             */
 
-            buttonText = CompareButtonText;
-            bodyText = CompareText;
-            linkText = CompareCloseText;
+            buttonText = deKai.htmlDecode(CompareButtonText);
+            bodyText = deKai.htmlDecode(CompareText);
+            linkText = deKai.htmlDecode(CompareCloseText);
 
             vex.dialog.open({
                 unsafeMessage: template(data),

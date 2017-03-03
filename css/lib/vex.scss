@@ -74,9 +74,14 @@
         top: 50%;
         max-width: $vex-content-max-width;
     }
-    .vex.modal-accessories & { 
+    .vex.modal-compare & {
+        @include breakpoint($breakpoint-md) {
+            padding-right: $gap;
+            padding-left: $gap;
+        }
+    }
+    .vex.modal-accessories & {
         background-color: $septenary-background-color;
-
         .title {
             @extend .bold;
             margin-bottom: $gap;

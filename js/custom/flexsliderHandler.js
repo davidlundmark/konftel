@@ -9,6 +9,8 @@ var FlexsliderHandler = {
     itemsVisible: true,
     menuHeight: 0,
     sliderHeight: 0,
+    useZoomEffect: false,
+    $images: null,
     init: function() {
         var _flexsliders = document.querySelector('.page-slider');
         if (_flexsliders === null) return;
@@ -34,7 +36,7 @@ var FlexsliderHandler = {
 
         this.$flexslider.flexslider({
             directionNav: true,
-            controlNav: true,
+            controlNav: false,
             animationLoop: true,
             slideshow: false,
             slideshowSpeed: 0,
@@ -52,6 +54,7 @@ var FlexsliderHandler = {
                     this.setTopPadding();
                 }.bind(this));
 
+                this.handleScroll();
                 $(window).on('scroll.flexslider', function() {
                     this.handleScroll();
                 }.bind(this));
@@ -82,8 +85,8 @@ var FlexsliderHandler = {
             return;
         }
         */
-
-        if ($('body').hasClass('template-article')) {
+        var $body = $('body');
+        if ($body.hasClass('template-article')) {
             this.sliderHeight = 670; //($(window).height() * 0.7) - this.menuHeight;
 
             if (ScreensizeHandler.isSmOrSmaller) {
@@ -93,7 +96,7 @@ var FlexsliderHandler = {
             } else if (ScreensizeHandler.isLgOrSmaller) {
                 this.sliderHeight = 575;
             }
-        } else if ($('body').hasClass('template-academyarticle')) {
+        } else if ($body.hasClass('template-academyarticle')) {
             this.sliderHeight = 480; //($(window).height() * 0.7) - this.menuHeight;
 
             if (ScreensizeHandler.isSmOrSmaller) {
@@ -103,7 +106,7 @@ var FlexsliderHandler = {
             } else if (ScreensizeHandler.isLgOrSmaller) {
                 this.sliderHeight = 260;
             }
-        } else if ($('body').hasClass('template-support-folder') || $('body').hasClass('template-uc-page')) {
+        } else if ($body.hasClass('template-support-folder') || $body.hasClass('template-uc-page')) {
             this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
 
             if (ScreensizeHandler.isSmOrSmaller) {
@@ -128,6 +131,13 @@ var FlexsliderHandler = {
             }
         }
 
+        if ($body.hasClass('template-home') || $body.hasClass('template-academyarticle')) {
+            this.useZoomEffect = false;
+        }
+        else {
+            this.useZoomEffect = true;
+        }
+
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight
         });
@@ -146,7 +156,9 @@ var FlexsliderHandler = {
     },
     handleScroll: function() {
         if (ScreensizeHandler.isLgOrSmaller) return;
+
         var scrollTop = $(window).scrollTop();
+        /*
         if (scrollTop >= (this.sliderHeight + this.menuHeight) / 2) {
             if (this.itemsVisible) {
                 this.itemsVisible = false;
@@ -160,10 +172,19 @@ var FlexsliderHandler = {
                 this.$directionNav.stop().fadeIn(200);
             }
         }
+        */
 
         if (scrollTop <= this.sliderHeight + this.menuHeight) {
-            this.$pageslider.css({ transform: 'translateY(-' + scrollTop / 2 + 'px)' });
-            this.$slidertext.css({ transform: 'translateY(-' + scroll / 2 + 'px)' });
+            this.$pageslider.css({ transform: 'translateY(-' + scrollTop + 'px)' });
+            if(this.useZoomEffect) {
+                if(!this.$images) {
+                    this.$images = this.$pageslider.find('.flexslider-image');
+                }
+                //console.log(scrollTop)
+                this.$images.css({ 'background-size': (100 + (scrollTop / 50)) + '%' });
+            }
+            //this.$pageslider.css({ transform: 'translateY(-' + scrollTop / 2 + 'px)' });
+            //this.$slidertext.css({ transform: 'translateY(-' + scroll / 2 + 'px)' });
         }
     }
 };

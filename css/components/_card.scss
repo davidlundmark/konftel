@@ -402,9 +402,25 @@
                 &:nth-child(2) {
                     width: $card-list-item-text-second-size;
                     padding: 0 $gap-sm;
+                    .dealers & {
+                        @include breakpoint($breakpoint-lg) {
+                            width: $card-list-item-text-second-size - 10%;
+                        }
+                        @include breakpoint($breakpoint-md) {
+                            width: $card-list-item-text-second-size;
+                        }
+                    }
                 }
                 &:nth-child(3) {
                     width: $card-list-item-text-third-size;
+                    .dealers & {
+                        @include breakpoint($breakpoint-lg) {
+                            width: $card-list-item-text-third-size + 10%;
+                        }
+                        @include breakpoint($breakpoint-md) {
+                            width: $card-list-item-text-third-size;
+                        }
+                    }
                 }
             }
         }

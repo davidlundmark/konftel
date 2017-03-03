@@ -202,7 +202,7 @@ $breakpoint-xl: 1400px;
 $breakpoint-lg: 1024px;
 $breakpoint-md: 768px;
 $breakpoint-sm: 480px;
-$breakpoint-xs: 320px; 
+$breakpoint-xs: 360px; 
 
 // =================================================
 //Gaps
@@ -220,6 +220,8 @@ $gap-triple: $gap * 3;
 $gap-double: $gap * 2;
 $gap-half: $gap * 0.5;
 $gap-none: 0;
+
+$gap-extra: 8px;
 
 // =================================================
 // Animation
@@ -550,6 +552,12 @@ $hero-image-color: $light-font-color;
 $hero-image-text-shadow: none;
 $hero-image-small-min-height: 220px;
 $hero-image-uc-min-height: 350px;
+$hero-sound-min-height: 300px;
+$hero-sound-min-height-md: 350px;
+$hero-subscribe-min-height: 300px;
+$hero-subscribe-min-height-md: 500px;
+$hero-subscribe-product-min-height: 180px;
+$hero-subscribe-product-min-height-md: 160px;
 
 // =================================================
 // Login
