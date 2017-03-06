@@ -178,6 +178,9 @@ a,
 }
 
 a {
+    &.text-link-title {
+        @include hoverLink($base-font-color, $base-brand-color);
+    }
     &.text-link {
         @extend .medium;
         @include hoverLink($base-font-color, $base-brand-color);

@@ -20,7 +20,10 @@ var MobileMenuHandler = {
                 $(document.querySelectorAll('.content-wrapper')).toggleClass('sidenav-open');
 
                 var $content = $target.find('.content');
-                var $blocker = $target.find('.blocker');
+                //var $blocker = $target.find('.blocker');
+                //$blocker.fadeToggle();
+                var _blocker = document.querySelector('.blocker');
+                var $blocker = $(_blocker);
                 $blocker.fadeToggle();
                 var $triggers = $content.find('.accordion-trigger');
 

@@ -126,6 +126,28 @@
             }
         }
 
+        if (typeof useSearchCount !== 'undefined' && useSearchCount) {
+            var _counter = document.querySelector('.search-section .search-count');
+            if (_counter !== null) {
+                $(_counter).text(function() {
+                    return $(this).text().replace('[x]', ''+document.querySelectorAll('.search-item ').length);
+                });
+            }
+        }
+
+        if (typeof useSearchLoadMore !== 'undefined' && useSearchLoadMore) {
+            var _loadmore = document.querySelectorAll('.search-section .load-more');
+            if (_loadmore !== null) {
+                $(_loadmore).on('click', function(e) {
+                    var $this = $(this);
+                    var $parent = $this.parent();
+                    $parent.find('.search-item.hide').slice(0, 3).removeClass('hide');
+                    if (!$parent.find('.search-item.hide').length) $this.hide();
+                    return false;
+                });
+            }
+        }
+
         var _mobileFindADealer = document.getElementById('mobilefindadealer');
         if (_mobileFindADealer !== null) {
             $(_mobileFindADealer).on('click', function(e) {

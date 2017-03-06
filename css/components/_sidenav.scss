@@ -3,8 +3,10 @@ $sidenav-transition-timing: $easeOutQuad;
     display: none;
     //width: $sidenav-width;
     //@include fixedOverlay($left: auto, $background-color: $sidenav-background-color, $z-index: 999);
-    @include fixedOverlay($z-index: 999, $overflow: visible, $background-color: rgba($white, 0));
-    z-index: 1000 !important;
+    //@include fixedOverlay($z-index: 1005, $overflow: visible, $background-color: rgba($white, 0));
+    @include coverAll();
+    z-index: 1005;
+    //z-index: 1000 !important;
     //background-color: rgba($white, 0);
     //@include border($sidenav-border-color, left);
     @include breakpoint($breakpoint-lg) {
@@ -44,7 +46,7 @@ $sidenav-transition-timing: $easeOutQuad;
         }
     }
     &.scroll {
-        overflow-x: hidden;
+        //overflow-x: hidden;
         overflow-y: scroll;
         //-webkit-overflow-scrolling: touch;
     }

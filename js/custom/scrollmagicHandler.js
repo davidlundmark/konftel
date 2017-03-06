@@ -9,9 +9,15 @@ var ScrollmagicHandler = {
         if (this.initilized) return;
         this.initilized = true;
         //only use on product page
-        $('.template-product .content-wrapper:not(.top-content)').addClass('use-animation')
-        var _scrollmagicElements = document.querySelectorAll('.template-product .content-wrapper .use-magic');//document.querySelectorAll('.template-product .content-wrapper:not(.top-content) > .page-section');
-        if (_scrollmagicElements === null) return;
+        //var _useMagic = document.querySelectorAll('.template-product, .template-home');
+        //if (_useMagic === null) return;
+        //$(_useMagic).find('.content-wrapper:not(.top-content)').addClass('use-animation');
+
+        var $content = $('.content-wrapper:not(.top-content)');
+        $content.addClass('use-animation');
+
+        var $scrollmagicElements = $content.find('> .use-magic');//document.querySelectorAll('.template-product .content-wrapper:not(.top-content) > .page-section');
+        if (!$scrollmagicElements.length) return;
 
         // var filtered = [];
         // $(_scrollmagicElements).each(function() {
@@ -30,7 +36,7 @@ var ScrollmagicHandler = {
         var elemSelector;
         
         //$(filtered).each(function(i) {
-        $(_scrollmagicElements).each(function(i) {
+        $scrollmagicElements.each(function(i) {
             var $this = $(this);
             elemSelector = 'scroll-scene-' + i;
 
@@ -100,8 +106,6 @@ var ScrollmagicHandler = {
 $(window).on('load', function() {
     initScrollMagic(true);
 });
-
-
 
 (function() {
     $(this).on('flexslider-started', function() {

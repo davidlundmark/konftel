@@ -204,7 +204,7 @@
             }
             > span {
                 cursor: default;
-                .submenu-icon { 
+                .submenu-icon {
                     display: inline-block;
                     content: '';
                     @include createTriangle('down', 6px, 6px, $color: $base-brand-color);
@@ -364,21 +364,20 @@
         width: $sidenav-width;
         cursor: pointer;
     }
-    .blocker {
-        display: none;
-        position: absolute;
-        //right: 0; //$sidenav-width;
-        left: 0;
-        top: 0;
-        width: 100vw;//100%;
-        height: 100%;
-        background-color: rgba($white, 0.05);//0.2
-        cursor: pointer;
-
-        // @at-root .open#{&} {
-        //     display: block;
-        // }
-    }
+    // .blocker {
+    //     display: none;
+    //     position: absolute;
+    //     //right: 0; //$sidenav-width;
+    //     left: 0;
+    //     top: 0;
+    //     width: 100vw; //100%;
+    //     height: 100%;
+    //     background-color: rgba($white, 0.1); //0.2
+    //     cursor: pointer;
+    //     // @at-root .open#{&} {
+    //     //     display: block;
+    //     // }
+    // }
     // .bottom {
     //     padding: 0 $page-section-padding $gap;
     //     a {
@@ -420,4 +419,16 @@
     //         }
     //     }
     // }
+}
+
+.blocker {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba($white, 0.2);
+    cursor: pointer;
+    z-index: 1004;
 }

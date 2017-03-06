@@ -59,7 +59,7 @@ input[type="submit"] {
         padding: $button-square-padding;
         @extend .letter-spacing-small;
         text-transform: $button-square-text-transform;
-        &:not(.button-dark):not(.button-light):not(.button-dark-blue) {
+        &:not(.button-dark):not(.button-light):not(.button-dark-blue):not(.button-light-secondary) {
             color: $button-square-color;
             background-color: $button-square-background-color;
             border: $button-square-border;
@@ -79,11 +79,16 @@ input[type="submit"] {
             background-color: #2E4053;
             border: none;
         }
+        &.button-light-secondary {
+            color: #808B96;
+            background-color: $button-square-light-background-color;
+            border: none;
+        }
         //@include animateLine();
         .no-touch & {
             //@include transition();
             &:hover {
-                &:not(.button-dark):not(.button-light) {
+                &:not(.button-dark):not(.button-light):not(.button-light-secondary) {
                     color: $button-square-hover-color;
                     background-color: $button-square-hover-background-color;
                     //text-decoration: underline;
@@ -96,6 +101,11 @@ input[type="submit"] {
                 &.button-light {
                     color: $button-square-light-hover-color;
                     background-color: $button-square-light-hover-background-color;
+                    //text-decoration: underline;
+                }
+                &.button-light-secondary {
+                    color: #808B96;
+                    background-color: #b6bdc4;
                     //text-decoration: underline;
                 }
             }

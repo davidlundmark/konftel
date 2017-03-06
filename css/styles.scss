@@ -8,7 +8,7 @@
 .support-form-section,
 .filter-academy,
 .find-product,
-.find-dealer {
+.find-dealer .find-dealer-list {
     .button {
         margin: 0;
         width: 100%;
@@ -64,6 +64,10 @@
                 font-size: $base-font-size;
             }
         }
+        .search-type {
+            @extend .medium;
+            margin-bottom: $gap-xl;
+        }
         // .search-type {
         //     @extend .large;
         //     padding: $gap 0;
@@ -75,6 +79,12 @@
         .pagination {
             margin-top: $gap-double;
             @extend .medium;
+        }
+
+        + .search-section {
+            .section-container {
+                padding-top: 0;
+            }
         }
     }
 }
@@ -267,13 +277,15 @@
             margin-top: $gap-half;
         }
     }
-    select {
-        margin-bottom: $gap-double;
-    }
-    .load-more {
-        margin-top: $gap-md + $gap-half;
-        @include breakpoint($breakpoint-md) {
-            margin-bottom: $gap;
+    .find-dealer-list {
+        select {
+            margin-bottom: $gap-double;
+        }
+        .load-more {
+            margin-top: $gap-md + $gap-half;
+            @include breakpoint($breakpoint-md) {
+                margin-bottom: $gap;
+            }
         }
     }
     .row > .column {
@@ -409,6 +421,9 @@
         width: calc(100% - #{$page-section-padding * 2} - #{$gap * 2});
         .card-text {
             padding-right: $gap;
+        }
+        @include breakpoint($breakpoint-sm) {
+            width: calc(100% - #{$page-section-padding * 2});
         }
     }
     @at-root .subscribe-section#{&} {
@@ -600,7 +615,6 @@
             }
             @include breakpoint($breakpoint-sm) {
                 //width: 100%;
-                
             }
         }
         @include breakpoint($breakpoint-sm) {
