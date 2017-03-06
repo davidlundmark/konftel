@@ -153,6 +153,9 @@
                 @extend .medium;
                 @include hoverLink();
             }
+            &.selected {
+                @include animateLine($line-color: $base-font-color, $thickness: 2px, $scale: 1, $distance: 3px);
+            }
         }
     }
     #default-menu {

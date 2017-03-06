@@ -564,7 +564,7 @@
                 padding-bottom: 56.25%;
             }
             &:not(.card-featured-picker) {
-                @include border($dir: top);
+                @include border($dir: top, $color: rgba($tertiary-background-color, 0.25));
             }
             &.card-featured-picker {
                 > .card {

@@ -6,7 +6,9 @@ var BackgroundImageHandler = {
         $(_backgroundImages).each(function() {
             var $this = $(this);
             var $image = $this.find('> img');
-            var src = $image.prop('currentSrc') || $image.prop('src');
+            var src = ""; //$image.prop('currentSrc') || $image.prop('src');
+            if ($image.prop('currentSrc')) src = $image.prop('currentSrc');
+            else src = $image.prop('src');
             $this.siblings('.background-image').css('background-image', 'url(' + src + ')');
             $this.remove();
         });
@@ -17,6 +19,6 @@ var BackgroundImageHandler = {
 
 (function() {
     //if (typeof useBackgroundImages !== 'undefined' && useBackgroundImages) {
-        BackgroundImageHandler.init();
+    BackgroundImageHandler.init();
     //}
 })();

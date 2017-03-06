@@ -41,6 +41,14 @@
 .sound-teaser {
     .section-container {
         padding-bottom: $gap-double*2;
+        // .sound-icon {
+        //     display: none;
+        //     //height: $icon-circle-size;
+        // }
+        .audio {
+            bottom: -$icon-circle-size/2;
+            opacity: 0;
+        }
     }
 }
 
@@ -76,11 +84,13 @@
         //         padding-top: 0;
         //     }
         // }
+        .search-count {
+            padding-bottom: 0;
+        }
         .pagination {
             margin-top: $gap-double;
             @extend .medium;
         }
-
         + .search-section {
             .section-container {
                 padding-top: 0;
@@ -176,6 +186,9 @@
                 margin-top: $gap-double;
             }
         }
+    }
+    .card-accessories .card-image {
+        overflow: visible;
     }
 }
 
@@ -462,6 +475,13 @@
         }
         @at-root .sound-teaser#{&} {
             padding-bottom: $gap-double;
+            width: 40%;
+            @include breakpoint($breakpoint-lg) {
+                width: 60%;
+            }
+            @include breakpoint($breakpoint-md) {
+                width: 80%;
+            }
         }
     }
     .icon-circle {
@@ -908,6 +928,11 @@
 
 .academy-featured-picker-section {
     background-color: $secondary-background-color;
+    + .list-academy-section.list-related {
+        .section-container {
+            padding-top: 0;
+        }
+    }
 }
 
 .article-section {
@@ -1129,9 +1154,14 @@
     background-color: $secondary-background-color;
 }
 
-.list-academy-section {
+.list-academy-section:not(.list-related) {
     &.list-related {
-        background-color: $septenary-background-color;
+        //background-color: $septenary-background-color;
+    }
+    .section-container {
+        &:first-child {
+            padding-bottom: 0;
+        }
     }
 }
 

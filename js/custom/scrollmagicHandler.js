@@ -16,7 +16,7 @@ var ScrollmagicHandler = {
         var $content = $('.content-wrapper:not(.top-content)');
         $content.addClass('use-animation');
 
-        var $scrollmagicElements = $content.find('> .use-magic');//document.querySelectorAll('.template-product .content-wrapper:not(.top-content) > .page-section');
+        var $scrollmagicElements = $content.find('> .use-magic'); //document.querySelectorAll('.template-product .content-wrapper:not(.top-content) > .page-section');
         if (!$scrollmagicElements.length) return;
 
         // var filtered = [];
@@ -34,7 +34,7 @@ var ScrollmagicHandler = {
         // init controller
         var controller = new ScrollMagic.Controller({ globalSceneOptions: { duration: 0 } });
         var elemSelector;
-        
+
         //$(filtered).each(function(i) {
         $scrollmagicElements.each(function(i) {
             var $this = $(this);
@@ -56,9 +56,28 @@ var ScrollmagicHandler = {
 
                     var $parent;
                     var $useFadeInUp = $this.find('.useFadeInUp');
-                    if ($useFadeInUp) {
-                        $useFadeInUp.addClass('animated fadeInUp');
-                    }
+                    $useFadeInUp.each(function() {
+                        var $this = $(this);
+                        $this.addClass('animated fadeInUp');
+                        /*
+                        if ($this.hasClass('useFadeDelay')) {
+                            setTimeout(function() {
+                                //$this.addClass('animated fadeInUp');
+                                $this.fadeIn({ duration: 200, queue: false }).css('display', 'none').slideDown();  
+                            }, 2000);
+                        } else {
+                            
+                        }
+                        */
+                        var $soundIcon = $this.find('.audio');
+                        if ($soundIcon.length) {
+                            setTimeout(function() {
+                                console.log('2')
+                                $soundIcon.animate({ bottom: '0' }, { duration: 200, queue: false });
+                                $soundIcon.animate({ opacity: '1' }, { duration: 200, queue: false });
+                            }, 400);
+                        }
+                    });
                     /*
                     var $parent;
                     if ($this.hasClass('product-info') || $this.hasClass('product-quote')) {
@@ -116,7 +135,7 @@ $(window).on('load', function() {
 function initScrollMagic(checkSlider) {
     if (typeof useScrollmagic !== 'undefined' && useScrollmagic) {
         if (checkSlider) {
-             if (typeof useSlider !== 'undefined' && useSlider) return;
+            if (typeof useSlider !== 'undefined' && useSlider) return;
         }
         ScrollmagicHandler.init();
     }

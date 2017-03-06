@@ -23,7 +23,10 @@ var FlexsliderHandler = {
         this.$pageslider.find('.slides > li').each(function() {
             var $slide = $(this);
             var $image = $(this.querySelector('img')); //$slide.find('img');
-            var src = $image.prop('currentSrc') || $image.prop('src');
+            //var src = $image.prop('currentSrc') || $image.prop('src');
+            var src = ""; //$image.prop('currentSrc') || $image.prop('src');
+            if ($image.prop('currentSrc')) src = $image.prop('currentSrc');
+            else src = $image.prop('src');
             var $flexsliderImage = $(this.querySelector('.flexslider-image'));
             $flexsliderImage.css('background-image', 'url(' + src + ')');
             //$slide.find('.flexslider-image').css('background-image', 'url(' + src + ')');
