@@ -191,6 +191,15 @@ var VexHandler = {
 
         $(_triggers).on('click', function(e) {
             var $this = $(e.target);
+
+            if ($this.hasClass('no-modal')) {
+                var _accSelect = document.getElementById('acc_select_product');
+                var _selectVal = $(_accSelect).find('option:selected').val();
+                if (_selectVal != '')
+                    location.href = _selectVal;
+                return false;
+            }
+
             var templateAccessories = $this.siblings('.card-modal').clone();
             templateAccessories.removeClass('hide');
             templateAccessories = templateAccessories.prop('outerHTML');
@@ -248,6 +257,63 @@ var VexHandler = {
                     _this.openVex(this.contentEl);
                 },
                 beforeClose: function() {
+                    _this.closeVex(this.contentEl);
+                },
+                callback: function(value) {
+                    if (value) {
+                        //console.log('Successfully destroyed the planet.')
+                    } else {
+                        //console.log('Chicken.')
+                    }
+                }
+            });
+
+            return false;
+        });
+    },
+
+    documentModal: function() {
+        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="document"]');
+        if (_triggers === null) return;
+
+        var _this = this;
+
+        /*
+        var templateDocument = document.querySelector('.document-modal');
+        templateDocument.remove();
+        $(templateDocument).removeClass('hide');
+        */
+
+        $(_triggers).on('click', function(e) {
+            var $this = $(e.target);
+            var templateDocument = $this.siblings('.document-modal').clone().removeClass('hide').prop('outerHTML');
+
+            vex.defaultOptions.className = 'modal-document';
+
+            vex.dialog.defaultOptions.buttons = [];
+            vex.dialog.confirm({
+                unsafeMessage: templateDocument,
+                afterOpen: function() {
+                    var $this = $(this.contentEl);
+                    var $button = $this.find('.download-document');
+                    var $select = $this.find('select');
+                    // $button.on('click', function(e) {
+                    //     var _selectVal = $select.find('option:selected').val();
+                    //     if (val != '') {
+                    //         location.href = _selectVal;
+                    //     }
+                    // });
+                    $button.attr('href', $select.find('option:selected').val());
+                    $select.on('change', function() {
+                        var val = $(this).val();
+                        if (val != '')
+                            $button.attr('href', val);
+                    });
+                    _this.openVex(this.contentEl);
+                },
+                beforeClose: function() {
+                    var $select = $this.find('select');
+                    $select.off('change');
                     _this.closeVex(this.contentEl);
                 },
                 callback: function(value) {
@@ -524,12 +590,12 @@ var VexHandler = {
             var expires = "; expires=" + date.toGMTString();
         } else var expires = "";
 
-        if(name == 'compare') {
+        if (name == 'compare') {
             var $item = $(document.getElementById(value));
             //console.log($item.data('modal-image'));
             //console.log($item.data('modal-title'));
-            value += '#'+$item.data('modal-title');
-            value += '#'+$item.data('modal-image');
+            value += '#' + $item.data('modal-title');
+            value += '#' + $item.data('modal-image');
         }
 
         if (!override) {
@@ -546,14 +612,13 @@ var VexHandler = {
     removeCookie: function(name, value) {
         var _cookie = this.readCookie(name);
 
-        if(name == 'compare' && _cookie) {
+        if (name == 'compare' && _cookie) {
             _cookie = _cookie.split(',');
             _cookie = _cookie.filter(function(e) {
                 return e.split('#')[0] !== value;
             });
             _cookie = _cookie.toString();
-        }
-        else if (_cookie) {
+        } else if (_cookie) {
             _cookie = _cookie.split(',');
             _cookie = _cookie.filter(function(e) {
                 return e !== value;
@@ -638,6 +703,11 @@ var VexHandler = {
         if (typeof useModalAccessories !== 'undefined' && useModalAccessories) {
             var accessoriesVexHandler = $.extend({}, VexHandler);
             accessoriesVexHandler.accessoriesModal();
+        }
+
+        if (typeof useModalDocument !== 'undefined' && useModalDocument) {
+            var documentVexHandler = $.extend({}, VexHandler);
+            documentVexHandler.documentModal();
         }
     }
 })();

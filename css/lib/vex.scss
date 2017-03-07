@@ -80,6 +80,14 @@
             padding-left: $gap;
         }
     }
+    .vex.modal-document & {
+        max-width: 600px;
+        background-color: $septenary-background-color;
+        .title {
+            @extend .bold;
+            margin-bottom: $gap;
+        }
+    }
     .vex.modal-accessories & {
         background-color: $septenary-background-color;
         .title {
@@ -126,6 +134,25 @@
     }
     .vex-closing & {
         animation: vex-flyout 0.5s;
+    }
+    .vex.modal-register & {
+        //width: calc(100% - #{$gap-double});
+        //height: calc(100% - #{$gap-double});
+        //vertical-align: middle;
+        //left: $gap;
+        //top: $gap;
+        // &.open {
+        //     position: relative;
+        //     display: table-cell;
+        // }
+        max-width: 90%;
+        .title {
+            @extend .normal;
+        }
+        .error {
+            padding-top: $gap;
+            color: red;
+        }
     }
 }
 

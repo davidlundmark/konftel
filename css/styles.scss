@@ -3,6 +3,8 @@
 @import './lib/base';
 @import './core/base';
 @import './components/base';
+.document-modal,
+.register-modal,
 .search-header-section,
 .find-accessories,
 .support-form-section,
@@ -1117,7 +1119,7 @@
     //     border-bottom: $secondary-border;
     // }
     li {
-        @extend .bold;
+        @extend .medium;
         a {
             @include hoverLink($light-font-color);
         }

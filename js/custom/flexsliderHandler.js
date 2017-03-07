@@ -98,6 +98,8 @@ var FlexsliderHandler = {
                 this.sliderHeight = 400;
             } else if (ScreensizeHandler.isLgOrSmaller) {
                 this.sliderHeight = 575;
+            } else if (ScreensizeHandler.isXlScreen) {
+                this.sliderHeight = 900;
             }
         } else if ($body.hasClass('template-academyarticle')) {
             this.sliderHeight = 480; //($(window).height() * 0.7) - this.menuHeight;
@@ -119,8 +121,7 @@ var FlexsliderHandler = {
             } else if (ScreensizeHandler.isLgOrSmaller) {
                 this.sliderHeight = 388;
             }
-        } 
-        else {
+        } else {
             this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
 
             if (ScreensizeHandler.isSmOrSmaller) {
@@ -136,8 +137,7 @@ var FlexsliderHandler = {
 
         if ($body.hasClass('template-home') || $body.hasClass('template-academyarticle')) {
             this.useZoomEffect = false;
-        }
-        else {
+        } else {
             this.useZoomEffect = true;
         }
 
@@ -179,8 +179,8 @@ var FlexsliderHandler = {
 
         if (scrollTop <= this.sliderHeight + this.menuHeight) {
             this.$pageslider.css({ transform: 'translateY(-' + scrollTop + 'px)' });
-            if(this.useZoomEffect) {
-                if(!this.$images) {
+            if (this.useZoomEffect) {
+                if (!this.$images) {
                     this.$images = this.$pageslider.find('.flexslider-image');
                 }
                 //console.log(scrollTop)

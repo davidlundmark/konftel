@@ -72,7 +72,6 @@ var ScrollmagicHandler = {
                         var $soundIcon = $this.find('.audio');
                         if ($soundIcon.length) {
                             setTimeout(function() {
-                                console.log('2')
                                 $soundIcon.animate({ bottom: '0' }, { duration: 200, queue: false });
                                 $soundIcon.animate({ opacity: '1' }, { duration: 200, queue: false });
                             }, 400);

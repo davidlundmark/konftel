@@ -71,6 +71,7 @@
                     var $matchingAccessories = $accessories.length;
 
                     var $counter = $(document.getElementById('accessories-count'));
+                    $accessories.find('.modal-trigger').removeClass('no-modal');
 
                     if (_selectVal == 'All' && !_inputVal) {
                         $accessories.show();
@@ -85,6 +86,7 @@
                     } else if (_selectVal != 'All') {
                         console.log('sel', _selectVal);
                         $matchingAccessories = $(_accessoriesRow).find("> .column[data-products*='" + _selectVal + "']");
+                        $matchingAccessories.find('.modal-trigger').addClass('no-modal');
                     } else if (_inputVal) {
                         console.log('inp', _inputVal);
                         $matchingAccessories = $(_accessoriesRow).find("> .column[data-serialnumber*='" + _inputVal + "']");
@@ -130,7 +132,7 @@
             var _counter = document.querySelector('.search-section .search-count');
             if (_counter !== null) {
                 $(_counter).text(function() {
-                    return $(this).text().replace('[x]', ''+document.querySelectorAll('.search-item ').length);
+                    return $(this).text().replace('[x]', '' + document.querySelectorAll('.search-item ').length);
                 });
             }
         }
@@ -148,10 +150,24 @@
             }
         }
 
+        var _mobileLanguage = document.getElementById('mobilelanguage');
+        if (_mobileLanguage !== null) {
+            $(_mobileLanguage).on('click', function(e) {
+                var _menutoggle = document.querySelector('.blocker');
+                _menutoggle.click();
+                setTimeout(function() {
+                    var _languageSelector = document.getElementById('language-selector');
+                    _languageSelector.click();
+                }, 600);
+
+                return false;
+            });
+        }
+
         var _mobileFindADealer = document.getElementById('mobilefindadealer');
         if (_mobileFindADealer !== null) {
             $(_mobileFindADealer).on('click', function(e) {
-                var _menutoggle = document.querySelector('.menu-toggle');
+                var _menutoggle = document.querySelector('.blocker');
                 _menutoggle.click();
                 return false;
             });

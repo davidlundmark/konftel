@@ -36,36 +36,232 @@
     line-height: 0;
 }
 
+.icon-container {
+    &.icon-big {
+        font-size: $icon-big-font-size;
+        position: relative;
+        bottom: -6px;
+    }
+}
+
 //-----------
-.icon-info2:before {
-  content: "\ed64";
+.icon-konftel-event:before {
+  content: "\e928";
 }
-.icon-konftel-hd-audio:before {
+.icon-konftel-dect .path1:before {
+  content: "\e900";
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-dect .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(29, 29, 27);
+}
+.icon-konftel-dect .path3:before {
   content: "\e902";
+  margin-left: -1em;
+  color: rgb(29, 29, 27);
 }
-.icon-konftel-headphones:before {
+.icon-konftel-dect .path4:before {
   content: "\e903";
+  margin-left: -1em;
+  color: rgb(29, 29, 27);
 }
-.icon-konftel-battery:before {
+.icon-konftel-dect .path5:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(29, 29, 27);
+}
+.icon-konftel-dect .path6:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(29, 29, 27);
+}
+.icon-konftel-UC .path1:before {
+  content: "\e90d";
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-UC .path2:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-konftel-UC .path3:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-konftel-UC .path4:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-konftel-touchscreen .path1:before {
+  content: "\e911";
+  color: rgb(0, 0, 0);
+}
+.icon-konftel-touchscreen .path2:before {
+  content: "\e915";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-konftel-touchscreen .path3:before {
+  content: "\e916";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-konftel-touchscreen .path4:before {
+  content: "\e917";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-touchscreen .path5:before {
+  content: "\e91c";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-touchscreen .path6:before {
+  content: "\e91d";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-konftel-configuration-auto-provisioning .path1:before {
+  content: "\e91e";
+  color: rgb(35, 31, 32);
+}
+.icon-konftel-configuration-auto-provisioning .path2:before {
+  content: "\e91f";
+  margin-left: -1em;
+  color: rgb(35, 31, 32);
+}
+.icon-konftel-configuration-auto-provisioning .path3:before {
+  content: "\e920";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-configuration-auto-provisioning .path4:before {
+  content: "\e921";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-configuration-auto-provisioning .path5:before {
+  content: "\e922";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-large-meetings:before {
   content: "\e905";
 }
-.icon-konftel-phone:before {
-  content: "\e906";
+.icon-konftel-medium-meetings:before {
+  content: "\e907";
 }
-.icon-konftel-event:before {
-  content: "\e901";
+.icon-konftel-personal-meetings:before {
+  content: "\e908";
 }
-.icon-konftel-meeting-size:before {
-  content: "\e900";
+.icon-konftel-small-meetings:before {
+  content: "\e909";
+}
+.icon-konftel-battery:before {
+  content: "\e90a";
+}
+.icon-konftel-conference-bridge:before {
+  content: "\e90b";
+}
+.icon-konftel-features-generic:before {
+  content: "\e912";
+}
+.icon-konftel-HD:before {
+  content: "\e913";
+}
+.icon-konftel-LCD:before {
+  content: "\e914";
+}
+.icon-konftel-line-bridge:before {
+  content: "\e918";
+}
+.icon-konftel-NFC:before {
+  content: "\e919";
+}
+.icon-konftel-SD-card:before {
+  content: "\e91a";
+}
+.icon-konftel-software-upgrades:before {
+  content: "\e91b";
+}
+.icon-konftel-web-based-configuration .path1:before {
+  content: "\e926";
+  color: rgb(35, 31, 32);
+}
+.icon-konftel-web-based-configuration .path2:before {
+  content: "\e927";
+  margin-left: -1em;
+  color: rgb(35, 31, 32);
+}
+.icon-konftel-web-based-configuration .path3:before {
+  content: "\e928";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-web-based-configuration .path4:before {
+  content: "\e929";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-web-based-configuration .path5:before {
+  content: "\e92a";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-konftel-bluetooth:before {
+  content: "\e92b";
+}
+.icon-konftel-deskphone:before {
+  content: "\e92c";
+}
+.icon-konftel-expansion-microphones:before {
+  content: "\e92d";
+}
+.icon-konftel-headset:before {
+  content: "\e92e";
+}
+.icon-konftel-mobile-cable:before {
+  content: "\e92f";
+}
+.icon-konftel-NFC2:before {
+  content: "\e930";
+}
+.icon-konftel-PA-connection:before {
+  content: "\e931";
+}
+.icon-konftel-power-over-ethernet:before {
+  content: "\e94b";
+}
+.icon-konftel-streaming:before {
+  content: "\e94c";
+}
+.icon-konftel-analogue:before {
+  content: "\e94d";
+}
+.icon-konftel-GSM-3G:before {
+  content: "\e955";
+}
+.icon-konftel-SIP:before {
+  content: "\e956";
+}
+.icon-konftel-USB:before {
+  content: "\e957";
+}
+.icon-konftel-wireless:before {
+  content: "\e958";
+}
+.icon-konftel-expansion-microphones2:before {
+  content: "\e959";
+}
+.icon-konftel-headset2:before {
+  content: "\e95a";
 }
 .icon-home5:before {
   content: "\e904";
-}
-.icon-music5:before {
-  content: "\e94e";
-}
-.icon-connection:before {
-  content: "\e97c";
 }
 .icon-envelop3:before {
   content: "\ea32";
@@ -106,32 +302,11 @@
 .icon-arrow-left4:before {
   content: "\edc6";
 }
-.icon-battery-charging:before {
-  content: "\ee5b";
-}
-.icon-radio-checked2:before {
-  content: "\ee72";
-}
-.icon-circles:before {
-  content: "\ee79";
-}
-.icon-music:before {
-  content: "\e911";
-}
-.icon-lifebuoy:before {
-  content: "\e941";
-}
 .icon-phone:before {
   content: "\e942";
 }
 .icon-search:before {
   content: "\e986";
-}
-.icon-enlarge2:before {
-  content: "\e98b";
-}
-.icon-link:before {
-  content: "\e9cb";
 }
 .icon-play3:before {
   content: "\ea1c";
@@ -148,9 +323,6 @@
 .icon-arrow-down2:before {
   content: "\ea3e";
 }
-.icon-embed2:before {
-  content: "\ea80";
-}
 .icon-facebook:before {
   content: "\ea90";
 }
@@ -160,15 +332,4 @@
 .icon-twitter:before {
   content: "\ea96";
 }
-.icon-cog:before {
-  content: "\f013";
-}
-.icon-gear:before {
-  content: "\f013";
-}
-.icon-question:before {
-  content: "\f128";
-}
-.icon-bluetooth-b:before {
-  content: "\f294";
-}
+
