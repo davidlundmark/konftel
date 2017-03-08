@@ -12,4 +12,5 @@ npm install webpack file-loader sass-loader css-loader style-loader node-sass au
 
 All Autocomplete , Preferences -> Settings - User -> "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?"
 
+After install, check if vex-js is in node_modules, if not unzip vex-js.zip into node_modules
 
