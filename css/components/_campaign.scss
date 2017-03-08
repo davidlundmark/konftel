@@ -1,0 +1,72 @@
+.template-campaign {
+    #default-menu {
+        visibility: hidden;
+    }
+    footer {
+        .section-container {
+            padding-top: $page-section-padding + $gap-half;
+            padding-bottom: $page-section-padding + $gap-half;
+        }
+    }
+    .content-wrapper {
+    	.text-teaser:last-child {
+    		.section-container {
+    			padding-bottom: $page-section-padding*2;
+    		}
+    	}
+    }
+    .campaign-top {
+        background: #F09819;
+        background: linear-gradient(to left, #F09819, #EDDE5D);
+        .image {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .section-container {
+            padding-top: $gap * 5;
+            padding-bottom: $gap * 5;
+        }
+        .title {
+            font-size: $h1-campaign-font-size;
+        }
+        .text {
+            @extend .medium;
+        }
+        .text-container {
+            @include breakpoint($breakpoint-md, false) {
+                margin-left: 8.33333%;
+            }
+        }
+    }
+    .card-campaign {
+        .image {
+            width: 90%;
+            @include breakpoint($breakpoint-md) {
+                width: 70%;
+            }
+        }
+        .featureslist {
+        	padding-top: $gap-half;
+        }
+    }
+    .campaign-form {
+        .form-container {
+            position: relative;
+            background-color: #FBEBDA;
+            padding: $gap-double;
+        }
+        .form-submit-border {
+            padding-top: $gap;
+            margin-top: $gap;
+            @include border($dir: top, $color: #DEE0E3);
+        }
+        .btn-default {
+            @extend .button;
+            @extend .button-big;
+            @extend .button-brand-color;
+            @extend .rounded-corners;
+            border: none;
+            width: 100%;
+        }
+    }
+}

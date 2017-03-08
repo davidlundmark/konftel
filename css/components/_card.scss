@@ -736,6 +736,22 @@
     &-office {
         @include border($dir: bottom);
     }
+    &-campaign-top {
+        > .card {
+            &-image {
+                width: $card-campaign-top-image-size;
+                @include breakpoint($breakpoint-md) {
+                    width: $card-campaign-top-image-size-md;
+                }
+            }
+            &-text {
+                width: $card-campaign-top-text-size;
+                @include breakpoint($breakpoint-md) {
+                    width: $card-campaign-top-text-size-md;
+                }
+            }
+        }
+    }
     &-accessory-info {
         > .card {
             &-image {
