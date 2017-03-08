@@ -2,7 +2,7 @@ body {
     color: $base-font-color;
     @include setFont($base-font-name);
     -webkit-font-smoothing: antialiased;
-    -webkit-text-adjust: 100%;
+    //-webkit-text-adjust: 100%;
     header,
     footer,
     nav,
