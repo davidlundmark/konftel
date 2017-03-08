@@ -111,6 +111,10 @@ input[type="submit"] {
             }
         }
     }
+    &-small {
+        font-size: $button-small-font-size;
+        @extend .bold;
+    }
     &-big {
         padding: $button-big-padding;
         font-size: $button-big-font-size;

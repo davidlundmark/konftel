@@ -566,6 +566,9 @@ var VexHandler = {
             });
 
             var removeLinks = document.querySelectorAll('.card-compare a');
+            if(removeLinks.length < 2) {
+                $(document.querySelector('.modal-compare .vex-last')).addClass('disabled');
+            }
             $(removeLinks).on('click', function(e) {
                 var $this = $(this);
                 var id = $this.data('id')
@@ -575,7 +578,13 @@ var VexHandler = {
                 var $item = $(document.getElementById(id));
                 var addText = $item.data('compare-add');
                 $item.text(addText);
-                //vex.closeAll();
+                var countLinks = document.querySelectorAll('.card-compare a');
+                if (countLinks.length == 0) {
+                    vex.closeAll();
+                }
+                else if(countLinks.length < 2) {
+                    $(document.querySelector('.modal-compare .vex-last')).addClass('disabled');
+                }
                 return false;
             });
 

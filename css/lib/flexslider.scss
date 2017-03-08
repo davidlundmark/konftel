@@ -48,6 +48,9 @@
         &.bottom {
             background-position: 50% 100%;
         }
+        &.top {
+            background-position: 50% 0%;
+        }
     }
     &-figcaption {
         //@include centeredContainer(800px);

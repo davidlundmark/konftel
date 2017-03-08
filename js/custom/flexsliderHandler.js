@@ -89,7 +89,7 @@ var FlexsliderHandler = {
         }
         */
         var $body = $('body');
-        if ($body.hasClass('template-article')) {
+        if ($body.hasClass('template-about')) {
             this.sliderHeight = 670; //($(window).height() * 0.7) - this.menuHeight;
 
             if (ScreensizeHandler.isSmOrSmaller) {

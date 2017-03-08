@@ -71,10 +71,13 @@ var ScrollmagicHandler = {
                         */
                         var $soundIcon = $this.find('.audio');
                         if ($soundIcon.length) {
+                            console.log('1')
                             setTimeout(function() {
-                                $soundIcon.animate({ bottom: '0' }, { duration: 200, queue: false });
-                                $soundIcon.animate({ opacity: '1' }, { duration: 200, queue: false });
-                            }, 400);
+                                $soundIcon.animate({ bottom: '0' }, { duration: 200 });
+                                setTimeout(function() {
+                                    $soundIcon.animate({ opacity: '1' }, { duration: 200, queue: false });
+                                }, 200);
+                            }, 300);
                         }
                     });
                     /*

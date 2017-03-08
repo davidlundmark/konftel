@@ -198,6 +198,9 @@
     background-color: $secondary-background-color;
     input.accessories-input {
         margin: 0;
+        &:focus {
+            background-image: none;
+        }
     }
     .middle-text {
         line-height: 1;
@@ -375,11 +378,6 @@
         padding: $gap;
         @include border($base-brand-color);
     }
-}
-
-.campaign-top {
-    background: #F09819;
-    background: linear-gradient(to left, #F09819, #EDDE5D);
 }
 
 .uc-hero {
@@ -845,6 +843,14 @@
     }
     .button {
         margin-top: $gap;
+    }
+}
+
+.standard-page-section {
+    .title,
+    .subtitle,
+    .image {
+        margin-bottom: $gap-xl;
     }
 }
 

@@ -59,7 +59,8 @@ ol {
         @extend .large;
         .icon {
             display: inline-block;
-            width: $gap-lg;
+            //width: $gap-lg;
+            width: $icon-big-font-size;
             margin-right: $gap-xs;
             text-align: center;
         }
