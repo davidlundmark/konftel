@@ -196,7 +196,7 @@ var VexHandler = {
                 var _accSelect = document.getElementById('acc_select_product');
                 var _selectVal = $(_accSelect).find('option:selected').val();
                 if (_selectVal != '')
-                    location.href = _selectVal;
+                    location.href = $this.data('url').split('[x]').join(_selectVal);
                 return false;
             }
 
