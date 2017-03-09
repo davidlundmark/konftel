@@ -750,8 +750,10 @@
             }
         }
         .section-container & {
-            &:first-child {
-                padding-top: 8px;
+            &:not(.aside-title) {
+                &:first-child {
+                    padding-top: 8px;
+                }
             }
         }
     }
@@ -809,6 +811,8 @@
     // }
 }
 
+.media-list,
+.documents-list-aside,
 .documents-list,
 .news-list {
     .section-title {
@@ -825,25 +829,38 @@
     }
 }
 
+.documents-list-aside,
 .documents-list {
     .section-title {
         padding-bottom: $gap;
     }
 }
 
+.media-list {
+    h3 {
+        margin-bottom: $gap-half;
+    }
+}
+
+.media-list,
 .news-list {
+    .card {
+        border-bottom: $base-border;
+    }
     .section-title {
         padding-bottom: 0;
     }
+    .button {
+        margin-top: $gap;
+    }
+}
+
+.news-list {
     .card {
-        border-bottom: $base-border;
         .card-text {
             @extend .medium;
             @extend .small;
         }
-    }
-    .button {
-        margin-top: $gap;
     }
 }
 

@@ -477,6 +477,15 @@
             }
         }
     }
+    &-media-list-item {
+        > .card {
+            &-text {
+                .title, .description {
+                    margin-bottom: $gap-xs;
+                }
+            }
+        }
+    }
     &-news-list-item {
         > .card {
             &-text {
@@ -501,6 +510,7 @@
             }
         }
     }
+    &-media-list-item,
     &-news-list-item,
     &-event-list-item,
     {
