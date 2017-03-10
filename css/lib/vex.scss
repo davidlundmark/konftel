@@ -145,7 +145,8 @@
         //     position: relative;
         //     display: table-cell;
         // }
-        max-width: 90%;
+        width: 90%;
+        max-width: $page-section-max-width;
         .title {
             @extend .normal;
         }

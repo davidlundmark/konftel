@@ -431,7 +431,7 @@ var VexHandler = {
             '<li>' +
             '<div class="card-horizontal card-compare">' +
             '<div class="card-image">' +
-            '<span class="background-image" style="background-image: url(\'{{this.image}}\'")"></span>' +
+            '<span class="background-image" style="background-image: url('+window.location.protocol+window.location.hostname+'{{this.image}})"></span>' +
             '</div>' +
             '<div class="card-text">' +
             '<p class="bold">{{this.title}}</p>' +

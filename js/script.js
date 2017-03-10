@@ -253,8 +253,9 @@
         var _backtotop = document.querySelector('.back-to-top');
         if (_backtotop !== null) {
             $(_backtotop).bind('click', function(e) {
-                var _scrollTop = $(window).scrollTop();
-                _scrollTop *= 0.5;
+                //var _scrollTop = $(window).scrollTop();
+                //_scrollTop *= 0.5;
+                var _scrollTop = 1500;
                 $('html, body').animate({
                     scrollTop: 0
                 }, _scrollTop);
