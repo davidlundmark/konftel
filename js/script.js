@@ -150,6 +150,25 @@
             }
         }
 
+        if (typeof useAcademyLoadMore !== 'undefined' && useAcademyLoadMore) {
+            var _loadmore = document.querySelector('.list-academy-section .load-more');
+            if (_loadmore !== null) {
+                $(_loadmore).on('click', function(e) {
+                    var $this = $(this);
+                    var $parent = $this.parent();
+                    var $itemsToShow = $parent.find('.academy-item.hide').slice(0, 3);
+                    $itemsToShow.removeClass('hide').addClass('visibility-hidden');
+                    if (!$parent.find('.academy-item.hide').length) $this.hide();
+                    //setTimeout(function() {
+                        MatchHeightHandler.update('.same-height .match-height-title');
+                        MatchHeightHandler.update('.same-height .match-height-text');
+                        $itemsToShow.removeClass('visibility-hidden');
+                    //}, 500);
+                    return false;
+                });
+            }
+        }
+
         var _mobileLanguage = document.getElementById('mobilelanguage');
         if (_mobileLanguage !== null) {
             $(_mobileLanguage).on('click', function(e) {
