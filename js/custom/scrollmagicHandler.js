@@ -71,12 +71,13 @@ var ScrollmagicHandler = {
                         */
                         var $soundIcon = $this.find('.audio');
                         if ($soundIcon.length) {
-                            setTimeout(function() {
-                                $soundIcon.animate({ bottom: '0' }, { duration: 200 });
-                                setTimeout(function() {
-                                    $soundIcon.animate({ opacity: '1' }, { duration: 200, queue: false });
-                                }, 200);
-                            }, 300);
+                            $soundIcon.addClass('fadeInUpAudio');
+                            // setTimeout(function() {
+                            //     $soundIcon.animate({ bottom: '0' }, { duration: 200 });
+                            //     setTimeout(function() {
+                            //         $soundIcon.animate({ opacity: '1' }, { duration: 200, queue: false });
+                            //     }, 200);
+                            // }, 300);
                         }
                     });
                     /*

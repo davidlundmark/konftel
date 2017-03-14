@@ -48,10 +48,46 @@
         //     //height: $icon-circle-size;
         // }
         .audio {
-            bottom: -$icon-circle-size/2;
-            opacity: 0;
+            &.playing {
+                animation: pulse 1s linear 0s infinite alternate;
+                color: $icon-circle-hover-color;
+                opacity: 1;
+                bottom: 0;
+            }
+            @include breakpoint($breakpoint-lg, false) {
+                opacity: 0;
+                bottom: -$icon-circle-size/2;
+            }
         }
     }
+}
+
+@keyframes pulse {
+    0% {
+        background-color: $icon-circle-hover-background-color;
+    }
+    100% {
+        background-color: $icon-circle-background-color; //darken($icon-circle-hover-background-color, 40%);
+    }
+}
+
+@keyframes fadeInUpAudio {
+    from {
+        opacity: 0;
+        bottom: -$icon-circle-size/2;
+    }
+    to {
+        opacity: 1;
+        bottom: 0;
+    }
+}
+
+.fadeInUpAudio {
+    -webkit-animation-name: fadeInUpAudio;
+    animation-name: fadeInUpAudio;
+    animation-delay: 600ms;
+    animation-duration: 800ms;
+    animation-fill-mode: both;
 }
 
 .search {
@@ -223,6 +259,16 @@
 }
 
 .find-product {
+    .section-subtitle {
+        padding-bottom: $gap-xl;
+    }
+    .section-container {
+        padding-top: $gap-xl;
+        padding-bottom: $gap;
+        @include breakpoint($breakpoint-md, false) {
+            padding-bottom: 0;
+        }
+    }
     background-color: $secondary-background-color;
     .serach-form {
         &.search-standard {}
@@ -744,10 +790,10 @@
             border-bottom: $base-border;
         }
         .find-product & {
-            padding-bottom: $gap-xl;
-            @include breakpoint($breakpoint-md) {
-                padding-bottom: $gap-double;
-            }
+            // padding-bottom: $gap-xl;
+            // @include breakpoint($breakpoint-md) {
+            //     padding-bottom: $gap-double;
+            // }
         }
         .section-container & {
             &:not(.aside-title) {
@@ -758,7 +804,7 @@
         }
     }
     &-subtitle {
-        margin-top: -$gap;
+        margin-top: -$gap-xxl - 1;
     }
 }
 
@@ -1419,22 +1465,6 @@ aside + aside {
     margin-top: $gap;
     padding-top: $gap;
     @include border($base-brand-color, top, 3px);
-}
-
-.audio {
-    &.playing {
-        animation: pulse 1s linear 0s infinite alternate;
-        color: $icon-circle-hover-color;
-    }
-}
-
-@keyframes pulse {
-    0% {
-        background-color: $icon-circle-hover-background-color;
-    }
-    100% {
-        background-color: $icon-circle-background-color; //darken($icon-circle-hover-background-color, 40%);
-    }
 }
 
 body {

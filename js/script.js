@@ -53,7 +53,7 @@
     //require('./custom/submenuHandler.js');
     require('./custom/vexHandler.js');
 
-    console.log('deKai v.5-konftel');
+    //console.log('deKai v.5-konftel');
 
     (function() {
 

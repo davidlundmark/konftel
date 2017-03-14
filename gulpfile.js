@@ -4,27 +4,30 @@ var watch = require('gulp-watch');
 var source = './';
 var project_destination = 'C:/Users/dalun/Source/Workspaces/Konftel/Code/Branches/Dev/src/Project/Konftel/code/';
 var wwwroot_destination = '//SITECORE/c$/inetpub/wwwroot/Konftel/Website';
-var kund_destination = '//bellatrix/kund/konftel';
+var kund_destination = '//SITECORE/c$/inetpub/wwwroot/Konftel-beta/Website';
 
 var debug = true;
 
 //gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch'/*, 'webpack:dev-server'*/]);
-gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch' /*, 'webpack:dev-server'*/ ]);
+gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'watch:sync-kund', 'webpack:watch' /*, 'webpack:dev-server'*/ ]);
 
 var runSequence = require('run-sequence');
 
 //set debug = false, will uglify and more
 gulp.task('production', function() {
     debug = false;
-    runSequence('watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch');
+    runSequence('watch:sync-project', 'watch:sync-wwwroot', 'watch:sync-kund', 'webpack:watch');
 });
 
 //sync files to bellatix kund
 gulp.task('watch:sync-kund', function() {
     gulp.src(source, { base: source })
-        .pipe(watch(source + 'assets/', { base: source }))
+        // .pipe(watch(source + 'assets/', { base: source }))
+        // .pipe(watch(source + 'src/', { base: source }))
+        // .pipe(watch('*.html', { base: source }))
+        // .pipe(gulp.dest(kund_destination));
+        //.pipe(watch(source + 'assets/' + '/**/*', { base: source + 'assets/' }))
         .pipe(watch(source + 'src/', { base: source }))
-        .pipe(watch('*.html', { base: source }))
         .pipe(gulp.dest(kund_destination));
 });
 

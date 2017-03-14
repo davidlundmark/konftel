@@ -371,7 +371,7 @@ var VexHandler = {
                 //this.addCookie('language', true, 21);
                 $(_triggers).trigger('click');
             } else {
-                console.log('Do not show language, cookie already set.');
+                //console.log('Do not show language, cookie already set.');
             }
         }
 

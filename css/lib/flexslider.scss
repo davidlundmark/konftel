@@ -40,6 +40,7 @@
         }
     }
     &-image {
+        @include transition($transition-duration: 50);
         display: block;
         height: 100%;
         background-size: cover;
@@ -146,7 +147,7 @@
 
 .flex-prev {
     padding-left: 7px;
-    left: 0;//($carousel-arrow-size + $gap);
+    left: 0; //($carousel-arrow-size + $gap);
     > .icon {
         transform: rotate(180deg);
     }
@@ -154,7 +155,7 @@
 
 .flex-next {
     padding-right: 7px;
-    right: 0;//($carousel-arrow-size + $gap);
+    right: 0; //($carousel-arrow-size + $gap);
 }
 
 .flexslider:hover {

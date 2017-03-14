@@ -41,8 +41,8 @@ var FlexsliderHandler = {
             directionNav: true,
             controlNav: false,
             animationLoop: true,
-            slideshow: false,
-            slideshowSpeed: 0,
+            slideshow: true,
+            slideshowSpeed: 5000,
             animation: 'slide',
             useCSS: true,
             startAt: 0,
@@ -111,7 +111,7 @@ var FlexsliderHandler = {
             } else if (ScreensizeHandler.isLgOrSmaller) {
                 this.sliderHeight = 260;
             }
-        } else if ($body.hasClass('template-support-folder') || $body.hasClass('template-uc-page')) {
+        } else if ($body.hasClass('template-support-folder')) {
             this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
 
             if (ScreensizeHandler.isSmOrSmaller) {
@@ -178,13 +178,14 @@ var FlexsliderHandler = {
         */
 
         if (scrollTop <= this.sliderHeight + this.menuHeight) {
-            this.$pageslider.css({ transform: 'translateY(-' + scrollTop + 'px)' });
+            //this.$pageslider.css({ transform: 'translateY(-' + scrollTop + 'px)' });
             if (this.useZoomEffect) {
                 if (!this.$images) {
                     this.$images = this.$pageslider.find('.flexslider-image');
                 }
                 //console.log(scrollTop)
-                this.$images.css({ 'background-size': (100 + (scrollTop / 50)) + '%' });
+                this.$images.css({ 'background-size': (100 + (scrollTop / 50)).toFixed(3) + '%' });
+                //this.$images.stop().animate({ 'background-size': (100 + (scrollTop / 50)) + '%' },100);
             }
             //this.$pageslider.css({ transform: 'translateY(-' + scrollTop / 2 + 'px)' });
             //this.$slidertext.css({ transform: 'translateY(-' + scroll / 2 + 'px)' });

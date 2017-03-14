@@ -42,7 +42,7 @@ header.page-header {
         margin-right: $gap;
         position: relative;
         z-index: 1;
-        top: 25px;
+        top: 23px;
         > a {
             display: block;
         }
@@ -177,7 +177,8 @@ header.page-header {
                 display: block;
                 text-decoration: none;
                 user-select: none;
-                @extend .large;
+                //@extend .large;
+                font-size: $h4-font-size;
                 @extend .medium;
                 letter-spacing: 1px;
             }

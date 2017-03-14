@@ -3,6 +3,8 @@ body {
     @include setFont($base-font-name);
     -webkit-font-smoothing: antialiased;
     //-webkit-text-adjust: 100%;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
     header,
     footer,
     nav,
@@ -234,7 +236,6 @@ hr {
 //         letter-spacing: 1px;
 //     }
 // }
-
 .uppercase {
     text-transform: uppercase;
 }
@@ -344,7 +345,6 @@ strong,
 //         @include setFontSize($h1-font-size-sm);
 //     }
 // }
-
 .letter-spacing-small {
     letter-spacing: 1px;
 }

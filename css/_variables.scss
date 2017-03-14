@@ -121,7 +121,7 @@ $large-font-name: 'large';
 $heading-font-weight: 400;
 $heading-font-family: $brandon-regular;
 $heading-font-size: 26px;
-$heading-line-height: 1.2;
+$heading-line-height: 1.4;
 $heading-text-transform: none;
 $heading-font-name: 'heading';
 //$heading-light-font-weight: 300;
@@ -162,7 +162,7 @@ $h3-font-size-md: $h3-font-size-lg;
 $h3-font-size-sm: $h3-font-size-md;
 
 // h4
-$h4-font-size: 20px;
+$h4-font-size: 21px;
 $h4-font-size-lg: $h4-font-size;
 $h4-font-size-md: $h4-font-size-lg;
 $h4-font-size-sm: $h4-font-size-md;
@@ -323,8 +323,8 @@ $page-section-extra-narrow-max-width: 400px;
 // =================================================
 
 $header-background-color: $base-background-color;
-$header-logo-width: 200px;
-$header-logo-width-lg: 200px;
+$header-logo-width: 188px;
+$header-logo-width-lg: 188px;
 $header-bottom-border: none;
 $header-color: $base-brand-color;
 $header-hover-color: $base-brand-color-dark;
@@ -561,7 +561,7 @@ $hero-image-color: $light-font-color;
 $hero-image-text-shadow: none;
 $hero-image-small-min-height: 220px;
 $hero-image-uc-min-height: 350px;
-$hero-sound-min-height: 300px;
+$hero-sound-min-height: 350px;
 $hero-sound-min-height-md: 350px;
 $hero-subscribe-min-height: 300px;
 $hero-subscribe-min-height-md: 500px;
