@@ -313,6 +313,9 @@
             margin-bottom: 0;
         }
     }
+    .search-advanced {
+        padding-bottom: $gap;
+    }
     @include breakpoint($breakpoint-md) {
         .search-advanced {
             margin-top: $gap;
@@ -428,9 +431,14 @@
 }
 
 .uc-hero {
-    + .hero-text-section + .logos-grid {
+    + .hero-text-section {
         .section-container {
-            padding-top: 0;
+            padding-top: $gap-half;
+        }
+        + .logos-grid {
+            .section-container {
+                padding-top: $gap-half;
+            }
         }
     }
 }
