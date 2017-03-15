@@ -479,7 +479,8 @@
     &-media-list-item {
         > .card {
             &-text {
-                .title, .description {
+                .title,
+                .description {
                     margin-bottom: $gap-xs;
                 }
             }
@@ -648,7 +649,6 @@
         .card-image {
             z-index: 0;
             background-color: $black;
-
             .image {
                 opacity: 0.95;
             }
@@ -657,6 +657,14 @@
             padding-top: $gap-half;
             padding-bottom: 0;
             @extend .large;
+        }
+        &.card-accessories-slick {
+            .card-image {
+                line-height: 0;
+                img {
+                    display: inline-block;
+                }
+            }
         }
     }
     &-uc-info {
