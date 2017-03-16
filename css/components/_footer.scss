@@ -21,7 +21,7 @@
 
     .footer {
         &-top {
-            padding-top: $page-section-padding*2;
+            padding-top: $page-section-padding + 8px;
         }
     }
 }
