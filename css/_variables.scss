@@ -131,7 +131,8 @@ $heading-font-name: 'heading';
 // h1
 $h1-extra-font-size: 72px;
 $h1-extra-font-size-lg: 56px;
-$h1-extra-font-size-md: 30px;
+$h1-extra-font-size-md: 56px;
+$h1-extra-font-size-ph: 30px;
 $h1-extra-font-size-sm: 30px;
 
 $h1-extra-secondary-font-size: 52px;
@@ -204,6 +205,7 @@ $secondary-border: 1px solid $secondary-border-color;
 $breakpoint-xl: 1400px;
 $breakpoint-lg: 1024px;
 $breakpoint-md: 768px;
+$breakpoint-ph: 767px;
 $breakpoint-sm: 480px;
 $breakpoint-xs: 360px; 
 
@@ -313,7 +315,7 @@ $link-hover-color: $base-brand-color;
 
 $page-section-padding: $gap-double;
 $page-section-padding-md: $gap-double $gap;
-$page-section-max-width: 1200px;
+$page-section-max-width: 1244px;
 $page-section-narrow-max-width: 800px;
 $page-section-extra-narrow-secondary-max-width: 580px;
 $page-section-extra-narrow-max-width: 400px;

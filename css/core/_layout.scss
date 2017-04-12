@@ -14,6 +14,10 @@ html {
 html,
 body {
     height: 100%;
+
+    @include breakpoint($breakpoint-lg) {
+        height: 100vh;
+    }
 }
 
 body {

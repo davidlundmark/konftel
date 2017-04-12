@@ -100,6 +100,10 @@ select {
     @extend .letter-spacing-small;
     font-size: $select-font-size;
     -webkit-text-fill-color: $base-brand-color;
+
+    > option {
+        font-family: $regular-font-family;
+    }
 }
 
 textarea {

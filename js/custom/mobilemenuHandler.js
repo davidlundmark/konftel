@@ -28,6 +28,8 @@ var MobileMenuHandler = {
                 var $triggers = $content.find('.accordion-trigger');
 
                 if ($target.hasClass('open')) { //menu is open
+                    window.scrollTo(0,0);
+
                     MobileMenuHandler.checkNavHeight($target);
 
                     $triggers.on('resize-start', function() {
@@ -75,6 +77,7 @@ checkNavHeight: function($elem, reset) {
     }
 
     var $menuHeight = $elem.find('.accordion').outerHeight();
+    //var $windowHeight = MobileMenuHandler.viewportToPixels('100vh'); 
     var $windowHeight = $(window).outerHeight() - $('.page-header').outerHeight();
 
     $content.off('touchmove touchstart');
@@ -93,6 +96,12 @@ checkNavHeight: function($elem, reset) {
             return false;
         });
     }
+},
+viewportToPixels: function (value) {
+  var parts = value.match(/([0-9\.]+)(vh|vw)/)
+  var q = Number(parts[1])
+  var side = window[['innerHeight', 'innerWidth'][['vh', 'vw'].indexOf(parts[2])]]
+  return side * (q/100)
 }
 
 };

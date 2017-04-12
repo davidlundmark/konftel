@@ -18,10 +18,30 @@
     //         width: $footer-logo-width;
     //     }
     // }
-
     .footer {
         &-top {
             padding-top: $page-section-padding + 8px;
+        }
+    }
+    .logo-column {
+        @include breakpoint($breakpoint-lg) {
+            > a {
+                float: right;
+                img {
+                    display: inline-block;
+                    height: 46px;
+                    width: auto;
+                }
+            }
+        }
+
+        @include breakpoint($breakpoint-ph) {
+            > a {
+                float: left;
+                img {
+                    height: 37px;
+                }
+            }
         }
     }
 }

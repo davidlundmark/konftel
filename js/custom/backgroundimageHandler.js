@@ -9,8 +9,9 @@ var BackgroundImageHandler = {
             var src = ""; //$image.prop('currentSrc') || $image.prop('src');
             if ($image.prop('currentSrc')) src = $image.prop('currentSrc');
             else src = $image.prop('src');
+            console.log($image, src)
             $this.siblings('.background-image').css('background-image', 'url(' + src + ')');
-            $this.remove();
+            $this.remove(); 
         });
 
     }

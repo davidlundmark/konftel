@@ -340,6 +340,11 @@
                     @include breakTable();
                 }
             }
+            &-ph {
+                @include breakpoint($breakpoint-ph) {
+                    @include breakTable();
+                }
+            }
             &-sm {
                 @include breakpoint($breakpoint-sm) {
                     @include breakTable();

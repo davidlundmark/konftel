@@ -40,6 +40,9 @@ h6,
     @include breakpoint($breakpoint-md) {
         @include setFontSize($h1-extra-font-size-md);
     }
+    @include breakpoint($breakpoint-ph) {
+        @include setFontSize($h1-extra-font-size-ph);
+    }
     @include breakpoint($breakpoint-sm) {
         @include setFontSize($h1-extra-font-size-sm);
     }
@@ -191,6 +194,9 @@ a {
     &.brand-link {
         @extend .medium;
         @include hoverLink($base-brand-color, $base-brand-color-dark);
+    }
+    &.transparent-link {
+        color: inherit;
     }
 }
 

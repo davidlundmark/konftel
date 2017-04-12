@@ -64,6 +64,9 @@
             @include breakpoint($breakpoint-md) {
                 @include generateGrid($prefix: 'md-');
             }
+            @include breakpoint($breakpoint-ph) {
+                @include generateGrid($prefix: 'ph-');
+            }
             @include breakpoint($breakpoint-sm) {
                 @include generateGrid($prefix: 'sm-');
             }
@@ -81,6 +84,9 @@
             }
             @include breakpoint($breakpoint-md) {
                 @include generateGrid($prefix: 'md-', $gap-grid: 0);
+            }
+            @include breakpoint($breakpoint-ph) {
+                @include generateGrid($prefix: 'ph-', $gap-grid: 0);
             }
             @include breakpoint($breakpoint-sm) {
                 @include generateGrid($prefix: 'sm-', $gap-grid: 0);
@@ -105,6 +111,9 @@
             }
             @include breakpoint($breakpoint-md) {
                 @include generateGrid($prefix: 'md-', $gap-grid: $small-grid-gap);
+            }
+            @include breakpoint($breakpoint-ph) {
+                @include generateGrid($prefix: 'ph-', $gap-grid: $small-grid-gap);
             }
             @include breakpoint($breakpoint-sm) {
                 @include generateGrid($prefix: 'sm-', $gap-grid: $small-grid-gap);

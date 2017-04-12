@@ -293,7 +293,7 @@ header.page-header {
         //padding-right: 0;
         padding-left: 0;
         .burger {
-            @include burger($color: $base-font-color);
+            @include burger($color: $base-font-color, $width: 18px, $height: 2px, $gutter: 5px);
         }
         @include breakpoint($breakpoint-lg) {
             display: block;
@@ -303,7 +303,7 @@ header.page-header {
         }
         &.open {
             .burger {
-                @include burger-to-cross();
+                @include burger-to-cross($height: 2px, $gutter: 5px);
             }
         }
     }
@@ -319,7 +319,10 @@ header.page-header {
         ul,
         ol {
             @include horizontalList();
-            > li {}
+            > li {
+                margin-top: $gap-md;
+                margin-bottom: $gap-md;
+            }
         }
         //@include sharpen();
     }
