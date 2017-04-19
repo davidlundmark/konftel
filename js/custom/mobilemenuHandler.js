@@ -7,6 +7,13 @@ var MobileMenuHandler = {
 
         $(_menutoggle).on('click triggered-click', function(e) {
                 e.stopPropagation();
+                
+                //close search if open
+                var _searchcontainer = document.querySelector('.page-header .mobile-search.search-container');
+                if ($(_searchcontainer).hasClass('open')) {
+                    var _searchtoggle = $(_searchcontainer).find('.search .icon-container');
+                    $(_searchtoggle).trigger('triggered-click',new CustomEvent('triggered-click'));
+                }
 
                 var $this = $(this);
                 $this.toggleClass('open');
@@ -59,13 +66,6 @@ var MobileMenuHandler = {
                 }
 
                 if(ScreensizeHandler.isBigScreen || e.type == 'triggered-click') return;
-
-                //close search if open
-                var _searchcontainer = document.querySelector('.page-header .mobile-search.search-container');
-                if ($(_searchcontainer).hasClass('open')) {
-                    var _searchtoggle = $(_searchcontainer).find('.search .icon-container');
-                    $(_searchtoggle).trigger('triggered-click',new CustomEvent('triggered-click'));
-                }
     });
 },
 checkNavHeight: function($elem, reset) {

@@ -72,10 +72,11 @@
         // }
         .audio {
             &.playing {
-                animation: pulse 1s linear 0s infinite alternate;
+                //animation: pulse 1s linear 0s infinite alternate;
+                background-color: $secondary-background-color;
                 color: $icon-circle-hover-color;
                 opacity: 1;
-                bottom: 0;
+                //bottom: 0;
             }
             @include breakpoint($breakpoint-lg, false) {
                 opacity: 0;
@@ -1533,8 +1534,4 @@ body {
             }
         }
     }
-}
-
-#Editor_contentIframe {
-    max-width: 720px;
 }

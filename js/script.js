@@ -160,9 +160,9 @@
                     $itemsToShow.removeClass('hide').addClass('visibility-hidden');
                     if (!$parent.find('.academy-item.hide').length) $this.hide();
                     //setTimeout(function() {
-                        MatchHeightHandler.update('.same-height .match-height-title');
-                        MatchHeightHandler.update('.same-height .match-height-text');
-                        $itemsToShow.removeClass('visibility-hidden');
+                    MatchHeightHandler.update('.same-height .match-height-title');
+                    MatchHeightHandler.update('.same-height .match-height-text');
+                    $itemsToShow.removeClass('visibility-hidden');
                     //}, 500);
                     return false;
                 });
@@ -198,9 +198,12 @@
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
-            $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-                $(this).focus();
-            });
+            
+            if ($searchcontainer.hasClass('open')) {
+                $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+                    $(this).focus();
+                });
+            }
 
             if (ScreensizeHandler.isBigScreen) return;
 
