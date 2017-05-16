@@ -70,7 +70,7 @@ var FlexsliderHandler = {
 
     },
     setTopPadding: function() {
-        $(window).off('resize.flexslider');
+        //$(window).off('resize.flexslider');
         this.menuHeight = this.$pageheader.outerHeight();
         this.$pageslider.css({
             'top': this.menuHeight
@@ -88,52 +88,91 @@ var FlexsliderHandler = {
             return;
         }
         */
+        var isSmallerThenLg = (window.matchMedia("screen and (max-width: 1023px)").matches) ? true : false;
+        var isSmallerThenMd = (window.matchMedia("screen and (max-width: 767px)").matches) ? true : false;
+        var isSmallerThenPh = (window.matchMedia("screen and (max-width: 666px)").matches) ? true : false;
+        
         var $body = $('body');
         if ($body.hasClass('template-about')) {
-            this.sliderHeight = 670; //($(window).height() * 0.7) - this.menuHeight;
+            this.sliderHeight = 900; //($(window).height() * 0.7) - this.menuHeight;
 
-            if (ScreensizeHandler.isSmOrSmaller) {
+            if (isSmallerThenPh) {
                 this.sliderHeight = 400;
-            } else if (ScreensizeHandler.isMdOrSmaller) {
-                this.sliderHeight = 400;
-            } else if (ScreensizeHandler.isLgOrSmaller) {
+            } else if (isSmallerThenLg) {
                 this.sliderHeight = 575;
             } else if (ScreensizeHandler.isXlScreen) {
-                this.sliderHeight = 900;
+                this.sliderHeight = 670;
             }
         } else if ($body.hasClass('template-academyarticle')) {
             this.sliderHeight = 480; //($(window).height() * 0.7) - this.menuHeight;
 
-            if (ScreensizeHandler.isSmOrSmaller) {
-                this.sliderHeight = 260;
-            } else if (ScreensizeHandler.isMdOrSmaller) {
-                this.sliderHeight = 260;
-            } else if (ScreensizeHandler.isLgOrSmaller) {
+            if (isSmallerThenLg) {
                 this.sliderHeight = 260;
             }
         } else if ($body.hasClass('template-support-folder')) {
             this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
 
-            if (ScreensizeHandler.isSmOrSmaller) {
-                this.sliderHeight = 260;
-            } else if (ScreensizeHandler.isMdOrSmaller) {
+            if (isSmallerThenPh) {
+                this.sliderHeight = 240;
+            } else if (isSmallerThenLg) {
                 this.sliderHeight = 320;
-            } else if (ScreensizeHandler.isLgOrSmaller) {
+            } else if (ScreensizeHandler.isXlScreen) {
                 this.sliderHeight = 388;
             }
         } else {
             this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
-
-            if (ScreensizeHandler.isSmOrSmaller) {
-                this.sliderHeight = 240;
-            } else if (ScreensizeHandler.isMdOrSmaller) {
-                this.sliderHeight = 240;
-            } else if (ScreensizeHandler.isLgOrSmaller) {
+            if (isSmallerThenPh) {
+                this.sliderHeight = 188;//240;
+            } else if (isSmallerThenLg) {
                 this.sliderHeight = 320;
             } else if (ScreensizeHandler.isXlScreen) {
                 this.sliderHeight = 388;
             }
         }
+        // if ($body.hasClass('template-about')) {
+        //     this.sliderHeight = 670; //($(window).height() * 0.7) - this.menuHeight;
+
+        //     if (ScreensizeHandler.isSmOrSmaller) {
+        //         this.sliderHeight = 400;
+        //     } else if (ScreensizeHandler.isMdOrSmaller) {
+        //         this.sliderHeight = 400;
+        //     } else if (ScreensizeHandler.isLgOrSmaller) {
+        //         this.sliderHeight = 575;
+        //     } else if (ScreensizeHandler.isXlScreen) {
+        //         this.sliderHeight = 900;
+        //     }
+        // } else if ($body.hasClass('template-academyarticle')) {
+        //     this.sliderHeight = 480; //($(window).height() * 0.7) - this.menuHeight;
+
+        //     if (ScreensizeHandler.isSmOrSmaller) {
+        //         this.sliderHeight = 260;
+        //     } else if (ScreensizeHandler.isMdOrSmaller) {
+        //         this.sliderHeight = 260;
+        //     } else if (ScreensizeHandler.isLgOrSmaller) {
+        //         this.sliderHeight = 260;
+        //     }
+        // } else if ($body.hasClass('template-support-folder')) {
+        //     this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
+
+        //     if (ScreensizeHandler.isSmOrSmaller) {
+        //         this.sliderHeight = 260;
+        //     } else if (ScreensizeHandler.isMdOrSmaller) {
+        //         this.sliderHeight = 320;
+        //     } else if (ScreensizeHandler.isXlScreen) {
+        //         this.sliderHeight = 388;
+        //     }
+        // } else {
+        //     this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
+        //     if (ScreensizeHandler.isSmOrSmaller) {
+        //         this.sliderHeight = 240;
+        //     } else if (ScreensizeHandler.isMdOrSmaller) {
+        //         this.sliderHeight = 240;
+        //     } else if (ScreensizeHandler.isLgOrSmaller) {
+        //         this.sliderHeight = 320;
+        //     } else if (ScreensizeHandler.isXlScreen) {
+        //         this.sliderHeight = 388;
+        //     }
+        // }
 
         if ($body.hasClass('template-home') || $body.hasClass('template-academyarticle')) {
             this.useZoomEffect = false;

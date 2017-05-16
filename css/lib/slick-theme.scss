@@ -39,7 +39,7 @@
         }
     }
     @include breakpoint($breakpoint-md) {
-        display: none !important;
+        //display: none !important;
     }
 }
 
@@ -51,12 +51,18 @@
     @include breakpoint($breakpoint-xl) {
         left: -($carousel-arrow-size + $gap-half);
     }
+    @include breakpoint($breakpoint-md) {
+        left: -$gap-md;
+    }
 }
 
 .slick-next {
     right: -($carousel-arrow-size + $gap);
     @include breakpoint($breakpoint-xl) {
         right: -($carousel-arrow-size + $gap-half);
+    }
+    @include breakpoint($breakpoint-md) {
+        right: -$gap-md;
     }
 }
 

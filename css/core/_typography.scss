@@ -51,10 +51,10 @@ h6,
 .h1-extra-secondary {
     @extend .normal;
     @include setFontSize($h1-extra-secondary-font-size);
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h1-extra-secondary-font-size-lg);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($h1-extra-secondary-font-size-md);
     }
     @include breakpoint($breakpoint-sm) {
@@ -67,10 +67,10 @@ h1,
     @extend .bold;
     letter-spacing: $h1-letter-spacing;
     @include setFontSize($h1-font-size);
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h1-font-size-lg);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($h1-font-size-md);
     }
     @include breakpoint($breakpoint-sm) {
@@ -83,10 +83,10 @@ h2,
     //@extend .medium;
     letter-spacing: $h2-letter-spacing;
     @include setFontSize($h2-font-size);
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h2-font-size-lg);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($h2-font-size-md);
     }
     @include breakpoint($breakpoint-sm) {
@@ -97,10 +97,10 @@ h2,
 h3,
 .h3 {
     @include setFontSize($h3-font-size);
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h3-font-size-lg);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($h3-font-size-md);
     }
     @include breakpoint($breakpoint-sm) {
@@ -111,10 +111,10 @@ h3,
 h4,
 .h4 {
     @include setFontSize($h4-font-size);
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h4-font-size-lg);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($h4-font-size-md);
     }
     @include breakpoint($breakpoint-sm) {
@@ -125,10 +125,10 @@ h4,
 h5,
 .h5 {
     @include setFontSize($h5-font-size);
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h5-font-size-lg);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($h5-font-size-md);
     }
     @include breakpoint($breakpoint-sm) {
@@ -139,10 +139,10 @@ h5,
 h6,
 .h6 {
     @include setFontSize($h6-font-size);
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h6-font-size-lg);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($h6-font-size-md);
     }
     @include breakpoint($breakpoint-sm) {
@@ -154,6 +154,19 @@ p {
     margin: 0 0 $gap-half;
     &:empty {
         display: none;
+    }
+}
+
+.quote-text {
+    @include setFontSize($quote-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($quote-font-size);
+    }
+    @include breakpoint($breakpoint-ph) {
+        @include setFontSize($quote-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($quote-font-size-sm);
     }
 }
 
@@ -312,16 +325,23 @@ strong,
 @include headings {
     &.light,
     .light {
-        font-family: $light-font-family;
-        font-weight: $base-font-weight;
+        font-family: $heading-font-family;//$light-font-family;
+        font-weight: $heading-light-font-weight;//$base-font-weight;
     }
-}
-
-@include headings {
+    &.normal,
+    .normal {
+        font-family: $heading-font-family;//$bold-font-family;
+        font-weight: $heading-font-weight;//$base-font-weight;
+    }
+    &.medium,
+    .medium {
+        font-family: $heading-font-family;//$bold-font-family;
+        font-weight: $heading-medium-font-weight;//$base-font-weight;
+    }
     &.bold,
     .bold {
-        font-family: $bold-font-family;
-        font-weight: $base-font-weight;
+        font-family: $heading-font-family;//$bold-font-family;
+        font-weight: $heading-bold-font-weight;//$base-font-weight;
     }
 }
 

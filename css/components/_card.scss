@@ -172,6 +172,13 @@
             }
         }
     }
+    &-support-form {
+        .card-top {
+            .title {
+                text-transform: uppercase;
+            }
+        }
+    }
     &-support-form,
     &-product,
     &-product-support {
@@ -179,7 +186,7 @@
             text-align: center;
             padding-bottom: $gap;
             .title {
-                text-transform: uppercase;
+                //text-transform: uppercase;
                 color: $secondary-font-color;
                 @extend .bold;
                 > span {
@@ -230,7 +237,7 @@
         }
     }
     &-support {
-        @include breakpoint($breakpoint-lg, false) {
+        @include breakpoint($breakpoint-ph, false) {
             display: inline-block;
         }
         .background-image {
@@ -408,7 +415,7 @@
                     width: $card-list-item-text-second-size;
                     padding: 0 $gap-sm;
                     .dealers & {
-                        @include breakpoint($breakpoint-lg) {
+                        @include breakpoint($breakpoint-lg - 1px) {
                             width: $card-list-item-text-second-size - 10%;
                         }
                         @include breakpoint($breakpoint-md) {
@@ -419,7 +426,7 @@
                 &:nth-child(3) {
                     width: $card-list-item-text-third-size;
                     .dealers & {
-                        @include breakpoint($breakpoint-lg) {
+                        @include breakpoint($breakpoint-lg - 1px) {
                             width: $card-list-item-text-third-size + 10%;
                         }
                         @include breakpoint($breakpoint-md) {
@@ -596,6 +603,7 @@
                 padding-top: $gap-md;
                 .title {
                     @extend .bold;
+                    margin-bottom: 2px;
                 }
                 .summary {
                     @extend .large;
@@ -654,20 +662,35 @@
         .card-image {
             z-index: 0;
             background-color: $black;
+            .list-accessories-section & {
+                overflow: visible;
+            }
             .image {
                 opacity: 0.95;
+                .list-accessories-section & {
+                    max-width: 101%;
+                    width: 101%;
+                }
             }
         }
         .card-text {
             padding-top: $gap-half;
             padding-bottom: 0;
             @extend .large;
+            .list-accessories-section & {
+                background-color: $base-background-color;
+            }
         }
         &.card-accessories-slick {
             .card-image {
                 line-height: 0;
                 img {
                     display: inline-block;
+                }
+            }
+            &.hover {
+                .text-link {
+                    color: $base-brand-color;
                 }
             }
         }
@@ -784,6 +807,15 @@
                     min-height: 0;
                     padding-bottom: 39%;
                     background-size: 80%;
+                    @include breakpoint($breakpoint-md) {
+                        background-size: 100%;
+                        background-position: 50% 50%;
+                        padding-bottom: 50%;
+                        width: 66%;
+                    }
+                    @include breakpoint($breakpoint-sm) {
+                        width: 100%;
+                    }
                 }
             }
             &-text {
@@ -792,6 +824,9 @@
                 width: $card-accessory-info-text-size;
                 @include breakpoint($breakpoint-lg, false) {
                     padding-right: 20% !important;
+                }
+                @include breakpoint($breakpoint-md) {
+                    text-align: left !important;
                 }
             }
         }
@@ -839,12 +874,21 @@
             &-image {
                 width: $card-product-quote-image-size;
                 .background-image {
-                    height: $card-product-quote-image-height;
+                    height: 542px;
+                    //height: $card-product-quote-image-height;
+                    background-size: cover;
                     //max-height: $card-product-quote-image-max-height;
                     //min-height: $card-product-quote-image-min-height;
+                    @include breakpoint($breakpoint-lg-s) {
+                        height: 440px;
+                    }
+                    @include breakpoint($breakpoint-ph) {
+                        height: 340px;
+                    }
                 }
             }
             &-text {
+                text-align: left !important;
                 padding: $gap;
                 width: $card-product-quote-text-size;
                 h2 {

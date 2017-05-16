@@ -29,7 +29,7 @@
 .support-form-section,
 .filter-academy,
 .find-dealer .find-dealer-list {
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         .column {
             margin-top: $gap !important;
         }
@@ -284,6 +284,7 @@
 
 .find-product {
     .section-subtitle {
+        margin-top: -($gap-double - $gap-xs);
         padding-bottom: $gap-xl;
     }
     .section-container {
@@ -383,9 +384,14 @@
     .row > .column {
         &:nth-child(3) {
             //@extend .large;
-            .text {
-                @include breakpoint($breakpoint-md) {
-                    margin-top: $gap-double;
+            // .text {
+            //     @include breakpoint($breakpoint-ph) {
+            //         margin-top: $gap-double;
+            //     }
+            // }
+            @include breakpoint($breakpoint-md) {
+                .visibility-hidden {
+                    display: none;
                 }
             }
         }
@@ -464,6 +470,12 @@
                 padding-top: $gap-half;
             }
         }
+    }
+}
+
+.hero-text-image-summary + .hero-text-section + .logos-grid {
+    > .section-container {
+        padding-top: 0;
     }
 }
 
@@ -798,6 +810,7 @@
     }
     .background-image {
         min-height: 100px;
+        background-size: contain;
         @include scaleBackground();
         &.logo-disabled {
             filter: grayscale(100%);
@@ -822,7 +835,7 @@
     &-title {
         @extend .bold;
         text-align: center;
-        padding-bottom: $gap-double;
+        padding-bottom: $gap-double + 2px; //px
         margin: 0;
         .products-grid &,
         .accessories-grid & {
@@ -844,7 +857,7 @@
         }
     }
     &-subtitle {
-        margin-top: -$gap-xxl - 1;
+        margin-top: -$gap-double; //-$gap-xxl - 1;
     }
 }
 
@@ -1108,7 +1121,8 @@
         @extend .button-large;
         .button {
             margin-top: $gap;
-            margin-right: $gap;
+            margin-right: 17px;
+            margin-left: 17px;
             &:last-child {
                 margin-right: 0;
             }
@@ -1121,6 +1135,62 @@
     .button {
         //width: 30%;
         //padding: $gap;
+    }
+    + .product-info {
+        > .section-container {
+            padding-top: 0;
+        }
+    }
+}
+
+.product-info-top {
+    .product-info-text {
+        @include breakpoint($breakpoint-lg + 1px) {
+            display: none;
+        }
+        @include breakpoint($breakpoint-ph) {
+            display: block;
+        }
+    }
+    .product-info-text-extra {
+        display: none;
+        margin: 0 auto;
+        @include breakpoint($breakpoint-lg + 1px) {
+            display: block;
+            width: 70%;
+        }
+        @include breakpoint($breakpoint-ph) {
+            display: none;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .card-product-info > .card-text {
+        padding-right: 12%;
+        text-align: left !important;
+    }
+    .featureslist {
+        margin-bottom: $gap;
+        > li {
+            margin-bottom: 14px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .label-with-icon {
+            margin: 0;
+            .icon-container {
+                line-height: 1;
+                .icon-big {
+                    //float: left;
+                    font-size: $icon-big-font-size;
+                }
+            }
+            > *.label {
+                white-space: normal;
+            }
+        }
     }
 }
 
@@ -1135,13 +1205,57 @@
             background-size: contain;
         }
     }
+    .show-big {
+        @include breakpoint($breakpoint-ph) {
+            display: none;
+        }
+    }
+    .show-small {
+        display: none;
+        @include breakpoint($breakpoint-ph) {
+            display: block;
+        }
+        .specificationsimage {
+            .background-image {
+                height: 180px;
+                min-height: 180px;
+            }
+        }
+    }
     .logos-grid {
+        padding-top: $gap-double;
         .background-image {
             background-size: contain;
+            background-size: 75%;
+            background-position: 0% 50%;
             .no-touch & {
                 &:hover {
                     transform: none;
                 }
+            }
+        }
+        .column {
+            margin-top: 0 !important;
+        }
+        &.logos-grid-big {
+            @include breakpoint($breakpoint-lg-s) {
+                display: none;
+            }
+            @include breakpoint($breakpoint-ph) {
+                display: block;
+            }
+        }
+        &.logos-grid-small {
+            display: none;
+            .background-image {
+                background-size: 58%;
+                background-position: 50% 50%;
+            }
+            @include breakpoint($breakpoint-lg-s) {
+                display: block;
+            }
+            @include breakpoint($breakpoint-ph) {
+                display: none;
             }
         }
     }
@@ -1159,7 +1273,7 @@
             margin-bottom: 0;
         }
         > li {
-            margin-bottom: $gap;
+            margin-bottom: $gap - 6px;
             &:last-child {
                 margin-bottom: 0;
             }
@@ -1171,6 +1285,15 @@
     + .product-tech-spec-section {
         > .section-container {
             padding-top: 0;
+        }
+    }
+    .label-with-icon > *.label {
+        white-space: normal;
+        line-height: $base-line-height;
+    }
+    .column.right-list {
+        @include breakpoint($breakpoint-md) {
+            margin-top: $gap-half !important;
         }
     }
 }
@@ -1206,13 +1329,13 @@
 .support-cards {
     text-align: center;
     .card {
-        @include breakpoint($breakpoint-lg) {
+        @include breakpoint($breakpoint-ph) {
             margin-bottom: $gap;
             &:last-child {
                 margin-bottom: 0;
             }
         }
-        @include breakpoint($breakpoint-lg, false) {
+        @include breakpoint($breakpoint-ph, false) {
             margin-right: $gap-double*2;
             &:last-child {
                 margin-right: 0;
@@ -1242,6 +1365,12 @@
     .show-old {
         text-align: center;
         margin: $gap-double 0;
+        .button {
+            color: $base-brand-color;
+            background-color: #EAECEE;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
     }
     .expander-content {
         margin-bottom: $gap-double;

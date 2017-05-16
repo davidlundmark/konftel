@@ -24,8 +24,8 @@ var CarouselHandler = {
     },
     createSlickSlider: function($carousel, slidesToShow, slidesToScroll, slidesLg, slidesMd, slidesSm) {
         $carousel.slick({
-            dots: true,
-            infinite: false,
+            dots: false,
+            infinite: true,
             speed: 800,
             slidesToShow: slidesToShow,
             slidesToScroll: slidesToScroll,

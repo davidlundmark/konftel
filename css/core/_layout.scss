@@ -82,7 +82,7 @@ body {
             padding-bottom: $gap-double*2;
         }
         padding: $page-section-padding;
-        @include breakpoint($breakpoint-md) {
+        @include breakpoint($breakpoint-ph) {
             padding: $page-section-padding-md;
         }
     }

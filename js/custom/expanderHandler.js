@@ -18,11 +18,11 @@ var ExpanderHandler = {
                 var hideText = $this.data('hide-text');
                 if (hideText) {
                     if ($(this).is(':visible')) {
-                        $this.width($this.width());
+                        //$this.width($this.width());
                         $this.text(hideText);
                     } else {
                         $this.text($this.data('show-text'));
-                        $this.width('');
+                        //$this.width('');
                     }
                 }
 

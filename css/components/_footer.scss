@@ -27,9 +27,10 @@
         @include breakpoint($breakpoint-lg) {
             > a {
                 float: right;
+                margin-right: $gap-double;
                 img {
                     display: inline-block;
-                    height: 46px;
+                    height: 33px;
                     width: auto;
                 }
             }
@@ -38,8 +39,9 @@
         @include breakpoint($breakpoint-ph) {
             > a {
                 float: left;
+                margin-right: 0;
                 img {
-                    height: 37px;
+                    //height: 37px;
                 }
             }
         }

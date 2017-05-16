@@ -90,6 +90,7 @@
     }
     @else if $font-name==$heading-font-name {
         @include setTextFormat($heading-font-family, $heading-font-size, $heading-font-weight, $heading-line-height);
+        //color: red !important;
     }
     //@else if $font-name==$h1-font-name {
     //    @include setTextFormat($h1-font-family, $h1-font-size, $h1-font-weight, $h1-line-height, $h1-text-transform);

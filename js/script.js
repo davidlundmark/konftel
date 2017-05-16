@@ -198,7 +198,7 @@
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
-            
+
             if ($searchcontainer.hasClass('open')) {
                 $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
                     $(this).focus();
@@ -220,9 +220,17 @@
 
         //if (document.querySelector('.page-image') !== null) {
         if (document.querySelector('.page-slider') === null) {
-            $('body').css({
-                'padding-top': $('.page-header').outerHeight()
+            fixBodyPadding();
+
+            $(window).resize(function() {
+                fixBodyPadding();
             });
+
+            function fixBodyPadding() {
+                $('body').css({
+                    'padding-top': $('.page-header').outerHeight()
+                });
+            }
         }
     })();
 
