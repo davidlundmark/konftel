@@ -34,6 +34,9 @@ header.page-header {
         @include clearfix();
         //&:first-child {
         border-bottom: $base-border;
+        @include breakpoint($breakpoint-lg) {
+            border-bottom: none;
+        }
         //}
     }
     .logo-container {
@@ -51,7 +54,7 @@ header.page-header {
             width: $header-logo-width-lg;
             float: none;
             top: auto;
-            padding: $gap;
+            padding: 12px $gap;
             @include transition();
             @include sharpen();
         }
@@ -106,9 +109,9 @@ header.page-header {
                 cursor: pointer;
                 display: block;
                 @include centerVertical();
-                top: $gap + $gap-sm + 2px; //align fix
+                top: 29px; //align fix
                 right: $page-section-padding;
-                padding: $gap 0 ($gap - 2px);
+                //padding: $gap 0 ($gap - 2px);
                 .label-with-icon {
                     .label,
                     .icon {
@@ -116,7 +119,7 @@ header.page-header {
                     }
                     .icon {
                         color: $base-font-color;
-                        margin-top: -5px; //align fix
+                        margin-top: -12px;// -5px; //align fix
                     }
                 }
                 &.open {
@@ -286,7 +289,7 @@ header.page-header {
         cursor: pointer;
         display: none;
         @include centerVertical();
-        top: $gap + $gap-sm + 2px; //align fix
+        top: 24px;//$gap + $gap-sm + 2px; //align fix
         //right: $page-section-padding;
         left: $page-section-padding;
         padding: $gap;

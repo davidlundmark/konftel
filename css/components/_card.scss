@@ -473,6 +473,9 @@
                 // .background-image {
                 //     min-height: $card-contact-image-min-height;
                 // }
+                @include breakpoint($breakpoint-md) {
+                    width: 10%;
+                }
             }
             &-text {
                 padding: 0 0 0 $gap-sm;
@@ -484,6 +487,9 @@
                     &.phone {
                         @extend .medium;
                     }
+                }
+                @include breakpoint($breakpoint-lg) {
+                    width: 90%;
                 }
             }
         }

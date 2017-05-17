@@ -109,7 +109,7 @@ var FlexsliderHandler = {
             if (isSmallerThenLg) {
                 this.sliderHeight = 260;
             }
-        } else if ($body.hasClass('template-support-folder')) {
+        } else if ($body.hasClass('template-support-folder') || $body.hasClass('template-article')) {
             this.sliderHeight = 600; //($(window).height() * 0.7) - this.menuHeight;
 
             if (isSmallerThenPh) {
