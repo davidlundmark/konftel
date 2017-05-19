@@ -8,8 +8,7 @@ body {
     header,
     footer,
     nav,
-    .search-container .label,
-    .card {
+    .search-container .label {
         //@include setTextFormat($heading-font-family, $small-font-size, $heading-font-weight);
         @include setTextFormat($heading-font-family, $font-weight: $heading-font-weight);
     }
@@ -407,8 +406,9 @@ blockquote {
     }
     @include breakpoint($breakpoint-md) {
         @include setFontSize($blockquote-font-size-md);
+        padding: $gap $gap-double;
     }
-    @include breakpoint($breakpoint-sm) {
+    @include breakpoint($breakpoint-ph) {
         @include setFontSize($blockquote-font-size-sm);
     }
     &:before,
@@ -423,9 +423,15 @@ blockquote {
     &:before {
         left: 48px;
         content: "\201C";
+        @include breakpoint($breakpoint-md) {
+            left: 0;
+        }
     }
     &:after {
         right: 48px;
         content: "\201D";
+        @include breakpoint($breakpoint-md) {
+            right: 0;
+        }
     }
 }

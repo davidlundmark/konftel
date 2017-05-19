@@ -51,7 +51,7 @@
     @include breakpoint($breakpoint-xl) {
         left: -($carousel-arrow-size + $gap-half);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         left: -$gap-md;
     }
 }
@@ -61,7 +61,7 @@
     @include breakpoint($breakpoint-xl) {
         right: -($carousel-arrow-size + $gap-half);
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-ph) {
         right: -$gap-md;
     }
 }

@@ -193,9 +193,7 @@
     @if color !=null {
         color: $color;
     }
-    &:before {
-    }
-    .no-touch & {
+    //.no-touch & {
         &:before {
             content: '';
             position: absolute;
@@ -222,7 +220,7 @@
             //@include scaleX($scale);
             transform: scaleX($scale) translate3d(0, 0, 0);
         }
-    }
+    //}
 }
 
 @mixin fixedOverlay($top:0, $right:0, $bottom:0, $left:0, $background-color: $base-background-color, $z-index: 9999, $overflow: hidden) {

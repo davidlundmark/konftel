@@ -525,6 +525,12 @@
         .button {
             margin-top: $gap-half;
         }
+
+        .column {
+            @include breakpoint($breakpoint-ph) {
+                margin-top: $gap-double;
+            }
+        }
     }
     .card {
         width: calc(100% - #{$page-section-padding * 2} - #{$gap * 2});
@@ -567,7 +573,7 @@
             margin-bottom: 0;
         }
         @include breakpoint($breakpoint-md) {
-            width: calc(100% - #{$page-section-padding} - #{$gap * 2});
+            width: calc(100% - #{$page-section-padding} - #{$gap * 3});
         }
         @at-root .sound-teaser#{&} {
             padding-bottom: $gap-double;
@@ -991,10 +997,15 @@
         .article-bottom {
             .addthis_toolbox {
                 @include breakpoint($breakpoint-lg, false) {
-                    position: relative;
+                    position: absolute;
                     top: 50%;
+                    right: 0;
                     margin-top: -16px;
-                    float: right;
+                    //float: right;
+                    &.align-bottom {
+                        top: auto;
+                        bottom: $gap;
+                    }
                 }
                 a {
                     line-height: 0;
@@ -1109,16 +1120,17 @@
 
 .offices-grid {
     .row .column {
-        @include breakpoint($breakpoint-md) {
-            margin-top: 0 !important;
-            &:first-child {
-                margin-top: $gap-double !important;
-            }
-        }
+        margin-top: 0 !important;
+        // @include breakpoint($breakpoint-ph) {
+        //     margin-top: 0 !important;
+        //     &:first-child {
+        //         margin-top: $gap-double !important;
+        //     }
+        // }
     }
 }
 
-#contacts-grid {
+.contacts-grid-small {
     .row .column {
         @include breakpoint($breakpoint-md) {
             margin-top: 0 !important;
@@ -1599,6 +1611,16 @@
             @include setFontSize($small-font-size);
             color: $tertiary-font-color;
             @extend .bold;
+        }
+
+        > img {
+            margin-bottom: $gap-xs;
+        }
+
+        @include breakpoint($breakpoint-ph) {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
     &.image-left {

@@ -119,7 +119,7 @@ var VexHandler = {
             vex.defaultOptions.className = 'modal-title';
             var template = Handlebars.compile(templateTitle);
             var data = {
-                title: this.getAttribute('data-modal-title')
+                title: deKai.htmlDecode(this.getAttribute('data-modal-title'))
             };
 
             vex.dialog.defaultOptions.buttons = [];

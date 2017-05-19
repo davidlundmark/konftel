@@ -8,8 +8,6 @@ header.page-header {
     //transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad, margin-left 0.3s $easeOutCubic;
     transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
     transform: translateZ(0);
-    //backface-visibility: hidden;
-    //will-change: auto;
     &.scrolled:not(.menu-open) {
         background-color: $header-scrolled-background-color;
         border-bottom: $header-scrolled-border-bottom;
@@ -22,6 +20,9 @@ header.page-header {
     }
     &.page-section {
         border-bottom: $header-bottom-border;
+        @include breakpoint($breakpoint-lg) {
+            border-bottom: $base-border;
+        }
     }
     ul,
     ol {
@@ -30,14 +31,11 @@ header.page-header {
     .section-container {
         padding: 0;
         margin: 0 $gap;
-        //padding: 0 $page-section-padding;
         @include clearfix();
-        //&:first-child {
         border-bottom: $base-border;
         @include breakpoint($breakpoint-lg) {
             border-bottom: none;
         }
-        //}
     }
     .logo-container {
         width: $header-logo-width;
@@ -45,11 +43,16 @@ header.page-header {
         margin-right: $gap;
         position: relative;
         z-index: 1;
-        top: 22px;
+        top: 27px;
         > a {
             display: block;
         }
+        @media screen and (max-width: 1024px){
+            position: absolute;
+            top: -37px;
+        }
         @include breakpoint($breakpoint-lg) {
+            position: relative;
             margin: 0 auto;
             width: $header-logo-width-lg;
             float: none;
@@ -83,12 +86,10 @@ header.page-header {
             .icon-container {
                 padding-left: $gap;
                 color: $base-font-color;
-                // .no-touch & {
                 @include transition(color);
                 &:hover {
                     color: $header-submenu-hover-color;
                 }
-                // }
             }
         }
         &.open {
@@ -111,7 +112,6 @@ header.page-header {
                 @include centerVertical();
                 top: 29px; //align fix
                 right: $page-section-padding;
-                //padding: $gap 0 ($gap - 2px);
                 .label-with-icon {
                     .label,
                     .icon {
@@ -119,7 +119,7 @@ header.page-header {
                     }
                     .icon {
                         color: $base-font-color;
-                        margin-top: -12px;// -5px; //align fix
+                        margin-top: -12px; // -5px; //align fix
                     }
                 }
                 &.open {
@@ -163,8 +163,6 @@ header.page-header {
     }
     #default-menu {
         font-size: $header-font-size;
-        //@include centerVertical();
-        //right: $page-section-padding;
         .menu {
             > .menu-item {
                 margin: $gap-lg $gap-half;
@@ -172,15 +170,12 @@ header.page-header {
         }
         .menu-item {
             position: relative;
-            //@include animateLine($color: $header-color, $distance: -50px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
             > .text,
             > .button {
-                //color: $header-color;
                 text-transform: $header-text-transform;
                 display: block;
                 text-decoration: none;
                 user-select: none;
-                //@extend .large;
                 font-size: $h4-font-size;
                 @extend .medium;
                 letter-spacing: 1px;
@@ -203,8 +198,6 @@ header.page-header {
                 margin-top: 0;
             }
             a {
-                //@include animateLine($thickness: 2px, $distance: 2px);
-                //@include sharpen();
                 &.selected {
                     @include animateLine($thickness: 2px, $scale: 0.95, $distance: 3px);
                 }
@@ -243,8 +236,6 @@ header.page-header {
         }
         .submenu {
             $submenu-gap: $gap + $gap-xs - 1px;
-            //min-width: 150px;
-            //max-width: 200px;
             width: 230px;
             display: block;
             position: absolute;
@@ -272,14 +263,6 @@ header.page-header {
                 content: '';
                 background-color: transparent;
             }
-            // &:after {
-            //     content: '';
-            //     @include createTriangle('up', 6px, 6px, $color: $base-brand-color);
-            //     position: absolute;
-            //     @include translate(-50%, -100%);
-            //     left: 50%;
-            //     top: $submenu-gap + 1px;
-            // }
         }
         @include breakpoint($breakpoint-lg) {
             display: none;
@@ -289,11 +272,9 @@ header.page-header {
         cursor: pointer;
         display: none;
         @include centerVertical();
-        top: 24px;//$gap + $gap-sm + 2px; //align fix
-        //right: $page-section-padding;
+        top: 24px; //$gap + $gap-sm + 2px; //align fix
         left: $page-section-padding;
         padding: $gap;
-        //padding-right: 0;
         padding-left: 0;
         .burger {
             @include burger($color: $base-font-color, $width: 18px, $height: 2px, $gutter: 5px);
@@ -317,7 +298,6 @@ header.page-header {
     @include breakpoint($breakpoint-lg) {
         display: block;
         text-align: center;
-        //@include border($secondary-border-color, bottom);
         background-color: $secondary-background-color;
         ul,
         ol {
@@ -327,16 +307,12 @@ header.page-header {
                 margin-bottom: $gap-md;
             }
         }
-        //@include sharpen();
     }
 }
 
 #mobile-menu {
     .accordion {
-        //padding: $gap;
         border: none;
-        //@include border($base-brand-color, top, 3px);
-        //@include border($dir: bottom);
         .menu-item {
             @include border($mobile-menu-border-color, bottom);
             & > {
@@ -346,9 +322,6 @@ header.page-header {
                     padding-bottom: $mobile-menu-item-padding-vertical;
                     border: none;
                 }
-                //@include border($dir: bottom);
-                //border: none;
-                //background-color: rgba($white, 0);
             }
         }
     }
@@ -358,7 +331,6 @@ header.page-header {
         @extend .large;
         @extend .normal;
         pointer-events: auto;
-        //text-transform: uppercase;
         > span {
             touch-action: none;
             pointer-events: none;
@@ -366,69 +338,12 @@ header.page-header {
     }
     .content {
         padding-top: $mobile-menu-item-padding-vertical;
-        //@include border($dir: right);
         background-color: $mobile-menu-background-color;
         position: absolute;
-        //right: 0;
         left: 0;
         width: $sidenav-width;
         cursor: pointer;
     }
-    // .blocker {
-    //     display: none;
-    //     position: absolute;
-    //     //right: 0; //$sidenav-width;
-    //     left: 0;
-    //     top: 0;
-    //     width: 100vw; //100%;
-    //     height: 100%;
-    //     background-color: rgba($white, 0.1); //0.2
-    //     cursor: pointer;
-    //     // @at-root .open#{&} {
-    //     //     display: block;
-    //     // }
-    // }
-    // .bottom {
-    //     padding: 0 $page-section-padding $gap;
-    //     a {
-    //         color: $base-font-color;
-    //         text-decoration: none;
-    //         .no-touch & {
-    //             @include transition(color);
-    //             &:hover {
-    //                 color: $header-submenu-hover-color;
-    //             }
-    //         }
-    //     }
-    //     .social {
-    //         text-align: center;
-    //         a {
-    //             display: inline-block;
-    //             padding: $gap-half;
-    //             margin-left: -$gap-half;
-    //             margin-top: -$gap-half;
-    //             &:first-child {
-    //                 float: left;
-    //             }
-    //             &:last-child {
-    //                 float: right;
-    //             }
-    //         }
-    //     }
-    //     .search {
-    //         .label-with-icon {
-    //             .icon-container {
-    //                 text-align: left;
-    //             }
-    //         }
-    //     }
-    //     > div {
-    //         margin-bottom: $gap;
-    //         &:last-child {
-    //             margin-bottom: 0;
-    //         }
-    //     }
-    // }
 }
 
 .blocker {

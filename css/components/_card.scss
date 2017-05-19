@@ -149,12 +149,22 @@
                 //@include forceHarwareAcceleration();
                 //will-change: transform;
             }
+            .card-text {
+                .title {
+                    @include transition();
+                }
+            }
             &.hover {
                 .background-image {
                     @include scale(1.12);
                 }
                 .image {
                     @include scale(1.05);
+                }
+                .card-text {
+                    .title {
+                        color: $base-brand-color;
+                    }
                 }
             }
         }
@@ -176,6 +186,11 @@
         .card-top {
             .title {
                 text-transform: uppercase;
+            }
+        }
+        .card-text {
+            @include breakpoint($breakpoint-ph) {
+                text-align: left !important;
             }
         }
     }
@@ -376,6 +391,12 @@
                     height: $card-support-form-image-height;
                     //max-height: $card-product-info-image-max-height;
                     //min-height: $card-product-info-image-min-height;
+                    .register-modal & {
+                        @include breakpoint($breakpoint-ph) {
+                            height: 100px;
+                            min-height: 100px;
+                        }
+                    }
                 }
             }
         }
@@ -674,8 +695,8 @@
             .image {
                 opacity: 0.95;
                 .list-accessories-section & {
-                    max-width: 101%;
-                    width: 101%;
+                    max-width: 102%;
+                    width: 102%;
                 }
             }
         }
@@ -812,7 +833,7 @@
                     //height: $card-accessory-info-image-height;
                     min-height: 0;
                     padding-bottom: 39%;
-                    background-size: 80%;
+                    //background-size: 80%;
                     @include breakpoint($breakpoint-md) {
                         background-size: 100%;
                         background-position: 50% 50%;

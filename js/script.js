@@ -26,6 +26,7 @@
     //require('./lib/fastclick.js');
     require('./lib/picturefill.js');
     //require('./lib/tooltip.js');
+    //require('./lib/jQuery.YouTube.HD.Thumbnail.js');
 
     //globals
     require('./custom/screensizeHandler.js');
@@ -52,6 +53,7 @@
     require('./custom/findDealerHandler.js');
     //require('./custom/submenuHandler.js');
     require('./custom/vexHandler.js');
+    require('./custom/youtubeHandler.js');
 
     //console.log('deKai v.5-konftel');
 
@@ -101,32 +103,7 @@
             }
         }
 
-        //Anchor card   
-        if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
-            if (!deKai.isMobile) {
-                var _cards = document.querySelectorAll('.card');
-                if (_cards !== null) {
-                    $(_cards).filter('.card-anchor').find('.card-link').hover(function() {
-                        var $this = $(this).closest('.card');
-                        $this.toggleClass('hover');
-                        $this.find('.link').toggleClass('hover');
-                        $this.find('.card-image-overlay').toggleClass('hover');
-                    });
-                    /*
-                    $(_cards).filter('.card-lightbox').find('.card-image').hover(function() {
-                        var $this = $(this);
-                        $this.find('.card-image-overlay').toggleClass('hover');
-                    });
-                    $(_cards).filter('.card-lightbox').find('.card-link').hover(function() {
-                        var $this = $(this);
-                        var $card = $this.closest('.card');
-                        $card.toggleClass('hover');
-                        $card.find('.link').toggleClass('hover');
-                    });
-                    */
-                }
-            }
-        }
+        deKai.setupAnchorCards();
 
         if (typeof useSearchCount !== 'undefined' && useSearchCount) {
             var _counter = document.querySelector('.search-section .search-count');
@@ -232,6 +209,8 @@
                 });
             }
         }
+
+        
     })();
 
     $(window).on('load', function() {
@@ -315,3 +294,4 @@
 
     });
 })();
+

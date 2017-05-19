@@ -106,11 +106,18 @@ var WebApiHandler = {
 
             //Link
             //_clone.querySelector('.text-link').setAttribute('href', window.location.origin + item.Link.replace('http://', ''));
-            _clone.querySelector('.brand-link').setAttribute('href', item.Link);
+            //_clone.querySelector('.brand-link').setAttribute('href', item.Link);
+            _clone.querySelector('.card-news .card-image .card-link').setAttribute('href', item.Link);
+            _clone.querySelector('.card-news .card-text .card-link').setAttribute('href', item.Link);
 
             //Background Image
             var _backgroundImage = _clone.querySelector('.background-image');
-            _backgroundImage.style.backgroundImage = item.Image.replace('"', '');
+            if(item.Image == '') {
+                $(_backgroundImage).parent().addClass('hide');
+            }
+            else {
+                _backgroundImage.style.backgroundImage = item.Image.replace('"', '');
+            }
 
             _this.items.push(_clone);
             _this.$row.append($(_clone));
@@ -119,6 +126,8 @@ var WebApiHandler = {
                 if (item.ShowMore == false) _this.$loadmore.addClass('hide');
             }
         });
+
+        deKai.setupAnchorCards();
 
         if (_this.$loadmore) {
             _this.$loadmore.height('');

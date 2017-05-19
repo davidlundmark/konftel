@@ -103,6 +103,37 @@ deKai = {
 
     htmlDecode: function(value) {
         return $('<div/>').html(value).text();
+    },
+
+    setupAnchorCards: function() {
+        //Anchor card   
+        if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
+            if (!deKai.isMobile) {
+                var _cards = document.querySelectorAll('.card.card-anchor');
+                if (_cards !== null) {
+                    var $cardLinks = $(_cards).find('.card-link');
+                    $cardLinks.off('mouseenter mouseleave');
+                    $cardLinks.hover(function() {
+                        var $this = $(this).closest('.card');
+                        $this.toggleClass('hover');
+                        $this.find('.link').toggleClass('hover');
+                        $this.find('.card-image-overlay').toggleClass('hover');
+                    });
+                    /*
+                    $(_cards).filter('.card-lightbox').find('.card-image').hover(function() {
+                        var $this = $(this);
+                        $this.find('.card-image-overlay').toggleClass('hover');
+                    });
+                    $(_cards).filter('.card-lightbox').find('.card-link').hover(function() {
+                        var $this = $(this);
+                        var $card = $this.closest('.card');
+                        $card.toggleClass('hover');
+                        $card.find('.link').toggleClass('hover');
+                    });
+                    */
+                }
+            }
+        }
     }
 
 };

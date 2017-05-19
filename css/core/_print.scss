@@ -1,0 +1,23 @@
+@media print {
+	.top-content,
+	#mobile-menu,
+	.blocker,
+	footer,
+	#findadealer,
+	.cookie,
+	.overlay,
+	.addthis_toolbox,
+	.related-tags,
+	.main-link,
+	article .label-with-icon,
+	article .video-container,
+	.article-section .row .column:nth-child(2),
+	.template-academyarticle .page-section:not(.academy-section) {
+		display: none !important;
+	}
+
+
+	body {
+		padding-top: 0 !important;
+	}
+}
