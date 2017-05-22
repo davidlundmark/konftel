@@ -28,12 +28,26 @@ var FindDealerHandler = {
 
         if (this._showMore !== null) {
             $(this._showMore).on('click', function(e) {
-                var _hiddenDealers = _this._activeList.querySelectorAll('.playlist .hide');
-                $(_hiddenDealers).each(function() {
-                    $(this).removeClass('hide');
-                   
-                });
-                $(_this._showMore).addClass('hide');
+                //var hideText = $this.data('hide-text');
+                //if (hideText) {
+                var $this = $(this);
+                    if ($this.hasClass('closed')) {
+                        $this.find('.info').text($this.data('hide-text'));
+                        $this.removeClass('closed').addClass('open');
+                        var _hiddenDealers = _this._activeList.querySelectorAll('.playlist .hide');
+                        $(_hiddenDealers).each(function() {
+                            $(this).removeClass('hide').addClass('show');
+                        });
+                    } else {
+                        $this.find('.info').text($this.data('show-text'));
+                        $this.removeClass('open').addClass('closed');
+                        var _hiddenDealers = _this._activeList.querySelectorAll('.playlist .show');
+                        $(_hiddenDealers).each(function() {
+                            $(this).removeClass('show').addClass('hide');
+                        });
+                    }
+                //}
+
                 return false;
             });
         }

@@ -374,10 +374,21 @@
         select {
             margin-bottom: $gap-double;
         }
+        .playlist > li.show:first-child {
+            margin-top: $gap-md + $gap-half;
+        }
         .load-more {
             margin-top: $gap-md + $gap-half;
             @include breakpoint($breakpoint-md) {
                 margin-bottom: $gap;
+            }
+            .icon {
+                display: inline-block;
+            }
+            &.open {
+                .icon {
+                    transform: rotate(180deg);
+                }
             }
         }
     }
