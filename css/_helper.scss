@@ -204,8 +204,8 @@
             background-color: $line-color;
             visibility: hidden;
             //@include scaleX(0);
-            transform: scaleX(0) translate3d(0, 0, 0);
-            @include transition(all, $time, $easeOutCirc);
+            transform: scaleX(0);// translate3d(0, 0, 0);
+            //@include transition(all, $time, $easeOutCirc);
         }
         &:hover {
             @if $hover-color !=null {
@@ -218,7 +218,7 @@
             //will-change: auto;
             visibility: visible;
             //@include scaleX($scale);
-            transform: scaleX($scale) translate3d(0, 0, 0);
+            transform: scaleX($scale);// translate3d(0, 0, 0);
         }
     //}
 }

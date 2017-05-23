@@ -43,6 +43,9 @@
 }
 
 .find-product {
+    .section-title {
+        font-size: $h2-font-size-small;
+    }
     @include breakpoint($breakpoint-ph) {
         .column {
             margin-top: $gap !important;
@@ -255,6 +258,9 @@
 }
 
 .find-accessories {
+    .section-title {
+        font-size: $h2-font-size-small;
+    }
     background-color: $secondary-background-color;
     input.accessories-input {
         margin: 0;
@@ -353,6 +359,11 @@
     background-color: $color-dark-blue;
     hr {
         border-color: $secondary-border-color;
+    }
+    .text-block {
+        strong {
+            @extend .bold-large-heading;
+        }
     }
     .playlist {
         > li {
@@ -536,7 +547,6 @@
         .button {
             margin-top: $gap-half;
         }
-
         .column {
             @include breakpoint($breakpoint-ph) {
                 margin-top: $gap-double;
@@ -651,6 +661,12 @@
     }
 }
 
+.double-teaser {
+    h2 {
+        @include setFontSize($h3-font-size);
+    }
+}
+
 .interoperability-section {
     .interoperability-table-content {
         padding-top: 0;
@@ -720,7 +736,8 @@
         .card-text {
             text-align: center !important;
             @include breakpoint($breakpoint-md+1px, false) {
-                padding-right: 20% !important;
+                padding-right: 25% !important;
+                padding-left: 5% !important;
             }
             @include breakpoint($breakpoint-md) {
                 width: 80%;
@@ -734,6 +751,7 @@
     }
     .subscribe-form {
         padding: $page-section-padding;
+        padding-top: $gap;
         background-color: #2E4053;
         text-align: center;
         color: $light-font-color;
@@ -976,6 +994,15 @@
         .card-text {
             @extend .medium;
             @extend .small;
+        }
+    }
+}
+
+.template-academyarticle {
+    .news-article {
+        @include headings {
+            margin-bottom: 0;
+            font-weight: $heading-bold-font-weight;
         }
     }
 }
@@ -1466,6 +1493,9 @@
         a {
             @include hoverLink($light-font-color);
         }
+        &:first-child {
+            @extend .bold-large-heading;
+        }
     }
     .button {
         margin-top: $gap-xs;
@@ -1524,8 +1554,11 @@
         text-align: center;
     }
     &-item {
-        @extend .large;
-        @extend .bold;
+        //@extend .large;
+        //@extend .bold;
+        a {
+            @extend .bold-large-heading;
+        }
         padding: $gap 0;
         @include border($dir: top, $thickness: 3px);
         &:last-child {
@@ -1542,7 +1575,10 @@
         li.menu-item {
             > a {
                 padding: $gap 0;
-                @extend .bold;
+                //@extend .bold;
+                .label {
+                    @extend .bold-large-heading;
+                }
                 color: $base-brand-color;
             }
             .no-touch & {
@@ -1623,11 +1659,9 @@
             color: $tertiary-font-color;
             @extend .bold;
         }
-
         > img {
             margin-bottom: $gap-xs;
         }
-
         @include breakpoint($breakpoint-ph) {
             width: 100%;
             padding-left: 0;

@@ -148,16 +148,21 @@ header.page-header {
         }
     }
     #top-menu {
-        @extend .extra-small;
-        @extend .medium;
+        @extend .small;
+        //@extend .medium;
         .menu-item {
             top: 2px;
             > .text {
-                @extend .medium;
+                //@extend .medium;
                 @include hoverLink();
             }
             &.selected {
                 @include animateLine($line-color: $base-font-color, $thickness: 2px, $scale: 1, $distance: 3px);
+            } 
+        }
+        .menu {
+            > li:last-child {
+                margin-right: $gap-half;
             }
         }
     }
@@ -177,7 +182,7 @@ header.page-header {
                 text-decoration: none;
                 user-select: none;
                 font-size: $h4-font-size;
-                @extend .medium;
+                //@extend .medium;
                 letter-spacing: 1px;
             }
             > .text {

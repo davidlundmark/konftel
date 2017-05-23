@@ -30,8 +30,33 @@ h6,
     margin: 0 0 $gap-half;
 }
 
+.br-gr-r,
+.br-gr-m,
+.br-gr-b,
+.br-gr-l {
+    font-family: $brandon-grotesque;
+}
+
+.br-gr-r {
+    font-weight: 400;
+}
+
+.br-gr-m {
+    font-weight: 500;
+}
+
+.br-gr-b {
+    font-weight: 700;
+}
+
+.br-gr-l {
+    font-weight: 300;
+}
+
 .h1-extra {
-    @extend .light;
+    //@extend .light;
+    @include setFont($heading-font-name);
+    font-weight: $heading-light-font-weight;
     @include setFontSize($h1-extra-font-size);
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($h1-extra-font-size-lg);
@@ -48,7 +73,9 @@ h6,
 }
 
 .h1-extra-secondary {
-    @extend .normal;
+    //@extend .normal;
+    @include setFont($heading-font-name);
+    font-weight: $heading-font-weight;
     @include setFontSize($h1-extra-secondary-font-size);
     @include breakpoint($breakpoint-lg-s) {
         @include setFontSize($h1-extra-secondary-font-size-lg);
@@ -90,6 +117,14 @@ h2,
     }
     @include breakpoint($breakpoint-sm) {
         @include setFontSize($h2-font-size-sm);
+    }
+}
+
+.h2-small {
+    letter-spacing: $h2-letter-spacing;
+    @include setFontSize($h2-font-size-small);
+    @include breakpoint($breakpoint-ph) {
+        @include setFontSize($h2-font-size-small-ph);
     }
 }
 
@@ -275,6 +310,16 @@ hr {
     @include setFontSize($large-font-size);
 }
 
+.large-heading {
+    @include setFontSize($large-font-size-heading);
+}
+
+.bold-large-heading {
+    @include setFont($heading-font-name);
+    font-weight: $heading-bold-font-weight;
+    font-size: $large-font-size-heading !important;
+}
+
 .button-medium {
     @include setFontSize($button-font-size-medium);
 }
@@ -324,23 +369,29 @@ strong,
 @include headings {
     &.light,
     .light {
-        font-family: $heading-font-family;//$light-font-family;
-        font-weight: $heading-light-font-weight;//$base-font-weight;
+        font-family: $heading-font-family; //$light-font-family;
+        font-weight: $heading-light-font-weight; //$base-font-weight;
     }
     &.normal,
     .normal {
-        font-family: $heading-font-family;//$bold-font-family;
-        font-weight: $heading-font-weight;//$base-font-weight;
+        font-family: $heading-font-family; //$bold-font-family;
+        font-weight: $heading-font-weight; //$base-font-weight;
     }
     &.medium,
     .medium {
-        font-family: $heading-font-family;//$bold-font-family;
-        font-weight: $heading-medium-font-weight;//$base-font-weight;
+        font-family: $heading-font-family; //$bold-font-family;
+        font-weight: $heading-medium-font-weight; //$base-font-weight;
     }
+    b,
+    strong,
     &.bold,
     .bold {
-        font-family: $heading-font-family;//$bold-font-family;
-        font-weight: $heading-bold-font-weight;//$base-font-weight;
+        font-family: $heading-font-family; //$bold-font-family;
+        font-weight: $heading-bold-font-weight; //$base-font-weight;
+    }
+    &.large,
+    .large {
+        @include setFontSize($large-font-size-heading);
     }
 }
 
@@ -400,6 +451,7 @@ blockquote {
     position: relative;
     color: #8a8a8a;
     text-align: center;
+    @include setFont($heading-font-name);
     @include setFontSize($blockquote-font-size);
     @include breakpoint($breakpoint-lg) {
         @include setFontSize($blockquote-font-size-lg);

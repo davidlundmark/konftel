@@ -95,13 +95,15 @@ select {
     color: $select-color;
     border-color: $select-border-color;
     border-radius: $select-border-radius;
-    font-family: $medium-font-family;
-    font-weight: $select-font-weight;
+    font-family: $brandon-grotesque;
+    font-weight: $heading-medium-font-weight;
     @extend .letter-spacing-small;
+    padding-top: 9px;
+    padding-bottom: 9px;
     font-size: $select-font-size;
     -webkit-text-fill-color: $base-brand-color;
     > option {
-        font-family: $regular-font-family;
+        font-weight: $heading-font-weight;
     }
     &::-ms-expand {
         display: none;

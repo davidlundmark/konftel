@@ -10,8 +10,9 @@
     //     color: $footer-color;
     // }
     a {
-        @extend .large;
+        @include setFont($heading-font-name);
         @include hoverLink($footer-color);
+        font-size: $large-font-size-heading !important;
     }
     // .logo {
     //     > img {

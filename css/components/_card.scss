@@ -147,7 +147,6 @@
             .image {
                 @include transition(transform, 0.4s, $easeOutSine);
                 //@include forceHarwareAcceleration();
-                //will-change: transform;
             }
             .card-text {
                 .title {
@@ -218,6 +217,9 @@
         //cursor: pointer;
         padding-bottom: $gap-double;
         @include border($dir: bottom);
+        .h6 {
+            line-height: 28.16px;
+        }
     }
     &-product-small {
         .background-image {
@@ -261,8 +263,8 @@
         > .card {
             &-text {
                 text-align: center;
-                > h3 {
-                    @extend .bold;
+                > h4 {
+                    font-weight: $heading-bold-font-weight;
                 }
                 // a {
                 //     @include hoverLink($button-square-background-color,$button-square-hover-background-color)
@@ -479,6 +481,11 @@
                 p {
                     margin-bottom: 0;
                 }
+                .top-text,
+                .top-date {
+                    color: #2E4053;
+                    @extend .medium;
+                }
             }
         }
     }
@@ -588,7 +595,7 @@
         > .card {
             &-text {
                 h3 {
-                    @extend .medium;
+                    //@extend .medium;
                 }
             }
         }
@@ -633,7 +640,8 @@
                     margin-bottom: 2px;
                 }
                 .summary {
-                    @extend .large;
+                    //@extend .large;
+                    @extend .large-heading;
                 }
             }
             &-top {
@@ -915,13 +923,14 @@
                 }
             }
             &-text {
-                text-align: left !important;
+                text-align: center !important;
                 padding: $gap;
                 width: $card-product-quote-text-size;
                 h2 {
                     margin-bottom: 0;
                 }
                 img {
+                    margin: 0 auto;
                     padding-top: $gap;
                 }
             }

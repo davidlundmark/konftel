@@ -96,13 +96,13 @@ $base-font-family: $brandon-regular;
 $base-font-weight: 400;
 //$light-font-weight: 300;
 //$medium-font-weight: 500;
-//$bold-font-weight: 600;
+//$bold-font-weight: 700;
 $base-font-size: 16px;//18px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
 
 // Small Text
-$small-font-size: $base-font-size - 2px;
+$small-font-size: 14.4px;
 $small-font-name: 'small';
 
 // Small Text
@@ -114,7 +114,8 @@ $extra-extra-small-font-size: $base-font-size - 5px;
 $extra-extra-small-font-name: 'extra-extra-small';
 
 // Large Text
-$large-font-size: $base-font-size + 1px;
+$large-font-size-heading: 19.2px;
+$large-font-size: 17.6px;
 $large-font-name: 'large';
 
 // Text
@@ -150,20 +151,22 @@ $h1-font-size-sm: $h1-font-size;
 $h1-letter-spacing: 1.6px;
 
 // h2
-$h2-font-size: 26px;
+$h2-font-size: 26.4px;
+$h2-font-size-small: 24.8px;
+$h2-font-size-small-ph: 23.2px;
 $h2-font-size-lg: $h2-font-size;
 $h2-font-size-md: $h2-font-size-lg;
 $h2-font-size-sm: $h2-font-size-md;
 $h2-letter-spacing: 0.8px;
 
 // h3
-$h3-font-size: 22px;
+$h3-font-size: 22.4px;
 $h3-font-size-lg: $h3-font-size;
 $h3-font-size-md: $h3-font-size-lg;
 $h3-font-size-sm: $h3-font-size-md;
 
 // h4
-$h4-font-size: 21px;
+$h4-font-size: 20.8px;
 $h4-font-size-lg: $h4-font-size;
 $h4-font-size-md: $h4-font-size-lg;
 $h4-font-size-sm: $h4-font-size-md;
@@ -555,7 +558,7 @@ $select-border-radius: 0;
 $select-background-image: $path-images+'arrow-down.svg';
 $select-text-transform: normal;
 $select-border-color: $base-background-color;
-$select-font-size: $base-font-size;
+$select-font-size: 17.6px;
 $select-font-weight: $base-font-weight;//$medium-font-weight; 
 $input-border-radius: 0;
 
@@ -573,7 +576,7 @@ $hero-image-uc-min-height: 350px;
 $hero-sound-min-height: 350px;
 $hero-sound-min-height-md: 350px;
 $hero-subscribe-min-height: 300px;
-$hero-subscribe-min-height-md: 550px;
+$hero-subscribe-min-height-md: 470px;
 $hero-subscribe-product-min-height: 180px;
 $hero-subscribe-product-min-height-md: 160px;
 
