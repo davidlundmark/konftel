@@ -39,14 +39,14 @@
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
-    require('./custom/heroimageHandler.js');
+    //require('./custom/heroimageHandler.js');
     require('./custom/backgroundimageHandler.js');
     //require('./custom/swipeboxHandler.js');
     require('./custom/carouselHandler.js');
     require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');
-    require('./custom/arrowdownHandler.js');
+    //require('./custom/arrowdownHandler.js');
     require('./custom/audioHandler.js');
     require('./custom/loginHandler.js');
     require('./custom/webapiHandler.js');
@@ -214,27 +214,6 @@
     })();
 
     $(window).on('load', function() {
-        /*
-        if (ScreensizeHandler.isBigScreen) {
-            
-            $('.row.same-height').each(function() {
-                var height = 0;
-                var $this = $(this);
-                var $cardTexts = $this.find('.card-text');
-                $cardTexts.each(function() {
-                    var $this = $(this);
-                    var currentHeight = $this.height();
-                    if (currentHeight > height) height = currentHeight;
-                });
-                $cardTexts.height(height);
-                $cardTexts.find('> p').addClass('bottom');
-            });
-        }
-        */
-
-        //$('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
-        //topmenuHandler.init();
-
         //fix for showing menu under sitecore toolbar
         if (deKai.isInSitecore) {
             //if(document.querySelector('.page-slider') === null) $(document.querySelector('.content-wrapper')).css({ 'padding-top': headerHeight });

@@ -242,8 +242,9 @@ var VexHandler = {
         var _this = this;
 
         var templateRegister = document.querySelector('.register-modal');
-        templateRegister.remove();
-        $(templateRegister).removeClass('hide');
+        var $templateRegister = $(templateRegister);
+        $templateRegister.remove();
+        $templateRegister.removeClass('hide');
 
         $(_triggers).on('click', function(e) {
             var $this = $(this);
@@ -336,8 +337,10 @@ var VexHandler = {
         var _this = this;
 
         var templateLanguage = document.querySelector('.language-modal');
-        templateLanguage.remove();
-        $(templateLanguage).removeClass('hide');
+        //templateLanguage.remove(); not supported in IE
+        var $templateLanguage = $(templateLanguage);
+        $templateLanguage.remove();
+        $templateLanguage.removeClass('hide');
 
         var language = navigator.languages && navigator.languages[0] ||
             navigator.language ||
@@ -347,7 +350,7 @@ var VexHandler = {
         if (language) {
             var twoLetterCode = language.substring(0, 2);
             //remove this later
-            $(templateLanguage).find('#language').text(language.substring(0, 2));
+            $templateLanguage.find('#language').text(language.substring(0, 2));
         }
 
         var _continueText = templateLanguage.querySelector('.language-' + twoLetterCode);

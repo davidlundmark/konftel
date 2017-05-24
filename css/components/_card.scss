@@ -296,9 +296,12 @@
         > .card {
             &-top {
                 text-align: center;
-                @extend .bold;
+                //@extend .bold;
                 margin-bottom: $gap;
-                text-transform: uppercase;
+                //text-transform: uppercase;
+                a {
+                    @extend .bold-large-heading;
+                }
             }
             &-image {
                 .background-image {
@@ -703,15 +706,18 @@
             .image {
                 opacity: 0.95;
                 .list-accessories-section & {
-                    max-width: 102%;
-                    width: 102%;
+                    max-width: 103%;
+                    width: 103%;
                 }
             }
         }
         .card-text {
             padding-top: $gap-half;
             padding-bottom: 0;
-            @extend .large;
+            //@extend .large;
+            a {
+                @extend .bold-large-heading;
+            }
             .list-accessories-section & {
                 background-color: $base-background-color;
             }
@@ -923,14 +929,18 @@
                 }
             }
             &-text {
-                text-align: center !important;
+                &:not(.text-left) {
+                    text-align: center !important;
+                    img {
+                        margin: 0 auto;
+                    }
+                }
                 padding: $gap;
                 width: $card-product-quote-text-size;
                 h2 {
                     margin-bottom: 0;
                 }
                 img {
-                    margin: 0 auto;
                     padding-top: $gap;
                 }
             }
