@@ -2,10 +2,28 @@
     #default-menu {
         visibility: hidden;
     }
+    header.page-header .logo-container {
+        margin: 0;
+        width: 230px;
+        padding-left: 0;
+        padding-top: $gap;
+        padding-bottom: $gap;
+    }
     footer {
         .section-container {
             padding-top: $page-section-padding + $gap-half;
             padding-bottom: $page-section-padding + $gap-half;
+
+            @include breakpoint($breakpoint-md) {
+                padding-top: $gap-half;
+            }
+
+            @include breakpoint($breakpoint-sm) {
+                padding-top: $page-section-padding + $gap-half;
+                .col-xs-12 {
+                    display: none;
+                }
+            }
         }
     }
     .content-wrapper {
@@ -25,6 +43,10 @@
         .section-container {
             padding-top: $gap * 5;
             padding-bottom: $gap * 5;
+
+            @include breakpoint($breakpoint-md) {
+                padding: $page-section-padding;
+            }
         }
         .title {
             font-size: $h1-campaign-font-size;

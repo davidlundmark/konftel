@@ -1004,8 +1004,10 @@
 .template-academyarticle {
     .news-article {
         @include headings {
-            margin-bottom: 0;
-            font-weight: $heading-bold-font-weight;
+            &:not(.subtitle) {
+                margin-bottom: 0;
+                font-weight: $heading-bold-font-weight;
+            }
         }
     }
 }
@@ -1029,10 +1031,10 @@
         }
         .title,
         .subtitle,
-        p {
+        p:not(.subtitle) {
             margin-bottom: $gap-md;
         }
-        p {
+        p:not(.subtitle) {
             @extend .large;
         }
         .article-bottom {
@@ -1227,7 +1229,6 @@
             &:last-child {
                 margin-right: 0;
             }
-
             @include breakpoint($breakpoint-ph) {
                 margin-right: 8px;
                 margin-left: 8px;
