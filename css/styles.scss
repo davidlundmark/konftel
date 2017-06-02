@@ -505,6 +505,23 @@
 }
 
 .hero-image {
+    .hero-cover-link {
+        position: absolute;
+        top: $page-section-padding;
+        right: $page-section-padding;
+        bottom: $page-section-padding;
+        left: $page-section-padding;
+        z-index: 1;
+        .no-touch & {
+            &:hover {
+                + .text {
+                    a {
+                        color: $base-brand-color;
+                    }
+                }
+            }
+        }
+    }
     .background-image {
         min-height: $hero-image-min-height;
         @at-root .height-small#{&} {
@@ -1588,6 +1605,7 @@
                 //@extend .bold;
                 .label {
                     @extend .bold-large-heading;
+                    font-weight: $heading-medium-font-weight;
                 }
                 color: $base-brand-color;
             }
