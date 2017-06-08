@@ -844,14 +844,14 @@
             &-image {
                 width: $card-accessory-info-image-size;
                 .background-image {
-                    //height: $card-accessory-info-image-height;
-                    min-height: 0;
-                    padding-bottom: 39%;
+                    height: $card-accessory-info-image-height;
+                    //min-height: 0;
+                    //padding-bottom: 39%;
                     //background-size: 80%;
                     @include breakpoint($breakpoint-md) {
                         background-size: 100%;
                         background-position: 50% 50%;
-                        padding-bottom: 50%;
+                        //padding-bottom: 50%;
                         width: 66%;
                     }
                     @include breakpoint($breakpoint-sm) {
@@ -880,18 +880,29 @@
                     height: $card-product-info-image-height;
                     //max-height: $card-product-info-image-max-height;
                     //min-height: $card-product-info-image-min-height;
+                    @include breakpoint($breakpoint-md) {
+                        height: $card-product-info-image-height-md;
+                    }
                 }
             }
             &-text {
                 padding: $gap;
                 //vertical-align: top;
                 width: $card-product-info-text-size;
-                // &:nth-child(2){ //if text is on the right side
-                //     padding-right: 0;
-                // }
-                // &:nth-child(1){ //if text is on the left side
-                //     padding-left: 0;
-                // }
+                &:nth-child(2) {
+                    //if text is on the right side
+                    padding-right: 8.33%;
+                    @include breakpoint($breakpoint-md) {
+                        padding-right: 0;
+                    }
+                }
+                &:nth-child(1) {
+                    //if text is on the left side
+                    padding-left: 8.33%;
+                    @include breakpoint($breakpoint-md) {
+                        padding-left: 0;
+                    }
+                }
                 .featureslist {
                     margin-bottom: $gap-double;
                     margin-top: $gap-double - $gap-half;

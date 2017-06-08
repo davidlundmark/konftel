@@ -716,6 +716,9 @@
                 display: none;
             }
         }
+        td {
+            border-bottom: $base-border;
+        }
         td,
         th {
             padding: $gap-half $gap;
@@ -1018,6 +1021,39 @@
     }
 }
 
+.back-to-top-button {
+    position: fixed;
+    //bottom: 36px;
+    //right: 36px;
+    bottom: $gap;
+    right: $gap;
+    z-index: 1000;
+    width: $gap-double;
+    height: $gap-double;
+    @include transition();
+    opacity: 0;
+
+    &.scrolled {
+        opacity: 1;
+    }
+
+    @include breakpoint($breakpoint-md) {
+        //right: 16px;
+        //bottom: 16px; 
+    }
+
+    > a {
+        display: block;
+    }
+}
+
+.news-article {
+    li {
+        font-size: $large-font-size;
+    }
+    line-height: 1.7;
+}
+
 .template-academyarticle {
     .news-article {
         @include headings {
@@ -1239,6 +1275,9 @@
         text-align: center;
         padding-bottom: $gap;
         @extend .button-large;
+        @include breakpoint($breakpoint-lg) {
+            @include clearfix();
+        }
         .button {
             margin-top: $gap;
             margin-right: 17px;
@@ -1246,15 +1285,28 @@
             &:last-child {
                 margin-right: 0;
             }
+            @include breakpoint($breakpoint-lg) {
+                display: block;
+                float: left;
+                width: calc(33.3% - #{17px * 2});
+            }
             @include breakpoint($breakpoint-ph) {
-                margin-right: 8px;
-                margin-left: 8px;
+                //margin-right: 8px;
+                //margin-left: 8px;
                 margin-top: 16px;
+                width: calc(100% - #{$gap*2});
+                margin-right: $gap;
+                margin-left: $gap;
             }
         }
         .template-product & {
             padding-top: $gap-xl + $gap-extra;
             padding-bottom: $page-section-padding;
+        }
+        .template-support-folder & {
+            padding-top: $page-section-padding - $gap-md;
+            padding-bottom: $page-section-padding;
+            @include border($dir: bottom);
         }
     }
     .button {

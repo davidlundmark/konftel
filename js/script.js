@@ -35,7 +35,7 @@
 
     //customs
     require('./custom/scrollmagicHandler.js');
-    //require('./custom/menuscrollHandler.js');
+    require('./custom/menuscrollHandler.js');
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
@@ -238,7 +238,7 @@
             }
         }
 
-        var _backtotop = document.querySelector('.back-to-top');
+        var _backtotop = document.querySelectorAll('.back-to-top, .back-to-top-button');
         if (_backtotop !== null) {
             $(_backtotop).bind('click', function(e) {
                 //var _scrollTop = $(window).scrollTop();
