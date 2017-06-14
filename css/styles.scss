@@ -69,17 +69,11 @@
 .sound-teaser {
     .section-container {
         padding-bottom: $gap-double*2;
-        // .sound-icon {
-        //     display: none;
-        //     //height: $icon-circle-size;
-        // }
         .audio {
             &.playing {
-                //animation: pulse 1s linear 0s infinite alternate;
                 background-color: $secondary-background-color;
                 color: $icon-circle-hover-color;
                 opacity: 1;
-                //bottom: 0;
             }
             @include breakpoint($breakpoint-lg, false) {
                 opacity: 0;
@@ -94,7 +88,7 @@
         background-color: $icon-circle-hover-background-color;
     }
     100% {
-        background-color: $icon-circle-background-color; //darken($icon-circle-hover-background-color, 40%);
+        background-color: $icon-circle-background-color;
     }
 }
 
@@ -144,14 +138,6 @@
             @extend .medium;
             margin-bottom: $gap-xl;
         }
-        // .search-type {
-        //     @extend .large;
-        //     padding: $gap 0;
-        //     @extend .bold;
-        //     &:first-child {
-        //         padding-top: 0;
-        //     }
-        // }
         .search-count {
             padding-bottom: 0;
         }
@@ -170,7 +156,6 @@
 .text-teaser {
     &-4 {
         .h1 {
-            //font-weight: $medium-font-weight !important;
             font-family: $medium-font-family !important;
             font-weight: $base-font-weight !important;
         }
@@ -241,12 +226,6 @@
 
 .featured-accessories {
     .section-container {
-        //@include border($dir: top);
-        //@include border($dir: bottom);
-        // .section-title {
-        //     padding-top: $gap-double;
-        //     @include border($dir: top);
-        // }
         padding-bottom: 0;
         hr.title-divider {
             &:last-child {
@@ -316,15 +295,12 @@
         .expander-trigger {
             display: inline-block;
             text-decoration: none;
-            //@include hoverLink($base-brand-color);
             .label {
-                padding-right: 0; //$gap-xs;
-                //padding-bottom: 2px;
+                padding-right: 0;
             }
             .icon-container {
                 position: relative;
                 bottom: -2px;
-                //display: inline-block;
                 display: none;
             }
         }
@@ -358,7 +334,7 @@
 }
 
 .find-dealer {
-    color: $secondary-background-color; //$light-font-color;
+    color: $secondary-background-color;
     background-color: $color-dark-blue;
     hr {
         border-color: $secondary-border-color;
@@ -408,16 +384,80 @@
     }
     .row > .column {
         &:nth-child(3) {
-            //@extend .large;
-            // .text {
-            //     @include breakpoint($breakpoint-ph) {
-            //         margin-top: $gap-double;
-            //     }
-            // }
             @include breakpoint($breakpoint-md) {
                 .visibility-hidden {
                     display: none;
                 }
+            }
+        }
+    }
+}
+
+.upgrade-information {
+    background-color: $septenary-background-color;
+    > .section-container {
+        max-width: 880px !important;
+    }
+    h4 {
+        @extend .bold-large-heading;
+    }
+    hr {
+        border: none;
+    }
+    &-topbox,
+    &-bottombox,
+    &-row {
+        a {
+            @extend .bold-large-heading;
+            font-weight: $heading-medium-font-weight;
+        }
+        .download-link {
+            .icon {
+                margin-left: $gap-half;
+            }
+        }
+    }
+    &-topbox {
+        padding: $gap-double;
+        margin-top: $gap;
+        background-color: $base-background-color;
+        img {
+            height: 120px;
+            width: auto;
+            float: right;
+            @include breakpoint($breakpoint-ph) {
+                float: none;
+                margin: 0 auto;
+            }
+        }
+        h4 {
+            margin-top: $gap-md;
+            margin-bottom: 0;
+        }
+        .upgrade-list {
+            border-top: 4px solid #F8F9F9;
+            ul {
+                margin: 0;
+                padding: $gap-xl 0 $gap-md $gap;
+            }
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-bottombox {
+        padding: $gap-double - 8px;
+        border: 8px solid white;
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &-row {
+        padding-left: $gap-double;
+        padding-right: $gap-double;
+        .column {
+            p:last-child {
+                margin-bottom: 0;
             }
         }
     }
@@ -550,9 +590,6 @@
                 background-position: left;
             }
         }
-        @include breakpoint($breakpoint-md) {
-            //min-height: $hero-image-min-height-md;
-        }
     }
     .row {
         .background-image {
@@ -609,7 +646,6 @@
     }
     .text {
         width: 60%;
-        //text-transform: $hero-image-text-transform;
         > *:last-child {
             margin-bottom: 0;
         }
@@ -661,7 +697,6 @@
     .button {
         background-color: $secondary-background-color;
         border: none;
-        //margin-bottom: $gap-double;
     }
     .section-container {
         &:first-child {
@@ -733,7 +768,6 @@
             }
             &.kon-td1 {
                 @include breakpoint($breakpoint-lg) {
-                    //font-weight: $bold-font-weight;
                     font-family: $bold-font-family;
                     font-weight: $base-font-weight;
                     padding-top: $gap;
@@ -823,9 +857,6 @@
                     width: 40%;
                 }
             }
-            @include breakpoint($breakpoint-sm) {
-                //width: 100%;
-            }
         }
         @include breakpoint($breakpoint-sm) {
             padding-left: $gap;
@@ -837,11 +868,6 @@
             padding-top: 0;
             margin-top: -$page-section-padding;
         }
-        // > .background-image {
-        //     @include breakpoint($breakpoint-md) {
-        //         min-height: 540px;
-        //     }
-        // }
     }
 }
 
@@ -862,10 +888,6 @@
 }
 
 .logos-grid {
-    .section-container {
-        //padding: 0;
-        //padding-top: $gap-half;
-    }
     .background-image {
         min-height: 100px;
         background-size: contain;
@@ -893,18 +915,12 @@
     &-title {
         @extend .bold;
         text-align: center;
-        padding-bottom: $gap-double + 2px; //px
+        padding-bottom: $gap-double + 2px;
         margin: 0;
         .products-grid &,
         .accessories-grid & {
             margin-bottom: $gap-double;
             border-bottom: $base-border;
-        }
-        .find-product & {
-            // padding-bottom: $gap-xl;
-            // @include breakpoint($breakpoint-md) {
-            //     padding-bottom: $gap-double;
-            // }
         }
         .section-container & {
             &:not(.aside-title) {
@@ -915,7 +931,7 @@
         }
     }
     &-subtitle {
-        margin-top: -$gap-double; //-$gap-xxl - 1;
+        margin-top: -$gap-double;
     }
 }
 
@@ -944,28 +960,6 @@
             width: 100%;
         }
     }
-    // .devconnect {
-    //     position: absolute;
-    //     top: 90px;
-    //     width: 250px;
-    //     height: 100px;
-    //     display: block;
-    //     background-repeat: no-repeat;
-    //     background-position: 0% 55%;
-    //     background-size: 35%;
-    //     //padding-bottom: 130%;
-    //     z-index: 99;
-    //     @include breakpoint($breakpoint-lg) {
-    //         background-position: 10% 50%;
-    //         background-size: 35%;
-    //         //padding-bottom: 90%;
-    //     }
-    //     @include breakpoint($breakpoint-lg) {
-    //         background-position: 5% 55%;
-    //         background-size: 35%;
-    //         //padding-bottom: 70%;
-    //     }
-    // }
 }
 
 .media-list,
@@ -1023,8 +1017,6 @@
 
 .back-to-top-button {
     position: fixed;
-    //bottom: 36px;
-    //right: 36px;
     bottom: $gap;
     right: $gap;
     z-index: 1000;
@@ -1032,16 +1024,9 @@
     height: $gap-double;
     @include transition();
     opacity: 0;
-
     &.scrolled {
         opacity: 1;
     }
-
-    @include breakpoint($breakpoint-md) {
-        //right: 16px;
-        //bottom: 16px; 
-    }
-
     > a {
         display: block;
     }
@@ -1097,7 +1082,6 @@
                     top: 50%;
                     right: 0;
                     margin-top: -16px;
-                    //float: right;
                     &.align-bottom {
                         top: auto;
                         bottom: $gap;
@@ -1176,7 +1160,6 @@
         margin-bottom: $gap;
     }
     .button {
-        //pointer-events: none;
         margin-right: $gap-md;
         margin-bottom: $gap-md;
         &:last-child {
@@ -1217,12 +1200,6 @@
 .offices-grid {
     .row .column {
         margin-top: 0 !important;
-        // @include breakpoint($breakpoint-ph) {
-        //     margin-top: 0 !important;
-        //     &:first-child {
-        //         margin-top: $gap-double !important;
-        //     }
-        // }
     }
 }
 
@@ -1270,7 +1247,6 @@
 
 .buttons-section {
     .section-container {
-        //width: 50%;
         margin: 0 auto;
         text-align: center;
         padding-bottom: $gap;
@@ -1291,8 +1267,6 @@
                 width: calc(33.3% - #{17px * 2});
             }
             @include breakpoint($breakpoint-ph) {
-                //margin-right: 8px;
-                //margin-left: 8px;
                 margin-top: 16px;
                 width: calc(100% - #{$gap*2});
                 margin-right: $gap;
@@ -1308,10 +1282,6 @@
             padding-bottom: $page-section-padding;
             @include border($dir: bottom);
         }
-    }
-    .button {
-        //width: 30%;
-        //padding: $gap;
     }
     + .product-info {
         > .section-container {
@@ -1360,7 +1330,6 @@
             .icon-container {
                 line-height: 1;
                 .icon-big {
-                    //float: left;
                     font-size: $icon-big-font-size;
                 }
             }
@@ -1374,9 +1343,6 @@
 .product-features-section {
     background-color: $tertiary-background-color;
     .specificationsimage {
-        //margin-bottom: $gap;
-        //padding-bottom: $gap;
-        //border-bottom: $secondary-border;
         .background-image {
             height: 400px;
             background-size: contain;
@@ -1478,7 +1444,6 @@
 .product-tech-spec-section {
     background-color: $tertiary-background-color;
     > .section-container {
-        //padding-top: 0;
         padding-bottom: 0;
     }
     .button {
@@ -1488,7 +1453,6 @@
     }
     .tech-spec-container {
         display: none;
-        //margin-top: $gap-double;
         padding-bottom: $gap-double;
     }
 }
@@ -1563,10 +1527,6 @@
         display: inline-block;
         margin-left: $gap-half;
     }
-    // .section-title {
-    //     margin-bottom: $gap-double;
-    //     border-bottom: $secondary-border;
-    // }
     li {
         @extend .medium;
         a {
@@ -1609,9 +1569,6 @@
 }
 
 .list-academy-section:not(.list-related) {
-    &.list-related {
-        //background-color: $septenary-background-color;
-    }
     .section-container {
         &:first-child {
             padding-bottom: 0;
@@ -1633,8 +1590,6 @@
         text-align: center;
     }
     &-item {
-        //@extend .large;
-        //@extend .bold;
         a {
             @extend .bold-large-heading;
         }
@@ -1654,7 +1609,6 @@
         li.menu-item {
             > a {
                 padding: $gap 0;
-                //@extend .bold;
                 .label {
                     @extend .bold-large-heading;
                     font-weight: $heading-medium-font-weight;
@@ -1762,24 +1716,17 @@
     z-index: 3;
     position: fixed;
     bottom: $gap-double;
-    //width: 100%;
     @include centerHorizontal();
     text-align: center;
-    //will-change: auto;
     .icon {
         color: $base-font-color;
-        //text-shadow: $base-text-shadow;
         cursor: pointer;
         position: relative;
         display: inline-block;
-        //color: $light-font-color;
         font-size: $gap-double;
-        //display: none;
-        //@include breakpoint($breakpoint-lg,false) {
         animation: bounce 1s ease-out 0s infinite alternate;
         animation-timing-function: $easeOutQuad;
         @include forceHarwareAcceleration();
-        //}
     }
     @include breakpoint($breakpoint-lg) {
         display: none;
